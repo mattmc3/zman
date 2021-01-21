@@ -4,3 +4,4 @@
 foo.zsh
 cache/
 .ztap/
+.venv/

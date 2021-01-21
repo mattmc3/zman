@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+
+0=${(%):-%N}
+VENV_HOME=${0:a:h}/.venv
+
+if [[ -d $VENV_HOME ]]; then
+  source $VENV_HOME/bin/activate
+else
+  python3 -m venv $VENV_HOME
+  source $VENV_HOME/bin/activate
+  pip install --upgrade pip
+  pip install -r ${0:a:h}/requirements.txt
+fi
+
+python ${0:a:h}/gen_zdocsdata.py
+deactivate

@@ -6,7 +6,7 @@ test:
 
 .PHONY: zdocsdata
 zdocsdata:
-	./bin/gen_zdocsdata.py
+	./bin/gen_zdocsdata
 
 .PHONY: help
 help:
