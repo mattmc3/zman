@@ -7,6 +7,8 @@ $0, using	concepts	Concept-Index.html	Options.html#index-_00240_002c-using	16.2.
 *	variables	Variables-Index.html	Parameters.html#index-_002a	15.5 Parameters Set By The Shell	Parameters.html#Parameters-Set-By-The-Shell
 -	functions	Functions-Index.html	Shell-Grammar.html#index-_002d	6.2 Precommand Modifiers	Shell-Grammar.html#Precommand-Modifiers
 -	variables	Variables-Index.html	Parameters.html#index-_002d-1	15.5 Parameters Set By The Shell	Parameters.html#Parameters-Set-By-The-Shell
+--help	concepts	Concept-Index.html	Invocation.html#index-_002d_002dhelp	4.1 Invocation	Invocation.html#Invocation-2
+--version	concepts	Concept-Index.html	Invocation.html#index-_002d_002dversion	4.1 Invocation	Invocation.html#Invocation-2
 .	functions	Functions-Index.html	Shell-Builtin-Commands.html#index-_002e	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 .zwc files, creation	concepts	Concept-Index.html	Shell-Builtin-Commands.html#index-_002ezwc-files_002c-creation	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 0	variables	Variables-Index.html	Parameters.html#index-0	15.5 Parameters Set By The Shell	Parameters.html#Parameters-Set-By-The-Shell
@@ -2635,5 +2637,3 @@ ztcp	functions	zsh_15.html	Zsh-Modules.html#index-ztcp	22.28 The zsh/net/tcp Mod
 ztcp, function system based on	concepts	zsh_5.html	TCP-Function-System.html#index-ztcp_002c-function-system-based-on	24 TCP Function System	TCP-Function-System.html#TCP-Function-System
 ztie	functions	zsh_15.html	Zsh-Modules.html#index-ztie	22.11 The zsh/db/gdbm Module	Zsh-Modules.html#The-zsh_002fdb_002fgdbm-Module
 zuntie	functions	zsh_15.html	Zsh-Modules.html#index-zuntie	22.11 The zsh/db/gdbm Module	Zsh-Modules.html#The-zsh_002fdb_002fgdbm-Module
-–help	concepts	Concept-Index.html	Invocation.html#index-_002d_002dhelp	4.1 Invocation	Invocation.html#Invocation-2
-–version	concepts	Concept-Index.html	Invocation.html#index-_002d_002dversion	4.1 Invocation	Invocation.html#Invocation-2

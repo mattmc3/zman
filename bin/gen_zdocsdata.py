@@ -11,6 +11,15 @@ from operator import attrgetter
 from bs4 import BeautifulSoup
 
 IndexEntry = namedtuple("IndexEntry", "phrase category indexed_at url section section_url")
+endash = '\u2013'
+emdash = '\u2014'
+
+
+def scrub(s):
+    s = s.replace(endash, "--")
+    s = s.replace(emdash, "--")
+    return s
+
 
 def process_tables(tbls, indexed_at, category):
     entries = []
@@ -24,7 +33,7 @@ def process_tables(tbls, indexed_at, category):
             # <td valign="top"><a href="Options.html#Scripts-and-Functions">16.2.9 Scripts and Functions</a></td>]
             if len(tds) == 4:
                 try:
-                    phrase = tds[1].a.get_text()
+                    phrase = scrub(tds[1].a.get_text())
                     url = tds[1].a["href"]
                     section = tds[3].a.get_text()
                     section_url = tds[3].a["href"]
