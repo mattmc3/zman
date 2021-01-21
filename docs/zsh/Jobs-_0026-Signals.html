@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created on February 15, 2020 by texi2html 5.0
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>zsh: 10 Jobs &amp; Signals</title>
+
+<meta name="description" content="zsh: 10 Jobs &amp; Signals">
+<meta name="keywords" content="zsh: 10 Jobs &amp; Signals">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 5.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:pre}
+span.nolinebreak {white-space:pre}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="Jobs-_0026-Signals"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="Functions.html#Functions" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Functions.html#Trap-Functions" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Jobs" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Arithmetic-Evaluation.html#Arithmetic-Evaluation" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+
+<a name="Jobs-_0026-Signals-1"></a>
+<h1 class="chapter">10 Jobs &amp; Signals</h1>
+
+<hr>
+<a name="Jobs"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Jobs-_0026-Signals" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Jobs-_0026-Signals" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Jobs-_0026-Signals" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Signals" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Arithmetic-Evaluation.html#Arithmetic-Evaluation" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section">10.1 Jobs</h2>
+<a name="index-jobs"></a>
+<a name="index-MONITOR_002c-use-of"></a>
+<p>If the <tt>MONITOR</tt> option is set,
+an interactive shell associates a <em>job</em> with each pipeline.
+It keeps a table of current jobs, printed by the <tt>jobs</tt>
+command, and assigns them small integer numbers.
+When a job is started asynchronously with &lsquo;<tt>&amp;</tt>&rsquo;,
+the shell prints a line to standard error which looks like:
+</p>
+<div class="example">
+<pre class="example">[1] 1234
+</pre></div>
+
+<p>indicating that the job which was started asynchronously was job number
+1 and had one (top-level) process, whose process ID was 1234.
+</p>
+<p>If a job is started with &lsquo;<tt>&amp;|</tt>&rsquo; or &lsquo;<tt>&amp;!</tt>&rsquo;,
+then that job is immediately disowned.  After startup, it
+does not have a place in the job table, and is not subject
+to the job control features described here.
+</p>
+<p>If you are running a job and wish to do something else you may hit the key
+^Z (control-Z) which sends a <tt>TSTP</tt> signal to the current job:  this key
+may be redefined by the <tt>susp</tt> option of the external <tt>stty</tt> command.
+<a name="index-jobs_002c-suspending"></a>
+<a name="index-suspending-jobs"></a>
+The shell will then normally indicate that the job has been &lsquo;suspended&rsquo;,
+and print another prompt.  You can then manipulate the state of this job,
+<a name="index-bg_002c-use-of"></a>
+putting it in the background with the <tt>bg</tt> command, or run some other
+commands and then eventually bring the job back into the foreground with
+<a name="index-fg_002c-use-of"></a>
+the foreground command <tt>fg</tt>.  A ^Z takes effect immediately and
+is like an interrupt in that pending output and unread input are discarded
+when it is typed.
+</p>
+<p>A job being run in the background will suspend if it tries to read
+from the terminal.
+</p>
+<p>Note that if the job running in the foreground is a shell function,
+then suspending it will have the effect of causing the shell to fork.
+This is necessary to separate the function&rsquo;s state from that of the
+parent shell performing the job control, so that the latter can return
+to the command line prompt.  As a result, even if <tt>fg</tt> is
+used to continue the job the function will no longer be part of the
+parent shell, and any variables set by the function will not be visible
+in the parent shell.  Thus the behaviour is different from the case
+where the function was never suspended.  Zsh is different from many
+other shells in this regard.
+</p>
+<p>One additional side effect is that use of <tt>disown</tt> with a job
+created by suspending shell code in this fashion is delayed: the
+job can only be disowned once any process started from the parent
+shell has terminated.  At that point, the disowned job disappears
+silently from the job list.
+</p>
+<p>The same behaviour is found when the shell is executing code as the
+right hand side of a pipeline or any complex shell construct such as
+<tt>if</tt>, <tt>for</tt>, etc., in order that the entire block of code
+can be managed as a single job.
+<a name="index-background-jobs_002c-I_002fO"></a>
+<a name="index-jobs_002c-background_002c-I_002fO"></a>
+Background jobs are normally allowed to produce output,
+but this can be disabled by giving the command &lsquo;<tt>stty tostop</tt>&rsquo;.
+If you set this
+tty option, then background jobs will suspend when they try to produce
+output like they do when they try to read input.
+</p>
+<p>When a command is suspended and continued later with the <tt>fg</tt> or
+<tt>wait</tt> builtins, zsh restores tty modes that were in effect when it was
+suspended.  This (intentionally) does not apply if the command is
+continued via &lsquo;<tt>kill -CONT</tt>&rsquo;, nor when it is continued with <tt>bg</tt>.
+</p>
+<a name="index-jobs_002c-referring-to"></a>
+<a name="index-referring-to-jobs"></a>
+<p>There are several ways to refer to jobs in the shell.
+A job can be referred to by the process ID of any process of the job
+or by one of the following:
+</p>
+<dl compact="compact">
+<dt><tt>%</tt><var>number</var></dt>
+<dd><p>The job with the given number.
+</p></dd>
+<dt><tt>%</tt><var>string</var></dt>
+<dd><p>The last job whose command line begins with <var>string</var>.
+</p></dd>
+<dt><tt>%?</tt><var>string</var></dt>
+<dd><p>The last job whose command line contains <var>string</var>.
+</p></dd>
+<dt><tt>%%</tt></dt>
+<dd><p>Current job.
+</p></dd>
+<dt><tt>%+</tt></dt>
+<dd><p>Equivalent to &lsquo;<tt>%%</tt>&rsquo;.
+</p></dd>
+<dt><tt>%-</tt></dt>
+<dd><p>Previous job.
+</p></dd>
+</dl>
+
+<p>The shell learns immediately whenever a process changes state.
+<a name="index-NOTIFY_002c-use-of"></a>
+It normally informs you whenever a job becomes blocked so that
+no further progress is possible.  If the <tt>NOTIFY</tt> option is not set,
+it waits until just before it prints a prompt before it informs you.
+All such notifications are sent directly to the terminal, not to
+the standard output or standard error.
+</p>
+<p>When the monitor mode is on, each background job that completes
+triggers any trap set for <tt>CHLD</tt>.
+</p>
+<p>When you try to leave the shell while jobs are running or suspended, you will
+be warned that &lsquo;You have suspended (running) jobs&rsquo;.
+You may use the <tt>jobs</tt> command to see what they are.
+If you do this or immediately try to
+exit again, the shell will not warn you a second time; the suspended
+jobs will be terminated, and the running jobs will be sent
+a <tt>SIGHUP</tt> signal, if the <tt>HUP</tt> option is set.
+<a name="index-HUP_002c-use-of"></a>
+</p>
+<a name="index-jobs_002c-disowning"></a>
+<a name="index-disowning-jobs"></a>
+<a name="index-disown_002c-use-of"></a>
+<p>To avoid having the shell terminate the running jobs, either
+use the <cite>nohup</cite> command (see man page nohup(1))
+or the <tt>disown</tt> builtin.
+</p>
+<hr>
+<a name="Signals"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Jobs-_0026-Signals" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Jobs" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Jobs-_0026-Signals" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="Arithmetic-Evaluation.html#Arithmetic-Evaluation" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Arithmetic-Evaluation.html#Arithmetic-Evaluation" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section">10.2 Signals</h2>
+<p>The <tt>INT</tt> and <tt>QUIT</tt> signals for an invoked
+command are ignored if the command is followed by
+&lsquo;<tt>&amp;</tt>&rsquo; and the <tt>MONITOR</tt> option is not active.
+The shell itself always ignores the <tt>QUIT</tt> signal.
+Otherwise, signals have the values
+inherited by the shell from its parent
+(but see the <tt>TRAP</tt><var>NAL</var> special functions in <a href="Functions.html#Functions">Functions</a>).
+</p>
+<a name="index-exiting-shell_002c-and-asynchronous-jobs"></a>
+<a name="index-asynchronous-jobs_002c-and-exiting-shell"></a>
+<a name="index-jobs_002c-asynchronous_002c-and-exiting-shell"></a>
+<p>Certain jobs are run asynchronously by the shell other than those
+explicitly put into the background; even in cases where the shell
+would usually wait for such jobs, an explicit <tt>exit</tt> command
+or exit due to the option <tt>ERR_EXIT</tt> will cause the shell to
+exit without waiting.  Examples of such asynchronous jobs are
+process substitution, see
+<a href="Expansion.html#Process-Substitution">Process Substitution</a>, and the handler processes for
+multios, see
+the section Multios in <a href="Redirection.html#Redirection">Redirection</a>.
+</p><hr>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Jobs-_0026-Signals" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Arithmetic-Evaluation.html#Arithmetic-Evaluation" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  This document was generated on <i>February 15, 2020</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
+ </font>
+ <br>
+<font size="-1">Zsh version 5.8, released on February 14, 2020.</font>
+</p>
+</body>
+</html>

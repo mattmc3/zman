@@ -1,2 +1,3 @@
-# zhelp
-Zsh help utility for quick lookups of Zsh documentation
+# zdocs
+
+Zsh help utility to lookup Zsh documentation

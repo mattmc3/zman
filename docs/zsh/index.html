@@ -1,0 +1,451 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created on February 15, 2020 by texi2html 5.0
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>zsh: The Z Shell Manual</title>
+
+<meta name="description" content="zsh: The Z Shell Manual">
+<meta name="keywords" content="zsh: The Z Shell Manual">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 5.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:pre}
+span.nolinebreak {white-space:pre}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<h1>The Z Shell Manual</h1>
+<h3 align="right">Version 5.8</h3>
+<h3 align="right">Updated February 14, 2020</h3>
+<strong>Original documentation by Paul Falstad</strong><br>
+
+<p>This is a texinfo version of the documentation for the Z Shell, originally by 
+Paul Falstad.
+</p>
+<p>Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+</p>
+<p>Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided also that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+</p>
+<p>Permission is granted to copy and distribute translations of this manual
+into another language, under the above conditions for modified versions.
+</p><hr>
+<a name="Top"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[ &lt; ]</td>
+<td valign="middle" align="left">[<a href="The-Z-Shell-Manual.html#The-Z-Shell-Manual" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<a name="The-Z-Shell-Manual-2"></a>
+<h1 class="top">The Z Shell Manual</h1>
+<p>This Info file documents Zsh, a freely available UNIX command interpreter
+(shell), which of the standard shells most closely resembles the Korn shell
+(ksh), although it is not completely compatible.  Zsh is able to emulate
+POSIX shells, but its default mode is not POSIX compatible, either.
+</p>
+<a name="index-version"></a>
+<p>Version 5.8, last updated February 14, 2020.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="The-Z-Shell-Manual.html#The-Z-Shell-Manual">1 The Z Shell Manual</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Introduction.html#Introduction">2 Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Roadmap.html#Roadmap">3 Roadmap</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Invocation.html#Invocation">4 Invocation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Files.html#Files">5 Files</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Shell-Grammar.html#Shell-Grammar">6 Shell Grammar</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Redirection.html#Redirection">7 Redirection</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Command-Execution.html#Command-Execution">8 Command Execution</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Functions.html#Functions">9 Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Jobs-_0026-Signals.html#Jobs-_0026-Signals">10 Jobs &amp; Signals</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Arithmetic-Evaluation.html#Arithmetic-Evaluation">11 Arithmetic Evaluation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Conditional-Expressions.html#Conditional-Expressions">12 Conditional Expressions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Prompt-Expansion.html#Prompt-Expansion">13 Prompt Expansion</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Expansion.html#Expansion">14 Expansion</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Parameters.html#Parameters">15 Parameters</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Options.html#Options">16 Options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands">17 Shell Builtin Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Line-Editor.html#Zsh-Line-Editor">18 Zsh Line Editor</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Completion-Widgets.html#Completion-Widgets">19 Completion Widgets</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Completion-System.html#Completion-System">20 Completion System</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Completion-Using-compctl.html#Completion-Using-compctl">21 Completion Using compctl</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#Zsh-Modules">22 Zsh Modules</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Calendar-Function-System.html#Calendar-Function-System">23 Calendar Function System</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="TCP-Function-System.html#TCP-Function-System">24 TCP Function System</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zftp-Function-System.html#Zftp-Function-System">25 Zftp Function System</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="User-Contributions.html#User-Contributions">26 User Contributions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+&mdash; Indices &mdash;
+
+</pre></th></tr><tr><td align="left" valign="top"><a href="Concept-Index.html#Concept-Index">Concept Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Variables-Index.html#Variables-Index">Variables Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Options-Index.html#Options-Index">Options Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Functions-Index.html#Functions-Index">Functions Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Editor-Functions-Index.html#Editor-Functions-Index">Editor Functions Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Style-and-Tag-Index.html#Style-and-Tag-Index">Style and Tag Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+&mdash; The Detailed Node Listing &mdash;
+
+Introduction
+
+</pre></th></tr><tr><td align="left" valign="top"><a href="Introduction.html#Author">2.1 Author</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Introduction.html#Availability">2.2 Availability</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Introduction.html#Mailing-Lists">2.3 Mailing Lists</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Introduction.html#The-Zsh-FAQ">2.4 The Zsh FAQ</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Introduction.html#The-Zsh-Web-Page">2.5 The Zsh Web Page</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Introduction.html#The-Zsh-Userguide">2.6 The Zsh Userguide</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Introduction.html#See-Also">2.7 See Also</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Invocation
+
+</pre></th></tr><tr><td align="left" valign="top"><a href="Invocation.html#Compatibility">4.2 Compatibility</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Invocation.html#Restricted-Shell">4.3 Restricted Shell</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Shell Grammar
+
+</pre></th></tr><tr><td align="left" valign="top"><a href="Shell-Grammar.html#Simple-Commands-_0026-Pipelines">6.1 Simple Commands &amp; Pipelines</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Shell-Grammar.html#Precommand-Modifiers">6.2 Precommand Modifiers</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Shell-Grammar.html#Complex-Commands">6.3 Complex Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Shell-Grammar.html#Alternate-Forms-For-Complex-Commands">6.4 Alternate Forms For Complex Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Shell-Grammar.html#Reserved-Words">6.5 Reserved Words</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Shell-Grammar.html#Comments">6.7 Comments</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Shell-Grammar.html#Aliasing">6.8 Aliasing</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Shell-Grammar.html#Quoting">6.9 Quoting</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Expansion
+
+</pre></th></tr><tr><td align="left" valign="top"><a href="Expansion.html#History-Expansion">14.1 History Expansion</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Expansion.html#Process-Substitution">14.2 Process Substitution</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Expansion.html#Parameter-Expansion">14.3 Parameter Expansion</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Expansion.html#Command-Substitution">14.4 Command Substitution</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Expansion.html#Arithmetic-Expansion">14.5 Arithmetic Expansion</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Expansion.html#Brace-Expansion">14.6 Brace Expansion</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Expansion.html#Filename-Expansion">14.7 Filename Expansion</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Expansion.html#Filename-Generation">14.8 Filename Generation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Parameters
+
+</pre></th></tr><tr><td align="left" valign="top"><a href="Parameters.html#Array-Parameters">15.2 Array Parameters</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Parameters.html#Positional-Parameters">15.3 Positional Parameters</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Parameters.html#Local-Parameters">15.4 Local Parameters</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Parameters.html#Parameters-Set-By-The-Shell">15.5 Parameters Set By The Shell</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Parameters.html#Parameters-Used-By-The-Shell">15.6 Parameters Used By The Shell</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Options
+
+</pre></th></tr><tr><td align="left" valign="top"><a href="Options.html#Specifying-Options">16.1 Specifying Options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Options.html#Description-of-Options">16.2 Description of Options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Options.html#Option-Aliases">16.3 Option Aliases</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Options.html#Single-Letter-Options">16.4 Single Letter Options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Zsh Line Editor
+
+</pre></th></tr><tr><td align="left" valign="top"><a href="Zsh-Line-Editor.html#Keymaps">18.2 Keymaps</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Line-Editor.html#Zle-Builtins">18.3 Zle Builtins</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Line-Editor.html#Zle-Widgets">18.4 Widgets</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Line-Editor.html#Character-Highlighting">18.7 Character Highlighting</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Completion Widgets
+
+</pre></th></tr><tr><td align="left" valign="top"><a href="Completion-Widgets.html#Completion-Special-Parameters">19.2 Completion Special Parameters</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Completion-Widgets.html#Completion-Builtin-Commands">19.3 Completion Builtin Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Completion-Widgets.html#Completion-Condition-Codes">19.4 Completion Condition Codes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Completion-Widgets.html#Completion-Matching-Control">19.5 Completion Matching Control</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Completion-Widgets.html#Completion-Widget-Example">19.6 Completion Widget Example</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Completion System
+
+</pre></th></tr><tr><td align="left" valign="top"><a href="Completion-System.html#Initialization">20.2 Initialization</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Completion-System.html#Completion-System-Configuration">20.3 Completion System Configuration</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Completion-System.html#Control-Functions">20.4 Control Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Completion-System.html#Bindable-Commands">20.5 Bindable Commands</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Completion-System.html#Completion-Functions">20.6 Utility Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Completion-System.html#Completion-Directories">20.8 Completion Directories</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Completion Using compctl
+
+</pre></th></tr><tr><td align="left" valign="top"><a href="Completion-Using-compctl.html#Command-Flags">21.3 Command Flags</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Completion-Using-compctl.html#Option-Flags">21.4 Option Flags</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Completion-Using-compctl.html#Alternative-Completion">21.5 Alternative Completion</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Completion-Using-compctl.html#Extended-Completion">21.6 Extended Completion</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Completion-Using-compctl.html#Example">21.7 Example</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Zsh Modules
+
+</pre></th></tr><tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fattr-Module">22.2 The zsh/attr Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fcap-Module">22.3 The zsh/cap Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fclone-Module">22.4 The zsh/clone Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fcompctl-Module">22.5 The zsh/compctl Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fcomplete-Module">22.6 The zsh/complete Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fcomplist-Module">22.7 The zsh/complist Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fcomputil-Module">22.8 The zsh/computil Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fcurses-Module">22.9 The zsh/curses Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fdatetime-Module">22.10 The zsh/datetime Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fdb_002fgdbm-Module">22.11 The zsh/db/gdbm Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fdeltochar-Module">22.12 The zsh/deltochar Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fexample-Module">22.13 The zsh/example Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002ffiles-Module">22.14 The zsh/files Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002flanginfo-Module">22.15 The zsh/langinfo Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fmapfile-Module">22.16 The zsh/mapfile Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fmathfunc-Module">22.17 The zsh/mathfunc Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fnearcolor-Module">22.18 The zsh/nearcolor Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fnewuser-Module">22.19 The zsh/newuser Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fparameter-Module">22.20 The zsh/parameter Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fpcre-Module">22.21 The zsh/pcre Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fparam_002fprivate-Module">22.22 The zsh/param/private Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fregex-Module">22.23 The zsh/regex Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fsched-Module">22.24 The zsh/sched Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fnet_002fsocket-Module">22.25 The zsh/net/socket Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fstat-Module">22.26 The zsh/stat Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fsystem-Module">22.27 The zsh/system Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fnet_002ftcp-Module">22.28 The zsh/net/tcp Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002ftermcap-Module">22.29 The zsh/termcap Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fterminfo-Module">22.30 The zsh/terminfo Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fzftp-Module">22.31 The zsh/zftp Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fzle-Module">22.32 The zsh/zle Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fzleparameter-Module">22.33 The zsh/zleparameter Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fzprof-Module">22.34 The zsh/zprof Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fzpty-Module">22.35 The zsh/zpty Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fzselect-Module">22.36 The zsh/zselect Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zsh-Modules.html#The-zsh_002fzutil-Module">22.37 The zsh/zutil Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Calendar Function System
+
+</pre></th></tr><tr><td align="left" valign="top"><a href="Calendar-Function-System.html#Calendar-File-and-Date-Formats">23.2 File and Date Formats</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Calendar-Function-System.html#Calendar-System-User-Functions">23.3 User Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Calendar-Function-System.html#Calendar-Styles">23.4 Styles</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Calendar-Function-System.html#Calendar-Utility-Functions">23.5 Utility functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Calendar-Function-System.html#Calendar-Bugs">23.6 Bugs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+TCP Function System
+
+</pre></th></tr><tr><td align="left" valign="top"><a href="TCP-Function-System.html#TCP-Functions">24.2 TCP User Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="TCP-Function-System.html#TCP-Parameters">24.5 TCP User Parameters</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="TCP-Function-System.html#TCP-Examples">24.8 TCP Examples</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="TCP-Function-System.html#TCP-Bugs">24.9 TCP Bugs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+Zftp Function System
+
+</pre></th></tr><tr><td align="left" valign="top"><a href="Zftp-Function-System.html#Installation">25.2 Installation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zftp-Function-System.html#Zftp-Functions">25.3 Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="Zftp-Function-System.html#Miscellaneous-Features">25.4 Miscellaneous Features</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+User Contributions
+
+</pre></th></tr><tr><td align="left" valign="top"><a href="User-Contributions.html#Utilities">26.2 Utilities</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="User-Contributions.html#Recent-Directories">26.3 Remembering Recent Directories</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="User-Contributions.html#Other-Directory-Functions">26.4 Abbreviated dynamic references to directories</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="User-Contributions.html#Version-Control-Information">26.5 Gathering information from version control systems</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="User-Contributions.html#Prompt-Themes">26.6 Prompt Themes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="User-Contributions.html#ZLE-Functions">26.7 ZLE Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="User-Contributions.html#Exception-Handling">26.8 Exception Handling</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="User-Contributions.html#MIME-Functions">26.9 MIME Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="User-Contributions.html#Mathematical-Functions">26.10 Mathematical Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="User-Contributions.html#User-Configuration-Functions">26.11 User Configuration Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="User-Contributions.html#Other-Functions">26.12 Other Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+</pre></th></tr></table>
+<hr>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[ &lt; ]</td>
+<td valign="middle" align="left">[<a href="The-Z-Shell-Manual.html#The-Z-Shell-Manual" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  This document was generated on <i>February 15, 2020</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
+ </font>
+ <br>
+<font size="-1">Zsh version 5.8, released on February 14, 2020.</font>
+</p>
+</body>
+</html>

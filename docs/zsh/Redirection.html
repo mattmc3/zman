@@ -1,0 +1,545 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created on February 15, 2020 by texi2html 5.0
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>zsh: 7 Redirection</title>
+
+<meta name="description" content="zsh: 7 Redirection">
+<meta name="keywords" content="zsh: 7 Redirection">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 5.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:pre}
+span.nolinebreak {white-space:pre}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="Redirection"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="Shell-Grammar.html#Shell-Grammar" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Grammar.html#Quoting" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Opening-file-descriptors-using-parameters" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Command-Execution.html#Command-Execution" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+
+<a name="Redirection-1"></a>
+<h1 class="chapter">7 Redirection</h1>
+<a name="index-redirection"></a>
+<a name="index-file-descriptors"></a>
+<a name="index-descriptors_002c-file"></a>
+<p>If a command is followed by <tt>&amp;</tt>
+and job control is not active,
+then the default standard input
+for the command is the empty file <tt>/dev/null</tt>.
+Otherwise, the environment for the execution of a command contains the
+file descriptors of the invoking shell as modified by
+input/output specifications.
+</p>
+<p>The following may appear anywhere in a simple command
+or may precede or follow a complex command.
+Expansion occurs before <var>word</var> or <var>digit</var>
+is used except as noted below.
+If the result of substitution on <var>word</var>
+produces more than one filename,
+redirection occurs for each
+separate filename in turn.
+</p>
+<dl compact="compact">
+<dt><tt>&lt;</tt> <var>word</var></dt>
+<dd><p>Open file <var>word</var> for reading as standard input.
+It is an error to open a file in this fashion if it does not exist.
+</p>
+</dd>
+<dt><tt>&lt;&gt;</tt> <var>word</var></dt>
+<dd><p>Open file <var>word</var> for reading and writing as standard input.
+If the file does not exist then it is created.
+</p>
+</dd>
+<dt><tt>&gt;</tt> <var>word</var></dt>
+<dd><p>Open file <var>word</var> for writing as standard output.
+If the file does not exist then it is created.
+If the file exists, and the <tt>CLOBBER</tt> option is unset,
+this causes an error;
+otherwise, it is truncated to zero length.
+</p>
+</dd>
+<dt><tt>&gt;|</tt> <var>word</var></dt>
+<dt><tt>&gt;!</tt> <var>word</var></dt>
+<dd><p>Same as <tt>&gt;</tt>, except that the file is truncated to zero length
+if it exists, regardless of <tt>CLOBBER</tt>.
+</p>
+</dd>
+<dt><tt>&gt;&gt;</tt> <var>word</var></dt>
+<dd><p>Open file <var>word</var> for writing in append mode as standard output.
+If the file does not exist, and the <tt>CLOBBER</tt> and <tt>APPEND_CREATE</tt>
+options are both unset, this causes an error;
+otherwise, the file is created.
+</p>
+</dd>
+<dt><tt>&gt;&gt;|</tt> <var>word</var></dt>
+<dt><tt>&gt;&gt;!</tt> <var>word</var></dt>
+<dd><p>Same as <tt>&gt;&gt;</tt>, except that the file is created if it does not
+exist, regardless of <tt>CLOBBER</tt> and <tt>APPEND_CREATE</tt>.
+</p>
+</dd>
+<dt><tt>&lt;&lt;</tt>[<tt>-</tt>] <var>word</var></dt>
+<dd><p>The shell input is read up to a line that is the same as
+<var>word</var>, or to an end-of-file.
+No parameter expansion, command substitution or
+filename generation is performed on <var>word</var>.
+The resulting document, called a
+<em>here-document</em>, becomes the standard input.
+</p>
+<p>If any character of <var>word</var> is quoted with
+single or double quotes or a &lsquo;<tt>\</tt>&rsquo;,
+no interpretation is placed upon the characters of the document.
+Otherwise, parameter and command substitution
+occurs, &lsquo;<tt>\</tt>&rsquo; followed by a newline is removed,
+and &lsquo;<tt>\</tt>&rsquo; must be used to quote the characters
+&lsquo;<tt>\</tt>&rsquo;, &lsquo;<tt>$</tt>&rsquo;, &lsquo;<tt>&lsquo;</tt>&rsquo; and the first character of <var>word</var>.
+</p>
+<p>Note that <var>word</var> itself does not undergo shell expansion.  Backquotes
+in <var>word</var> do not have their usual effect; instead they behave
+similarly to double quotes, except that the backquotes themselves are
+passed through unchanged.  (This information is given for completeness
+and it is not recommended that backquotes be used.)  Quotes in the form
+<tt>$&rsquo;</tt><var>...</var><tt>&rsquo;</tt> have their standard effect of expanding backslashed
+references to special characters.
+</p>
+<p>If <tt>&lt;&lt;-</tt> is used, then all leading
+tabs are stripped from <var>word</var> and from the document.
+</p>
+</dd>
+<dt><tt>&lt;&lt;&lt;</tt> <var>word</var></dt>
+<dd><p>Perform shell expansion on <var>word</var> and pass the result
+to standard input.  This is known as a <em>here-string</em>.
+Compare the use of <var>word</var> in here-documents above, where <var>word</var>
+does not undergo shell expansion.
+</p>
+</dd>
+<dt><tt>&lt;&amp;</tt> <var>number</var></dt>
+<dt><tt>&gt;&amp;</tt> <var>number</var></dt>
+<dd><p>The standard input/output is duplicated from file descriptor
+<var>number</var> (see man page dup2(2)).
+</p>
+</dd>
+<dt><tt>&lt;&amp; -</tt></dt>
+<dt><tt>&gt;&amp; -</tt></dt>
+<dd><p>Close the standard input/output.
+</p>
+</dd>
+<dt><tt>&lt;&amp; p</tt></dt>
+<dt><tt>&gt;&amp; p</tt></dt>
+<dd><p>The input/output from/to the coprocess is moved to the standard input/output.
+</p>
+</dd>
+<dt><tt>&gt;&amp;</tt> <var>word</var></dt>
+<dt><tt>&amp;&gt;</tt> <var>word</var></dt>
+<dd><p>(Except where &lsquo;<tt>&gt;&amp;</tt> <var>word</var>&rsquo; matches one of the above syntaxes;
+&lsquo;<tt>&amp;&gt;</tt>&rsquo; can always be used to avoid this ambiguity.)
+Redirects both standard output and standard error (file descriptor 2)
+in the manner of &lsquo;<tt>&gt;</tt> <var>word</var>&rsquo;.
+Note that this does <em>not</em> have the same effect as &lsquo;<tt>&gt;</tt> <var>word</var> <tt>2&gt;&amp;1</tt>&rsquo;
+in the presence of multios (see the section below).
+</p>
+</dd>
+<dt><tt>&gt;&amp;|</tt> <var>word</var></dt>
+<dt><tt>&gt;&amp;!</tt> <var>word</var></dt>
+<dt><tt>&amp;&gt;|</tt> <var>word</var></dt>
+<dt><tt>&amp;&gt;!</tt> <var>word</var></dt>
+<dd><p>Redirects both standard output and standard error (file descriptor 2)
+in the manner of &lsquo;<tt>&gt;|</tt> <var>word</var>&rsquo;.
+</p>
+</dd>
+<dt><tt>&gt;&gt;&amp;</tt> <var>word</var></dt>
+<dt><tt>&amp;&gt;&gt;</tt> <var>word</var></dt>
+<dd><p>Redirects both standard output and standard error (file descriptor 2)
+in the manner of &lsquo;<tt>&gt;&gt;</tt> <var>word</var>&rsquo;.
+</p>
+</dd>
+<dt><tt>&gt;&gt;&amp;|</tt> <var>word</var></dt>
+<dt><tt>&gt;&gt;&amp;!</tt> <var>word</var></dt>
+<dt><tt>&amp;&gt;&gt;|</tt> <var>word</var></dt>
+<dt><tt>&amp;&gt;&gt;!</tt> <var>word</var></dt>
+<dd><p>Redirects both standard output and standard error (file descriptor 2)
+in the manner of &lsquo;<tt>&gt;&gt;|</tt> <var>word</var>&rsquo;.
+</p>
+</dd>
+</dl>
+
+<p>If one of the above is preceded by a digit, then the file
+descriptor referred to is that specified by the digit
+instead of the default 0 or 1.
+The order in which redirections are specified is significant.
+The shell evaluates each redirection in terms of the
+(<em>file descriptor</em>, <em>file</em>)
+association at the time of evaluation.
+For example:
+</p>
+<blockquote>
+<p>... <tt>1&gt;</tt><var>fname</var> <tt>2&gt;&amp;1</tt>
+</p></blockquote>
+
+<p>first associates file descriptor 1 with file <var>fname</var>.
+It then associates file descriptor 2 with the file associated with file
+descriptor 1 (that is, <var>fname</var>).
+If the order of redirections were reversed,
+file descriptor 2 would be associated
+with the terminal (assuming file descriptor 1 had been)
+and then file descriptor 1 would be associated with file <var>fname</var>.
+</p>
+<p>The &lsquo;<tt>|&amp;</tt>&rsquo; command separator described in
+<a href="Shell-Grammar.html#Simple-Commands-_0026-Pipelines">Simple Commands &amp; Pipelines</a>
+is a shorthand for &lsquo;<tt>2&gt;&amp;1 |</tt>&rsquo;.
+</p>
+<p>The various forms of process substitution, &lsquo;<tt>&lt;(</tt><var>list</var><tt>)</tt>&rsquo;,
+and &lsquo;<tt>=(</tt><var>list</var><tt>)</tt>&rsquo; for input and
+&lsquo;<tt>&gt;(</tt><var>list</var><tt>)</tt>&rsquo; for output, are often used together with
+redirection.  For example, if <var>word</var> in an output redirection is of the
+form &lsquo;<tt>&gt;(</tt><var>list</var><tt>)</tt>&rsquo; then the output is piped to the
+command represented by <var>list</var>.  See
+<a href="Expansion.html#Process-Substitution">Process Substitution</a>.
+</p>
+<hr>
+<a name="Opening-file-descriptors-using-parameters"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Redirection" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Redirection" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Redirection" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Multios" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Command-Execution.html#Command-Execution" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section">7.1 Opening file descriptors using parameters</h2>
+<a name="index-file-descriptors_002c-use-with-parameters"></a>
+<a name="index-parameters_002c-for-using-file-descriptors"></a>
+
+<p>When the shell is parsing arguments to a command, and the shell option
+<tt>IGNORE_BRACES</tt> is not set, a different form of redirection is allowed:
+instead of a digit before the operator there is a valid shell identifier
+enclosed in braces.  The shell will open a new file descriptor that
+is guaranteed to be at least 10 and set the parameter named by the
+identifier to the file descriptor opened.  No whitespace is allowed
+between the closing brace and the redirection character.  For example:
+</p>
+<blockquote>
+<p>... <tt>{myfd}&gt;&amp;1</tt>
+</p></blockquote>
+
+<p>This opens a new file descriptor that is a duplicate of file descriptor
+1 and sets the parameter <tt>myfd</tt> to the number of the file descriptor,
+which will be at least 10.  The new file descriptor can be written to using
+the syntax <tt>&gt;&amp;$myfd</tt>.  The file descriptor remains open in subshells
+and forked external executables.
+</p>
+<p>The syntax <tt>{</tt><var>varid</var><tt>}&gt;&amp;-</tt>, for example <tt>{myfd}&gt;&amp;-</tt>, may be used
+to close a file descriptor opened in this fashion.  Note that the
+parameter given by <var>varid</var> must previously be set to a file descriptor
+in this case.
+</p>
+<p>It is an error to open or close a file descriptor in this fashion when the
+parameter is readonly.  However, it is not an error to read or write a file
+descriptor using <tt>&lt;&amp;$</tt><var>param</var> or <tt>&gt;&amp;$</tt><var>param</var> if <var>param</var> is
+readonly.
+</p>
+<p>If the option <tt>CLOBBER</tt> is unset, it is an error to open a file
+descriptor using a parameter that is already set to an open file descriptor
+previously allocated by this mechanism.  Unsetting the parameter before
+using it for allocating a file descriptor avoids the error.
+</p>
+<p>Note that this mechanism merely allocates or closes a file descriptor; it
+does not perform any redirections from or to it.  It is usually convenient
+to allocate a file descriptor prior to use as an argument to <tt>exec</tt>.
+The syntax does not in any case work when used around complex commands
+such as parenthesised subshells or loops, where the opening brace is
+interpreted as part of a command list to be executed in the current shell.
+</p>
+<p>The following shows a typical sequence of allocation, use, and closing of a
+file descriptor:
+</p>
+<div class="example">
+<pre class="example">integer myfd
+exec {myfd}&gt;~/logs/mylogfile.txt
+print This is a log message. &gt;&amp;$myfd
+exec {myfd}&gt;&amp;-
+</pre></div>
+
+<p>Note that the expansion of the variable in the expression <tt>&gt;&amp;$myfd</tt>
+occurs at the point the redirection is opened.  This is after the expansion
+of command arguments and after any redirections to the left on the command
+line have been processed.
+</p>
+<hr>
+<a name="Multios"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Redirection" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Opening-file-descriptors-using-parameters" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Redirection" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Redirections-with-no-command" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Command-Execution.html#Command-Execution" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section">7.2 Multios</h2>
+<a name="index-multios"></a>
+<a name="index-MULTIOS_002c-use-of"></a>
+<p>If the user tries to open a file descriptor for writing more than once,
+the shell opens the file descriptor as a pipe to a process that copies
+its input to all the specified outputs, similar to <cite>tee</cite>,
+provided the <tt>MULTIOS</tt> option is set, as it is by default.  Thus:
+</p>
+<div class="example">
+<pre class="example">date &gt;foo &gt;bar
+</pre></div>
+
+<p>writes the date to two files, named &lsquo;<tt>foo</tt>&rsquo; and &lsquo;<tt>bar</tt>&rsquo;.
+Note that a pipe is an implicit redirection; thus
+</p>
+<div class="example">
+<pre class="example">date &gt;foo | cat
+</pre></div>
+
+<p>writes the date to the file &lsquo;<tt>foo</tt>&rsquo;, and also pipes it to cat.
+</p>
+<p>Note that the shell opens all the files to be used in the multio process
+immediately, not at the point they are about to be written.
+</p>
+<p>Note also that redirections are always expanded in order.  This happens
+regardless of the setting of the <tt>MULTIOS</tt> option, but with the option
+in effect there are additional consequences. For example,
+the meaning of the expression <tt>&gt;&amp;1</tt> will change after a previous
+redirection:
+</p>
+<div class="example">
+<pre class="example">date &gt;&amp;1 &gt;output
+</pre></div>
+
+<p>In the case above, the <tt>&gt;&amp;1</tt> refers to the standard output at the
+start of the line; the result is similar to the <tt>tee</tt> command.
+However, consider:
+</p>
+<div class="example">
+<pre class="example">date &gt;output &gt;&amp;1
+</pre></div>
+
+<p>As redirections are evaluated in order, when the <tt>&gt;&amp;1</tt> is encountered
+the standard output is set to the file <tt>output</tt> and another copy of
+the output is therefore sent to that file.  This is unlikely to be what
+is intended.
+</p>
+<p>If the <tt>MULTIOS</tt>
+option is set, the word after a redirection operator is also subjected
+to filename generation (globbing).  Thus
+</p>
+<div class="example">
+<pre class="example">: &gt; *
+</pre></div>
+
+<p>will truncate all files in the current directory,
+assuming there&rsquo;s at least one.  (Without the <tt>MULTIOS</tt>
+option, it would create an empty file called &lsquo;<tt>*</tt>&rsquo;.)
+Similarly, you can do
+</p>
+<div class="example">
+<pre class="example">echo exit 0 &gt;&gt; *.sh
+</pre></div>
+
+<p>If the user tries to open a file descriptor for reading more than once,
+the shell opens the file descriptor as a pipe to a process that copies
+all the specified inputs to its output in the order specified, provided
+the <tt>MULTIOS</tt> option is set.  It should be noted that each file is
+opened immediately, not at the point where it is about to be read:
+this behaviour differs from <tt>cat</tt>, so if strictly standard behaviour
+is needed, <tt>cat</tt> should be used instead.
+</p>
+<p>Thus
+</p>
+<div class="example">
+<pre class="example">sort &lt;foo &lt;fubar
+</pre></div>
+
+<p>or even
+</p>
+<div class="example">
+<pre class="example">sort &lt;f{oo,ubar}
+</pre></div>
+
+<p>is equivalent to &lsquo;<tt>cat foo fubar | sort</tt>&rsquo;.
+</p>
+<p>Expansion of the redirection argument occurs at the point the redirection
+is opened, at the point described above for the expansion of the variable
+in <tt>&gt;&amp;$myfd</tt>.
+</p>
+<p>Note that a pipe is an implicit redirection; thus
+</p>
+<div class="example">
+<pre class="example">cat bar | sort &lt;foo
+</pre></div>
+
+<p>is equivalent to &lsquo;<tt>cat bar foo | sort</tt>&rsquo; (note the order of the inputs).
+</p>
+<p>If the <tt>MULTIOS</tt> option is <em>un</em>set,
+each redirection replaces the previous redirection for that file descriptor.
+However, all files redirected to are actually opened, so
+</p>
+<div class="example">
+<pre class="example">echo Hello &gt; bar &gt; baz
+</pre></div>
+
+<p>when <tt>MULTIOS</tt> is unset will truncate &lsquo;<tt>bar</tt>&rsquo;, and write &lsquo;<tt>Hello</tt>&rsquo;
+into &lsquo;<tt>baz</tt>&rsquo;.
+</p>
+<p>There is a problem when an output multio is attached to an external
+program.  A simple example shows this:
+</p>
+<div class="example">
+<pre class="example">cat file &gt;file1 &gt;file2
+cat file1 file2
+</pre></div>
+
+<p>Here, it is possible that the second &lsquo;<tt>cat</tt>&rsquo; will not display the full
+contents of <tt>file1</tt> and <tt>file2</tt> (i.e. the original contents of
+<tt>file</tt> repeated twice).
+</p>
+<p>The reason for this is that the multios are spawned after the <tt>cat</tt>
+process is forked from the parent shell, so the parent shell does not
+wait for the multios to finish writing data.  This means the command as
+shown can exit before <tt>file1</tt> and <tt>file2</tt> are completely written.
+As a workaround, it is possible to run the <tt>cat</tt> process as part of a
+job in the current shell:
+</p>
+<div class="example">
+<pre class="example">{ cat file } &gt;file &gt;file2
+</pre></div>
+
+<p>Here, the <tt>{</tt><var>...</var><tt>}</tt> job will pause to wait for both files to be
+written.
+</p>
+
+<hr>
+<a name="Redirections-with-no-command"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Redirection" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Multios" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Redirection" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="Command-Execution.html#Command-Execution" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Command-Execution.html#Command-Execution" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section">7.3 Redirections with no command</h2>
+<p>When a simple command consists of one or more redirection operators
+and zero or more parameter assignments, but no command name, zsh can
+behave in several ways.
+</p>
+<a name="index-NULLCMD_002c-use-of"></a>
+<a name="index-CSH_005fNULLCMD_002c-use-of"></a>
+<p>If the parameter <tt>NULLCMD</tt> is not set or the option <tt>CSH_NULLCMD</tt> is
+set, an error is caused.  This is the <cite>csh</cite> behavior and <tt>CSH_NULLCMD</tt>
+is set by default when emulating <cite>csh</cite>.
+</p>
+<a name="index-SH_005fNULLCMD_002c-use-of"></a>
+<p>If the option <tt>SH_NULLCMD</tt> is set, the builtin &lsquo;<tt>:</tt>&rsquo; is inserted as a
+command with the given redirections.  This is the default when emulating
+<cite>sh</cite> or <cite>ksh</cite>.
+</p>
+<a name="index-READNULLCMD_002c-use-of"></a>
+<p>Otherwise, if the parameter <tt>NULLCMD</tt> is set, its value will be used as a
+command with the given redirections.  If both <tt>NULLCMD</tt> and
+<tt>READNULLCMD</tt> are set, then the value of the latter will be used instead
+of that of the former when the redirection is an input.  The default for
+<tt>NULLCMD</tt> is &lsquo;<tt>cat</tt>&rsquo; and for <tt>READNULLCMD</tt> is &lsquo;<tt>more</tt>&rsquo;. Thus
+</p>
+<div class="example">
+<pre class="example">&lt; file
+</pre></div>
+
+<p>shows the contents of <tt>file</tt> on standard output, with paging if that is a
+terminal.  <tt>NULLCMD</tt> and <tt>READNULLCMD</tt> may refer to shell functions.
+</p>
+<hr>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Redirection" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Command-Execution.html#Command-Execution" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  This document was generated on <i>February 15, 2020</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
+ </font>
+ <br>
+<font size="-1">Zsh version 5.8, released on February 14, 2020.</font>
+</p>
+</body>
+</html>

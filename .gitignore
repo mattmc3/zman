@@ -1,0 +1,6 @@
+~*
+*.zwc
+*.zwc.old
+foo.zsh
+cache/
+.ztap/

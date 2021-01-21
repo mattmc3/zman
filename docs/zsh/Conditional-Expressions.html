@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created on February 15, 2020 by texi2html 5.0
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>zsh: 12 Conditional Expressions</title>
+
+<meta name="description" content="zsh: 12 Conditional Expressions">
+<meta name="keywords" content="zsh: 12 Conditional Expressions">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 5.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:pre}
+span.nolinebreak {white-space:pre}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="Conditional-Expressions"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="Arithmetic-Evaluation.html#Arithmetic-Evaluation" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Arithmetic-Evaluation.html#Arithmetic-Evaluation" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="Prompt-Expansion.html#Prompt-Expansion" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Prompt-Expansion.html#Prompt-Expansion" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+
+<a name="Conditional-Expressions-1"></a>
+<h1 class="chapter">12 Conditional Expressions</h1>
+<a name="index-conditional-expressions"></a>
+<a name="index-expressions_002c-conditional"></a>
+<p>A <em>conditional expression</em> is used with the <tt>[[</tt>
+compound command to test attributes of files and to compare strings.
+Each expression can be constructed from one or more
+of the following unary or binary expressions:
+</p>
+<dl compact="compact">
+<dt><tt>-a</tt> <var>file</var></dt>
+<dd><p>true if <var>file</var> exists.
+</p>
+</dd>
+<dt><tt>-b</tt> <var>file</var></dt>
+<dd><p>true if <var>file</var> exists and is a block special file.
+</p>
+</dd>
+<dt><tt>-c</tt> <var>file</var></dt>
+<dd><p>true if <var>file</var> exists and is a character special file.
+</p>
+</dd>
+<dt><tt>-d</tt> <var>file</var></dt>
+<dd><p>true if <var>file</var> exists and is a directory.
+</p>
+</dd>
+<dt><tt>-e</tt> <var>file</var></dt>
+<dd><p>true if <var>file</var> exists.
+</p>
+</dd>
+<dt><tt>-f</tt> <var>file</var></dt>
+<dd><p>true if <var>file</var> exists and is a regular file.
+</p>
+</dd>
+<dt><tt>-g</tt> <var>file</var></dt>
+<dd><p>true if <var>file</var> exists and has its setgid bit set.
+</p>
+</dd>
+<dt><tt>-h</tt> <var>file</var></dt>
+<dd><p>true if <var>file</var> exists and is a symbolic link.
+</p>
+</dd>
+<dt><tt>-k</tt> <var>file</var></dt>
+<dd><p>true if <var>file</var> exists and has its sticky bit set.
+</p>
+</dd>
+<dt><tt>-n</tt> <var>string</var></dt>
+<dd><p>true if length of <var>string</var> is non-zero.
+</p>
+</dd>
+<dt><tt>-o</tt> <var>option</var></dt>
+<dd><p>true if option named <var>option</var> is on.  <var>option</var>
+may be a single character, in which case it is a single letter option name.
+(See <a href="Options.html#Specifying-Options">Specifying Options</a>.)
+</p>
+<p>When no option named <var>option</var> exists, and the <tt>POSIX_BUILTINS</tt> option
+hasn&rsquo;t been set, return 3 with a warning.  If that option is set, return 1
+with no warning.
+</p>
+</dd>
+<dt><tt>-p</tt> <var>file</var></dt>
+<dd><p>true if <var>file</var> exists and is a FIFO special file (named pipe).
+</p>
+</dd>
+<dt><tt>-r</tt> <var>file</var></dt>
+<dd><p>true if <var>file</var> exists and is readable by current process.
+</p>
+</dd>
+<dt><tt>-s</tt> <var>file</var></dt>
+<dd><p>true if <var>file</var> exists and has size greater than zero.
+</p>
+</dd>
+<dt><tt>-t</tt> <var>fd</var></dt>
+<dd><p>true if file descriptor number <var>fd</var>
+is open and associated with a terminal device.
+(note: <var>fd</var> is not optional)
+</p>
+</dd>
+<dt><tt>-u</tt> <var>file</var></dt>
+<dd><p>true if <var>file</var> exists and has its setuid bit set.
+</p>
+</dd>
+<dt><tt>-v</tt> <var>varname</var></dt>
+<dd><p>true if shell variable <var>varname</var> is set.
+</p>
+</dd>
+<dt><tt>-w</tt> <var>file</var></dt>
+<dd><p>true if <var>file</var> exists and is writable by current process.
+</p>
+</dd>
+<dt><tt>-x</tt> <var>file</var></dt>
+<dd><p>true if <var>file</var> exists and is executable by current process.
+If <var>file</var> exists and is a directory, then the current process
+has permission to search in the directory.
+</p>
+</dd>
+<dt><tt>-z</tt> <var>string</var></dt>
+<dd><p>true if length of <var>string</var> is zero.
+</p>
+</dd>
+<dt><tt>-L</tt> <var>file</var></dt>
+<dd><p>true if <var>file</var> exists and is a symbolic link.
+</p>
+</dd>
+<dt><tt>-O</tt> <var>file</var></dt>
+<dd><p>true if <var>file</var> exists and is owned by the effective user ID of this process.
+</p>
+</dd>
+<dt><tt>-G</tt> <var>file</var></dt>
+<dd><p>true if <var>file</var> exists and its group matches
+the effective group ID of this process.
+</p>
+</dd>
+<dt><tt>-S</tt> <var>file</var></dt>
+<dd><p>true if <var>file</var> exists and is a socket.
+</p>
+</dd>
+<dt><tt>-N</tt> <var>file</var></dt>
+<dd><p>true if <var>file</var> exists and its access time is
+not newer than its modification time.
+</p>
+</dd>
+<dt><var>file1</var> <tt>-nt</tt> <var>file2</var></dt>
+<dd><p>true if <var>file1</var> exists and is newer than <var>file2</var>.
+</p>
+</dd>
+<dt><var>file1</var> <tt>-ot</tt> <var>file2</var></dt>
+<dd><p>true if <var>file1</var> exists and is older than <var>file2</var>.
+</p>
+</dd>
+<dt><var>file1</var> <tt>-ef</tt> <var>file2</var></dt>
+<dd><p>true if <var>file1</var> and <var>file2</var> exist and refer to the same file.
+</p>
+</dd>
+<dt><var>string</var> <tt>=</tt> <var>pattern</var></dt>
+<dt><var>string</var> <tt>==</tt> <var>pattern</var></dt>
+<dd><p>true if <var>string</var> matches <var>pattern</var>.
+The two forms are exactly equivalent.  The &lsquo;<tt>=</tt>&rsquo; form is
+the traditional shell syntax (and hence the only one generally used
+with the <tt>test</tt> and <tt>[</tt> builtins); the &lsquo;<tt>==</tt>&rsquo; form provides
+compatibility with other sorts of computer language.
+</p>
+</dd>
+<dt><var>string</var> <tt>!=</tt> <var>pattern</var></dt>
+<dd><p>true if <var>string</var> does not match <var>pattern</var>.
+</p>
+</dd>
+<dt><var>string</var> <tt>=~</tt> <var>regexp</var></dt>
+<dd><p>true if <var>string</var> matches the regular expression
+<var>regexp</var>.  If the option <tt>RE_MATCH_PCRE</tt> is set
+<var>regexp</var> is tested as a PCRE regular expression using
+the <tt>zsh/pcre</tt> module, else it is tested as a POSIX
+extended regular expression using the <tt>zsh/regex</tt> module.
+Upon successful match, some variables will be updated; no variables
+are changed if the matching fails.
+</p>
+<p>If the option <tt>BASH_REMATCH</tt> is not set the scalar parameter
+<tt>MATCH</tt> is set to the substring that matched the pattern and
+the integer parameters <tt>MBEGIN</tt> and <tt>MEND</tt> to the index of the start
+and end, respectively, of the match in <var>string</var>, such that if
+<var>string</var> is contained in variable <tt>var</tt> the expression
+&lsquo;<tt>${var[$MBEGIN,$MEND]}</tt>&rsquo; is identical to &lsquo;<tt>$MATCH</tt>&rsquo;.  The setting
+of the option <tt>KSH_ARRAYS</tt> is respected.  Likewise, the array
+<tt>match</tt> is set to the substrings that matched parenthesised
+subexpressions and the arrays <tt>mbegin</tt> and <tt>mend</tt> to the indices of
+the start and end positions, respectively, of the substrings within
+<var>string</var>.  The arrays are not set if there were no parenthesised
+subexpressions.  For example, if the string &lsquo;<tt>a short string</tt>&rsquo; is matched
+against the regular expression &lsquo;<tt>s(...)t</tt>&rsquo;, then (assuming the
+option <tt>KSH_ARRAYS</tt> is not set) <tt>MATCH</tt>, <tt>MBEGIN</tt>
+and <tt>MEND</tt> are &lsquo;<tt>short</tt>&rsquo;, <tt>3</tt> and <tt>7</tt>, respectively, while <tt>match</tt>,
+<tt>mbegin</tt> and <tt>mend</tt> are single entry arrays containing
+the strings &lsquo;<tt>hor</tt>&rsquo;, &lsquo;<tt>4</tt>&rsquo; and &lsquo;<tt>6</tt>&rsquo;, respectively.
+</p>
+<p>If the option <tt>BASH_REMATCH</tt> is set the array
+<tt>BASH_REMATCH</tt> is set to the substring that matched the pattern
+followed by the substrings that matched parenthesised
+subexpressions within the pattern.
+</p>
+</dd>
+<dt><var>string1</var> <tt>&lt;</tt> <var>string2</var></dt>
+<dd><p>true if <var>string1</var> comes before <var>string2</var>
+based on ASCII value of their characters.
+</p>
+</dd>
+<dt><var>string1</var> <tt>&gt;</tt> <var>string2</var></dt>
+<dd><p>true if <var>string1</var> comes after <var>string2</var>
+based on ASCII value of their characters.
+</p>
+</dd>
+<dt><var>exp1</var> <tt>-eq</tt> <var>exp2</var></dt>
+<dd><p>true if <var>exp1</var> is numerically equal to <var>exp2</var>.
+Note that for purely numeric comparisons use of the
+<tt>((</tt><var>...</var><tt>))</tt> builtin described in
+<a href="Arithmetic-Evaluation.html#Arithmetic-Evaluation">Arithmetic Evaluation</a> is more convenient than
+conditional expressions.
+</p>
+</dd>
+<dt><var>exp1</var> <tt>-ne</tt> <var>exp2</var></dt>
+<dd><p>true if <var>exp1</var> is numerically not equal to <var>exp2</var>.
+</p>
+</dd>
+<dt><var>exp1</var> <tt>-lt</tt> <var>exp2</var></dt>
+<dd><p>true if <var>exp1</var> is numerically less than <var>exp2</var>.
+</p>
+</dd>
+<dt><var>exp1</var> <tt>-gt</tt> <var>exp2</var></dt>
+<dd><p>true if <var>exp1</var> is numerically greater than <var>exp2</var>.
+</p>
+</dd>
+<dt><var>exp1</var> <tt>-le</tt> <var>exp2</var></dt>
+<dd><p>true if <var>exp1</var> is numerically less than or equal to <var>exp2</var>.
+</p>
+</dd>
+<dt><var>exp1</var> <tt>-ge</tt> <var>exp2</var></dt>
+<dd><p>true if <var>exp1</var> is numerically greater than or equal to <var>exp2</var>.
+</p>
+</dd>
+<dt><tt>(</tt> <var>exp</var> <tt>)</tt></dt>
+<dd><p>true if <var>exp</var> is true.
+</p>
+</dd>
+<dt><tt>!</tt> <var>exp</var></dt>
+<dd><p>true if <var>exp</var> is false.
+</p>
+</dd>
+<dt><var>exp1</var> <tt>&amp;&amp;</tt> <var>exp2</var></dt>
+<dd><p>true if <var>exp1</var> and <var>exp2</var> are both true.
+</p>
+</dd>
+<dt><var>exp1</var> <tt>||</tt> <var>exp2</var></dt>
+<dd><p>true if either <var>exp1</var> or <var>exp2</var> is true.
+</p>
+</dd>
+</dl>
+
+<p>For compatibility, if there is a single argument that is not
+syntactically significant, typically a variable, the condition is
+treated as a test for whether the expression expands as a string of
+non-zero length.  In other words, <tt>[[ $var ]]</tt> is the same as <tt>[[ -n
+$var ]]</tt>.  It is recommended that the second, explicit, form be used
+where possible.
+</p>
+<p>Normal shell expansion is performed on the <var>file</var>, <var>string</var> and
+<var>pattern</var> arguments, but the result of each expansion is constrained to
+be a single word, similar to the effect of double quotes.
+</p>
+<p>Filename generation is not performed on any form of argument to
+conditions.  However, it can be forced in any case where normal shell
+expansion is valid and when the option <tt>EXTENDED_GLOB</tt> is in effect by
+using an explicit glob qualifier of the form <tt>(#q)</tt> at the
+end of the string.  A normal glob qualifier expression may appear
+between the &lsquo;<tt>q</tt>&rsquo; and the closing parenthesis; if none appears the
+expression has no effect beyond causing filename generation.  The
+results of filename generation are joined together to form a single
+word, as with the results of other forms of expansion.
+</p>
+<p>This special use of filename generation is only available with the
+<tt>[[</tt> syntax.  If the condition occurs within the <tt>[</tt> or <tt>test</tt>
+builtin commands then globbing occurs instead as part of normal command
+line expansion before the condition is evaluated.  In this case it may
+generate multiple words which are likely to confuse the syntax of the
+test command.
+</p>
+<p>For example,
+</p>
+<div class="example">
+<pre class="example">[[ -n file*(#qN) ]]
+</pre></div>
+
+<p>produces status zero if and only if there is at least one file in the
+current directory beginning with the string &lsquo;<tt>file</tt>&rsquo;.  The globbing
+qualifier <tt>N</tt> ensures that the expression is empty if there is
+no matching file.
+</p>
+<p>Pattern metacharacters are active for the <var>pattern</var> arguments;
+the patterns are the same as those used for filename generation, see
+<a href="Expansion.html#Filename-Generation">Filename Generation</a>, but there is no special behaviour
+of &lsquo;<tt>/</tt>&rsquo; nor initial dots, and no glob qualifiers are allowed.
+</p>
+<p>In each of the above expressions, if
+<var>file</var> is of the form &lsquo;<tt>/dev/fd/</tt><var>n</var>&rsquo;,
+where <var>n</var> is an integer,
+then the test applied to the open file whose
+descriptor number is <var>n</var>,
+even if the underlying system does not support
+the <tt>/dev/fd</tt> directory.
+</p>
+<p>In the forms which do numeric comparison, the expressions <var>exp</var>
+undergo arithmetic expansion as if they were enclosed in
+<tt>$((</tt><var>...</var><tt>))</tt>.
+</p>
+<p>For example, the following:
+</p>
+<div class="example">
+<pre class="example">[[ ( -f foo || -f bar ) &amp;&amp; $report = y* ]] &amp;&amp; print File exists.
+</pre></div>
+
+<p>tests if either file <tt>foo</tt> or file <tt>bar</tt> exists, and if so, if the
+value of the parameter <tt>report</tt> begins with &lsquo;<tt>y</tt>&rsquo;; if the complete
+condition is true, the message &lsquo;<tt>File exists.</tt>&rsquo; is printed.
+</p><hr>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="Arithmetic-Evaluation.html#Arithmetic-Evaluation" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Prompt-Expansion.html#Prompt-Expansion" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  This document was generated on <i>February 15, 2020</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
+ </font>
+ <br>
+<font size="-1">Zsh version 5.8, released on February 14, 2020.</font>
+</p>
+</body>
+</html>

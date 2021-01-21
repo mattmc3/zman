@@ -1,0 +1,3540 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created on February 15, 2020 by texi2html 5.0
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>zsh: 16 Options</title>
+
+<meta name="description" content="zsh: 16 Options">
+<meta name="keywords" content="zsh: 16 Options">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 5.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:pre}
+span.nolinebreak {white-space:pre}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="Options"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="Parameters.html#Parameters" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Parameters.html#Parameters-Used-By-The-Shell" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Specifying-Options" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+
+<a name="Options-1"></a>
+<h1 class="chapter">16 Options</h1>
+<a name="index-options"></a>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Specifying-Options">16.1 Specifying Options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Description-of-Options">16.2 Description of Options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Option-Aliases">16.3 Option Aliases</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Single-Letter-Options">16.4 Single Letter Options</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+<hr>
+<a name="Specifying-Options"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Options" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Options" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-of-Options" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+
+<a name="Specifying-Options-1"></a>
+<h2 class="section">16.1 Specifying Options</h2>
+<a name="index-options_002c-specifying"></a>
+<p>Options are primarily referred to by name.
+These names are case insensitive and underscores are ignored.
+For example, &lsquo;<tt>allexport</tt>&rsquo; is equivalent to &lsquo;<tt>A__lleXP_ort</tt>&rsquo;.
+</p>
+<p>The sense of an option name may be inverted by preceding it with
+&lsquo;<tt>no</tt>&rsquo;, so &lsquo;<tt>setopt No_Beep</tt>&rsquo; is equivalent to &lsquo;<tt>unsetopt beep</tt>&rsquo;.
+This inversion can only be done once, so &lsquo;<tt>nonobeep</tt>&rsquo; is <em>not</em>
+a synonym for &lsquo;<tt>beep</tt>&rsquo;.  Similarly, &lsquo;<tt>tify</tt>&rsquo; is not a synonym for
+&lsquo;<tt>nonotify</tt>&rsquo; (the inversion of &lsquo;<tt>notify</tt>&rsquo;).
+</p>
+<p>Some options also have one or more single letter names.
+There are two sets of single letter options: one used by default,
+and another used to emulate <cite>sh</cite>/<cite>ksh</cite> (used when the
+<tt>SH_OPTION_LETTERS</tt> option is set).
+The single letter options can be used on the shell command line,
+or with the <tt>set</tt>, <tt>setopt</tt> and <tt>unsetopt</tt>
+builtins, as normal Unix options preceded by &lsquo;<tt>-</tt>&rsquo;.
+</p>
+<p>The sense of the single letter options may be inverted by using
+&lsquo;<tt>+</tt>&rsquo; instead of &lsquo;<tt>-</tt>&rsquo;.
+Some of the single letter option names refer to an option being off,
+in which case the inversion of that name refers to the option being on.
+For example, &lsquo;<tt>+n</tt>&rsquo; is the short name of &lsquo;<tt>exec</tt>&rsquo;, and
+&lsquo;<tt>-n</tt>&rsquo; is the short name of its inversion, &lsquo;<tt>noexec</tt>&rsquo;.
+</p>
+<p>In strings of single letter options supplied to the shell at startup,
+trailing whitespace will be ignored; for example the string &lsquo;<tt>-f    </tt>&rsquo;
+will be treated just as &lsquo;<tt>-f</tt>&rsquo;, but the string &lsquo;<tt>-f i</tt>&rsquo; is an error.
+This is because many systems which implement the &lsquo;<tt>#!</tt>&rsquo; mechanism for
+calling scripts do not strip trailing whitespace.
+</p>
+<hr>
+<a name="Description-of-Options"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Specifying-Options" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Options" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Changing-Directories" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+
+<a name="Description-of-Options-1"></a>
+<h2 class="section">16.2 Description of Options</h2>
+<a name="index-options_002c-description"></a>
+<p>In the following list, options set by default in all emulations are marked
+&lt;D&gt;; those set by default only in csh, ksh, sh, or zsh emulations are marked
+&lt;C&gt;, &lt;K&gt;, &lt;S&gt;, &lt;Z&gt; as appropriate.  When listing options (by &lsquo;<tt>setopt</tt>&rsquo;,
+&lsquo;<tt>unsetopt</tt>&rsquo;, &lsquo;<tt>set -o</tt>&rsquo; or &lsquo;<tt>set +o</tt>&rsquo;), those turned on by default
+appear in the list prefixed with &lsquo;<tt>no</tt>&rsquo;.  Hence (unless
+<tt>KSH_OPTION_PRINT</tt> is set), &lsquo;<tt>setopt</tt>&rsquo; shows all options whose settings
+are changed from the default.
+</p>
+
+<hr>
+<a name="Changing-Directories"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-of-Options" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-of-Options" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Completion-4" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">16.2.1 Changing Directories</h3>
+<dl compact="compact">
+<dd><a name="index-AUTO_005fCD"></a>
+<a name="index-NO_005fAUTO_005fCD"></a>
+<a name="index-AUTOCD"></a>
+<a name="index-NOAUTOCD"></a>
+<a name="index-cd_002c-automatic"></a>
+</dd>
+<dt><tt>AUTO_CD</tt> (<tt>-J</tt>)</dt>
+<dd><p>If a command is issued that can&rsquo;t be executed as a normal command,
+and the command is the name of a directory, perform the <tt>cd</tt>
+command to that directory.
+This option is only applicable if the option <tt>SHIN_STDIN</tt> is set,
+i.e. if commands are being read from standard input.  The option
+is designed for interactive use; it is recommended that <tt>cd</tt>
+be used explicitly in scripts to avoid ambiguity.
+</p>
+<a name="index-AUTO_005fPUSHD"></a>
+<a name="index-NO_005fAUTO_005fPUSHD"></a>
+<a name="index-AUTOPUSHD"></a>
+<a name="index-NOAUTOPUSHD"></a>
+<a name="index-cd_002c-behaving-like-pushd"></a>
+<a name="index-pushd_002c-making-cd-behave-like"></a>
+</dd>
+<dt><tt>AUTO_PUSHD</tt> (<tt>-N</tt>)</dt>
+<dd><p>Make <tt>cd</tt> push the old directory onto the directory stack.
+</p>
+<a name="index-CDABLE_005fVARS"></a>
+<a name="index-NO_005fCDABLE_005fVARS"></a>
+<a name="index-CDABLEVARS"></a>
+<a name="index-NOCDABLEVARS"></a>
+<a name="index-cd_002c-to-parameter"></a>
+</dd>
+<dt><tt>CDABLE_VARS</tt> (<tt>-T</tt>)</dt>
+<dd><p>If the argument to a <tt>cd</tt> command (or an implied <tt>cd</tt> with the
+<tt>AUTO_CD</tt> option set) is not a directory, and does not begin with a
+slash, try to expand the expression as if it were preceded by a &lsquo;<tt>~</tt>&rsquo; (see
+<a href="Expansion.html#Filename-Expansion">Filename Expansion</a>).
+</p>
+<a name="index-CD_005fSILENT"></a>
+<a name="index-NO_005fCD_005fSILENT"></a>
+<a name="index-CDSILENT"></a>
+<a name="index-NOCDSILENT"></a>
+<a name="index-cd_002c-silencing"></a>
+<a name="index-autocd_002c-silencing"></a>
+</dd>
+<dt><tt>CD_SILENT</tt></dt>
+<dd><p>Never print the working directory after a <tt>cd</tt> (whether explicit or
+implied with the <tt>AUTO_CD</tt> option set). <tt>cd</tt> normally prints the
+working directory when the argument given to it was <tt>-</tt>, a stack entry, or
+the name of a directory found under <tt>CDPATH</tt>. Note that this is distinct
+from <tt>pushd</tt>&rsquo;s stack-printing behaviour, which is controlled by
+<tt>PUSHD_SILENT</tt>. This option overrides the printing-related effects of
+<tt>POSIX_CD</tt>.
+</p>
+<a name="index-CHASE_005fDOTS"></a>
+<a name="index-NO_005fCHASE_005fDOTS"></a>
+<a name="index-CHASEDOTS"></a>
+<a name="index-NOCHASEDOTS"></a>
+<a name="index-cd_002c-with-_002e_002e-in-argument"></a>
+</dd>
+<dt><tt>CHASE_DOTS</tt></dt>
+<dd><p>When changing to a directory containing a path segment &lsquo;<tt>..</tt>&rsquo; which would
+otherwise be treated as canceling the previous segment in the path (in
+other words, &lsquo;<tt>foo/..</tt>&rsquo; would be removed from the path, or if &lsquo;<tt>..</tt>&rsquo; is
+the first part of the path, the last part of the current working directory
+would be removed), instead resolve the path to the physical directory.
+This option is overridden by <tt>CHASE_LINKS</tt>.
+</p>
+<p>For example, suppose <tt>/foo/bar</tt> is a link to the directory <tt>/alt/rod</tt>.
+Without this option set, &lsquo;<tt>cd /foo/bar/..</tt>&rsquo; changes to <tt>/foo</tt>; with it
+set, it changes to <tt>/alt</tt>.  The same applies if the current directory
+is <tt>/foo/bar</tt> and &lsquo;<tt>cd ..</tt>&rsquo; is used.  Note that all other symbolic
+links in the path will also be resolved.
+</p>
+<a name="index-CHASE_005fLINKS"></a>
+<a name="index-NO_005fCHASE_005fLINKS"></a>
+<a name="index-CHASELINKS"></a>
+<a name="index-NOCHASELINKS"></a>
+<a name="index-links_002c-symbolic"></a>
+<a name="index-symbolic-links"></a>
+</dd>
+<dt><tt>CHASE_LINKS</tt> (<tt>-w</tt>)</dt>
+<dd><p>Resolve symbolic links to their true values when changing directory.
+This also has the effect of <tt>CHASE_DOTS</tt>, i.e. a &lsquo;<tt>..</tt>&rsquo; path segment
+will be treated as referring to the physical parent, even if the preceding
+path segment is a symbolic link.
+</p>
+<a name="index-POSIX_005fCD"></a>
+<a name="index-POSIXCD"></a>
+<a name="index-NO_005fPOSIX_005fCD"></a>
+<a name="index-NOPOSIXCD"></a>
+<a name="index-CDPATH_002c-order-of-checking"></a>
+</dd>
+<dt><tt>POSIX_CD</tt> &lt;K&gt; &lt;S&gt;</dt>
+<dd><p>Modifies the behaviour of <tt>cd</tt>, <tt>chdir</tt> and <tt>pushd</tt> commands
+to make them more compatible with the POSIX standard. The behaviour with
+the option unset is described in the documentation for the <tt>cd</tt>
+builtin in
+<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands">Shell Builtin Commands</a>.
+If the option is set, the shell does not test for directories beneath
+the local directory (&lsquo;<tt>.</tt>&rsquo;) until after all directories in <tt>cdpath</tt>
+have been tested, and the <tt>cd</tt> and <tt>chdir</tt> commands do not recognise
+arguments of the form &lsquo;{<tt>+</tt>|<tt>-</tt>}<var>n</var>&rsquo; as directory stack entries.
+</p>
+<p>Also, if the option is set, the conditions under which the shell
+prints the new directory after changing to it are modified.  It is
+no longer restricted to interactive shells (although printing of
+the directory stack with <tt>pushd</tt> is still limited to interactive
+shells); and any use of a component of <tt>CDPATH</tt>, including a &lsquo;<tt>.</tt>&rsquo; but
+excluding an empty component that is otherwise treated as &lsquo;<tt>.</tt>&rsquo;, causes
+the directory to be printed.
+</p>
+<a name="index-PUSHD_005fIGNORE_005fDUPS"></a>
+<a name="index-NO_005fPUSHD_005fIGNORE_005fDUPS"></a>
+<a name="index-PUSHDIGNOREDUPS"></a>
+<a name="index-NOPUSHDIGNOREDUPS"></a>
+<a name="index-directory-stack_002c-ignoring-duplicates"></a>
+</dd>
+<dt><tt>PUSHD_IGNORE_DUPS</tt></dt>
+<dd><p>Don&rsquo;t push multiple copies of the same directory onto the directory stack.
+</p>
+<a name="index-PUSHD_005fMINUS"></a>
+<a name="index-NO_005fPUSHD_005fMINUS"></a>
+<a name="index-PUSHDMINUS"></a>
+<a name="index-NOPUSHDMINUS"></a>
+<a name="index-directory-stack_002c-controlling-syntax"></a>
+</dd>
+<dt><tt>PUSHD_MINUS</tt></dt>
+<dd><p>Exchanges the meanings of &lsquo;<tt>+</tt>&rsquo; and &lsquo;<tt>-</tt>&rsquo;
+when used with a number to specify a directory in the stack.
+</p>
+<a name="index-PUSHD_005fSILENT"></a>
+<a name="index-NO_005fPUSHD_005fSILENT"></a>
+<a name="index-PUSHDSILENT"></a>
+<a name="index-NOPUSHDSILENT"></a>
+<a name="index-directory-stack_002c-silencing"></a>
+</dd>
+<dt><tt>PUSHD_SILENT</tt> (<tt>-E</tt>)</dt>
+<dd><p>Do not print the directory stack after <tt>pushd</tt> or <tt>popd</tt>.
+</p>
+<a name="index-PUSHD_005fTO_005fHOME"></a>
+<a name="index-NO_005fPUSHD_005fTO_005fHOME"></a>
+<a name="index-PUSHDTOHOME"></a>
+<a name="index-NOPUSHDTOHOME"></a>
+<a name="index-pushd_002c-to-home"></a>
+</dd>
+<dt><tt>PUSHD_TO_HOME</tt> (<tt>-D</tt>)</dt>
+<dd><p>Have <tt>pushd</tt> with no arguments act like &lsquo;<tt>pushd $HOME</tt>&rsquo;.
+</p>
+</dd>
+</dl>
+
+
+<hr>
+<a name="Completion-4"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Changing-Directories" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-of-Options" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Expansion-and-Globbing" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">16.2.2 Completion</h3>
+<dl compact="compact">
+<dd><a name="index-ALWAYS_005fLAST_005fPROMPT"></a>
+<a name="index-NO_005fALWAYS_005fLAST_005fPROMPT"></a>
+<a name="index-ALWAYSLASTPROMPT"></a>
+<a name="index-NOALWAYSLASTPROMPT"></a>
+</dd>
+<dt><tt>ALWAYS_LAST_PROMPT</tt> &lt;D&gt;</dt>
+<dd><p>If unset, key functions that list completions try to return to the last
+prompt if given a numeric argument. If set these functions try to
+return to the last prompt if given <em>no</em> numeric argument.
+</p>
+<a name="index-ALWAYS_005fTO_005fEND"></a>
+<a name="index-NO_005fALWAYS_005fTO_005fEND"></a>
+<a name="index-ALWAYSTOEND"></a>
+<a name="index-NOALWAYSTOEND"></a>
+</dd>
+<dt><tt>ALWAYS_TO_END</tt></dt>
+<dd><p>If a completion is performed with the cursor within a word, and a
+full completion is inserted, the cursor is moved to the end of the
+word.  That is, the cursor is moved to the end of the word if either
+a single match is inserted or menu completion is performed.
+</p>
+<a name="index-AUTO_005fLIST"></a>
+<a name="index-NO_005fAUTO_005fLIST"></a>
+<a name="index-AUTOLIST"></a>
+<a name="index-NOAUTOLIST"></a>
+<a name="index-completion_002c-listing-choices"></a>
+</dd>
+<dt><tt>AUTO_LIST</tt> (<tt>-9</tt>) &lt;D&gt;</dt>
+<dd><p>Automatically list choices on an ambiguous completion.
+</p>
+<a name="index-AUTO_005fMENU"></a>
+<a name="index-NO_005fAUTO_005fMENU"></a>
+<a name="index-AUTOMENU"></a>
+<a name="index-NOAUTOMENU"></a>
+<a name="index-completion_002c-menu"></a>
+</dd>
+<dt><tt>AUTO_MENU</tt> &lt;D&gt;</dt>
+<dd><p>Automatically use menu completion after the second consecutive request for
+completion, for example by pressing the tab key repeatedly. This option
+is overridden by <tt>MENU_COMPLETE</tt>.
+</p>
+<a name="index-AUTO_005fNAME_005fDIRS"></a>
+<a name="index-NO_005fAUTO_005fNAME_005fDIRS"></a>
+<a name="index-AUTONAMEDIRS"></a>
+<a name="index-NOAUTONAMEDIRS"></a>
+<a name="index-directories_002c-named"></a>
+</dd>
+<dt><tt>AUTO_NAME_DIRS</tt></dt>
+<dd><p>Any parameter that is set to the absolute name of a directory
+immediately becomes a name for that directory, that will be used
+by the &lsquo;<tt>%~</tt>&rsquo;
+and related prompt sequences, and will be available when completion
+is performed on a word starting with &lsquo;<tt>~</tt>&rsquo;.
+(Otherwise, the parameter must be used in the form &lsquo;<tt>~</tt><var>param</var>&rsquo; first.)
+</p>
+<a name="index-AUTO_005fPARAM_005fKEYS"></a>
+<a name="index-NO_005fAUTO_005fPARAM_005fKEYS"></a>
+<a name="index-AUTOPARAMKEYS"></a>
+<a name="index-NOAUTOPARAMKEYS"></a>
+</dd>
+<dt><tt>AUTO_PARAM_KEYS</tt> &lt;D&gt;</dt>
+<dd><p>If a parameter name was completed and a following character
+(normally a space) automatically
+inserted, and the next character typed is one
+of those that have to come directly after the name (like &lsquo;<tt>}</tt>&rsquo;, &lsquo;<tt>:</tt>&rsquo;,
+etc.), the automatically added character is deleted, so that the character
+typed comes immediately after the parameter name.
+Completion in a brace expansion is affected similarly: the added character
+is a &lsquo;<tt>,</tt>&rsquo;, which will be removed if &lsquo;<tt>}</tt>&rsquo; is typed next.
+</p>
+<a name="index-AUTO_005fPARAM_005fSLASH"></a>
+<a name="index-NO_005fAUTO_005fPARAM_005fSLASH"></a>
+<a name="index-AUTOPARAMSLASH"></a>
+<a name="index-NOAUTOPARAMSLASH"></a>
+</dd>
+<dt><tt>AUTO_PARAM_SLASH</tt> &lt;D&gt;</dt>
+<dd><p>If a parameter is completed whose content is the name of a directory,
+then add a trailing slash instead of a space.
+</p>
+<a name="index-AUTO_005fREMOVE_005fSLASH"></a>
+<a name="index-NO_005fAUTO_005fREMOVE_005fSLASH"></a>
+<a name="index-AUTOREMOVESLASH"></a>
+<a name="index-NOAUTOREMOVESLASH"></a>
+<a name="index-slash_002c-removing-trailing"></a>
+</dd>
+<dt><tt>AUTO_REMOVE_SLASH</tt> &lt;D&gt;</dt>
+<dd><p>When the last character resulting from a completion is a slash and the next
+character typed is a word delimiter, a slash, or a character that ends 
+a command (such as a semicolon or an ampersand), remove the slash.
+</p>
+<a name="index-BASH_005fAUTO_005fLIST"></a>
+<a name="index-NO_005fBASH_005fAUTO_005fLIST"></a>
+<a name="index-BASHAUTOLIST"></a>
+<a name="index-NOBASHAUTOLIST"></a>
+<a name="index-completion_002c-listing-choices_002c-bash-style"></a>
+</dd>
+<dt><tt>BASH_AUTO_LIST</tt></dt>
+<dd><p>On an ambiguous completion, automatically list choices when the
+completion function is called twice in succession.  This takes
+precedence over <tt>AUTO_LIST</tt>.  The setting of <tt>LIST_AMBIGUOUS</tt> is
+respected.  If <tt>AUTO_MENU</tt> is set, the menu behaviour will then start
+with the third press.  Note that this will not work with
+<tt>MENU_COMPLETE</tt>, since repeated completion calls immediately cycle
+through the list in that case.
+</p>
+<a name="index-COMPLETE_005fALIASES"></a>
+<a name="index-NO_005fCOMPLETE_005fALIASES"></a>
+<a name="index-COMPLETEALIASES"></a>
+<a name="index-NOCOMPLETEALIASES"></a>
+<a name="index-aliases_002c-completion-of"></a>
+</dd>
+<dt><tt>COMPLETE_ALIASES</tt></dt>
+<dd><p>Prevents aliases on the command line from being internally substituted
+before completion is attempted.  The effect is to make the alias a
+distinct command for completion purposes.
+</p>
+<a name="index-COMPLETE_005fIN_005fWORD"></a>
+<a name="index-NO_005fCOMPLETE_005fIN_005fWORD"></a>
+<a name="index-COMPLETEINWORD"></a>
+<a name="index-NOCOMPLETEINWORD"></a>
+</dd>
+<dt><tt>COMPLETE_IN_WORD</tt></dt>
+<dd><p>If unset, the cursor is set to the end of the word if completion is
+started. Otherwise it stays there and completion is done from both ends.
+</p>
+<a name="index-GLOB_005fCOMPLETE"></a>
+<a name="index-NO_005fGLOB_005fCOMPLETE"></a>
+<a name="index-GLOBCOMPLETE"></a>
+<a name="index-NOGLOBCOMPLETE"></a>
+</dd>
+<dt><tt>GLOB_COMPLETE</tt></dt>
+<dd><p>When the current word has a glob pattern, do not insert all the words
+resulting from the expansion but generate matches as for completion and
+cycle through them like <tt>MENU_COMPLETE</tt>. The matches are generated as if
+a &lsquo;<tt>*</tt>&rsquo; was added to the end of the word, or inserted at the cursor when
+<tt>COMPLETE_IN_WORD</tt> is set.  This actually uses pattern matching, not
+globbing, so it works not only for files but for any completion, such as
+options, user names, etc.
+</p>
+<p>Note that when the pattern matcher is used, matching control (for example,
+case-insensitive or anchored matching) cannot be used.  This limitation
+only applies when the current word contains a pattern; simply turning
+on the <tt>GLOB_COMPLETE</tt> option does not have this effect.
+</p>
+<a name="index-HASH_005fLIST_005fALL"></a>
+<a name="index-NO_005fHASH_005fLIST_005fALL"></a>
+<a name="index-HASHLISTALL"></a>
+<a name="index-NOHASHLISTALL"></a>
+</dd>
+<dt><tt>HASH_LIST_ALL</tt> &lt;D&gt;</dt>
+<dd><p>Whenever a command completion or spelling correction is attempted, make
+sure the entire command path is hashed first.  This makes the first
+completion slower but avoids false reports of spelling errors.
+</p>
+<a name="index-LIST_005fAMBIGUOUS"></a>
+<a name="index-NO_005fLIST_005fAMBIGUOUS"></a>
+<a name="index-LISTAMBIGUOUS"></a>
+<a name="index-NOLISTAMBIGUOUS"></a>
+<a name="index-ambiguous-completion"></a>
+<a name="index-completion_002c-ambiguous"></a>
+</dd>
+<dt><tt>LIST_AMBIGUOUS</tt> &lt;D&gt;</dt>
+<dd><p>This option works when <tt>AUTO_LIST</tt> or <tt>BASH_AUTO_LIST</tt> is also
+set.  If there is an unambiguous prefix to insert on the command line,
+that is done without a completion list being displayed; in other
+words, auto-listing behaviour only takes place when nothing would be
+inserted.  In the case of <tt>BASH_AUTO_LIST</tt>, this means that the list
+will be delayed to the third call of the function.
+</p>
+<a name="index-LIST_005fBEEP"></a>
+<a name="index-NO_005fLIST_005fBEEP"></a>
+<a name="index-LISTBEEP"></a>
+<a name="index-NOLISTBEEP"></a>
+<a name="index-beep_002c-ambiguous-completion"></a>
+<a name="index-completion_002c-beep-on-ambiguous"></a>
+</dd>
+<dt><tt>LIST_BEEP</tt> &lt;D&gt;</dt>
+<dd><p>Beep on an ambiguous completion.  More accurately, this forces the
+completion widgets to return status 1 on an ambiguous completion, which
+causes the shell to beep if the option <tt>BEEP</tt> is also set; this may
+be modified if completion is called from a user-defined widget.
+</p>
+<a name="index-LIST_005fPACKED"></a>
+<a name="index-NO_005fLIST_005fPACKED"></a>
+<a name="index-LISTPACKED"></a>
+<a name="index-NOLISTPACKED"></a>
+<a name="index-completion_002c-listing"></a>
+</dd>
+<dt><tt>LIST_PACKED</tt></dt>
+<dd><p>Try to make the completion list smaller (occupying less lines) by
+printing the matches in columns with different widths.
+</p>
+<a name="index-LIST_005fROWS_005fFIRST"></a>
+<a name="index-NO_005fLIST_005fROWS_005fFIRST"></a>
+<a name="index-LISTROWSFIRST"></a>
+<a name="index-NOLISTROWSFIRST"></a>
+<a name="index-completion_002c-listing-order"></a>
+</dd>
+<dt><tt>LIST_ROWS_FIRST</tt></dt>
+<dd><p>Lay out the matches in completion lists sorted horizontally, that is,
+the second match is to the right of the first one, not under it as
+usual.
+</p>
+<a name="index-LIST_005fTYPES"></a>
+<a name="index-NO_005fLIST_005fTYPES"></a>
+<a name="index-LISTTYPES"></a>
+<a name="index-NOLISTTYPES"></a>
+<a name="index-marking-file-types"></a>
+<a name="index-files_002c-marking-type-of"></a>
+</dd>
+<dt><tt>LIST_TYPES</tt> (<tt>-X</tt>) &lt;D&gt;</dt>
+<dd><p>When listing files that are possible completions, show the
+type of each file with a trailing identifying mark.
+</p>
+<a name="index-MENU_005fCOMPLETE"></a>
+<a name="index-NO_005fMENU_005fCOMPLETE"></a>
+<a name="index-MENUCOMPLETE"></a>
+<a name="index-NOMENUCOMPLETE"></a>
+<a name="index-completion_002c-menu-1"></a>
+</dd>
+<dt><tt>MENU_COMPLETE</tt> (<tt>-Y</tt>)</dt>
+<dd><p>On an ambiguous completion, instead of listing possibilities or beeping,
+insert the first match immediately.  Then when completion is requested
+again, remove the first match and insert the second match, etc.
+When there are no more matches, go back to the first one again.
+<tt>reverse-menu-complete</tt> may be used to loop through the list
+in the other direction. This option overrides <tt>AUTO_MENU</tt>.
+</p>
+<a name="index-REC_005fEXACT"></a>
+<a name="index-NO_005fREC_005fEXACT"></a>
+<a name="index-RECEXACT"></a>
+<a name="index-NORECEXACT"></a>
+<a name="index-completion_002c-exact-matches"></a>
+</dd>
+<dt><tt>REC_EXACT</tt> (<tt>-S</tt>)</dt>
+<dd><p>If the string on the command line exactly matches one of the possible
+completions, it is accepted, even if there is another completion (i.e. that
+string with something else added) that also matches.
+</p>
+</dd>
+</dl>
+
+
+<hr>
+<a name="Expansion-and-Globbing"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Completion-4" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-of-Options" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#History" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">16.2.3 Expansion and Globbing</h3>
+<dl compact="compact">
+<dd><a name="index-BAD_005fPATTERN"></a>
+<a name="index-NO_005fBAD_005fPATTERN"></a>
+<a name="index-BADPATTERN"></a>
+<a name="index-NOBADPATTERN"></a>
+<a name="index-globbing_002c-bad-pattern"></a>
+<a name="index-filename-generation_002c-bad-pattern"></a>
+</dd>
+<dt><tt>BAD_PATTERN</tt> (<tt>+2</tt>) &lt;C&gt; &lt;Z&gt;</dt>
+<dd><p>If a pattern for filename generation is badly formed, print an error message.
+(If this option is unset, the pattern will be left unchanged.)
+</p>
+<a name="index-BARE_005fGLOB_005fQUAL"></a>
+<a name="index-NO_005fBARE_005fGLOB_005fQUAL"></a>
+<a name="index-BAREGLOBQUAL"></a>
+<a name="index-NOBAREGLOBQUAL"></a>
+<a name="index-globbing-qualifiers_002c-enable"></a>
+<a name="index-enable-globbing-qualifiers"></a>
+</dd>
+<dt><tt>BARE_GLOB_QUAL</tt> &lt;Z&gt;</dt>
+<dd><p>In a glob pattern, treat a trailing set of parentheses as a qualifier
+list, if it contains no &lsquo;<tt>|</tt>&rsquo;, &lsquo;<tt>(</tt>&rsquo; or (if special) &lsquo;<tt>~</tt>&rsquo;
+characters.  See <a href="Expansion.html#Filename-Generation">Filename Generation</a>.
+</p>
+<a name="index-BRACE_005fCCL"></a>
+<a name="index-NO_005fBRACE_005fCCL"></a>
+<a name="index-BRACECCL"></a>
+<a name="index-NOBRACECCL"></a>
+<a name="index-brace-expansion_002c-extending"></a>
+<a name="index-expansion_002c-brace_002c-extending"></a>
+</dd>
+<dt><tt>BRACE_CCL</tt></dt>
+<dd><p>Expand expressions in braces which would not otherwise undergo brace
+expansion to a lexically ordered list of all the characters.  See
+<a href="Expansion.html#Brace-Expansion">Brace Expansion</a>.
+</p>
+<a name="index-CASE_005fGLOB"></a>
+<a name="index-NO_005fCASE_005fGLOB"></a>
+<a name="index-CASEGLOB"></a>
+<a name="index-NOCASEGLOB"></a>
+<a name="index-case_002dinsensitive-globbing_002c-option"></a>
+</dd>
+<dt><tt>CASE_GLOB</tt> &lt;D&gt;</dt>
+<dd><p>Make globbing (filename generation) sensitive to case.  Note that other
+uses of patterns are always sensitive to case.  If the option is unset,
+the presence of any character which is special to filename generation
+will cause case-insensitive matching.  For example, <tt>cvs(/)</tt>
+can match the directory <tt>CVS</tt> owing to the presence of the globbing flag
+(unless the option <tt>BARE_GLOB_QUAL</tt> is unset).
+</p>
+<a name="index-CASE_005fMATCH"></a>
+<a name="index-NO_005fCASE_005fMATCH"></a>
+<a name="index-CASEMATCH"></a>
+<a name="index-NOCASEMATCH"></a>
+<a name="index-case_002dinsensitive-regular-expression-matches_002c-option"></a>
+<a name="index-regular-expressions_002c-case_002dinsensitive-matching_002c-option"></a>
+</dd>
+<dt><tt>CASE_MATCH</tt> &lt;D&gt;</dt>
+<dd><p>Make regular expressions using the <tt>zsh/regex</tt> module (including
+matches with <tt>=~</tt>) sensitive to case.
+</p>
+<a name="index-CSH_005fNULL_005fGLOB"></a>
+<a name="index-NO_005fCSH_005fNULL_005fGLOB"></a>
+<a name="index-CSHNULLGLOB"></a>
+<a name="index-NOCSHNULLGLOB"></a>
+<a name="index-csh_002c-null-globbing-style"></a>
+<a name="index-null-globbing-style_002c-csh"></a>
+<a name="index-globbing_002c-null_002c-style_002c-csh"></a>
+</dd>
+<dt><tt>CSH_NULL_GLOB</tt> &lt;C&gt;</dt>
+<dd><p>If a pattern for filename generation has no matches,
+delete the pattern from the argument list;
+do not report an error unless all the patterns
+in a command have no matches.
+Overrides <tt>NOMATCH</tt>.
+</p>
+<a name="index-EQUALS"></a>
+<a name="index-NO_005fEQUALS"></a>
+<a name="index-NOEQUALS"></a>
+<a name="index-filename-expansion_002c-_003d"></a>
+</dd>
+<dt><tt>EQUALS</tt> &lt;Z&gt;</dt>
+<dd><p>Perform <tt>=</tt> filename expansion.
+(See <a href="Expansion.html#Filename-Expansion">Filename Expansion</a>.)
+</p>
+<a name="index-EXTENDED_005fGLOB"></a>
+<a name="index-NO_005fEXTENDED_005fGLOB"></a>
+<a name="index-EXTENDEDGLOB"></a>
+<a name="index-NOEXTENDEDGLOB"></a>
+<a name="index-globbing_002c-extended"></a>
+</dd>
+<dt><tt>EXTENDED_GLOB</tt></dt>
+<dd><p>Treat the &lsquo;<tt>#</tt>&rsquo;, &lsquo;<tt>~</tt>&rsquo; and &lsquo;<tt>^</tt>&rsquo; characters as part of patterns
+for filename generation, etc.  (An initial unquoted &lsquo;<tt>~</tt>&rsquo;
+always produces named directory expansion.)
+</p>
+<a name="index-FORCE_005fFLOAT"></a>
+<a name="index-NO_005fFORCE_005fFLOAT"></a>
+<a name="index-FORCEFLOAT"></a>
+<a name="index-NOFORCEFLOAT"></a>
+<a name="index-floating-point_002c-forcing-use-of"></a>
+<a name="index-forcing-use-of-floating-point"></a>
+</dd>
+<dt><tt>FORCE_FLOAT</tt></dt>
+<dd><p>Constants in arithmetic evaluation will be treated as
+floating point even without the use of a decimal point; the
+values of integer variables will be converted to floating point when
+used in arithmetic expressions.  Integers in any base will be converted.
+</p>
+<a name="index-GLOB"></a>
+<a name="index-NO_005fGLOB"></a>
+<a name="index-NOGLOB"></a>
+<a name="index-globbing_002c-enabling"></a>
+<a name="index-enabling-globbing"></a>
+</dd>
+<dt><tt>GLOB</tt> (<tt>+F</tt>, ksh: <tt>+f</tt>) &lt;D&gt;</dt>
+<dd><p>Perform filename generation (globbing).
+(See <a href="Expansion.html#Filename-Generation">Filename Generation</a>.)
+</p>
+<a name="index-GLOB_005fASSIGN"></a>
+<a name="index-NO_005fGLOB_005fASSIGN"></a>
+<a name="index-GLOBASSIGN"></a>
+<a name="index-NOGLOBASSIGN"></a>
+</dd>
+<dt><tt>GLOB_ASSIGN</tt> &lt;C&gt;</dt>
+<dd><p>If this option is set, filename generation (globbing) is
+performed on the right hand side of scalar parameter assignments of
+the form &lsquo;<var>name</var><tt>=</tt><var>pattern</var> (e.g. &lsquo;<tt>foo=*</tt>&rsquo;).
+If the result has more than one word the parameter will become an array
+with those words as arguments. This option is provided for backwards
+compatibility only: globbing is always performed on the right hand side
+of array assignments of the form &lsquo;<var>name</var><tt>=(</tt><var>value</var><tt>)</tt>&rsquo;
+(e.g. &lsquo;<tt>foo=(*)</tt>&rsquo;) and this form is recommended for clarity;
+with this option set, it is not possible to predict whether the result
+will be an array or a scalar.
+</p>
+<a name="index-GLOB_005fDOTS"></a>
+<a name="index-NO_005fGLOB_005fDOTS"></a>
+<a name="index-GLOBDOTS"></a>
+<a name="index-NOGLOBDOTS"></a>
+<a name="index-globbing_002c-of-_002e-files"></a>
+</dd>
+<dt><tt>GLOB_DOTS</tt> (<tt>-4</tt>)</dt>
+<dd><p>Do not require a leading &lsquo;<tt>.</tt>&rsquo; in a filename to be matched explicitly.
+</p>
+<a name="index-GLOB_005fSTAR_005fSHORT"></a>
+<a name="index-NO_005fGLOB_005fSTAR_005fSHORT"></a>
+<a name="index-GLOBSTARSHORT"></a>
+<a name="index-NOGLOBSTARSHORT"></a>
+<a name="index-globbing_002c-short-forms"></a>
+<a name="index-globbing_002c-_002a_002a-special"></a>
+</dd>
+<dt><tt>GLOB_STAR_SHORT</tt></dt>
+<dd><p>When this option is set and the default zsh-style globbing is in
+effect, the pattern &lsquo;<tt>**/*</tt>&rsquo; can be abbreviated to &lsquo;<tt>**</tt>&rsquo; and the
+pattern &lsquo;<tt>***/*</tt>&rsquo; can be abbreviated to <tt>***</tt>.  Hence &lsquo;<tt>**.c</tt>&rsquo;
+finds a file ending in <tt>.c</tt> in any subdirectory, and &lsquo;<tt>***.c</tt>&rsquo; does
+the same while also following symbolic links.  A <tt>/</tt> immediately
+after the &lsquo;<tt>**</tt>&rsquo; or &lsquo;<tt>***</tt>&rsquo; forces the pattern to be treated as the
+unabbreviated form.
+</p>
+<a name="index-GLOB_005fSUBST"></a>
+<a name="index-NO_005fGLOB_005fSUBST"></a>
+<a name="index-GLOBSUBST"></a>
+<a name="index-NOGLOBSUBST"></a>
+</dd>
+<dt><tt>GLOB_SUBST</tt> &lt;C&gt; &lt;K&gt; &lt;S&gt;</dt>
+<dd><p>Treat any characters resulting from parameter expansion as being
+eligible for filename expansion and filename generation, and any
+characters resulting from command substitution as being eligible for
+filename generation.  Braces (and commas in between) do not become eligible
+for expansion.
+</p>
+<a name="index-HIST_005fSUBST_005fPATTERN"></a>
+<a name="index-NO_005fHIST_005fSUBST_005fPATTERN"></a>
+<a name="index-HISTSUBSTPATTERN"></a>
+<a name="index-NOHISTSUBSTPATTERN"></a>
+</dd>
+<dt><tt>HIST_SUBST_PATTERN</tt></dt>
+<dd><p>Substitutions using the <tt>:s</tt> and <tt>:&amp;</tt> history modifiers are performed
+with pattern matching instead of string matching.  This occurs wherever
+history modifiers are valid, including glob qualifiers and parameters.
+See
+<a href="Expansion.html#Modifiers">Modifiers</a>.
+</p>
+<a name="index-IGNORE_005fBRACES"></a>
+<a name="index-NO_005fIGNORE_005fBRACES"></a>
+<a name="index-IGNOREBRACES"></a>
+<a name="index-NOIGNOREBRACES"></a>
+<a name="index-disabling-brace-expansion"></a>
+<a name="index-brace-expansion_002c-disabling"></a>
+<a name="index-expansion_002c-brace_002c-disabling"></a>
+</dd>
+<dt><tt>IGNORE_BRACES</tt> (<tt>-I</tt>) &lt;S&gt;</dt>
+<dd><p>Do not perform brace expansion.  For historical reasons this
+also includes the effect of the <tt>IGNORE_CLOSE_BRACES</tt> option.
+</p>
+<a name="index-IGNORE_005fCLOSE_005fBRACES"></a>
+<a name="index-NO_005fIGNORE_005fCLOSE_005fBRACES"></a>
+<a name="index-IGNORECLOSEBRACES"></a>
+<a name="index-NOIGNORECLOSEBRACES"></a>
+</dd>
+<dt><tt>IGNORE_CLOSE_BRACES</tt></dt>
+<dd><p>When neither this option nor <tt>IGNORE_BRACES</tt> is set, a sole
+close brace character &lsquo;<tt>}</tt>&rsquo; is syntactically significant at any
+point on a command line.  This has the effect that no semicolon
+or newline is necessary before the brace terminating a function
+or current shell construct.  When either option is set, a closing brace
+is syntactically significant only in command position.  Unlike
+<tt>IGNORE_BRACES</tt>, this option does not disable brace expansion.
+</p>
+<p>For example, with both options unset a function may be defined
+in the following fashion:
+</p>
+<div class="example">
+<pre class="example">args() { echo $# }
+</pre></div>
+
+<p>while if either option is set, this does not work and something
+equivalent to the following is required:
+</p>
+<div class="example">
+<pre class="example">args() { echo $#; }
+</pre></div>
+
+
+<a name="index-KSH_005fGLOB"></a>
+<a name="index-NO_005fKSH_005fGLOB"></a>
+<a name="index-KSHGLOB"></a>
+<a name="index-NOKSHGLOB"></a>
+</dd>
+<dt><tt>KSH_GLOB</tt> &lt;K&gt;</dt>
+<dd><p>In pattern matching, the interpretation of parentheses is affected by
+a preceding &lsquo;<tt>@</tt>&rsquo;, &lsquo;<tt>*</tt>&rsquo;, &lsquo;<tt>+</tt>&rsquo;, &lsquo;<tt>?</tt>&rsquo; or &lsquo;<tt>!</tt>&rsquo;.
+See <a href="Expansion.html#Filename-Generation">Filename Generation</a>.
+</p>
+<a name="index-MAGIC_005fEQUAL_005fSUBST"></a>
+<a name="index-NO_005fMAGIC_005fEQUAL_005fSUBST"></a>
+<a name="index-MAGICEQUALSUBST"></a>
+<a name="index-NOMAGICEQUALSUBST"></a>
+</dd>
+<dt><tt>MAGIC_EQUAL_SUBST</tt></dt>
+<dd><p>All unquoted arguments of the form &lsquo;<var>anything</var><tt>=</tt><var>expression</var>&rsquo;
+appearing after the command name have filename expansion (that is,
+where <var>expression</var> has a leading &lsquo;<tt>~</tt>&rsquo; or &lsquo;<tt>=</tt>&rsquo;) performed on
+<var>expression</var> as if it were a parameter assignment.  The argument is
+not otherwise treated specially; it is passed to the command as a single
+argument, and not used as an actual parameter assignment.  For example, in
+<tt>echo foo=~/bar:~/rod</tt>, both occurrences of <tt>~</tt> would be replaced.
+Note that this happens anyway with <tt>typeset</tt> and similar statements.
+</p>
+<p>This option respects the setting of the <tt>KSH_TYPESET</tt> option.  In other
+words, if both options are in effect, arguments looking like
+assignments will not undergo word splitting.
+</p>
+<a name="index-MARK_005fDIRS"></a>
+<a name="index-NO_005fMARK_005fDIRS"></a>
+<a name="index-MARKDIRS"></a>
+<a name="index-NOMARKDIRS"></a>
+<a name="index-directories_002c-marking"></a>
+<a name="index-marking-directories"></a>
+</dd>
+<dt><tt>MARK_DIRS</tt> (<tt>-8</tt>, ksh: <tt>-X</tt>)</dt>
+<dd><p>Append a trailing &lsquo;<tt>/</tt>&rsquo; to all directory
+names resulting from filename generation (globbing).
+</p>
+<a name="index-MULTIBYTE"></a>
+<a name="index-NO_005fMULTIBYTE"></a>
+<a name="index-NOMULTIBYTE"></a>
+<a name="index-characters_002c-multibyte_002c-in-expansion-and-globbing"></a>
+<a name="index-multibyte-characters_002c-in-expansion-and-globbing"></a>
+</dd>
+<dt><tt>MULTIBYTE</tt> &lt;D&gt;</dt>
+<dd><p>Respect multibyte characters when found in strings.
+When this option is set, strings are examined using the
+system library to determine how many bytes form a character, depending
+on the current locale.  This affects the way characters are counted in
+pattern matching, parameter values and various delimiters.
+</p>
+<p>The option is on by default if the shell was compiled with
+<tt>MULTIBYTE_SUPPORT</tt>; otherwise it is off by default and has no effect
+if turned on.
+</p>
+<p>If the option is off a single byte is always treated as a single
+character.  This setting is designed purely for examining strings
+known to contain raw bytes or other values that may not be characters
+in the current locale.  It is not necessary to unset the option merely
+because the character set for the current locale does not contain multibyte
+characters.
+</p>
+<p>The option does not affect the shell&rsquo;s editor,  which always uses the
+locale to determine multibyte characters.  This is because
+the character set displayed by the terminal emulator is independent of
+shell settings.
+</p>
+<a name="index-NOMATCH"></a>
+<a name="index-NO_005fNOMATCH"></a>
+<a name="index-NONOMATCH"></a>
+<a name="index-globbing_002c-no-matches"></a>
+</dd>
+<dt><tt>NOMATCH</tt> (<tt>+3</tt>) &lt;C&gt; &lt;Z&gt;</dt>
+<dd><p>If a pattern for filename generation has no matches,
+print an error, instead of
+leaving it unchanged in the argument list.
+This also applies to file expansion
+of an initial &lsquo;<tt>~</tt>&rsquo; or &lsquo;<tt>=</tt>&rsquo;.
+</p>
+<a name="index-NULL_005fGLOB"></a>
+<a name="index-NO_005fNULL_005fGLOB"></a>
+<a name="index-NULLGLOB"></a>
+<a name="index-NONULLGLOB"></a>
+<a name="index-globbing_002c-no-matches-1"></a>
+</dd>
+<dt><tt>NULL_GLOB</tt> (<tt>-G</tt>)</dt>
+<dd><p>If a pattern for filename generation has no matches,
+delete the pattern from the argument list instead
+of reporting an error.  Overrides <tt>NOMATCH</tt>.
+</p>
+<a name="index-NUMERIC_005fGLOB_005fSORT"></a>
+<a name="index-NO_005fNUMERIC_005fGLOB_005fSORT"></a>
+<a name="index-NUMERICGLOBSORT"></a>
+<a name="index-NONUMERICGLOBSORT"></a>
+<a name="index-globbing_002c-sorting-numerically"></a>
+</dd>
+<dt><tt>NUMERIC_GLOB_SORT</tt></dt>
+<dd><p>If numeric filenames are matched by a filename generation pattern,
+sort the filenames numerically rather than lexicographically.
+</p>
+<a name="index-RC_005fEXPAND_005fPARAM"></a>
+<a name="index-NO_005fRC_005fEXPAND_005fPARAM"></a>
+<a name="index-RCEXPANDPARAM"></a>
+<a name="index-NORCEXPANDPARAM"></a>
+<a name="index-rc_002c-parameter-expansion-style"></a>
+<a name="index-parameter-expansion-style_002c-rc"></a>
+</dd>
+<dt><tt>RC_EXPAND_PARAM</tt> (<tt>-P</tt>)</dt>
+<dd><p>Array expansions of the form
+&lsquo;<var>foo</var><tt>${</tt><var>xx</var><tt>}</tt><var>bar</var>&rsquo;, where the parameter
+<var>xx</var> is set to <tt>(</tt><var>a b c</var><tt>)</tt>, are substituted with
+&lsquo;<var>fooabar foobbar foocbar</var>&rsquo; instead of the default
+&lsquo;<var>fooa b cbar</var>&rsquo;.  Note that an empty array will therefore cause
+all arguments to be removed.
+</p>
+<a name="index-REMATCH_005fPCRE"></a>
+<a name="index-NO_005fREMATCH_005fPCRE"></a>
+<a name="index-REMATCHPCRE"></a>
+<a name="index-NOREMATCHPCRE"></a>
+<a name="index-regexp_002c-PCRE"></a>
+<a name="index-PCRE_002c-regexp"></a>
+</dd>
+<dt><tt>REMATCH_PCRE</tt></dt>
+<dd><p>If set, regular expression matching with the <tt>=~</tt> operator will use
+Perl-Compatible Regular Expressions from the PCRE library.
+(The <tt>zsh/pcre</tt> module must be available.)
+If not set, regular expressions will use the extended regexp syntax
+provided by the system libraries.
+</p>
+<a name="index-SH_005fGLOB"></a>
+<a name="index-NO_005fSH_005fGLOB"></a>
+<a name="index-SHGLOB"></a>
+<a name="index-NOSHGLOB"></a>
+<a name="index-sh_002c-globbing-style"></a>
+<a name="index-globbing-style_002c-sh"></a>
+</dd>
+<dt><tt>SH_GLOB</tt> &lt;K&gt; &lt;S&gt;</dt>
+<dd><p>Disables the special meaning of &lsquo;<tt>(</tt>&rsquo;, &lsquo;<tt>|</tt>&rsquo;, &lsquo;<tt>)</tt>&rsquo;
+and &rsquo;<tt>&lt;</tt>&rsquo; for globbing the result of parameter and command substitutions,
+and in some other places where
+the shell accepts patterns.  If <tt>SH_GLOB</tt> is set but <tt>KSH_GLOB</tt> is
+not, the shell allows the interpretation of
+subshell expressions enclosed in parentheses in some cases where there
+is no space before the opening parenthesis, e.g. <tt>!(true)</tt>
+is interpreted as if there were a space after the <tt>!</tt>.  This option is
+set by default if zsh is invoked as <tt>sh</tt> or <tt>ksh</tt>.
+</p>
+<a name="index-UNSET"></a>
+<a name="index-NO_005fUNSET"></a>
+<a name="index-NOUNSET"></a>
+<a name="index-parameters_002c-substituting-unset"></a>
+<a name="index-unset-parameters_002c-substituting"></a>
+</dd>
+<dt><tt>UNSET</tt> (<tt>+u</tt>, ksh: <tt>+u</tt>) &lt;K&gt; &lt;S&gt; &lt;Z&gt;</dt>
+<dd><p>Treat unset parameters as if they were empty when substituting, and as if
+they were zero when reading their values in arithmetic expansion and
+arithmetic commands.
+Otherwise they are treated as an error.
+</p>
+<a name="index-WARN_005fCREATE_005fGLOBAL"></a>
+<a name="index-NO_005fWARN_005fCREATE_005fGLOBAL"></a>
+<a name="index-WARNCREATEGLOBAL"></a>
+<a name="index-NOWARNCREATEGLOBAL"></a>
+<a name="index-parameters_002c-warning-when-created-globally"></a>
+</dd>
+<dt><tt>WARN_CREATE_GLOBAL</tt></dt>
+<dd><p>Print a warning message when a global parameter is created in a function
+by an assignment or in math context.
+This often indicates that a parameter has not been
+declared local when it should have been.  Parameters explicitly declared
+global from within a function using <tt>typeset -g</tt> do not cause a warning.
+Note that there is no warning when a local parameter is assigned to in
+a nested function, which may also indicate an error.
+</p>
+<a name="index-WARN_005fNESTED_005fVAR"></a>
+<a name="index-NO_005fWARN_005fNESTED_005fVAR"></a>
+<a name="index-WARNNESTEDVAR"></a>
+<a name="index-NO_005fWARNNESTEDVAR"></a>
+<a name="index-parameters_002c-warning-when-setting-in-enclosing-scope"></a>
+</dd>
+<dt><tt>WARN_NESTED_VAR</tt></dt>
+<dd><p>Print a warning message when an existing parameter from an
+enclosing function scope, or global, is set in a function
+by an assignment or in math context.  Assignment to shell
+special parameters does not cause a warning.  This is the companion
+to <tt>WARN_CREATE_GLOBAL</tt> as in this case the warning is only
+printed when a parameter is <em>not</em> created.  Where possible,
+use of <tt>typeset -g</tt> to set the parameter suppresses the error,
+but note that this needs to be used every time the parameter is set.
+To restrict the effect of this option to a single function scope,
+use &lsquo;<tt>functions -W</tt>&rsquo;.
+</p>
+<p>For example, the following code produces a warning for the assignment
+inside the function <tt>nested</tt> as that overrides the value within
+<tt>toplevel</tt>
+</p>
+<div class="example">
+<pre class="example">toplevel() {
+  local foo=&quot;in fn&quot;
+  nested
+}
+nested() {
+     foo=&quot;in nested&quot;
+}
+setopt warn_nested_var
+toplevel
+</pre></div>
+
+</dd>
+</dl>
+
+
+<hr>
+<a name="History"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Expansion-and-Globbing" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-of-Options" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Initialisation" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">16.2.4 History</h3>
+<dl compact="compact">
+<dd><a name="index-APPEND_005fHISTORY"></a>
+<a name="index-NO_005fAPPEND_005fHISTORY"></a>
+<a name="index-APPENDHISTORY"></a>
+<a name="index-NOAPPENDHISTORY"></a>
+<a name="index-history_002c-appending-to-a-file"></a>
+</dd>
+<dt><tt>APPEND_HISTORY</tt> &lt;D&gt;</dt>
+<dd><p>If this is set, zsh sessions will append their history list to
+the history file, rather than replace it. Thus, multiple parallel
+zsh sessions will all have the new entries from their history lists
+added to the history file, in the order that they exit.
+The file will still be periodically re-written to trim it when the
+number of lines grows 20% beyond the value specified by
+<tt>$SAVEHIST</tt> (see also the <tt>HIST_SAVE_BY_COPY</tt> option).
+</p>
+<a name="index-BANG_005fHIST"></a>
+<a name="index-NO_005fBANG_005fHIST"></a>
+<a name="index-BANGHIST"></a>
+<a name="index-NOBANGHIST"></a>
+<a name="index-history_002c-enable-substitution"></a>
+<a name="index-enable-history-substitution"></a>
+</dd>
+<dt><tt>BANG_HIST</tt> (<tt>+K</tt>) &lt;C&gt; &lt;Z&gt;</dt>
+<dd><p>Perform textual history expansion, <cite>csh</cite>-style,
+treating the character &lsquo;<tt>!</tt>&rsquo; specially.
+</p>
+<a name="index-EXTENDED_005fHISTORY"></a>
+<a name="index-NO_005fEXTENDED_005fHISTORY"></a>
+<a name="index-EXTENDEDHISTORY"></a>
+<a name="index-NOEXTENDEDHISTORY"></a>
+<a name="index-history_002c-timestamping"></a>
+</dd>
+<dt><tt>EXTENDED_HISTORY</tt> &lt;C&gt;</dt>
+<dd><p>Save each command&rsquo;s beginning timestamp (in seconds since the epoch)
+and the duration (in seconds) to the history file.  The format of
+this prefixed data is:
+</p>
+<p>&lsquo;<tt>: </tt><var>&lt;beginning time&gt;</var><tt>:</tt><var>&lt;elapsed seconds&gt;</var><tt>;</tt><var>&lt;command&gt;</var>&rsquo;.
+</p>
+<a name="index-HIST_005fALLOW_005fCLOBBER"></a>
+<a name="index-NO_005fHIST_005fALLOW_005fCLOBBER"></a>
+<a name="index-HISTALLOWCLOBBER"></a>
+<a name="index-NOHISTALLOWCLOBBER"></a>
+</dd>
+<dt><tt>HIST_ALLOW_CLOBBER</tt></dt>
+<dd><p>Add &lsquo;<tt>|</tt>&rsquo; to output redirections in the history.  This allows history
+references to clobber files even when <tt>CLOBBER</tt> is unset.
+</p>
+<a name="index-HIST_005fBEEP"></a>
+<a name="index-NO_005fHIST_005fBEEP"></a>
+<a name="index-HISTBEEP"></a>
+<a name="index-NOHISTBEEP"></a>
+<a name="index-history-beeping"></a>
+<a name="index-beep_002c-history"></a>
+</dd>
+<dt><tt>HIST_BEEP</tt> &lt;D&gt;</dt>
+<dd><p>Beep in ZLE when a widget attempts to access a history entry which
+isn&rsquo;t there.
+</p>
+<a name="index-HIST_005fEXPIRE_005fDUPS_005fFIRST"></a>
+<a name="index-NO_005fHIST_005fEXPIRE_005fDUPS_005fFIRST"></a>
+<a name="index-HISTEXPIREDUPSFIRST"></a>
+<a name="index-NOHISTEXPIREDUPSFIRST"></a>
+<a name="index-history_002c-expiring-duplicates"></a>
+</dd>
+<dt><tt>HIST_EXPIRE_DUPS_FIRST</tt></dt>
+<dd><p>If the internal history needs to be trimmed to add the current command line,
+setting this option will cause the oldest history event that has a duplicate
+to be lost before losing a unique event from the list.
+You should be sure to set the value of <tt>HISTSIZE</tt> to a larger number
+than <tt>SAVEHIST</tt> in order to give you some room for the duplicated
+events, otherwise this option will behave just like
+<tt>HIST_IGNORE_ALL_DUPS</tt> once the history fills up with unique events.
+</p>
+<a name="index-HIST_005fFCNTL_005fLOCK"></a>
+<a name="index-NO_005fHIST_005fFCNTL_005fLOCK"></a>
+<a name="index-HISTFCNTLLOCK"></a>
+<a name="index-NOHISTFCNTLLOCK"></a>
+</dd>
+<dt><tt>HIST_FCNTL_LOCK</tt></dt>
+<dd><p>When writing out the history file, by default zsh uses ad-hoc file locking
+to avoid known problems with locking on some operating systems.  With this
+option locking is done by means of the system&rsquo;s <tt>fcntl</tt> call, where
+this method is available.  On recent operating systems this may
+provide better performance, in particular avoiding history corruption when
+files are stored on NFS.
+</p>
+<a name="index-HIST_005fFIND_005fNO_005fDUPS"></a>
+<a name="index-NO_005fHIST_005fFIND_005fNO_005fDUPS"></a>
+<a name="index-HISTFINDNODUPS"></a>
+<a name="index-NOHISTFINDNODUPS"></a>
+<a name="index-history_002c-ignoring-duplicates-in-search"></a>
+</dd>
+<dt><tt>HIST_FIND_NO_DUPS</tt></dt>
+<dd><p>When searching for history entries in the line editor, do not display
+duplicates of a line previously found, even if the duplicates are not
+contiguous.
+</p>
+<a name="index-HIST_005fIGNORE_005fALL_005fDUPS"></a>
+<a name="index-NO_005fHIST_005fIGNORE_005fALL_005fDUPS"></a>
+<a name="index-HISTIGNOREALLDUPS"></a>
+<a name="index-NOHISTIGNOREALLDUPS"></a>
+<a name="index-history_002c-ignoring-all-duplicates"></a>
+</dd>
+<dt><tt>HIST_IGNORE_ALL_DUPS</tt></dt>
+<dd><p>If a new command line being added to the history list duplicates an
+older one, the older command is removed from the list (even if it is
+not the previous event).
+</p>
+<a name="index-HIST_005fIGNORE_005fDUPS"></a>
+<a name="index-NO_005fHIST_005fIGNORE_005fDUPS"></a>
+<a name="index-HISTIGNOREDUPS"></a>
+<a name="index-NOHISTIGNOREDUPS"></a>
+<a name="index-history_002c-ignoring-duplicates"></a>
+</dd>
+<dt><tt>HIST_IGNORE_DUPS</tt> (<tt>-h</tt>)</dt>
+<dd><p>Do not enter command lines into the history list
+if they are duplicates of the previous event.
+</p>
+<a name="index-HIST_005fIGNORE_005fSPACE"></a>
+<a name="index-NO_005fHIST_005fIGNORE_005fSPACE"></a>
+<a name="index-HISTIGNORESPACE"></a>
+<a name="index-NOHISTIGNORESPACE"></a>
+<a name="index-history_002c-ignoring-spaces"></a>
+</dd>
+<dt><tt>HIST_IGNORE_SPACE</tt> (<tt>-g</tt>)</dt>
+<dd><p>Remove command lines from the history list when the first character on
+the line is a space, or when one of the expanded aliases contains a
+leading space.  Only normal aliases (not global or suffix aliases)
+have this behaviour.
+Note that the command lingers in the internal history until the next
+command is entered before it vanishes, allowing you to briefly reuse
+or edit the line.  If you want to make it vanish right away without
+entering another command, type a space and press return.
+</p>
+<a name="index-HIST_005fLEX_005fWORDS"></a>
+<a name="index-NO_005fHIST_005fLEX_005fWORDS"></a>
+<a name="index-HISTLEXWORDS"></a>
+<a name="index-NOHISTLEXWORDS"></a>
+</dd>
+<dt><tt>HIST_LEX_WORDS</tt></dt>
+<dd><p>By default, shell history that is read in from files is split into
+words on all white space.  This means that arguments with quoted
+whitespace are not correctly handled, with the consequence that
+references to words in history lines that have been read from a file
+may be inaccurate.  When this option is set, words read in from a
+history file are divided up in a similar fashion to normal shell
+command line handling.  Although this produces more accurately delimited
+words, if the size of the history file is large this can be slow.  Trial
+and error is necessary to decide.
+</p>
+<a name="index-HIST_005fNO_005fFUNCTIONS"></a>
+<a name="index-NO_005fHIST_005fNO_005fFUNCTIONS"></a>
+<a name="index-HISTNOFUNCTIONS"></a>
+<a name="index-NOHISTNOFUNCTIONS"></a>
+</dd>
+<dt><tt>HIST_NO_FUNCTIONS</tt></dt>
+<dd><p>Remove function definitions from the history list.
+Note that the function lingers in the internal history until the next
+command is entered before it vanishes, allowing you to briefly reuse
+or edit the definition.
+</p>
+<a name="index-HIST_005fNO_005fSTORE"></a>
+<a name="index-NO_005fHIST_005fNO_005fSTORE"></a>
+<a name="index-HISTNOSTORE"></a>
+<a name="index-NOHISTNOSTORE"></a>
+</dd>
+<dt><tt>HIST_NO_STORE</tt></dt>
+<dd><p>Remove the <tt>history</tt> (<tt>fc -l</tt>) command from the history list
+when invoked.
+Note that the command lingers in the internal history until the next
+command is entered before it vanishes, allowing you to briefly reuse
+or edit the line.
+</p>
+<a name="index-HIST_005fREDUCE_005fBLANKS"></a>
+<a name="index-NO_005fHIST_005fREDUCE_005fBLANKS"></a>
+<a name="index-HISTREDUCEBLANKS"></a>
+<a name="index-NOHISTREDUCEBLANKS"></a>
+</dd>
+<dt><tt>HIST_REDUCE_BLANKS</tt></dt>
+<dd><p>Remove superfluous blanks from each command line
+being added to the history list.
+</p>
+<a name="index-HIST_005fSAVE_005fBY_005fCOPY"></a>
+<a name="index-NO_005fHIST_005fSAVE_005fBY_005fCOPY"></a>
+<a name="index-HISTSAVEBYCOPY"></a>
+<a name="index-NOHISTSAVEBYCOPY"></a>
+</dd>
+<dt><tt>HIST_SAVE_BY_COPY</tt> &lt;D&gt;</dt>
+<dd><p>When the history file is re-written, we normally write out a copy of
+the file named <tt>$HISTFILE.new</tt> and then rename it over the old one.
+However, if this option is unset, we instead truncate the old
+history file and write out the new version in-place.  If one of the
+history-appending options is enabled, this option only has an effect
+when the enlarged history file needs to be re-written to trim it
+down to size.  Disable this only if you have special needs, as doing
+so makes it possible to lose history entries if zsh gets interrupted
+during the save.
+</p>
+<p>When writing out a copy of the history file, zsh preserves the old
+file&rsquo;s permissions and group information, but will refuse to write
+out a new file if it would change the history file&rsquo;s owner.
+</p>
+<a name="index-HIST_005fSAVE_005fNO_005fDUPS"></a>
+<a name="index-NO_005fHIST_005fSAVE_005fNO_005fDUPS"></a>
+<a name="index-HISTSAVENODUPS"></a>
+<a name="index-NOHISTSAVENODUPS"></a>
+</dd>
+<dt><tt>HIST_SAVE_NO_DUPS</tt></dt>
+<dd><p>When writing out the history file, older commands that duplicate
+newer ones are omitted.
+</p>
+<a name="index-HIST_005fVERIFY"></a>
+<a name="index-NO_005fHIST_005fVERIFY"></a>
+<a name="index-HISTVERIFY"></a>
+<a name="index-NOHISTVERIFY"></a>
+<a name="index-history_002c-verifying-substitution"></a>
+</dd>
+<dt><tt>HIST_VERIFY</tt></dt>
+<dd><p>Whenever the user enters a line with history expansion,
+don&rsquo;t execute the line directly; instead, perform
+history expansion and reload the line into the editing buffer.
+</p>
+<a name="index-INC_005fAPPEND_005fHISTORY"></a>
+<a name="index-NO_005fINC_005fAPPEND_005fHISTORY"></a>
+<a name="index-INCAPPENDHISTORY"></a>
+<a name="index-NOINCAPPENDHISTORY"></a>
+<a name="index-history_002c-incremental-appending-to-a-file"></a>
+</dd>
+<dt><tt>INC_APPEND_HISTORY</tt></dt>
+<dd><p>This option works like <tt>APPEND_HISTORY</tt> except that new history lines
+are added to the <tt>$HISTFILE</tt> incrementally (as soon as they are
+entered), rather than waiting until the shell exits.
+The file will still be periodically re-written to trim it when the
+number of lines grows 20% beyond the value specified by
+<tt>$SAVEHIST</tt> (see also the <tt>HIST_SAVE_BY_COPY</tt> option).
+</p>
+<a name="index-INC_005fAPPEND_005fHISTORY_005fTIME"></a>
+<a name="index-NO_005fINC_005fAPPEND_005fHISTORY_005fTIME"></a>
+<a name="index-INCAPPENDHISTORYTIME"></a>
+<a name="index-NOINCAPPENDHISTORYTIME"></a>
+<a name="index-history_002c-incremental-appending-to-a-file-with-time"></a>
+</dd>
+<dt><tt>INC_APPEND_HISTORY_TIME</tt></dt>
+<dd><p>This option is a variant of <tt>INC_APPEND_HISTORY</tt> in which, where
+possible, the history entry is written out to the file after the
+command is finished, so that the time taken by the command is recorded
+correctly in the history file in <tt>EXTENDED_HISTORY</tt> format.  This
+means that the history entry will not be available immediately from
+other instances of the shell that are using the same history file.
+</p>
+<p>This option is only useful if <tt>INC_APPEND_HISTORY</tt> and
+<tt>SHARE_HISTORY</tt> are turned off.  The three options should be
+considered mutually exclusive.
+</p>
+<a name="index-SHARE_005fHISTORY"></a>
+<a name="index-NO_005fSHARE_005fHISTORY"></a>
+<a name="index-SHAREHISTORY"></a>
+<a name="index-NOSHAREHISTORY"></a>
+<a name="index-share-history"></a>
+<a name="index-history_002c-sharing"></a>
+</dd>
+<dt><tt>SHARE_HISTORY</tt> &lt;K&gt;</dt>
+<dd>
+<p>This option both imports new commands from the history file, and also
+causes your typed commands to be appended to the history file (the
+latter is like specifying <tt>INC_APPEND_HISTORY</tt>, which should be turned
+off if this option is in effect).  The history lines are also output
+with timestamps ala <tt>EXTENDED_HISTORY</tt> (which makes it easier to find
+the spot where we left off reading the file after it gets re-written).
+</p>
+<p>By default, history movement commands visit the imported lines as
+well as the local lines, but you can toggle this on and off with the
+set-local-history zle binding.  It is also possible to create a zle
+widget that will make some commands ignore imported commands, and
+some include them.
+</p>
+<p>If you find that you want more control over when commands
+get imported, you may wish to turn <tt>SHARE_HISTORY</tt> off,
+<tt>INC_APPEND_HISTORY</tt> or <tt>INC_APPEND_HISTORY_TIME</tt> (see above) on,
+and then manually import commands whenever you need them using &lsquo;<tt>fc
+-RI</tt>&rsquo;.
+</p>
+</dd>
+</dl>
+
+
+<hr>
+<a name="Initialisation"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#History" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-of-Options" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Input_002fOutput" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">16.2.5 Initialisation</h3>
+<dl compact="compact">
+<dd><a name="index-ALL_005fEXPORT"></a>
+<a name="index-NO_005fALL_005fEXPORT"></a>
+<a name="index-ALLEXPORT"></a>
+<a name="index-NOALLEXPORT"></a>
+<a name="index-export_002c-automatic"></a>
+</dd>
+<dt><tt>ALL_EXPORT</tt> (<tt>-a</tt>, ksh: <tt>-a</tt>)</dt>
+<dd><p>All parameters subsequently defined are automatically exported.
+</p>
+<a name="index-GLOBAL_005fEXPORT"></a>
+<a name="index-NO_005fGLOBAL_005fEXPORT"></a>
+<a name="index-GLOBALEXPORT"></a>
+<a name="index-NOGLOBALEXPORT"></a>
+<a name="index-environment_002c-and-local-parameters"></a>
+</dd>
+<dt><tt>GLOBAL_EXPORT</tt> &lt;Z&gt;</dt>
+<dd><p>If this option is set, passing the <tt>-x</tt> flag to the builtins <tt>declare</tt>,
+<tt>float</tt>, <tt>integer</tt>, <tt>readonly</tt> and <tt>typeset</tt> (but not <tt>local</tt>)
+will also set the <tt>-g</tt> flag;  hence parameters exported to
+the environment will not be made local to the enclosing function, unless
+they were already or the flag <tt>+g</tt> is given explicitly.  If the option is
+unset, exported parameters will be made local in just the same way as any
+other parameter.
+</p>
+<p>This option is set by default for backward compatibility; it is not
+recommended that its behaviour be relied upon.  Note that the builtin
+<tt>export</tt> always sets both the <tt>-x</tt> and <tt>-g</tt> flags, and hence its
+effect extends beyond the scope of the enclosing function; this is the
+most portable way to achieve this behaviour.
+</p>
+<a name="index-exporting_002c-and-local-parameters"></a>
+<a name="index-GLOBAL_005fRCS"></a>
+<a name="index-NO_005fGLOBAL_005fRCS"></a>
+<a name="index-GLOBALRCS"></a>
+<a name="index-NOGLOBALRCS"></a>
+<a name="index-startup-files_002c-global_002c-inhibiting"></a>
+<a name="index-files_002c-global-startup_002c-inhibiting"></a>
+</dd>
+<dt><tt>GLOBAL_RCS</tt> (<tt>-d</tt>) &lt;D&gt;</dt>
+<dd><p>If this option is unset, the startup files <tt>/etc/zprofile</tt>,
+<tt>/etc/zshrc</tt>, <tt>/etc/zlogin</tt> and <tt>/etc/zlogout</tt> will not be run.  It
+can be disabled and re-enabled at any time, including inside local startup
+files (<tt>.zshrc</tt>, etc.).
+</p>
+<a name="index-RCS"></a>
+<a name="index-NO_005fRCS"></a>
+<a name="index-NORCS"></a>
+<a name="index-startup-files_002c-sourcing"></a>
+</dd>
+<dt><tt>RCS</tt> (<tt>+f</tt>) &lt;D&gt;</dt>
+<dd><p>After <tt>/etc/zshenv</tt> is sourced on startup, source the
+<tt>.zshenv</tt>, <tt>/etc/zprofile</tt>, <tt>.zprofile</tt>,
+<tt>/etc/zshrc</tt>, <tt>.zshrc</tt>, <tt>/etc/zlogin</tt>, <tt>.zlogin</tt>, and <tt>.zlogout</tt>
+files, as described in <a href="Files.html#Files">Files</a>.
+If this option is unset, the <tt>/etc/zshenv</tt> file is still sourced, but any
+of the others will not be; it can be set at any time to prevent the
+remaining startup files after the currently executing one from
+being sourced.
+</p>
+</dd>
+</dl>
+
+
+<hr>
+<a name="Input_002fOutput"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Initialisation" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-of-Options" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Job-Control" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">16.2.6 Input/Output</h3>
+<dl compact="compact">
+<dd><a name="index-ALIASES"></a>
+<a name="index-NO_005fALIASES"></a>
+<a name="index-NOALIASES"></a>
+<a name="index-aliases_002c-expansion"></a>
+</dd>
+<dt><tt>ALIASES</tt> &lt;D&gt;</dt>
+<dd><p>Expand aliases.
+</p>
+<a name="index-CLOBBER"></a>
+<a name="index-NO_005fCLOBBER"></a>
+<a name="index-NOCLOBBER"></a>
+<a name="index-clobbering_002c-of-files"></a>
+<a name="index-file-clobbering_002c-allowing"></a>
+</dd>
+<dt><tt>CLOBBER</tt> (<tt>+C</tt>, ksh: <tt>+C</tt>) &lt;D&gt;</dt>
+<dd><p>Allows &lsquo;<tt>&gt;</tt>&rsquo; redirection to truncate existing files.
+Otherwise &lsquo;<tt>&gt;!</tt>&rsquo; or &lsquo;<tt>&gt;|</tt>&rsquo; must be used to truncate a file.
+</p>
+<p>If the option is not set, and the option <tt>APPEND_CREATE</tt> is also
+not set, &lsquo;<tt>&gt;&gt;!</tt>&rsquo; or &lsquo;<tt>&gt;&gt;|</tt>&rsquo; must be used to create a file.
+If either option is set, &lsquo;<tt>&gt;&gt;</tt>&rsquo; may be used.
+</p>
+<a name="index-CORRECT"></a>
+<a name="index-NO_005fCORRECT"></a>
+<a name="index-NOCORRECT"></a>
+<a name="index-correction_002c-spelling"></a>
+<a name="index-spelling-correction"></a>
+</dd>
+<dt><tt>CORRECT</tt> (<tt>-0</tt>)</dt>
+<dd><p>Try to correct the spelling of commands.
+Note that, when the <tt>HASH_LIST_ALL</tt> option is not set or when some
+directories in the path are not readable, this may falsely report spelling
+errors the first time some commands are used.
+</p>
+<p>The shell variable <tt>CORRECT_IGNORE</tt> may be set to a pattern to
+match words that will never be offered as corrections.
+</p>
+<a name="index-CORRECT_005fALL"></a>
+<a name="index-NO_005fCORRECT_005fALL"></a>
+<a name="index-CORRECTALL"></a>
+<a name="index-NOCORRECTALL"></a>
+</dd>
+<dt><tt>CORRECT_ALL</tt> (<tt>-O</tt>)</dt>
+<dd><p>Try to correct the spelling of all arguments in a line.
+</p>
+<p>The shell variable <tt>CORRECT_IGNORE_FILE</tt> may be set to a pattern to
+match file names that will never be offered as corrections.
+</p>
+<a name="index-DVORAK"></a>
+<a name="index-NO_005fDVORAK"></a>
+<a name="index-NODVORAK"></a>
+</dd>
+<dt><tt>DVORAK</tt></dt>
+<dd><p>Use the Dvorak keyboard instead of the standard qwerty keyboard as a basis
+for examining spelling mistakes for the <tt>CORRECT</tt> and <tt>CORRECT_ALL</tt>
+options and the <tt>spell-word</tt> editor command.
+</p>
+<a name="index-FLOW_005fCONTROL"></a>
+<a name="index-NO_005fFLOW_005fCONTROL"></a>
+<a name="index-FLOWCONTROL"></a>
+<a name="index-NOFLOWCONTROL"></a>
+<a name="index-flow-control"></a>
+</dd>
+<dt><tt>FLOW_CONTROL</tt> &lt;D&gt;</dt>
+<dd><p>If this option is unset,
+output flow control via start/stop characters (usually assigned to
+^S/^Q) is disabled in the shell&rsquo;s editor.
+</p>
+<a name="index-IGNORE_005fEOF"></a>
+<a name="index-NO_005fIGNORE_005fEOF"></a>
+<a name="index-IGNOREEOF"></a>
+<a name="index-NOIGNOREEOF"></a>
+<a name="index-EOF_002c-ignoring"></a>
+</dd>
+<dt><tt>IGNORE_EOF</tt> (<tt>-7</tt>)</dt>
+<dd><p>Do not exit on end-of-file.  Require the use
+of <tt>exit</tt> or <tt>logout</tt> instead.
+However, ten consecutive EOFs will cause the shell to exit anyway,
+to avoid the shell hanging if its tty goes away.
+</p>
+<p>Also, if this option is set and the Zsh Line Editor is used, widgets
+implemented by shell functions can be bound to EOF (normally
+Control-D) without printing the normal warning message.  This works
+only for normal widgets, not for completion widgets.
+</p>
+<a name="index-INTERACTIVE_005fCOMMENTS"></a>
+<a name="index-NO_005fINTERACTIVE_005fCOMMENTS"></a>
+<a name="index-INTERACTIVECOMMENTS"></a>
+<a name="index-NOINTERACTIVECOMMENTS"></a>
+<a name="index-comments_002c-in-interactive-shells"></a>
+</dd>
+<dt><tt>INTERACTIVE_COMMENTS</tt> (<tt>-k</tt>) &lt;K&gt; &lt;S&gt;</dt>
+<dd><p>Allow comments even in interactive shells.
+</p>
+<a name="index-HASH_005fCMDS"></a>
+<a name="index-NO_005fHASH_005fCMDS"></a>
+<a name="index-HASHCMDS"></a>
+<a name="index-NOHASHCMDS"></a>
+<a name="index-hashing_002c-of-commands"></a>
+<a name="index-command-hashing"></a>
+</dd>
+<dt><tt>HASH_CMDS</tt> &lt;D&gt;</dt>
+<dd><p>Note the location of each command the first time it is executed.
+Subsequent invocations of the same command will use the
+saved location, avoiding a path search.
+If this option is unset, no path hashing is done at all.
+However, when <tt>CORRECT</tt> is set, commands whose names do not appear in
+the functions or aliases hash tables are hashed in order to avoid
+reporting them as spelling errors.
+</p>
+<a name="index-HASH_005fDIRS"></a>
+<a name="index-NO_005fHASH_005fDIRS"></a>
+<a name="index-HASHDIRS"></a>
+<a name="index-NOHASHDIRS"></a>
+<a name="index-hashing_002c-of-directories"></a>
+<a name="index-directories_002c-hashing"></a>
+</dd>
+<dt><tt>HASH_DIRS</tt> &lt;D&gt;</dt>
+<dd><p>Whenever a command name is hashed, hash the directory containing it,
+as well as all directories that occur earlier in the path.
+Has no effect if neither <tt>HASH_CMDS</tt> nor <tt>CORRECT</tt> is set.
+</p>
+<a name="index-HASH_005fEXECUTABLES_005fONLY"></a>
+<a name="index-NO_005fHASH_005fEXECUTABLES_005fONLY"></a>
+<a name="index-HASHEXECUTABLESONLY"></a>
+<a name="index-NOHASHEXECUTABLESONLY"></a>
+<a name="index-hashing_002c-of-executables"></a>
+<a name="index-executables_002c-hashing"></a>
+</dd>
+<dt><tt>HASH_EXECUTABLES_ONLY</tt></dt>
+<dd><p>When hashing commands because of <tt>HASH_CMDS</tt>, check that the
+file to be hashed is actually an executable.  This option
+is unset by default as if the path contains a large number of commands,
+or consists of many remote files, the additional tests can take
+a long time.  Trial and error is needed to show if this option is
+beneficial.
+</p>
+<a name="index-MAIL_005fWARNING"></a>
+<a name="index-NO_005fMAIL_005fWARNING"></a>
+<a name="index-MAILWARNING"></a>
+<a name="index-NOMAILWARNING"></a>
+<a name="index-mail_002c-warning-of-reading"></a>
+</dd>
+<dt><tt>MAIL_WARNING</tt> (<tt>-U</tt>)</dt>
+<dd><p>Print a warning message if a mail file has been
+accessed since the shell last checked.
+</p>
+<a name="index-PATH_005fDIRS"></a>
+<a name="index-NO_005fPATH_005fDIRS"></a>
+<a name="index-PATHDIRS"></a>
+<a name="index-NOPATHDIRS"></a>
+<a name="index-path-search_002c-extended"></a>
+</dd>
+<dt><tt>PATH_DIRS</tt> (<tt>-Q</tt>)</dt>
+<dd><p>Perform a path search even on command names with slashes in them.
+Thus if &lsquo;<tt>/usr/local/bin</tt>&rsquo; is in the user&rsquo;s path, and he or she types
+&lsquo;<tt>X11/xinit</tt>&rsquo;, the command &lsquo;<tt>/usr/local/bin/X11/xinit</tt>&rsquo; will be executed
+(assuming it exists).
+Commands explicitly beginning with &lsquo;<tt>/</tt>&rsquo;, &lsquo;<tt>./</tt>&rsquo; or &lsquo;<tt>../</tt>&rsquo;
+are not subject to the path search.
+This also applies to the &lsquo;<tt>.</tt>&rsquo; and <tt>source</tt> builtins.
+</p>
+<p>Note that subdirectories of the current directory are always searched for
+executables specified in this form.  This takes place before any search
+indicated by this option, and regardless of whether &lsquo;<tt>.</tt>&rsquo; or the current
+directory appear in the command search path.
+</p>
+<a name="index-PATH_005fSCRIPT"></a>
+<a name="index-NO_005fPATH_005fSCRIPT"></a>
+<a name="index-PATHSCRIPT"></a>
+<a name="index-NOPATHSCRIPT"></a>
+<a name="index-path-search_002c-for-script-argument-to-shell"></a>
+</dd>
+<dt><tt>PATH_SCRIPT</tt> &lt;K&gt; &lt;S&gt;</dt>
+<dd><p>If this option is not set, a script passed as the first non-option argument
+to the shell must contain the name of the file to open.  If this
+option is set, and the script does not specify a directory path,
+the script is looked for first in the current directory, then in the
+command path.  See
+<a href="Invocation.html#Invocation">Invocation</a>.
+</p>
+<a name="index-PRINT_005fEIGHT_005fBIT"></a>
+<a name="index-NO_005fPRINT_005fEIGHT_005fBIT"></a>
+<a name="index-PRINTEIGHTBIT"></a>
+<a name="index-NOPRINTEIGHTBIT"></a>
+<a name="index-eight-bit-characters_002c-printing"></a>
+</dd>
+<dt><tt>PRINT_EIGHT_BIT</tt></dt>
+<dd><p>Print eight bit characters literally in completion lists, etc.
+This option is not necessary if your system correctly returns the
+printability of eight bit characters (see man page ctype(3)).
+</p>
+<a name="index-PRINT_005fEXIT_005fVALUE"></a>
+<a name="index-NO_005fPRINT_005fEXIT_005fVALUE"></a>
+<a name="index-PRINTEXITVALUE"></a>
+<a name="index-NOPRINTEXITVALUE"></a>
+<a name="index-exit-status_002c-printing"></a>
+</dd>
+<dt><tt>PRINT_EXIT_VALUE</tt> (<tt>-1</tt>)</dt>
+<dd><p>Print the exit value of programs with non-zero exit status.
+This is only available at the command line in interactive shells.
+</p>
+<a name="index-RC_005fQUOTES"></a>
+<a name="index-NO_005fRC_005fQUOTES"></a>
+<a name="index-RCQUOTES"></a>
+<a name="index-NORCQUOTES"></a>
+<a name="index-rc_002c-quoting-style"></a>
+<a name="index-quoting-style_002c-rc"></a>
+</dd>
+<dt><tt>RC_QUOTES</tt></dt>
+<dd><p>Allow the character sequence &lsquo;<tt>&rsquo;&rsquo;</tt>&rsquo; to signify a single quote
+within singly quoted strings.  Note this does not apply in quoted strings
+using the format <tt>$&rsquo;</tt><var>...</var><tt>&rsquo;</tt>, where a backslashed single quote can
+be used.
+</p>
+<a name="index-RM_005fSTAR_005fSILENT"></a>
+<a name="index-NO_005fRM_005fSTAR_005fSILENT"></a>
+<a name="index-RMSTARSILENT"></a>
+<a name="index-NORMSTARSILENT"></a>
+<a name="index-rm-_002a_002c-querying-before"></a>
+<a name="index-querying-before-rm-_002a"></a>
+</dd>
+<dt><tt>RM_STAR_SILENT</tt> (<tt>-H</tt>) &lt;K&gt; &lt;S&gt;</dt>
+<dd><p>Do not query the user before executing &lsquo;<tt>rm *</tt>&rsquo; or &lsquo;<tt>rm path/*</tt>&rsquo;.
+</p>
+<a name="index-RM_005fSTAR_005fWAIT"></a>
+<a name="index-NO_005fRM_005fSTAR_005fWAIT"></a>
+<a name="index-RMSTARWAIT"></a>
+<a name="index-NORMSTARWAIT"></a>
+<a name="index-rm-_002a_002c-waiting-before"></a>
+<a name="index-waiting-before-rm-_002a"></a>
+</dd>
+<dt><tt>RM_STAR_WAIT</tt></dt>
+<dd><p>If querying the user before executing &lsquo;<tt>rm *</tt>&rsquo; or &lsquo;<tt>rm path/*</tt>&rsquo;,
+first wait ten seconds and ignore anything typed in that time.
+This avoids the problem of reflexively answering &lsquo;yes&rsquo; to the query
+when one didn&rsquo;t really mean it.  The wait and query can always be
+avoided by expanding the &lsquo;<tt>*</tt>&rsquo; in ZLE (with tab).
+</p>
+<a name="index-SHORT_005fLOOPS"></a>
+<a name="index-NO_005fSHORT_005fLOOPS"></a>
+<a name="index-SHORTLOOPS"></a>
+<a name="index-NOSHORTLOOPS"></a>
+</dd>
+<dt><tt>SHORT_LOOPS</tt> &lt;C&gt; &lt;Z&gt;</dt>
+<dd><p>Allow the short forms of <tt>for</tt>, <tt>repeat</tt>, <tt>select</tt>,
+<tt>if</tt>, and <tt>function</tt> constructs.
+</p>
+<a name="index-SUN_005fKEYBOARD_005fHACK"></a>
+<a name="index-NO_005fSUN_005fKEYBOARD_005fHACK"></a>
+<a name="index-SUNKEYBOARDHACK"></a>
+<a name="index-NOSUNKEYBOARDHACK"></a>
+<a name="index-sun-keyboard_002c-annoying"></a>
+<a name="index-annoying-keyboard_002c-sun"></a>
+</dd>
+<dt><tt>SUN_KEYBOARD_HACK</tt> (<tt>-L</tt>)</dt>
+<dd><p>If a line ends with a backquote, and there are an odd number
+of backquotes on the line, ignore the trailing backquote.
+This is useful on some keyboards where the return key is
+too small, and the backquote key lies annoyingly close to it.
+As an alternative the variable <tt>KEYBOARD_HACK</tt> lets you choose the
+character to be removed.
+</p>
+</dd>
+</dl>
+
+
+<hr>
+<a name="Job-Control"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Input_002fOutput" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-of-Options" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Prompting" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">16.2.7 Job Control</h3>
+<dl compact="compact">
+<dd><a name="index-AUTO_005fCONTINUE"></a>
+<a name="index-NO_005fAUTO_005fCONTINUE"></a>
+<a name="index-AUTOCONTINUE"></a>
+<a name="index-NOAUTOCONTINUE"></a>
+<a name="index-jobs_002c-continuing-automatically"></a>
+<a name="index-continuing-jobs-automatically"></a>
+</dd>
+<dt><tt>AUTO_CONTINUE</tt></dt>
+<dd><p>With this option set, stopped jobs that are removed from the job table
+with the <tt>disown</tt> builtin command are automatically sent a <tt>CONT</tt>
+signal to make them running.
+</p>
+<a name="index-AUTO_005fRESUME"></a>
+<a name="index-NO_005fAUTO_005fRESUME"></a>
+<a name="index-AUTORESUME"></a>
+<a name="index-NOAUTORESUME"></a>
+<a name="index-jobs_002c-resuming-automatically"></a>
+<a name="index-resuming-jobs-automatically"></a>
+</dd>
+<dt><tt>AUTO_RESUME</tt> (<tt>-W</tt>)</dt>
+<dd><p>Treat single word simple commands without redirection
+as candidates for resumption of an existing job.
+</p>
+<a name="index-BG_005fNICE"></a>
+<a name="index-NO_005fBG_005fNICE"></a>
+<a name="index-BGNICE"></a>
+<a name="index-NOBGNICE"></a>
+<a name="index-jobs_002c-background-priority"></a>
+<a name="index-background-jobs_002c-priority-of"></a>
+<a name="index-priority-of-background-jobs"></a>
+</dd>
+<dt><tt>BG_NICE</tt> (<tt>-6</tt>) &lt;C&gt; &lt;Z&gt;</dt>
+<dd><p>Run all background jobs at a lower priority.  This option
+is set by default.
+</p>
+<a name="index-CHECK_005fJOBS"></a>
+<a name="index-NO_005fCHECK_005fJOBS"></a>
+<a name="index-CHECKJOBS"></a>
+<a name="index-NOCHECKJOBS"></a>
+<a name="index-exiting_002c-checking-jobs-when"></a>
+<a name="index-logging-out_002c-checking-jobs-when"></a>
+</dd>
+<dt><tt>CHECK_JOBS</tt> &lt;Z&gt;</dt>
+<dd><p>Report the status of background and suspended jobs before exiting a shell
+with job control; a second attempt to exit the shell will succeed.
+<tt>NO_CHECK_JOBS</tt> is best used only in combination with <tt>NO_HUP</tt>, else
+such jobs will be killed automatically.
+</p>
+<p>The check is omitted if the commands run from the previous command line
+included a &lsquo;<tt>jobs</tt>&rsquo; command, since it is assumed the user is aware that
+there are background or suspended jobs.  A &lsquo;<tt>jobs</tt>&rsquo; command run from one
+of the hook functions defined in
+the section Special Functions in <a href="Functions.html#Functions">Functions</a>
+is not counted for this purpose.
+</p>
+<a name="index-CHECK_005fRUNNING_005fJOBS"></a>
+<a name="index-NO_005fCHECK_005fRUNNING_005fJOBS"></a>
+<a name="index-CHECKRUNNINGJOBS"></a>
+<a name="index-NOCHECKRUNNINGJOBS"></a>
+<a name="index-exiting_002c-checking-running-jobs-when"></a>
+<a name="index-logging-out_002c-checking-running-jobs-when"></a>
+</dd>
+<dt><tt>CHECK_RUNNING_JOBS</tt> &lt;Z&gt;</dt>
+<dd><p>Check for both running and suspended jobs when <tt>CHECK_JOBS</tt> is enabled.
+When this option is disabled, zsh checks only for suspended jobs, which
+matches the default behavior of bash.
+</p>
+<p>This option has no effect unless <tt>CHECK_JOBS</tt> is set.
+</p>
+<a name="index-HUP"></a>
+<a name="index-NO_005fHUP"></a>
+<a name="index-NOHUP"></a>
+<a name="index-jobs_002c-HUP"></a>
+</dd>
+<dt><tt>HUP</tt> &lt;Z&gt;</dt>
+<dd><p>Send the <tt>HUP</tt> signal to running jobs when the
+shell exits.
+</p>
+<a name="index-LONG_005fLIST_005fJOBS"></a>
+<a name="index-NO_005fLONG_005fLIST_005fJOBS"></a>
+<a name="index-LONGLISTJOBS"></a>
+<a name="index-NOLONGLISTJOBS"></a>
+<a name="index-jobs_002c-list-format"></a>
+</dd>
+<dt><tt>LONG_LIST_JOBS</tt> (<tt>-R</tt>)</dt>
+<dd><p>Print job notifications in the long format by default.
+</p>
+<a name="index-MONITOR"></a>
+<a name="index-NO_005fMONITOR"></a>
+<a name="index-NOMONITOR"></a>
+<a name="index-job-control_002c-allowing"></a>
+</dd>
+<dt><tt>MONITOR</tt> (<tt>-m</tt>, ksh: <tt>-m</tt>)</dt>
+<dd><p>Allow job control.  Set by default in interactive shells.
+</p>
+<a name="index-NOTIFY"></a>
+<a name="index-NO_005fNOTIFY"></a>
+<a name="index-NONOTIFY"></a>
+<a name="index-background-jobs_002c-notification"></a>
+<a name="index-notification-of-background-jobs"></a>
+</dd>
+<dt><tt>NOTIFY</tt> (<tt>-5</tt>, ksh: <tt>-b</tt>) &lt;Z&gt;</dt>
+<dd><p>Report the status of background jobs immediately, rather than
+waiting until just before printing a prompt.
+</p>
+<a name="index-POSIX_005fJOBS"></a>
+<a name="index-POSIXJOBS"></a>
+<a name="index-NO_005fPOSIX_005fJOBS"></a>
+<a name="index-NOPOSIXJOBS"></a>
+<a name="index-bg_002c-output-in-POSIX-format"></a>
+<a name="index-fg_002c-output-in-POSIX-format"></a>
+<a name="index-job-control_002c-in-subshell"></a>
+<a name="index-jobs_002c-output-in-subshell"></a>
+</dd>
+<dt><tt>POSIX_JOBS</tt> &lt;K&gt; &lt;S&gt;</dt>
+<dd><p>This option makes job control more compliant with the POSIX standard.
+</p>
+<p>When the option is not set, the <tt>MONITOR</tt> option is unset on entry to
+subshells, so that job control is no longer active.  When the option is
+set, the <tt>MONITOR</tt> option and job control remain active in the
+subshell, but note that the subshell has no access to jobs in the parent
+shell.
+</p>
+<p>When the option is not set, jobs put in the background or foreground
+with <tt>bg</tt> or <tt>fg</tt> are displayed with the same information that would
+be reported by <tt>jobs</tt>.  When the option is set, only the text is
+printed.  The output from <tt>jobs</tt> itself is not affected by the option.
+</p>
+<p>When the option is not set, job information from the parent
+shell is saved for output within a subshell (for example, within a
+pipeline).  When the option is set, the output of <tt>jobs</tt> is empty
+until a job is started within the subshell.
+</p>
+<p>In previous versions of the shell, it was necessary to enable
+<tt>POSIX_JOBS</tt> in order for the builtin command <tt>wait</tt> to return the
+status of background jobs that had already exited.  This is no longer
+the case.
+</p>
+</dd>
+</dl>
+
+
+<hr>
+<a name="Prompting"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Job-Control" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-of-Options" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Scripts-and-Functions" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">16.2.8 Prompting</h3>
+<dl compact="compact">
+<dd><a name="index-PROMPT_005fBANG"></a>
+<a name="index-NO_005fPROMPT_005fBANG"></a>
+<a name="index-PROMPTBANG"></a>
+<a name="index-NOPROMPTBANG"></a>
+<a name="index-prompt_002c-_0021-expansion"></a>
+</dd>
+<dt><tt>PROMPT_BANG</tt> &lt;K&gt;</dt>
+<dd><p>If set, &lsquo;<tt>!</tt>&rsquo; is treated specially in prompt expansion.
+See
+<a href="Prompt-Expansion.html#Prompt-Expansion">Prompt Expansion</a>.
+</p>
+<a name="index-PROMPT_005fCR"></a>
+<a name="index-NO_005fPROMPT_005fCR"></a>
+<a name="index-PROMPTCR"></a>
+<a name="index-NOPROMPTCR"></a>
+<a name="index-prompt_002c-with-CR"></a>
+</dd>
+<dt><tt>PROMPT_CR</tt> (<tt>+V</tt>) &lt;D&gt;</dt>
+<dd><p>Print a carriage return just before printing
+a prompt in the line editor.  This is on by default as multi-line editing
+is only possible if the editor knows where the start of the line appears.
+</p>
+<a name="index-PROMPT_005fSP"></a>
+<a name="index-NO_005fPROMPT_005fSP"></a>
+<a name="index-PROMPTSP"></a>
+<a name="index-NOPROMPTSP"></a>
+<a name="index-prompt_002c-save-partial-lines"></a>
+</dd>
+<dt><tt>PROMPT_SP</tt> &lt;D&gt;</dt>
+<dd><p>Attempt to preserve a partial line (i.e. a line that did not end with a
+newline) that would otherwise be covered up by the command prompt due to
+the <tt>PROMPT_CR</tt> option.  This works by outputting some cursor-control
+characters, including a series of spaces, that should make the terminal
+wrap to the next line when a partial line is present (note that this is
+only successful if your terminal has automatic margins, which is typical).
+</p>
+<p>When a partial line is preserved, by default you will see an inverse+bold
+character at the end of the partial line:  a &lsquo;<tt>%</tt>&rsquo; for a normal user or
+a &lsquo;<tt>#</tt>&rsquo; for root.  If set, the shell parameter <tt>PROMPT_EOL_MARK</tt> can be
+used to customize how the end of partial lines are shown.
+</p>
+<p>NOTE: if the <tt>PROMPT_CR</tt> option is not set, enabling this option will
+have no effect.  This option is on by default.
+</p>
+<a name="index-PROMPT_005fPERCENT"></a>
+<a name="index-NO_005fPROMPT_005fPERCENT"></a>
+<a name="index-PROMPTPERCENT"></a>
+<a name="index-NOPROMPTPERCENT"></a>
+<a name="index-prompt_002c-_0025-expansion"></a>
+</dd>
+<dt><tt>PROMPT_PERCENT</tt> &lt;C&gt; &lt;Z&gt;</dt>
+<dd><p>If set, &lsquo;<tt>%</tt>&rsquo; is treated specially in prompt expansion.
+See
+<a href="Prompt-Expansion.html#Prompt-Expansion">Prompt Expansion</a>.
+</p>
+<a name="index-PROMPT_005fSUBST"></a>
+<a name="index-NO_005fPROMPT_005fSUBST"></a>
+<a name="index-PROMPTSUBST"></a>
+<a name="index-NOPROMPTSUBST"></a>
+<a name="index-prompt_002c-parameter-expansion"></a>
+</dd>
+<dt><tt>PROMPT_SUBST</tt> &lt;K&gt; &lt;S&gt;</dt>
+<dd><p>If set, <em>parameter expansion</em>, <em>command substitution</em> and
+<em>arithmetic expansion</em> are performed in prompts.  Substitutions
+within prompts do not affect the command status.
+</p>
+<a name="index-TRANSIENT_005fRPROMPT"></a>
+<a name="index-NO_005fTRANSIENT_005fRPROMPT"></a>
+<a name="index-TRANSIENTRPROMPT"></a>
+<a name="index-NOTRANSIENTRPROMPT"></a>
+</dd>
+<dt><tt>TRANSIENT_RPROMPT</tt></dt>
+<dd><p>Remove any right prompt from display when accepting a command
+line.  This may be useful with terminals with other cut/paste methods.
+</p>
+</dd>
+</dl>
+
+
+<hr>
+<a name="Scripts-and-Functions"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Prompting" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-of-Options" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Shell-Emulation" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">16.2.9 Scripts and Functions</h3>
+<dl compact="compact">
+<dd><a name="index-ALIAS_005fFUNC_005fDEF"></a>
+<a name="index-NO_005fALIAS_005fFUNC_005fDEF"></a>
+<a name="index-ALIASFUNCDEF"></a>
+<a name="index-NOALIASFUNCDEF"></a>
+<a name="index-functions_002c-defining-with-expanded-aliases"></a>
+<a name="index-aliases_002c-expanding-in-function-definition"></a>
+</dd>
+<dt><tt>ALIAS_FUNC_DEF</tt> &lt;S&gt;</dt>
+<dd><p>By default, zsh does not allow the definition of functions using
+the &lsquo;<var>name</var> <tt>()</tt>&rsquo; syntax if <var>name</var> was expanded as an
+alias: this causes an error.  This is usually the desired behaviour, as
+otherwise the combination of an alias and a function based on the same
+definition can easily cause problems.
+</p>
+<p>When this option is set, aliases can be used for defining functions.
+</p>
+<p>For example, consider the following definitions as they might
+occur in a startup file.
+</p>
+<div class="example">
+<pre class="example">alias foo=bar
+foo() {
+  print This probably does not do what you expect.
+}
+</pre></div>
+
+<p>Here, <tt>foo</tt> is expanded as an alias to <tt>bar</tt> before the
+<tt>()</tt> is encountered, so the function defined would be named
+<tt>bar</tt>.  By default this is instead an error in native mode.  Note that
+quoting any part of the function name, or using the keyword
+<tt>function</tt>, avoids the problem, so is recommended when the function
+name can also be an alias.
+</p>
+<a name="index-C_005fBASES"></a>
+<a name="index-NO_005fC_005fBASES"></a>
+<a name="index-CBASES"></a>
+<a name="index-NOCBASES"></a>
+<a name="index-bases_002c-output-in-C-format"></a>
+<a name="index-hexadecimal_002c-output-in-C-format"></a>
+<a name="index-octal_002c-output-in-C-format"></a>
+</dd>
+<dt><tt>C_BASES</tt></dt>
+<dd><p>Output hexadecimal numbers in the standard C format, for example &lsquo;<tt>0xFF</tt>&rsquo;
+instead of the usual &lsquo;<tt>16#FF</tt>&rsquo;.  If the option <tt>OCTAL_ZEROES</tt> is also
+set (it is not by default), octal numbers will be treated similarly and
+hence appear as &lsquo;<tt>077</tt>&rsquo; instead of &lsquo;<tt>8#77</tt>&rsquo;.  This option has no effect
+on the choice of the output base, nor on the output of bases other than
+hexadecimal and octal.  Note that these formats will be understood on input
+irrespective of the setting of <tt>C_BASES</tt>.
+</p>
+<a name="index-C_005fPRECEDENCES"></a>
+<a name="index-NO_005fC_005fPRECEDENCES"></a>
+<a name="index-CPRECEDENCES"></a>
+<a name="index-NOCPRECEDENCES"></a>
+<a name="index-precedence_002c-operator"></a>
+<a name="index-operator-precedence"></a>
+</dd>
+<dt><tt>C_PRECEDENCES</tt></dt>
+<dd><p>This alters the precedence of arithmetic operators to be more
+like C and other programming languages;
+<a href="Arithmetic-Evaluation.html#Arithmetic-Evaluation">Arithmetic Evaluation</a>
+has an explicit list.
+</p>
+<a name="index-DEBUG_005fBEFORE_005fCMD"></a>
+<a name="index-NO_005fDEBUG_005fBEFORE_005fCMD"></a>
+<a name="index-DEBUGBEFORECMD"></a>
+<a name="index-NODEBUGBEFORECMD"></a>
+<a name="index-traps_002c-DEBUG_002c-before-or-after-command"></a>
+<a name="index-DEBUG-trap_002c-before-or-after-command"></a>
+</dd>
+<dt><tt>DEBUG_BEFORE_CMD</tt> &lt;D&gt;</dt>
+<dd><p>Run the <tt>DEBUG</tt> trap before each command; otherwise it is run after
+each command.  Setting this option mimics the behaviour of ksh 93; with
+the option unset the behaviour is that of ksh 88.
+</p>
+<a name="index-ERR_005fEXIT"></a>
+<a name="index-NO_005fERR_005fEXIT"></a>
+<a name="index-ERREXIT"></a>
+<a name="index-NOERREXIT"></a>
+<a name="index-exit-status_002c-trapping"></a>
+</dd>
+<dt><tt>ERR_EXIT</tt> (<tt>-e</tt>, ksh: <tt>-e</tt>)</dt>
+<dd><p>If a command has a non-zero exit status, execute the <tt>ZERR</tt>
+trap, if set, and exit.  This is disabled while running initialization
+scripts.
+</p>
+<p>The behaviour is also disabled inside <tt>DEBUG</tt> traps.  In this
+case the option is handled specially: it is unset on entry to
+the trap.  If the option <tt>DEBUG_BEFORE_CMD</tt> is set,
+as it is by default, and the option <tt>ERR_EXIT</tt> is found to have been set
+on exit, then the command for which the <tt>DEBUG</tt> trap is being executed is
+skipped.  The option is restored after the trap exits.
+</p>
+<p>Non-zero status in a command list containing <tt>&amp;&amp;</tt> or <tt>||</tt> is ignored
+for commands not at the end of the list.  Hence
+</p>
+<div class="example">
+<pre class="example">false &amp;&amp; true
+</pre></div>
+
+<p>does not trigger exit.
+</p>
+<p>Exiting due to <tt>ERR_EXIT</tt> has certain interactions with asynchronous
+jobs noted in
+<a href="Jobs-_0026-Signals.html#Jobs-_0026-Signals">Jobs &amp; Signals</a>.
+</p>
+<a name="index-ERR_005fRETURN"></a>
+<a name="index-NO_005fERR_005fRETURN"></a>
+<a name="index-ERRRETURN"></a>
+<a name="index-NOERRRETURN"></a>
+<a name="index-function-return_002c-on-error"></a>
+<a name="index-return-from-function_002c-on-error"></a>
+</dd>
+<dt><tt>ERR_RETURN</tt></dt>
+<dd><p>If a command has a non-zero exit status, return immediately from the
+enclosing function.  The logic is similar to that for <tt>ERR_EXIT</tt>,
+except that an implicit <tt>return</tt> statement is executed instead of an
+<tt>exit</tt>.  This will trigger an exit at the outermost level of a
+non-interactive script.
+</p>
+<p>Normally this option inherits the behaviour of <tt>ERR_EXIT</tt> that
+code followed by &lsquo;<tt>&amp;&amp;</tt>&rsquo; &lsquo;<tt>||</tt>&rsquo; does not trigger a return.  Hence
+in the following:
+</p>
+<div class="example">
+<pre class="example">summit || true
+</pre></div>
+
+<p>no return is forced as the combined effect always has a zero return
+status.
+</p>
+<p>Note. however, that if <tt>summit</tt> in the above example is itself a
+function, code inside it is considered separately: it may force a return
+from <tt>summit</tt> (assuming the option remains set within <tt>summit</tt>), but
+not from the enclosing context.  This behaviour is different from
+<tt>ERR_EXIT</tt> which is unaffected by function scope.
+</p>
+<a name="index-EVAL_005fLINENO"></a>
+<a name="index-NO_005fEVAL_005fLINENO"></a>
+<a name="index-EVALLINENO"></a>
+<a name="index-NOEVALLINENO"></a>
+<a name="index-line-number_002c-in-evaluated-expression"></a>
+</dd>
+<dt><tt>EVAL_LINENO</tt> &lt;Z&gt;</dt>
+<dd><p>If set, line numbers of expressions evaluated using the builtin <tt>eval</tt>
+are tracked separately of the enclosing environment.  This applies both
+to the parameter <tt>LINENO</tt> and the line number output by the prompt
+escape <tt>%i</tt>.  If the option is set, the prompt escape <tt>%N</tt> will output
+the string &lsquo;<tt>(eval)</tt>&rsquo; instead of the script or function name as an
+indication.   (The two prompt escapes are typically used in the parameter
+<tt>PS4</tt> to be output when the option <tt>XTRACE</tt> is set.)  If
+<tt>EVAL_LINENO</tt> is unset, the line number of the surrounding script or
+function is retained during the evaluation.
+</p>
+<a name="index-EXEC"></a>
+<a name="index-NO_005fEXEC"></a>
+<a name="index-NOEXEC"></a>
+<a name="index-command-execution_002c-enabling"></a>
+</dd>
+<dt><tt>EXEC</tt> (<tt>+n</tt>, ksh: <tt>+n</tt>) &lt;D&gt;</dt>
+<dd><p>Do execute commands.  Without this option, commands are
+read and checked for syntax errors, but not executed.
+This option cannot be turned off in an interactive shell,
+except when &lsquo;<tt>-n</tt>&rsquo; is supplied to the shell at startup.
+</p>
+<a name="index-FUNCTION_005fARGZERO"></a>
+<a name="index-NO_005fFUNCTION_005fARGZERO"></a>
+<a name="index-FUNCTIONARGZERO"></a>
+<a name="index-NOFUNCTIONARGZERO"></a>
+<a name="index-_00240_002c-setting"></a>
+</dd>
+<dt><tt>FUNCTION_ARGZERO</tt> &lt;C&gt; &lt;Z&gt;</dt>
+<dd><p>When executing a shell function or sourcing a script, set <tt>$0</tt>
+temporarily to the name of the function/script.  Note that toggling
+<tt>FUNCTION_ARGZERO</tt> from on to off (or off to on) does not change the
+current value of <tt>$0</tt>.  Only the state upon entry to the function or
+script has an effect.  Compare <tt>POSIX_ARGZERO</tt>.
+</p>
+<a name="index-LOCAL_005fLOOPS"></a>
+<a name="index-NO_005fLOCAL_005fLOOPS"></a>
+<a name="index-LOCALLOOPS"></a>
+<a name="index-NOLOCALLOOPS"></a>
+<a name="index-break_002c-inside-function"></a>
+<a name="index-continue_002c-inside-function"></a>
+<a name="index-function_002c-scope-of-break-and-continue"></a>
+</dd>
+<dt><tt>LOCAL_LOOPS</tt></dt>
+<dd><p>When this option is not set, the effect of <tt>break</tt> and <tt>continue</tt>
+commands may propagate outside function scope, affecting loops in
+calling functions.  When the option is set in a calling function, a
+<tt>break</tt> or a <tt>continue</tt> that is not caught within a called function
+(regardless of the setting of the option within that function)
+produces a warning and the effect is cancelled.
+</p>
+<a name="index-LOCAL_005fOPTIONS"></a>
+<a name="index-NO_005fLOCAL_005fOPTIONS"></a>
+<a name="index-LOCALOPTIONS"></a>
+<a name="index-NOLOCALOPTIONS"></a>
+</dd>
+<dt><tt>LOCAL_OPTIONS</tt> &lt;K&gt;</dt>
+<dd><p>If this option is set at the point of return from a shell function,
+most options (including this one) which were in force upon entry to
+the function are restored; options that are not restored are
+<tt>PRIVILEGED</tt> and <tt>RESTRICTED</tt>.  Otherwise, only this option,
+and the <tt>LOCAL_LOOPS</tt>, <tt>XTRACE</tt> and <tt>PRINT_EXIT_VALUE</tt> options are
+restored.  Hence if this is explicitly unset by a shell function the
+other options in force at the point of return will remain so.
+A shell function can also guarantee itself a known shell configuration
+with a formulation like &lsquo;<tt>emulate -L zsh</tt>&rsquo;; the <tt>-L</tt> activates
+<tt>LOCAL_OPTIONS</tt>.
+</p>
+<a name="index-LOCAL_005fPATTERNS"></a>
+<a name="index-NO_005fLOCAL_005fPATTERNS"></a>
+<a name="index-LOCALPATTERNS"></a>
+<a name="index-NOLOCALPATTERNS"></a>
+</dd>
+<dt><tt>LOCAL_PATTERNS</tt></dt>
+<dd><p>If this option is set at the point of return from a shell function,
+the state of pattern disables, as set with the builtin command
+&lsquo;<tt>disable -p</tt>&rsquo;, is restored to what it was when the function was
+entered.  The behaviour of this option is similar to the effect
+of <tt>LOCAL_OPTIONS</tt> on options; hence &lsquo;<tt>emulate -L sh</tt>&rsquo; (or
+indeed any other emulation with the <tt>-L</tt> option) activates
+<tt>LOCAL_PATTERNS</tt>.
+</p>
+<a name="index-LOCAL_005fTRAPS"></a>
+<a name="index-NO_005fLOCAL_005fTRAPS"></a>
+<a name="index-LOCALTRAPS"></a>
+<a name="index-NOLOCALTRAPS"></a>
+</dd>
+<dt><tt>LOCAL_TRAPS</tt> &lt;K&gt;</dt>
+<dd><p>If this option is set when a signal trap is set inside a function, then the
+previous status of the trap for that signal will be restored when the
+function exits.  Note that this option must be set <em>prior</em> to altering the
+trap behaviour in a function; unlike <tt>LOCAL_OPTIONS</tt>, the value on exit
+from the function is irrelevant.  However, it does not need to be set
+before any global trap for that to be correctly restored by a function.
+For example,
+</p>
+<div class="example">
+<pre class="example">unsetopt localtraps
+trap - INT
+fn() { setopt localtraps; trap '' INT; sleep 3; }
+</pre></div>
+
+<p>will restore normal handling of <tt>SIGINT</tt> after the function exits.
+</p>
+<a name="index-MULTI_005fFUNC_005fDEF"></a>
+<a name="index-NO_005fMULTI_005fFUNC_005fDEF"></a>
+<a name="index-MULTIFUNCDEF"></a>
+<a name="index-NOMULTIFUNCDEF"></a>
+</dd>
+<dt><tt>MULTI_FUNC_DEF</tt> &lt;Z&gt;</dt>
+<dd><p>Allow definitions of multiple functions at once in the form &lsquo;<tt>fn1
+fn2</tt><var>...</var><tt>()</tt>&rsquo;; if the option is not set, this causes
+a parse error.  Definition of multiple functions with the <tt>function</tt>
+keyword is always allowed.  Multiple function definitions are not often
+used and can cause obscure errors.
+</p>
+<a name="index-MULTIOS"></a>
+<a name="index-NO_005fMULTIOS"></a>
+<a name="index-NOMULTIOS"></a>
+</dd>
+<dt><tt>MULTIOS</tt> &lt;Z&gt;</dt>
+<dd><p>Perform implicit <cite>tee</cite>s or <cite>cat</cite>s when multiple
+redirections are attempted (see <a href="Redirection.html#Redirection">Redirection</a>).
+</p>
+<a name="index-OCTAL_005fZEROES"></a>
+<a name="index-NO_005fOCTAL_005fZEROES"></a>
+<a name="index-OCTALZEROES"></a>
+<a name="index-NOOCTALZEROES"></a>
+<a name="index-octal_002c-arithmetic-expressions"></a>
+</dd>
+<dt><tt>OCTAL_ZEROES</tt> &lt;S&gt;</dt>
+<dd><p>Interpret any integer constant beginning with a 0 as octal, per IEEE Std
+1003.2-1992 (ISO 9945-2:1993).  This is not enabled by default as it
+causes problems with parsing of, for example, date and time strings with
+leading zeroes.
+</p>
+<p>Sequences of digits indicating a numeric base such as the &lsquo;<tt>08</tt>&rsquo;
+component in &lsquo;<tt>08#77</tt>&rsquo; are always interpreted as decimal, regardless
+of leading zeroes.
+</p>
+<a name="index-PIPE_005fFAIL"></a>
+<a name="index-NO_005fPIPE_005fFAIL"></a>
+<a name="index-PIPEFAIL"></a>
+<a name="index-NOPIPEFAIL"></a>
+<a name="index-exit-status-from-pipeline"></a>
+<a name="index-status_002c-on-exit-from-pipeline"></a>
+<a name="index-pipeline_002c-exit-status-from"></a>
+</dd>
+<dt><tt>PIPE_FAIL</tt></dt>
+<dd><p>By default, when a pipeline exits the exit status recorded by the shell
+and returned by the shell variable <tt>$?</tt> reflects that of the
+rightmost element of a pipeline.  If this option is set, the exit status
+instead reflects the status of the rightmost element of the pipeline
+that was non-zero, or zero if all elements exited with zero status.
+</p>
+<a name="index-SOURCE_005fTRACE"></a>
+<a name="index-NO_005fSOURCE_005fTRACE"></a>
+<a name="index-SOURCETRACE"></a>
+<a name="index-NOSOURCETRACE"></a>
+</dd>
+<dt><tt>SOURCE_TRACE</tt></dt>
+<dd><p>If set, zsh will print an informational message announcing the name of
+each file it loads.  The format of the output is similar to that
+for the <tt>XTRACE</tt> option, with the message <tt>&lt;sourcetrace&gt;</tt>.
+A file may be loaded by the shell itself when it
+starts up and shuts down (<tt>Startup/Shutdown Files</tt>) or by the use of
+the &lsquo;<tt>source</tt>&rsquo; and &lsquo;<tt>dot</tt>&rsquo; builtin commands.
+</p>
+<a name="index-TYPESET_005fSILENT"></a>
+<a name="index-NO_005fTYPESET_005fSILENT"></a>
+<a name="index-TYPESETSILENT"></a>
+<a name="index-NOTYPESETSILENT"></a>
+</dd>
+<dt><tt>TYPESET_SILENT</tt></dt>
+<dd><p>If this is unset, executing any of the &lsquo;<tt>typeset</tt>&rsquo; family of
+commands with no options and a list of parameters that have no values
+to be assigned but already exist will display the value of the parameter.
+If the option is set, they will only be shown when parameters are selected
+with the &lsquo;<tt>-m</tt>&rsquo; option.  The option &lsquo;<tt>-p</tt>&rsquo; is available whether or not
+the option is set.
+</p>
+<a name="index-VERBOSE"></a>
+<a name="index-NO_005fVERBOSE"></a>
+<a name="index-NOVERBOSE"></a>
+<a name="index-tracing_002c-of-input-lines"></a>
+<a name="index-input_002c-tracing"></a>
+</dd>
+<dt><tt>VERBOSE</tt> (<tt>-v</tt>, ksh: <tt>-v</tt>)</dt>
+<dd><p>Print shell input lines as they are read.
+</p>
+<a name="index-XTRACE"></a>
+<a name="index-NO_005fXTRACE"></a>
+<a name="index-NOXTRACE"></a>
+<a name="index-tracing_002c-of-commands"></a>
+<a name="index-commands_002c-tracing"></a>
+</dd>
+<dt><tt>XTRACE</tt> (<tt>-x</tt>, ksh: <tt>-x</tt>)</dt>
+<dd><p>Print commands and their arguments as they are executed.  The
+output is preceded by the value of <tt>$PS4</tt>, formatted as described
+in
+<a href="Prompt-Expansion.html#Prompt-Expansion">Prompt Expansion</a>.
+</p>
+</dd>
+</dl>
+
+
+<hr>
+<a name="Shell-Emulation"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Scripts-and-Functions" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-of-Options" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Shell-State" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">16.2.10 Shell Emulation</h3>
+<dl compact="compact">
+<dd><a name="index-APPEND_005fCREATE"></a>
+<a name="index-NO_005fAPPEND_005fCREATE"></a>
+<a name="index-APPENDCREATE"></a>
+<a name="index-NOAPPENDCREATE"></a>
+<a name="index-clobbering_002c-POSIX-compatibility"></a>
+<a name="index-file-clobbering_002c-POSIX-compatibility"></a>
+<a name="index-no-clobber_002c-POSIX-compatible"></a>
+</dd>
+<dt><tt>APPEND_CREATE</tt> &lt;K&gt; &lt;S&gt;</dt>
+<dd><p>This option only applies when <tt>NO_CLOBBER</tt> (-<tt>C</tt>) is in effect.
+</p>
+<p>If this option is not set, the shell will report an error when a
+append redirection (<tt>&gt;&gt;</tt>) is used on a file that does not already
+exists (the traditional zsh behaviour of <tt>NO_CLOBBER</tt>).  If the option
+is set, no error is reported (POSIX behaviour).
+</p>
+<a name="index-BASH_005fREMATCH"></a>
+<a name="index-NO_005fBASH_005fREMATCH"></a>
+<a name="index-BASHREMATCH"></a>
+<a name="index-NOBASHREMATCH"></a>
+<a name="index-bash_002c-BASH_005fREMATCH-variable"></a>
+<a name="index-regexp_002c-bash-BASH_005fREMATCH-variable"></a>
+</dd>
+<dt><tt>BASH_REMATCH</tt></dt>
+<dd><p>When set, matches performed with the <tt>=~</tt> operator will set the
+<tt>BASH_REMATCH</tt> array variable, instead of the default <tt>MATCH</tt> and
+<tt>match</tt> variables.  The first element of the <tt>BASH_REMATCH</tt> array
+will contain the entire matched text and subsequent elements will contain
+extracted substrings.  This option makes more sense when <tt>KSH_ARRAYS</tt> is
+also set, so that the entire matched portion is stored at index 0 and the
+first substring is at index 1.  Without this option, the <tt>MATCH</tt> variable
+contains the entire matched text and the <tt>match</tt> array variable contains
+substrings.
+</p>
+<a name="index-BSD_005fECHO"></a>
+<a name="index-NO_005fBSD_005fECHO"></a>
+<a name="index-BSDECHO"></a>
+<a name="index-NOBSDECHO"></a>
+<a name="index-echo_002c-BSD-compatible"></a>
+</dd>
+<dt><tt>BSD_ECHO</tt> &lt;S&gt;</dt>
+<dd><p>Make the <tt>echo</tt> builtin compatible with the BSD man page echo(1) command.
+This disables backslashed escape sequences in echo strings unless the
+<tt>-e</tt> option is specified.
+</p>
+<a name="index-CONTINUE_005fON_005fERROR"></a>
+<a name="index-NO_005fCONTINUE_005fON_005fERROR"></a>
+<a name="index-CONTINUEONERROR"></a>
+<a name="index-NOCONTINUEONERROR"></a>
+<a name="index-error_002c-option-to-continue-script-on"></a>
+</dd>
+<dt><tt>CONTINUE_ON_ERROR</tt></dt>
+<dd><p>If a fatal error is encountered (see 
+<a href="Shell-Grammar.html#Errors">Errors</a>), and the code is running
+in a script, the shell will resume execution at the next statement
+in the script at the top level, in other words outside all functions
+or shell constructs such as loops and conditions.  This mimics the
+behaviour of interactive shells, where the shell returns to the
+line editor to read a new command; it was the normal behaviour in versions
+of zsh before 5.0.1.
+</p>
+<a name="index-CSH_005fJUNKIE_005fHISTORY"></a>
+<a name="index-NO_005fCSH_005fJUNKIE_005fHISTORY"></a>
+<a name="index-CSHJUNKIEHISTORY"></a>
+<a name="index-NOCSHJUNKIEHISTORY"></a>
+<a name="index-csh_002c-history-style"></a>
+<a name="index-history-style_002c-csh"></a>
+</dd>
+<dt><tt>CSH_JUNKIE_HISTORY</tt> &lt;C&gt;</dt>
+<dd><p>A history reference without an event specifier will always refer to the
+previous command.  Without this option, such a history reference refers
+to the same event as the previous history reference on the current 
+command line, defaulting to the previous command.
+</p>
+<a name="index-CSH_005fJUNKIE_005fLOOPS"></a>
+<a name="index-NO_005fCSH_005fJUNKIE_005fLOOPS"></a>
+<a name="index-CSHJUNKIELOOPS"></a>
+<a name="index-NOCSHJUNKIELOOPS"></a>
+<a name="index-csh_002c-loop-style"></a>
+<a name="index-loop-style_002c-csh"></a>
+</dd>
+<dt><tt>CSH_JUNKIE_LOOPS</tt> &lt;C&gt;</dt>
+<dd><p>Allow loop bodies to take the form &lsquo;<var>list</var><tt>; end</tt>&rsquo; instead of
+&lsquo;<tt>do </tt><var>list</var><tt>; done</tt>&rsquo;.
+</p>
+<a name="index-CSH_005fJUNKIE_005fQUOTES"></a>
+<a name="index-NO_005fCSH_005fJUNKIE_005fQUOTES"></a>
+<a name="index-CSHJUNKIEQUOTES"></a>
+<a name="index-NOCSHJUNKIEQUOTES"></a>
+<a name="index-csh_002c-quoting-style"></a>
+<a name="index-quoting-style_002c-csh"></a>
+</dd>
+<dt><tt>CSH_JUNKIE_QUOTES</tt> &lt;C&gt;</dt>
+<dd><p>Changes the rules for single- and double-quoted text to match that of
+<cite>csh</cite>.  These require that embedded newlines be preceded by a backslash;
+unescaped newlines will cause an error message.
+In double-quoted strings, it is made impossible to escape &lsquo;<tt>$</tt>&rsquo;, &lsquo;<tt>&lsquo;</tt>&rsquo;
+or &lsquo;<tt>&quot;</tt>&rsquo; (and &lsquo;<tt>\</tt>&rsquo; itself no longer needs escaping).
+Command substitutions are only expanded once, and cannot be nested.
+</p>
+<a name="index-CSH_005fNULLCMD"></a>
+<a name="index-NO_005fCSH_005fNULLCMD"></a>
+<a name="index-CSHNULLCMD"></a>
+<a name="index-NOCSHNULLCMD"></a>
+<a name="index-NULLCMD_002c-ignoring"></a>
+<a name="index-READNULLCMD_002c-ignoring"></a>
+<a name="index-redirections-with-no-command_002c-csh"></a>
+<a name="index-csh_002c-redirections-with-no-command"></a>
+</dd>
+<dt><tt>CSH_NULLCMD</tt> &lt;C&gt;</dt>
+<dd><p>Do not use the values of <tt>NULLCMD</tt> and <tt>READNULLCMD</tt> 
+when running redirections with no command.  This make 
+such redirections fail (see <a href="Redirection.html#Redirection">Redirection</a>).
+</p>
+<a name="index-KSH_005fARRAYS"></a>
+<a name="index-NO_005fKSH_005fARRAYS"></a>
+<a name="index-KSHARRAYS"></a>
+<a name="index-NOKSHARRAYS"></a>
+<a name="index-arrays_002c-ksh-style"></a>
+<a name="index-array-style_002c-ksh"></a>
+<a name="index-ksh_002c-array-style"></a>
+</dd>
+<dt><tt>KSH_ARRAYS</tt> &lt;K&gt; &lt;S&gt;</dt>
+<dd><p>Emulate <cite>ksh</cite> array handling as closely as possible.  If this option
+is set, array elements are numbered from zero, an array parameter
+without subscript refers to the first element instead of the whole array,
+and braces are required to delimit a subscript (&lsquo;<tt>${path[2]}</tt>&rsquo; rather
+than just &lsquo;<tt>$path[2]</tt>&rsquo;) or to apply modifiers to any parameter
+(&lsquo;<tt>${PWD:h}</tt>&rsquo; rather than &lsquo;<tt>$PWD:h</tt>&rsquo;).
+</p>
+<a name="index-KSH_005fAUTOLOAD"></a>
+<a name="index-NO_005fKSH_005fAUTOLOAD"></a>
+<a name="index-KSHAUTOLOAD"></a>
+<a name="index-NOKSHAUTOLOAD"></a>
+</dd>
+<dt><tt>KSH_AUTOLOAD</tt> &lt;K&gt; &lt;S&gt;</dt>
+<dd><p>Emulate <cite>ksh</cite> function autoloading.  This means that when a function is
+autoloaded, the corresponding file is merely executed, and must define
+the function itself.  (By default, the function is defined to the contents
+of the file.  However, the most common <cite>ksh</cite>-style case - of the file
+containing only a simple definition of the function - is always handled
+in the <cite>ksh</cite>-compatible manner.)
+</p>
+<a name="index-KSH_005fOPTION_005fPRINT"></a>
+<a name="index-NO_005fKSH_005fOPTION_005fPRINT"></a>
+<a name="index-KSHOPTIONPRINT"></a>
+<a name="index-NOKSHOPTIONPRINT"></a>
+<a name="index-option-printing_002c-ksh-style"></a>
+<a name="index-option-printing-style_002c-ksh"></a>
+<a name="index-ksh_002c-option-printing-style"></a>
+</dd>
+<dt><tt>KSH_OPTION_PRINT</tt> &lt;K&gt;</dt>
+<dd><p>Alters the way options settings are printed: instead of separate lists of
+set and unset options, all options are shown, marked &lsquo;on&rsquo; if
+they are in the non-default state, &lsquo;off&rsquo; otherwise.
+</p>
+<a name="index-KSH_005fTYPESET"></a>
+<a name="index-NO_005fKSH_005fTYPESET"></a>
+<a name="index-KSHTYPESET"></a>
+<a name="index-NOKSHTYPESET"></a>
+<a name="index-argument-splitting_002c-in-typeset-etc_002e"></a>
+<a name="index-ksh_002c-argument-splitting-in-typeset"></a>
+</dd>
+<dt><tt>KSH_TYPESET</tt></dt>
+<dd><p>This option is now obsolete: a better appropximation to the behaviour of
+other shells is obtained with the reserved word interface to
+<tt>declare</tt>, <tt>export</tt>, <tt>float</tt>, <tt>integer</tt>, <tt>local</tt>, <tt>readonly</tt>
+and <tt>typeset</tt>.  Note that the option is only applied when the reserved
+word interface is <em>not</em> in use.
+</p>
+<p>Alters the way arguments to the <tt>typeset</tt> family of commands, including
+<tt>declare</tt>, <tt>export</tt>, <tt>float</tt>, <tt>integer</tt>, <tt>local</tt> and
+<tt>readonly</tt>, are processed.  Without this option, zsh will perform normal
+word splitting after command and parameter expansion in arguments of an
+assignment; with it, word splitting does not take place in those cases.
+</p>
+<a name="index-KSH_005fZERO_005fSUBSCRIPT"></a>
+<a name="index-NO_005fKSH_005fZERO_005fSUBSCRIPT"></a>
+<a name="index-KSHZEROSUBSCRIPT"></a>
+<a name="index-NOKSHZEROSUBSCRIPT"></a>
+<a name="index-arrays_002c-behaviour-of-index-zero"></a>
+</dd>
+<dt><tt>KSH_ZERO_SUBSCRIPT</tt></dt>
+<dd><p>Treat use of a subscript of value zero in array or string expressions as a
+reference to the first element, i.e. the element that usually has the
+subscript 1.  Ignored if <tt>KSH_ARRAYS</tt> is also set.
+</p>
+<p>If neither this option nor <tt>KSH_ARRAYS</tt> is set, accesses to an element of
+an array or string with subscript zero return an empty element or string,
+while attempts to set element zero of an array or string are treated as an
+error.  However, attempts to set an otherwise valid subscript range that
+includes zero will succeed.  For example, if <tt>KSH_ZERO_SUBSCRIPT</tt> is not
+set,
+</p>
+<div class="example">
+<pre class="example">array[0]=(element)
+</pre></div>
+
+<p>is an error, while
+</p>
+<div class="example">
+<pre class="example">array[0,1]=(element)
+</pre></div>
+
+<p>is not and will replace the first element of the array.
+</p>
+<p>This option is for compatibility with older versions of the shell and
+is not recommended in new code.
+</p>
+<a name="index-POSIX_005fALIASES"></a>
+<a name="index-NO_005fPOSIX_005fALIASES"></a>
+<a name="index-POSIXALIASES"></a>
+<a name="index-NOPOSIXALIASES"></a>
+</dd>
+<dt><tt>POSIX_ALIASES</tt> &lt;K&gt; &lt;S&gt;</dt>
+<dd><p>When this option is set, reserved words are not candidates for
+alias expansion:  it is still possible to declare any of them as an alias,
+but the alias will never be expanded.  Reserved words are described in
+<a href="Shell-Grammar.html#Reserved-Words">Reserved Words</a>.
+</p>
+<p>Alias expansion takes place while text is being read; hence when this
+option is set it does not take effect until the end of any function or
+other piece of shell code parsed as one unit.  Note this may
+cause differences from other shells even when the option is in
+effect.  For example, when running a command with &lsquo;<tt>zsh -c</tt>&rsquo;,
+or even &lsquo;<tt>zsh -o posixaliases -c</tt>&rsquo;, the entire command argument is parsed
+as one unit, so aliases defined within the argument are not available even
+in later lines.  If in doubt, avoid use of aliases in non-interactive
+code.
+</p>
+<a name="index-POSIX_005fARGZERO"></a>
+<a name="index-NO_005fPOSIX_005fARGZERO"></a>
+<a name="index-POSIXARGZERO"></a>
+<a name="index-NOPOSIXARGZERO"></a>
+<a name="index-_00240_002c-using"></a>
+</dd>
+<dt><tt>POSIX_ARGZERO</tt></dt>
+<dd><p>This option may be used to temporarily disable <tt>FUNCTION_ARGZERO</tt> and
+thereby restore the value of <tt>$0</tt> to the name used to invoke the shell
+(or as set by the <tt>-c</tt> command line option).  For compatibility with
+previous versions of the shell, emulations use <tt>NO_FUNCTION_ARGZERO</tt>
+instead of <tt>POSIX_ARGZERO</tt>, which may result in unexpected scoping of
+<tt>$0</tt> if the emulation mode is changed inside a function or script.
+To avoid this, explicitly enable <tt>POSIX_ARGZERO</tt> in the <tt>emulate</tt>
+command:
+</p>
+<div class="example">
+<pre class="example">emulate sh -o POSIX_ARGZERO
+</pre></div>
+
+<p>Note that <tt>NO_POSIX_ARGZERO</tt> has no effect unless <tt>FUNCTION_ARGZERO</tt>
+was already enabled upon entry to the function or script.
+</p>
+<a name="index-POSIX_005fBUILTINS"></a>
+<a name="index-NO_005fPOSIX_005fBUILTINS"></a>
+<a name="index-POSIXBUILTINS"></a>
+<a name="index-NOPOSIXBUILTINS"></a>
+</dd>
+<dt><tt>POSIX_BUILTINS</tt> &lt;K&gt; &lt;S&gt;</dt>
+<dd><p>When this option is set the <tt>command</tt> builtin can be used to execute
+shell builtin commands.  Parameter assignments specified before shell
+functions and special builtins are kept after the command completes unless
+the special builtin is prefixed with the <tt>command</tt> builtin.  Special
+builtins are
+<tt>.</tt>,
+<tt>:</tt>,
+<tt>break</tt>,
+<tt>continue</tt>,
+<tt>declare</tt>,
+<tt>eval</tt>,
+<tt>exit</tt>,
+<tt>export</tt>,
+<tt>integer</tt>,
+<tt>local</tt>,
+<tt>readonly</tt>,
+<tt>return</tt>,
+<tt>set</tt>,
+<tt>shift</tt>,
+<tt>source</tt>,
+<tt>times</tt>,
+<tt>trap</tt> and
+<tt>unset</tt>.
+</p>
+<p>In addition, various error conditions associated with the above builtins
+or <tt>exec</tt> cause a non-interactive shell to exit and an interactive
+shell to return to its top-level processing.
+</p>
+<p>Furthermore, functions and shell builtins are not executed after
+an <tt>exec</tt> prefix; the command to be executed must be an external
+command found in the path.
+</p>
+<p>Furthermore, the <tt>getopts</tt> builtin behaves in a POSIX-compatible
+fashion in that the associated variable <tt>OPTIND</tt> is not made
+local to functions.
+</p>
+<p>Moreover, the warning and special exit code from
+<tt>[[ -o </tt><var>non_existent_option</var><tt> ]]</tt> are suppressed.
+</p>
+<a name="index-POSIX_005fIDENTIFIERS"></a>
+<a name="index-NO_005fPOSIX_005fIDENTIFIERS"></a>
+<a name="index-POSIXIDENTIFIERS"></a>
+<a name="index-NOPOSIXIDENTIFIERS"></a>
+<a name="index-identifiers_002c-non_002dportable-characters-in"></a>
+<a name="index-parameter-names_002c-non_002dportable-characters-in"></a>
+</dd>
+<dt><tt>POSIX_IDENTIFIERS</tt> &lt;K&gt; &lt;S&gt;</dt>
+<dd><p>When this option is set, only the ASCII characters <tt>a</tt> to <tt>z</tt>, <tt>A</tt> to
+<tt>Z</tt>, <tt>0</tt> to <tt>9</tt> and <tt>_</tt> may be used in identifiers (names
+of shell parameters and modules).
+</p>
+<p>In addition, setting this option limits the effect of parameter
+substitution with no braces, so that the expression <tt>$#</tt> is treated as
+the parameter <tt>$#</tt> even if followed by a valid parameter name.
+When it is unset, zsh allows expressions of the form <tt>$#</tt><var>name</var>
+to refer to the length of <tt>$</tt><var>name</var>, even for special variables,
+for example in expressions such as <tt>$#-</tt> and <tt>$#*</tt>.
+</p>
+<p>Another difference is that with the option set assignment to an
+unset variable in arithmetic context causes the variable to be created
+as a scalar rather than a numeric type.  So after &lsquo;<tt>unset t; (( t = 3
+))</tt>&rsquo;. without <tt>POSIX_IDENTIFIERS</tt> set <tt>t</tt> has integer type, while with
+it set it has scalar type.
+</p>
+<p>When the option is unset and multibyte character support is enabled (i.e. it
+is compiled in and the option <tt>MULTIBYTE</tt> is set), then additionally any
+alphanumeric characters in the local character set may be used in
+identifiers.  Note that scripts and functions written with this feature are
+not portable, and also that both options must be set before the script
+or function is parsed; setting them during execution is not sufficient
+as the syntax <var>variable</var><tt>=</tt><var>value</var> has already been parsed as
+a command rather than an assignment.
+</p>
+<p>If multibyte character support is not compiled into the shell this option is
+ignored; all octets with the top bit set may be used in identifiers.
+This is non-standard but is the traditional zsh behaviour.
+</p>
+<a name="index-POSIX_005fSTRINGS"></a>
+<a name="index-NO_005fPOSIX_005fSTRINGS"></a>
+<a name="index-POSIXSTRINGS"></a>
+<a name="index-NOPOSIXSTRINGS"></a>
+<a name="index-discarding-embedded-nulls-in-_0024_0027_002e_002e_002e_0027"></a>
+<a name="index-embedded-nulls_002c-in-_0024_0027_002e_002e_002e_0027"></a>
+<a name="index-nulls_002c-embedded-in-_0024_0027_002e_002e_002e_0027"></a>
+</dd>
+<dt><tt>POSIX_STRINGS</tt> &lt;K&gt; &lt;S&gt;</dt>
+<dd><p>This option affects processing of quoted strings.  Currently it only
+affects the behaviour of null characters, i.e. character 0 in the
+portable character set corresponding to US ASCII.
+</p>
+<p>When this option is not set, null characters embedded within strings
+of the form <tt>$&rsquo;</tt><var>...</var><tt>&rsquo;</tt> are treated as ordinary characters. The
+entire string is maintained within the shell and output to files where
+necessary, although owing to restrictions of the library interface
+the string is truncated at the null character in file names, environment
+variables, or in arguments to external programs.
+</p>
+<p>When this option is set, the <tt>$&rsquo;</tt><var>...</var><tt>&rsquo;</tt> expression is truncated at
+the null character.  Note that remaining parts of the same string
+beyond the termination of the quotes are not truncated.
+</p>
+<p>For example, the command line argument <tt>a$&rsquo;b\0c&rsquo;d</tt> is treated with
+the option off as the characters <tt>a</tt>, <tt>b</tt>, null, <tt>c</tt>, <tt>d</tt>,
+and with the option on as the characters <tt>a</tt>, <tt>b</tt>, <tt>d</tt>.
+</p>
+<a name="index-POSIX_005fTRAPS"></a>
+<a name="index-NO_005fPOSIX_005fTRAPS"></a>
+<a name="index-POSIXTRAPS"></a>
+<a name="index-NOPOSIXTRAPS"></a>
+<a name="index-traps_002c-on-function-exit"></a>
+<a name="index-traps_002c-POSIX-compatibility"></a>
+</dd>
+<dt><tt>POSIX_TRAPS</tt> &lt;K&gt; &lt;S&gt;</dt>
+<dd><p>When this option is set, the usual zsh behaviour of executing
+traps for <tt>EXIT</tt> on exit from shell functions is suppressed.
+In that case, manipulating <tt>EXIT</tt> traps always alters the global
+trap for exiting the shell; the <tt>LOCAL_TRAPS</tt> option is
+ignored for the <tt>EXIT</tt> trap.  Furthermore, a <tt>return</tt> statement
+executed in a trap with no argument passes back from the function the
+value from the surrounding context, not from code executed within the
+trap.
+</p>
+<a name="index-SH_005fFILE_005fEXPANSION"></a>
+<a name="index-NO_005fSH_005fFILE_005fEXPANSION"></a>
+<a name="index-SHFILEEXPANSION"></a>
+<a name="index-NOSHFILEEXPANSION"></a>
+<a name="index-sh_002c-expansion-style"></a>
+<a name="index-expansion-style_002c-sh"></a>
+</dd>
+<dt><tt>SH_FILE_EXPANSION</tt> &lt;K&gt; &lt;S&gt;</dt>
+<dd><p>Perform filename expansion (e.g., <tt>~</tt> expansion) <em>before</em>
+parameter expansion, command substitution, arithmetic expansion
+and brace expansion.
+If this option is unset, it is performed <em>after</em>
+brace expansion, so things like &lsquo;<tt>~$USERNAME</tt>&rsquo; and
+&lsquo;<tt>~{pfalstad,rc}</tt>&rsquo; will work.
+</p>
+<a name="index-SH_005fNULLCMD"></a>
+<a name="index-NO_005fSH_005fNULLCMD"></a>
+<a name="index-SHNULLCMD"></a>
+<a name="index-NOSHNULLCMD"></a>
+<a name="index-NULLCMD_002c-ignoring-1"></a>
+<a name="index-READNULLCMD_002c-ignoring-1"></a>
+<a name="index-sh_002c-redirections-with-no-command"></a>
+<a name="index-ksh_002c-redirections-with-no-command"></a>
+<a name="index-redirections-with-no-command_002c-sh"></a>
+<a name="index-redirections-with-no-command_002c-ksh"></a>
+</dd>
+<dt><tt>SH_NULLCMD</tt> &lt;K&gt; &lt;S&gt;</dt>
+<dd><p>Do not use the values of <tt>NULLCMD</tt> and <tt>READNULLCMD</tt> 
+when doing redirections, use &lsquo;<tt>:</tt>&rsquo; instead (see <a href="Redirection.html#Redirection">Redirection</a>).
+</p>
+<a name="index-SH_005fOPTION_005fLETTERS"></a>
+<a name="index-NO_005fSH_005fOPTION_005fLETTERS"></a>
+<a name="index-SHOPTIONLETTERS"></a>
+<a name="index-NOSHOPTIONLETTERS"></a>
+<a name="index-sh_002c-single-letter-options-style"></a>
+<a name="index-ksh_002c-single-letter-options-style"></a>
+<a name="index-single-letter-options_002c-ksh-style"></a>
+<a name="index-options_002c-single-letter_002c-ksh-style"></a>
+</dd>
+<dt><tt>SH_OPTION_LETTERS</tt> &lt;K&gt; &lt;S&gt;</dt>
+<dd><p>If this option is set the shell tries to interpret single letter options
+(which are used with <tt>set</tt> and <tt>setopt</tt>) like <cite>ksh</cite> does.
+This also affects the value of the <tt>-</tt> special parameter.
+</p>
+<a name="index-SH_005fWORD_005fSPLIT"></a>
+<a name="index-NO_005fSH_005fWORD_005fSPLIT"></a>
+<a name="index-SHWORDSPLIT"></a>
+<a name="index-NOSHWORDSPLIT"></a>
+<a name="index-field-splitting_002c-sh-style"></a>
+<a name="index-sh_002c-field-splitting-style"></a>
+</dd>
+<dt><tt>SH_WORD_SPLIT</tt> (<tt>-y</tt>) &lt;K&gt; &lt;S&gt;</dt>
+<dd><p>Causes field splitting to be performed on unquoted parameter expansions.
+Note that this option has nothing to do with word splitting.
+(See 
+<a href="Expansion.html#Parameter-Expansion">Parameter Expansion</a>.)
+</p>
+<a name="index-TRAPS_005fASYNC"></a>
+<a name="index-NO_005fTRAPS_005fASYNC"></a>
+<a name="index-TRAPSASYNC"></a>
+<a name="index-NOTRAPSASYNC"></a>
+<a name="index-traps_002c-asynchronous"></a>
+</dd>
+<dt><tt>TRAPS_ASYNC</tt></dt>
+<dd><p>While waiting for a program to exit, handle signals and run traps
+immediately.  Otherwise the trap is run after a child process has exited.
+Note this does not affect the point at which traps are run for any case
+other than when the shell is waiting for a child process.
+</p>
+</dd>
+</dl>
+
+
+<hr>
+<a name="Shell-State"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Shell-Emulation" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-of-Options" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Zle" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">16.2.11 Shell State</h3>
+<dl compact="compact">
+<dd><a name="index-INTERACTIVE"></a>
+<a name="index-NO_005fINTERACTIVE"></a>
+<a name="index-NOINTERACTIVE"></a>
+</dd>
+<dt><tt>INTERACTIVE</tt> (<tt>-i</tt>, ksh: <tt>-i</tt>)</dt>
+<dd><p>This is an interactive shell.  This option is set upon initialisation if
+the standard input is a tty and commands are being read from standard input.
+(See the discussion of <tt>SHIN_STDIN</tt>.)
+This heuristic may be overridden by specifying a state for this option
+on the command line.
+The value of this option can only be changed via flags supplied at
+invocation of the shell.
+It cannot be changed once zsh is running.
+</p>
+<a name="index-LOGIN"></a>
+<a name="index-NO_005fLOGIN"></a>
+<a name="index-NOLOGIN"></a>
+</dd>
+<dt><tt>LOGIN</tt> (<tt>-l</tt>, ksh: <tt>-l</tt>)</dt>
+<dd><p>This is a login shell.
+If this option is not explicitly set, the shell becomes a login shell if
+the first character of the <tt>argv[0]</tt> passed to the shell is a &lsquo;<tt>-</tt>&rsquo;.
+</p>
+<a name="index-PRIVILEGED"></a>
+<a name="index-NO_005fPRIVILEGED"></a>
+<a name="index-NOPRIVILEGED"></a>
+<a name="index-privileged-mode"></a>
+<a name="index-mode_002c-privileged"></a>
+</dd>
+<dt><tt>PRIVILEGED</tt> (<tt>-p</tt>, ksh: <tt>-p</tt>)</dt>
+<dd><p>Turn on privileged mode. Typically this is used when script is to be run
+with elevated privileges. This should be done as follows directly with
+the <tt>-p</tt> option to zsh so that it takes effect during startup.
+</p>
+<div class="example">
+<pre class="example">#!/bin/zsh -p
+</pre></div>
+
+<p>The option is enabled automatically on startup if the effective user
+(group) ID is not equal to the real user (group) ID. In this case,
+turning the option off causes the effective user and group IDs to be set
+to the real user and group IDs. Be aware that if that fails the shell may
+be running with different IDs than was intended so a script should check
+for failure and act accordingly, for example:
+</p>
+<div class="example">
+<pre class="example">unsetopt privileged || exit
+</pre></div>
+
+<p>The <tt>PRIVILEGED</tt> option disables sourcing user startup files.
+If zsh is invoked as &lsquo;<tt>sh</tt>&rsquo; or &lsquo;<tt>ksh</tt>&rsquo; with this option set,
+<tt>/etc/suid_profile</tt> is sourced (after <tt>/etc/profile</tt> on interactive
+shells). Sourcing <tt>~/.profile</tt> is disabled and the contents of the
+<tt>ENV</tt> variable is ignored. This option cannot be changed using the
+<tt>-m</tt> option of <tt>setopt</tt> and <tt>unsetopt</tt>, and changing it inside a
+function always changes it globally regardless of the <tt>LOCAL_OPTIONS</tt>
+option.
+</p>
+<a name="index-RESTRICTED-1"></a>
+<a name="index-NO_005fRESTRICTED"></a>
+<a name="index-NORESTRICTED"></a>
+<a name="index-restricted-shell-1"></a>
+</dd>
+<dt><tt>RESTRICTED</tt> (<tt>-r</tt>)</dt>
+<dd><p>Enables restricted mode.  This option cannot be changed using
+<tt>unsetopt</tt>, and setting it inside a function always changes it
+globally regardless of the <tt>LOCAL_OPTIONS</tt> option.  See
+<a href="Invocation.html#Restricted-Shell">Restricted Shell</a>.
+</p>
+<a name="index-SHIN_005fSTDIN"></a>
+<a name="index-NO_005fSHIN_005fSTDIN"></a>
+<a name="index-SHINSTDIN"></a>
+<a name="index-NOSHINSTDIN"></a>
+</dd>
+<dt><tt>SHIN_STDIN</tt> (<tt>-s</tt>, ksh: <tt>-s</tt>)</dt>
+<dd><p>Commands are being read from the standard input.
+Commands are read from standard input if no command is specified with
+<tt>-c</tt> and no file of commands is specified.  If <tt>SHIN_STDIN</tt>
+is set explicitly on the command line,
+any argument that would otherwise have been
+taken as a file to run will instead be treated as a normal positional
+parameter.
+Note that setting or unsetting this option on the command line does not
+necessarily affect the state the option will have while the shell is
+running - that is purely an indicator of whether or not commands are
+<em>actually</em> being read from standard input.
+The value of this option can only be changed via flags supplied at
+invocation of the shell.
+It cannot be changed once zsh is running.
+</p>
+<a name="index-SINGLE_005fCOMMAND"></a>
+<a name="index-NO_005fSINGLE_005fCOMMAND"></a>
+<a name="index-SINGLECOMMAND"></a>
+<a name="index-NOSINGLECOMMAND"></a>
+<a name="index-single-command"></a>
+<a name="index-INTERACTIVE_002c-use-of"></a>
+</dd>
+<dt><tt>SINGLE_COMMAND</tt> (<tt>-t</tt>, ksh: <tt>-t</tt>)</dt>
+<dd><p>If the shell is reading from standard input, it exits after a single command
+has been executed.  This also makes the shell non-interactive, unless the
+<tt>INTERACTIVE</tt> option is explicitly set on the command line.
+The value of this option can only be changed via flags supplied at
+invocation of the shell.
+It cannot be changed once zsh is running.
+</p>
+</dd>
+</dl>
+
+
+<hr>
+<a name="Zle"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Shell-State" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-of-Options" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Option-Aliases" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">16.2.12 Zle</h3>
+<dl compact="compact">
+<dd><a name="index-BEEP"></a>
+<a name="index-NO_005fBEEP"></a>
+<a name="index-NOBEEP"></a>
+<a name="index-beep_002c-enabling"></a>
+<a name="index-enabling-the-beep"></a>
+</dd>
+<dt><tt>BEEP</tt> (<tt>+B</tt>) &lt;D&gt;</dt>
+<dd><p>Beep on error in ZLE.
+</p>
+<a name="index-COMBINING_005fCHARS"></a>
+<a name="index-NO_005fCOMBINING_005fCHARS"></a>
+<a name="index-COMBININGCHARS"></a>
+<a name="index-NOCOMBININGCHARS"></a>
+<a name="index-characters_002c-_0028Unicode_0029-combining"></a>
+<a name="index-combining-characters-_0028Unicode_0029"></a>
+<a name="index-Unicode-combining-characters"></a>
+</dd>
+<dt><tt>COMBINING_CHARS</tt></dt>
+<dd><p>Assume that the terminal displays combining characters correctly.
+Specifically, if a base alphanumeric character is followed by one or more
+zero-width punctuation characters, assume that the zero-width characters
+will be displayed as modifications to the base character within the
+same width.  Not all terminals handle this.  If this option is not
+set, zero-width characters are displayed separately with special
+mark-up.
+</p>
+<p>If this option is set, the pattern test <tt>[[:WORD:]]</tt> matches a
+zero-width punctuation character on the assumption that it will be
+used as part of a word in combination with a word character.
+Otherwise the base shell does not handle combining characters specially.
+</p>
+<a name="index-EMACS"></a>
+<a name="index-NO_005fEMACS"></a>
+<a name="index-NOEMACS"></a>
+</dd>
+<dt><tt>EMACS</tt></dt>
+<dd><p>If ZLE is loaded, turning on this option has the equivalent effect
+of &lsquo;<tt>bindkey -e</tt>&rsquo;.  In addition, the VI option is unset.
+Turning it off has no effect.  The option setting is
+not guaranteed to reflect the current keymap.  This option is
+provided for compatibility; <tt>bindkey</tt> is the recommended interface.
+</p>
+<a name="index-OVERSTRIKE"></a>
+<a name="index-NO_005fOVERSTRIKE"></a>
+<a name="index-NOOVERSTRIKE"></a>
+<a name="index-editor_002c-overstrike-mode"></a>
+<a name="index-overstrike-mode_002c-of-editor"></a>
+</dd>
+<dt><tt>OVERSTRIKE</tt></dt>
+<dd><p>Start up the line editor in overstrike mode.
+</p>
+<a name="index-SINGLE_005fLINE_005fZLE"></a>
+<a name="index-NO_005fSINGLE_005fLINE_005fZLE"></a>
+<a name="index-SINGLELINEZLE"></a>
+<a name="index-NOSINGLELINEZLE"></a>
+<a name="index-editor_002c-single-line-mode"></a>
+</dd>
+<dt><tt>SINGLE_LINE_ZLE</tt> (<tt>-M</tt>) &lt;K&gt;</dt>
+<dd><p>Use single-line command line editing instead of multi-line.
+</p>
+<p>Note that although this is on by default in ksh emulation it only
+provides superficial compatibility with the ksh line editor and
+reduces the effectiveness of the zsh line editor.  As it has no
+effect on shell syntax, many users may wish to disable this option
+when using ksh emulation interactively.
+</p>
+<a name="index-VI"></a>
+<a name="index-NO_005fVI"></a>
+<a name="index-NOVI"></a>
+</dd>
+<dt><tt>VI</tt></dt>
+<dd><p>If ZLE is loaded, turning on this option has the equivalent effect
+of &lsquo;<tt>bindkey -v</tt>&rsquo;.  In addition, the EMACS option is unset.
+Turning it off has no effect.  The option setting is
+not guaranteed to reflect the current keymap.  This option is
+provided for compatibility; <tt>bindkey</tt> is the recommended interface.
+</p>
+<a name="index-ZLE"></a>
+<a name="index-NO_005fZLE"></a>
+<a name="index-NOZLE"></a>
+<a name="index-editor_002c-enabling"></a>
+<a name="index-enabling-the-editor"></a>
+</dd>
+<dt><tt>ZLE</tt> (<tt>-Z</tt>)</dt>
+<dd><p>Use the zsh line editor.  Set by default in interactive shells connected to
+a terminal.
+</p>
+</dd>
+</dl>
+
+<hr>
+<a name="Option-Aliases"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Zle" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Options" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Single-Letter-Options" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+
+<a name="Option-Aliases-1"></a>
+<h2 class="section">16.3 Option Aliases</h2>
+<a name="index-options_002c-aliases"></a>
+<p>Some options have alternative names.  These aliases are never used for
+output, but can be used just like normal option names when specifying
+options to the shell.
+</p>
+<dl compact="compact">
+<dd><a name="index-BRACE_005fEXPAND"></a>
+<a name="index-NO_005fBRACE_005fEXPAND"></a>
+<a name="index-BRACEEXPAND"></a>
+<a name="index-NOBRACEEXPAND"></a>
+</dd>
+<dt><tt>BRACE_EXPAND</tt></dt>
+<dd><p><em>NO_</em><tt>IGNORE_BRACES</tt>
+(ksh and bash compatibility)
+</p>
+<a name="index-DOT_005fGLOB"></a>
+<a name="index-NO_005fDOT_005fGLOB"></a>
+<a name="index-DOTGLOB"></a>
+<a name="index-NODOTGLOB"></a>
+</dd>
+<dt><tt>DOT_GLOB</tt></dt>
+<dd><p><tt>GLOB_DOTS</tt>
+(bash compatibility)
+</p>
+<a name="index-HASH_005fALL"></a>
+<a name="index-NO_005fHASH_005fALL"></a>
+<a name="index-HASHALL"></a>
+<a name="index-NOHASHALL"></a>
+</dd>
+<dt><tt>HASH_ALL</tt></dt>
+<dd><p><tt>HASH_CMDS</tt>
+(bash compatibility)
+</p>
+<a name="index-HIST_005fAPPEND"></a>
+<a name="index-NO_005fHIST_005fAPPEND"></a>
+<a name="index-HISTAPPEND"></a>
+<a name="index-NOHISTAPPEND"></a>
+</dd>
+<dt><tt>HIST_APPEND</tt></dt>
+<dd><p><tt>APPEND_HISTORY</tt>
+(bash compatibility)
+</p>
+<a name="index-HIST_005fEXPAND"></a>
+<a name="index-NO_005fHIST_005fEXPAND"></a>
+<a name="index-HISTEXPAND"></a>
+<a name="index-NOHISTEXPAND"></a>
+</dd>
+<dt><tt>HIST_EXPAND</tt></dt>
+<dd><p><tt>BANG_HIST</tt>
+(bash compatibility)
+</p>
+<a name="index-LOG"></a>
+<a name="index-NO_005fLOG"></a>
+<a name="index-NOLOG"></a>
+</dd>
+<dt><tt>LOG</tt></dt>
+<dd><p><em>NO_</em><tt>HIST_NO_FUNCTIONS</tt>
+(ksh compatibility)
+</p>
+<a name="index-MAIL_005fWARN"></a>
+<a name="index-NO_005fMAIL_005fWARN"></a>
+<a name="index-MAILWARN"></a>
+<a name="index-NOMAILWARN"></a>
+</dd>
+<dt><tt>MAIL_WARN</tt></dt>
+<dd><p><tt>MAIL_WARNING</tt>
+(bash compatibility)
+</p>
+<a name="index-ONE_005fCMD"></a>
+<a name="index-NO_005fONE_005fCMD"></a>
+<a name="index-ONECMD"></a>
+<a name="index-NOONECMD"></a>
+</dd>
+<dt><tt>ONE_CMD</tt></dt>
+<dd><p><tt>SINGLE_COMMAND</tt>
+(bash compatibility)
+</p>
+<a name="index-PHYSICAL"></a>
+<a name="index-NO_005fPHYSICAL"></a>
+<a name="index-NOPHYSICAL"></a>
+</dd>
+<dt><tt>PHYSICAL</tt></dt>
+<dd><p><tt>CHASE_LINKS</tt>
+(ksh and bash compatibility)
+</p>
+<a name="index-PROMPT_005fVARS"></a>
+<a name="index-NO_005fPROMPT_005fVARS"></a>
+<a name="index-PROMPTVARS"></a>
+<a name="index-NOPROMPTVARS"></a>
+</dd>
+<dt><tt>PROMPT_VARS</tt></dt>
+<dd><p><tt>PROMPT_SUBST</tt>
+(bash compatibility)
+</p>
+<a name="index-STDIN"></a>
+<a name="index-NO_005fSTDIN"></a>
+<a name="index-NOSTDIN"></a>
+</dd>
+<dt><tt>STDIN</tt></dt>
+<dd><p><tt>SHIN_STDIN</tt>
+(ksh compatibility)
+</p>
+<a name="index-TRACK_005fALL"></a>
+<a name="index-NO_005fTRACK_005fALL"></a>
+<a name="index-TRACKALL"></a>
+<a name="index-NOTRACKALL"></a>
+</dd>
+<dt><tt>TRACK_ALL</tt></dt>
+<dd><p><tt>HASH_CMDS</tt>
+(ksh compatibility)
+</p>
+</dd>
+</dl>
+<hr>
+<a name="Single-Letter-Options"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Option-Aliases" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Options" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Default-set" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+
+<a name="Single-Letter-Options-1"></a>
+<h2 class="section">16.4 Single Letter Options</h2>
+<a name="index-options_002c-single-letter"></a>
+<a name="index-single-letter-options"></a>
+
+<hr>
+<a name="Default-set"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Single-Letter-Options" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Single-Letter-Options" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#sh_002fksh-emulation-set" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">16.4.1 Default set</h3>
+<dl compact="compact">
+<dt><tt>-0</tt></dt>
+<dd><p>CORRECT
+</p></dd>
+<dt><tt>-1</tt></dt>
+<dd><p>PRINT_EXIT_VALUE
+</p></dd>
+<dt><tt>-2</tt></dt>
+<dd><p><em>NO_</em>BAD_PATTERN
+</p></dd>
+<dt><tt>-3</tt></dt>
+<dd><p><em>NO_</em>NOMATCH
+</p></dd>
+<dt><tt>-4</tt></dt>
+<dd><p>GLOB_DOTS
+</p></dd>
+<dt><tt>-5</tt></dt>
+<dd><p>NOTIFY
+</p></dd>
+<dt><tt>-6</tt></dt>
+<dd><p>BG_NICE
+</p></dd>
+<dt><tt>-7</tt></dt>
+<dd><p>IGNORE_EOF
+</p></dd>
+<dt><tt>-8</tt></dt>
+<dd><p>MARK_DIRS
+</p></dd>
+<dt><tt>-9</tt></dt>
+<dd><p>AUTO_LIST
+</p></dd>
+<dt><tt>-B</tt></dt>
+<dd><p><em>NO_</em>BEEP
+</p></dd>
+<dt><tt>-C</tt></dt>
+<dd><p><em>NO_</em>CLOBBER
+</p></dd>
+<dt><tt>-D</tt></dt>
+<dd><p>PUSHD_TO_HOME
+</p></dd>
+<dt><tt>-E</tt></dt>
+<dd><p>PUSHD_SILENT
+</p></dd>
+<dt><tt>-F</tt></dt>
+<dd><p><em>NO_</em>GLOB
+</p></dd>
+<dt><tt>-G</tt></dt>
+<dd><p>NULL_GLOB
+</p></dd>
+<dt><tt>-H</tt></dt>
+<dd><p>RM_STAR_SILENT
+</p></dd>
+<dt><tt>-I</tt></dt>
+<dd><p>IGNORE_BRACES
+</p></dd>
+<dt><tt>-J</tt></dt>
+<dd><p>AUTO_CD
+</p></dd>
+<dt><tt>-K</tt></dt>
+<dd><p><em>NO_</em>BANG_HIST
+</p></dd>
+<dt><tt>-L</tt></dt>
+<dd><p>SUN_KEYBOARD_HACK
+</p></dd>
+<dt><tt>-M</tt></dt>
+<dd><p>SINGLE_LINE_ZLE
+</p></dd>
+<dt><tt>-N</tt></dt>
+<dd><p>AUTO_PUSHD
+</p></dd>
+<dt><tt>-O</tt></dt>
+<dd><p>CORRECT_ALL
+</p></dd>
+<dt><tt>-P</tt></dt>
+<dd><p>RC_EXPAND_PARAM
+</p></dd>
+<dt><tt>-Q</tt></dt>
+<dd><p>PATH_DIRS
+</p></dd>
+<dt><tt>-R</tt></dt>
+<dd><p>LONG_LIST_JOBS
+</p></dd>
+<dt><tt>-S</tt></dt>
+<dd><p>REC_EXACT
+</p></dd>
+<dt><tt>-T</tt></dt>
+<dd><p>CDABLE_VARS
+</p></dd>
+<dt><tt>-U</tt></dt>
+<dd><p>MAIL_WARNING
+</p></dd>
+<dt><tt>-V</tt></dt>
+<dd><p><em>NO_</em>PROMPT_CR
+</p></dd>
+<dt><tt>-W</tt></dt>
+<dd><p>AUTO_RESUME
+</p></dd>
+<dt><tt>-X</tt></dt>
+<dd><p>LIST_TYPES
+</p></dd>
+<dt><tt>-Y</tt></dt>
+<dd><p>MENU_COMPLETE
+</p></dd>
+<dt><tt>-Z</tt></dt>
+<dd><p>ZLE
+</p></dd>
+<dt><tt>-a</tt></dt>
+<dd><p>ALL_EXPORT
+</p></dd>
+<dt><tt>-e</tt></dt>
+<dd><p>ERR_EXIT
+</p></dd>
+<dt><tt>-f</tt></dt>
+<dd><p><em>NO_</em>RCS
+</p></dd>
+<dt><tt>-g</tt></dt>
+<dd><p>HIST_IGNORE_SPACE
+</p></dd>
+<dt><tt>-h</tt></dt>
+<dd><p>HIST_IGNORE_DUPS
+</p></dd>
+<dt><tt>-i</tt></dt>
+<dd><p>INTERACTIVE
+</p></dd>
+<dt><tt>-k</tt></dt>
+<dd><p>INTERACTIVE_COMMENTS
+</p></dd>
+<dt><tt>-l</tt></dt>
+<dd><p>LOGIN
+</p></dd>
+<dt><tt>-m</tt></dt>
+<dd><p>MONITOR
+</p></dd>
+<dt><tt>-n</tt></dt>
+<dd><p><em>NO_</em>EXEC
+</p></dd>
+<dt><tt>-p</tt></dt>
+<dd><p>PRIVILEGED
+</p></dd>
+<dt><tt>-r</tt></dt>
+<dd><p>RESTRICTED
+</p></dd>
+<dt><tt>-s</tt></dt>
+<dd><p>SHIN_STDIN
+</p></dd>
+<dt><tt>-t</tt></dt>
+<dd><p>SINGLE_COMMAND
+</p></dd>
+<dt><tt>-u</tt></dt>
+<dd><p><em>NO_</em>UNSET
+</p></dd>
+<dt><tt>-v</tt></dt>
+<dd><p>VERBOSE
+</p></dd>
+<dt><tt>-w</tt></dt>
+<dd><p>CHASE_LINKS
+</p></dd>
+<dt><tt>-x</tt></dt>
+<dd><p>XTRACE
+</p></dd>
+<dt><tt>-y</tt></dt>
+<dd><p>SH_WORD_SPLIT
+</p></dd>
+</dl>
+
+<hr>
+<a name="sh_002fksh-emulation-set"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Default-set" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Single-Letter-Options" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Also-note" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">16.4.2 sh/ksh emulation set</h3>
+<dl compact="compact">
+<dt><tt>-C</tt></dt>
+<dd><p><em>NO_</em>CLOBBER
+</p></dd>
+<dt><tt>-T</tt></dt>
+<dd><p>TRAPS_ASYNC
+</p></dd>
+<dt><tt>-X</tt></dt>
+<dd><p>MARK_DIRS
+</p></dd>
+<dt><tt>-a</tt></dt>
+<dd><p>ALL_EXPORT
+</p></dd>
+<dt><tt>-b</tt></dt>
+<dd><p>NOTIFY
+</p></dd>
+<dt><tt>-e</tt></dt>
+<dd><p>ERR_EXIT
+</p></dd>
+<dt><tt>-f</tt></dt>
+<dd><p><em>NO_</em>GLOB
+</p></dd>
+<dt><tt>-i</tt></dt>
+<dd><p>INTERACTIVE
+</p></dd>
+<dt><tt>-l</tt></dt>
+<dd><p>LOGIN
+</p></dd>
+<dt><tt>-m</tt></dt>
+<dd><p>MONITOR
+</p></dd>
+<dt><tt>-n</tt></dt>
+<dd><p><em>NO_</em>EXEC
+</p></dd>
+<dt><tt>-p</tt></dt>
+<dd><p>PRIVILEGED
+</p></dd>
+<dt><tt>-r</tt></dt>
+<dd><p>RESTRICTED
+</p></dd>
+<dt><tt>-s</tt></dt>
+<dd><p>SHIN_STDIN
+</p></dd>
+<dt><tt>-t</tt></dt>
+<dd><p>SINGLE_COMMAND
+</p></dd>
+<dt><tt>-u</tt></dt>
+<dd><p><em>NO_</em>UNSET
+</p></dd>
+<dt><tt>-v</tt></dt>
+<dd><p>VERBOSE
+</p></dd>
+<dt><tt>-x</tt></dt>
+<dd><p>XTRACE
+</p></dd>
+</dl>
+
+<hr>
+<a name="Also-note"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#sh_002fksh-emulation-set" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Single-Letter-Options" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">16.4.3 Also note</h3>
+<dl compact="compact">
+<dt><tt>-A</tt></dt>
+<dd><p>Used by <tt>set</tt> for setting arrays
+</p></dd>
+<dt><tt>-b</tt></dt>
+<dd><p>Used on the command line to specify end of option processing
+</p></dd>
+<dt><tt>-c</tt></dt>
+<dd><p>Used on the command line to specify a single command
+</p></dd>
+<dt><tt>-m</tt></dt>
+<dd><p>Used by <tt>setopt</tt> for pattern-matching option setting
+</p></dd>
+<dt><tt>-o</tt></dt>
+<dd><p>Used in all places to allow use of long option names
+</p></dd>
+<dt><tt>-s</tt></dt>
+<dd><p>Used by <tt>set</tt> to sort positional parameters
+</p></dd>
+</dl>
+<hr>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Options" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  This document was generated on <i>February 15, 2020</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
+ </font>
+ <br>
+<font size="-1">Zsh version 5.8, released on February 14, 2020.</font>
+</p>
+</body>
+</html>

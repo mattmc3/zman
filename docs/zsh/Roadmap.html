@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created on February 15, 2020 by texi2html 5.0
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>zsh: 3 Roadmap</title>
+
+<meta name="description" content="zsh: 3 Roadmap">
+<meta name="keywords" content="zsh: 3 Roadmap">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 5.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:pre}
+span.nolinebreak {white-space:pre}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="Roadmap"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="Introduction.html#Introduction" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Introduction.html#See-Also" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#When-the-shell-starts" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Invocation.html#Invocation" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+
+<a name="Roadmap-1"></a>
+<h1 class="chapter">3 Roadmap</h1>
+<a name="index-roadmap"></a>
+<p>The Zsh Manual, like the shell itself, is large and often complicated.
+This section of the manual provides some pointers to areas of the shell
+that are likely to be of particular interest to new users, and indicates
+where in the rest of the manual the documentation is to be found.
+</p>
+
+<hr>
+<a name="When-the-shell-starts"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Roadmap" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Roadmap" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Roadmap" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Interactive-Use" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Invocation.html#Invocation" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section">3.1 When the shell starts</h2>
+
+<p>When it starts, the shell reads commands from various files.  These can
+be created or edited to customize the shell.  See <a href="Files.html#Files">Files</a>.
+</p>
+<p>If no personal initialization files exist for the current user, a function
+is run to help you change some of the most common settings.  It won&rsquo;t
+appear if your administrator has disabled the <tt>zsh/newuser</tt> module.
+The function is designed to be self-explanatory.  You can run it by hand
+with &lsquo;<tt>autoload -Uz zsh-newuser-install; zsh-newuser-install -f</tt>&rsquo;.
+See also
+<a href="User-Contributions.html#User-Configuration-Functions">User Configuration Functions</a>.
+</p>
+
+<hr>
+<a name="Interactive-Use"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Roadmap" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#When-the-shell-starts" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Roadmap" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Completion-1" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Invocation.html#Invocation" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section">3.2 Interactive Use</h2>
+
+<p>Interaction with the shell uses the builtin Zsh Line Editor, ZLE.  This is
+described in detail in <a href="Zsh-Line-Editor.html#Zsh-Line-Editor">Zsh Line Editor</a>.
+</p>
+<p>The first decision a user must make is whether to use the Emacs or Vi
+editing mode as the keys for editing are substantially different.  Emacs
+editing mode is probably more natural for beginners and can be selected
+explicitly with the command <tt>bindkey -e</tt>.
+</p>
+<p>A history mechanism for retrieving previously typed lines (most simply
+with the Up or Down arrow keys) is available; note that, unlike other
+shells, zsh will not save these lines when the shell exits unless you
+set appropriate variables, and the number of history lines retained by
+default is quite small (30 lines).  See the description of the shell
+variables (referred to in the documentation as parameters) <tt>HISTFILE</tt>,
+<tt>HISTSIZE</tt> and <tt>SAVEHIST</tt> in <a href="Parameters.html#Parameters-Used-By-The-Shell">Parameters Used By The Shell</a>.  Note that it&rsquo;s
+currently only possible to read and write files saving history
+when the shell is interactive, i.e. it does not work from scripts.
+</p>
+<p>The shell now supports the UTF-8 character set (and also others if
+supported by the operating system).  This is (mostly) handled transparently
+by the shell, but the degree of support in terminal emulators is variable.
+There is some discussion of this in the shell FAQ,
+<tt><a href="http://www.zsh.org/FAQ/">http://www.zsh.org/FAQ/</a></tt>.  Note in particular that for combining
+characters to be handled the option <tt>COMBINING_CHARS</tt> needs to be set.
+Because the shell is now more sensitive to the definition of the
+character set, note that if you are upgrading from an older version of
+the shell you should ensure that the appropriate variable, either
+<tt>LANG</tt> (to affect all aspects of the shell&rsquo;s operation) or
+<tt>LC_CTYPE</tt> (to affect only the handling of character sets) is set to
+an appropriate value.  This is true even if you are using a
+single-byte character set including extensions of ASCII such as
+<tt>ISO-8859-1</tt> or <tt>ISO-8859-15</tt>.  See the description of <tt>LC_CTYPE</tt>
+in
+<a href="Parameters.html#Parameters">Parameters</a>.
+</p>
+
+<hr>
+<a name="Completion-1"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Roadmap" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Interactive-Use" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Interactive-Use" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Extending-the-line-editor" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Invocation.html#Invocation" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">3.2.1 Completion</h3>
+
+<p>Completion is a feature present in many shells. It allows the user to
+type only a part (usually the prefix) of a word and have the shell fill
+in the rest.  The completion system in zsh is programmable.  For
+example, the shell can be set to complete email addresses in
+arguments to the mail command from your <tt>~/.abook/addressbook</tt>;
+usernames, hostnames, and even remote paths in arguments to scp, and so
+on.  Anything that can be written in or glued together with zsh can be
+the source of what the line editor offers as possible completions.
+</p>
+<p>Zsh has two completion systems, an old, so called <tt>compctl</tt> completion
+(named after the builtin command that serves as its complete and only
+user interface), and a new one, referred to as <tt>compsys</tt>,
+organized as library of builtin and user-defined functions.
+The two systems differ in their interface for specifying the completion
+behavior.  The new system is more customizable and is supplied with
+completions for many commonly used commands; it is therefore to be
+preferred.
+</p>
+<p>The completion system must be enabled explicitly when the shell starts.
+For more information see
+<a href="Completion-System.html#Completion-System">Completion System</a>.
+</p>
+
+<hr>
+<a name="Extending-the-line-editor"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Roadmap" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Completion-1" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Interactive-Use" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Options-3" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Invocation.html#Invocation" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">3.2.2 Extending the line editor</h3>
+
+<p>Apart from completion, the line editor is highly extensible by means of
+shell functions.  Some useful functions are provided with the shell; they
+provide facilities such as:
+</p>
+<dl compact="compact">
+<dt><tt>insert-composed-char</tt></dt>
+<dd><p>composing characters not found on the keyboard
+</p>
+</dd>
+<dt><tt>match-words-by-style</tt></dt>
+<dd><p>configuring what the line editor considers a word when moving or
+deleting by word
+</p>
+</dd>
+<dt><tt>history-beginning-search-backward-end</tt>, etc.</dt>
+<dd><p>alternative ways of searching the shell history
+</p>
+</dd>
+<dt><tt>replace-string</tt>, <tt>replace-pattern</tt></dt>
+<dd><p>functions for replacing strings or patterns globally in the command line
+</p>
+</dd>
+<dt><tt>edit-command-line</tt></dt>
+<dd><p>edit the command line with an external editor.
+</p>
+</dd>
+</dl>
+
+<p>See <a href="User-Contributions.html#ZLE-Functions">ZLE Functions</a> for descriptions of these.
+</p>
+
+<hr>
+<a name="Options-3"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Roadmap" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Extending-the-line-editor" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Roadmap" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Pattern-Matching" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Invocation.html#Invocation" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section">3.3 Options</h2>
+
+<p>The shell has a large number of options for changing its behaviour.
+These cover all aspects of the shell; browsing the full documentation is
+the only good way to become acquainted with the many possibilities.  See
+<a href="Options.html#Options">Options</a>.
+</p>
+
+<hr>
+<a name="Pattern-Matching"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Roadmap" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Options-3" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Roadmap" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#General-Comments-on-Syntax" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Invocation.html#Invocation" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section">3.4 Pattern Matching</h2>
+
+<p>The shell has a rich set of patterns which are available for file matching
+(described in the documentation as &lsquo;filename generation&rsquo; and also known for
+historical reasons as &lsquo;globbing&rsquo;) and for use when programming.  These are
+described in <a href="Expansion.html#Filename-Generation">Filename Generation</a>.
+</p>
+<p>Of particular interest are the following patterns that are not commonly
+supported by other systems of pattern matching:
+</p>
+<dl compact="compact">
+<dt><tt>**</tt></dt>
+<dd><p>for matching over multiple directories
+</p>
+</dd>
+<dt><tt>|</tt></dt>
+<dd><p>for matching either of two alternatives
+</p>
+</dd>
+<dt><tt>~</tt>, <tt>^</tt></dt>
+<dd><p>the ability to exclude patterns from matching when the <tt>EXTENDED_GLOB</tt>
+option is set
+</p>
+</dd>
+<dt><tt>(</tt><var>...</var><tt>)</tt></dt>
+<dd><p>glob qualifiers, included in parentheses at the end of the pattern,
+which select files by type (such as directories) or attribute (such as
+size).
+</p>
+</dd>
+</dl>
+
+
+<hr>
+<a name="General-Comments-on-Syntax"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Roadmap" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Pattern-Matching" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Roadmap" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Programming" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Invocation.html#Invocation" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section">3.5 General Comments on Syntax</h2>
+
+<p>Although the syntax of zsh is in ways similar to the Korn shell, and
+therefore more remotely to the original UNIX shell, the Bourne shell,
+its default behaviour does not entirely correspond to those shells.
+General shell syntax is introduced in <a href="Shell-Grammar.html#Shell-Grammar">Shell Grammar</a>.
+</p>
+<p>One commonly encountered difference is that variables substituted onto the
+command line are not split into words.  See the description of the shell option
+<tt>SH_WORD_SPLIT</tt> in
+<a href="Expansion.html#Parameter-Expansion">Parameter Expansion</a>.
+In zsh, you can either explicitly request the splitting (e.g. <tt>${=foo}</tt>)
+or use an array when you want a variable to expand to more than one word.  See
+<a href="Parameters.html#Array-Parameters">Array Parameters</a>.
+</p>
+
+<hr>
+<a name="Programming"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Roadmap" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#General-Comments-on-Syntax" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Roadmap" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="Invocation.html#Invocation" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Invocation.html#Invocation" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section">3.6 Programming</h2>
+
+<p>The most convenient way of adding enhancements to the shell is typically
+by writing a shell function and arranging for it to be autoloaded.
+Functions are described in <a href="Functions.html#Functions">Functions</a>.  Users changing from the C shell and its
+relatives should notice that aliases are less used in zsh as they don&rsquo;t
+perform argument substitution, only simple text replacement.
+</p>
+<p>A few general functions, other than those for the line editor described
+above, are provided with the shell and are described in
+<a href="User-Contributions.html#User-Contributions">User Contributions</a>.  Features include:
+</p>
+<dl compact="compact">
+<dt><tt>promptinit</tt></dt>
+<dd><p>a prompt theme system for changing prompts easily, see <a href="User-Contributions.html#Prompt-Themes">Prompt Themes</a>
+</p>
+</dd>
+<dt><tt>zsh-mime-setup</tt></dt>
+<dd><p>a MIME-handling system which dispatches commands according to the suffix of
+a file as done by graphical file managers
+</p>
+</dd>
+<dt><tt>zcalc</tt></dt>
+<dd><p>a calculator
+</p>
+</dd>
+<dt><tt>zargs</tt></dt>
+<dd><p>a version of <tt>xargs</tt> that makes the <tt>find</tt> command redundant
+</p>
+</dd>
+<dt><tt>zmv</tt></dt>
+<dd><p>a command for renaming files by means of shell patterns.
+</p>
+</dd>
+</dl>
+<hr>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Roadmap" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Invocation.html#Invocation" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  This document was generated on <i>February 15, 2020</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
+ </font>
+ <br>
+<font size="-1">Zsh version 5.8, released on February 14, 2020.</font>
+</p>
+</body>
+</html>

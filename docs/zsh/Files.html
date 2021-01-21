@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created on February 15, 2020 by texi2html 5.0
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>zsh: 5 Files</title>
+
+<meta name="description" content="zsh: 5 Files">
+<meta name="keywords" content="zsh: 5 Files">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 5.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:pre}
+span.nolinebreak {white-space:pre}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="Files"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="Invocation.html#Invocation" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Invocation.html#Restricted-Shell" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Startup_002fShutdown-Files" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Grammar.html#Shell-Grammar" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+
+<a name="Files-1"></a>
+<h1 class="chapter">5 Files</h1>
+
+<hr>
+<a name="Startup_002fShutdown-Files"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Files" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Files" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Files" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Files-2" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Grammar.html#Shell-Grammar" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section">5.1 Startup/Shutdown Files</h2>
+<a name="index-files_002c-startup"></a>
+<a name="index-startup-files"></a>
+<a name="index-files_002c-shutdown"></a>
+<a name="index-shutdown-files"></a>
+<a name="index-RCS_002c-use-of"></a>
+<a name="index-GLOBAL_005fRCS_002c-use-of"></a>
+<a name="index-NO_005fRCS_002c-use-of"></a>
+<a name="index-NO_005fGLOBAL_005fRCS_002c-use-of"></a>
+<a name="index-ZDOTDIR_002c-use-of"></a>
+<a name="index-zshenv"></a>
+<p>Commands are first read from <tt>/etc/zshenv</tt>; this cannot be overridden.
+Subsequent behaviour is modified by the <tt>RCS</tt> and
+<tt>GLOBAL_RCS</tt> options; the former affects all startup files, while the
+second only affects global startup files (those shown here with an
+path starting with a <tt>/</tt>).  If one of the options
+is unset at any point, any subsequent startup file(s)
+of the corresponding
+type will not be read.  It is also possible for a file in <tt>$ZDOTDIR</tt> to
+re-enable <tt>GLOBAL_RCS</tt>. Both <tt>RCS</tt> and <tt>GLOBAL_RCS</tt> are set by
+default.
+</p>
+<p>Commands are then read from <tt>$ZDOTDIR/.zshenv</tt>.
+<a name="index-LOGIN_002c-use-of"></a>
+<a name="index-zprofile"></a>
+If the shell is a login shell, commands
+are read from <tt>/etc/zprofile</tt> and then <tt>$ZDOTDIR/.zprofile</tt>.
+<a name="index-zshrc"></a>
+Then, if the shell is interactive,
+commands are read from <tt>/etc/zshrc</tt> and then <tt>$ZDOTDIR/.zshrc</tt>.
+<a name="index-zlogin"></a>
+Finally, if the shell is a login shell, <tt>/etc/zlogin</tt> and
+<tt>$ZDOTDIR/.zlogin</tt> are read.
+</p>
+<a name="index-zlogout"></a>
+<p>When a login shell exits, the files <tt>$ZDOTDIR/.zlogout</tt> and then
+<tt>/etc/zlogout</tt> are read.  This happens with either an explicit exit
+via the <tt>exit</tt> or <tt>logout</tt> commands, or an implicit exit by reading
+end-of-file from the terminal.  However, if the shell terminates due
+to <tt>exec</tt>&rsquo;ing another process, the logout files are not read.
+These are also affected by the <tt>RCS</tt> and <tt>GLOBAL_RCS</tt> options.
+Note also that the <tt>RCS</tt> option affects the saving of history files,
+i.e. if <tt>RCS</tt> is unset when the shell exits, no history file will be
+saved.
+</p>
+<a name="index-HOME_002c-use-of"></a>
+<p>If <tt>ZDOTDIR</tt> is unset, <tt>HOME</tt> is used instead.
+Files listed above as being in <tt>/etc</tt> may be in another
+directory, depending on the installation.
+</p>
+<p>As <tt>/etc/zshenv</tt> is run for all instances of zsh, it is important that
+it be kept as small as possible.  In particular, it is a good idea to
+put code that does not need to be run for every single shell behind
+a test of the form &lsquo;<tt>if [[ -o rcs ]]; then ...</tt>&rsquo; so that it will not
+be executed when zsh is invoked with the &lsquo;<tt>-f</tt>&rsquo; option.
+</p>
+<hr>
+<a name="Files-2"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Files" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Startup_002fShutdown-Files" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Files" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Grammar.html#Shell-Grammar" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Grammar.html#Shell-Grammar" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section">5.2 Files</h2>
+<a name="index-files-used"></a>
+<dl compact="compact">
+<dt><tt>$ZDOTDIR/.zshenv</tt></dt>
+<dt><tt>$ZDOTDIR/.zprofile</tt></dt>
+<dt><tt>$ZDOTDIR/.zshrc</tt></dt>
+<dt><tt>$ZDOTDIR/.zlogin</tt></dt>
+<dt><tt>$ZDOTDIR/.zlogout</tt></dt>
+<dt><tt>${TMPPREFIX}*</tt>   (default is /tmp/zsh*)</dt>
+<dt><tt>/etc/zshenv</tt></dt>
+<dt><tt>/etc/zprofile</tt></dt>
+<dt><tt>/etc/zshrc</tt></dt>
+<dt><tt>/etc/zlogin</tt></dt>
+<dt><tt>/etc/zlogout</tt>    (installation-specific - <tt>/etc</tt> is the default)</dt>
+</dl>
+<br>
+
+<p>Any of these files may be pre-compiled with the <tt>zcompile</tt> builtin
+command (<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands">Shell Builtin Commands</a>).  If a compiled file exists (named for the original file plus the
+<tt>.zwc</tt> extension) and it is newer than the original file, the compiled
+file will be used instead.
+</p><hr>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Files" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Shell-Grammar.html#Shell-Grammar" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  This document was generated on <i>February 15, 2020</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
+ </font>
+ <br>
+<font size="-1">Zsh version 5.8, released on February 14, 2020.</font>
+</p>
+</body>
+</html>

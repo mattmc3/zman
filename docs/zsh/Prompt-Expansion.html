@@ -1,0 +1,702 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created on February 15, 2020 by texi2html 5.0
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>zsh: 13 Prompt Expansion</title>
+
+<meta name="description" content="zsh: 13 Prompt Expansion">
+<meta name="keywords" content="zsh: 13 Prompt Expansion">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 5.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:pre}
+span.nolinebreak {white-space:pre}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="Prompt-Expansion"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="Conditional-Expressions.html#Conditional-Expressions" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Conditional-Expressions.html#Conditional-Expressions" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Expansion-of-Prompt-Sequences" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Expansion.html#Expansion" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+
+<a name="Prompt-Expansion-1"></a>
+<h1 class="chapter">13 Prompt Expansion</h1>
+
+<hr>
+<a name="Expansion-of-Prompt-Sequences"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Prompt-Expansion" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Prompt-Expansion" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Prompt-Expansion" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Simple-Prompt-Escapes" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Expansion.html#Expansion" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section">13.1 Expansion of Prompt Sequences</h2>
+<a name="index-prompt-expansion"></a>
+<a name="index-expansion_002c-prompt"></a>
+<p>Prompt sequences undergo a special form of expansion.  This type of expansion
+is also available using the <tt>-P</tt> option to the <tt>print</tt> builtin.
+</p>
+<a name="index-PROMPT_005fSUBST_002c-use-of"></a>
+<p>If the <tt>PROMPT_SUBST</tt> option is set, the prompt string is first subjected to
+<em>parameter expansion</em>,
+<em>command substitution</em> and
+<em>arithmetic expansion</em>.
+See
+<a href="Expansion.html#Expansion">Expansion</a>.
+</p>
+<p>Certain escape sequences may be recognised in the prompt string.
+</p>
+<a name="index-PROMPT_005fBANG_002c-use-of"></a>
+<p>If the <tt>PROMPT_BANG</tt> option is set, a &lsquo;<tt>!</tt>&rsquo; in the prompt is replaced
+by the current history event number.  A literal &lsquo;<tt>!</tt>&rsquo; may then be
+represented as &lsquo;<tt>!!</tt>&rsquo;.
+</p>
+<a name="index-PROMPT_005fPERCENT_002c-use-of"></a>
+<p>If the <tt>PROMPT_PERCENT</tt> option is set, certain escape sequences that
+start with &lsquo;<tt>%</tt>&rsquo; are expanded.
+Many escapes are followed by a single character, although some of these
+take an optional integer argument that
+should appear between the &lsquo;<tt>%</tt>&rsquo; and the next character of the
+sequence.  More complicated escape sequences are available to provide
+conditional expansion.
+</p>
+
+<hr>
+<a name="Simple-Prompt-Escapes"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Prompt-Expansion" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Expansion-of-Prompt-Sequences" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Prompt-Expansion" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Special-characters" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Expansion.html#Expansion" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section">13.2 Simple Prompt Escapes</h2>
+
+
+<hr>
+<a name="Special-characters"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Prompt-Expansion" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Simple-Prompt-Escapes" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Simple-Prompt-Escapes" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Login-information" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Expansion.html#Expansion" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">13.2.1 Special characters</h3>
+<dl compact="compact">
+<dt><tt>%%</tt></dt>
+<dd><p>A &lsquo;<tt>%</tt>&rsquo;.
+</p>
+</dd>
+<dt><tt>%)</tt></dt>
+<dd><p>A &lsquo;<tt>)</tt>&rsquo;.
+</p>
+</dd>
+</dl>
+
+
+<hr>
+<a name="Login-information"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Prompt-Expansion" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Special-characters" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Simple-Prompt-Escapes" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Shell-state" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Expansion.html#Expansion" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">13.2.2 Login information</h3>
+<dl compact="compact">
+<dt><tt>%l</tt></dt>
+<dd><p>The line (tty) the user is logged in on, without &lsquo;<tt>/dev/</tt>&rsquo; prefix.
+If the name starts with &lsquo;<tt>/dev/tty</tt>&rsquo;, that prefix is stripped.
+</p>
+</dd>
+<dt><tt>%M</tt></dt>
+<dd><p>The full machine hostname.
+</p>
+</dd>
+<dt><tt>%m</tt></dt>
+<dd><p>The hostname up to the first &lsquo;<tt>.</tt>&rsquo;.
+An integer may follow the &lsquo;<tt>%</tt>&rsquo; to specify
+how many components of the hostname are desired.  With a negative integer,
+trailing components of the hostname are shown.
+</p>
+</dd>
+<dt><tt>%n</tt></dt>
+<dd><p><tt>$USERNAME</tt>.
+</p>
+</dd>
+<dt><tt>%y</tt></dt>
+<dd><p>The line (tty) the user is logged in on, without &lsquo;<tt>/dev/</tt>&rsquo; prefix.
+This does not treat &lsquo;<tt>/dev/tty</tt>&rsquo; names specially.
+</p>
+</dd>
+</dl>
+
+
+<hr>
+<a name="Shell-state"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Prompt-Expansion" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Login-information" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Simple-Prompt-Escapes" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Date-and-time" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Expansion.html#Expansion" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">13.2.3 Shell state</h3>
+<dl compact="compact">
+<dt><tt>%#</tt></dt>
+<dd><p>A &lsquo;<tt>#</tt>&rsquo; if the shell is running with privileges, a &lsquo;<tt>%</tt>&rsquo; if not.
+Equivalent to &lsquo;<tt>%(!.#.%%)</tt>&rsquo;.
+The definition of &lsquo;privileged&rsquo;, for these purposes, is that either the
+effective user ID is zero, or, if POSIX.1e capabilities are supported, that
+at least one capability is raised in either the Effective or Inheritable
+capability vectors.
+</p>
+</dd>
+<dt><tt>%?</tt></dt>
+<dd><p>The return status of the last command executed just before the prompt.
+</p>
+</dd>
+<dt><tt>%_</tt></dt>
+<dd><p>The status of the parser, i.e. the shell constructs (like &lsquo;<tt>if</tt>&rsquo; and
+&lsquo;<tt>for</tt>&rsquo;) that have been started on the command line. If given an integer
+number that many strings will be printed; zero or negative or no integer means
+print as many as there are.  This is most useful in prompts <tt>PS2</tt> for
+continuation lines and <tt>PS4</tt> for debugging with the <tt>XTRACE</tt> option; in
+the latter case it will also work non-interactively.
+</p>
+</dd>
+<dt><tt>%^</tt></dt>
+<dd><p>The status of the parser in reverse. This is the same as &lsquo;<tt>%_</tt>&rsquo; other than
+the order of strings.  It is often used in <tt>RPS2</tt>.
+</p>
+</dd>
+<dt><tt>%d</tt></dt>
+<dt><tt>%/</tt></dt>
+<dd><p>Current working directory.  If an integer follows the &lsquo;<tt>%</tt>&rsquo;,
+it specifies a number of trailing components of the current working
+directory to show; zero means the whole path.  A negative integer
+specifies leading components, i.e. <tt>%-1d</tt> specifies the first component.
+</p>
+</dd>
+<dt><tt>%~</tt></dt>
+<dd><p>As <tt>%d</tt> and <tt>%/</tt>, but if the current working directory starts with
+<tt>$HOME</tt>, that part is replaced by a &lsquo;<tt>~</tt>&rsquo;. Furthermore, if it has a named
+directory as its prefix, that part is replaced by a &lsquo;<tt>~</tt>&rsquo; followed by
+the name of the directory, but only if the result is shorter than
+the full path; 
+<a href="Expansion.html#Filename-Expansion">Filename Expansion</a>.
+</p>
+</dd>
+<dt><tt>%e</tt></dt>
+<dd><p>Evaluation depth of the current sourced file, shell function, or <tt>eval</tt>.
+This is incremented or decremented every time the value of <tt>%N</tt> is
+set or reverted to a previous value, respectively.  This is most useful
+for debugging as part of <tt>$PS4</tt>.
+</p>
+</dd>
+<dt><tt>%h</tt></dt>
+<dt><tt>%!</tt></dt>
+<dd><p>Current history event number.
+</p>
+</dd>
+<dt><tt>%i</tt></dt>
+<dd><p>The line number currently being executed in the script, sourced file, or
+shell function given by <tt>%N</tt>.  This is most useful for debugging as part
+of <tt>$PS4</tt>.
+</p>
+</dd>
+<dt><tt>%I</tt></dt>
+<dd><p>The line number currently being executed in the file <tt>%x</tt>.  This is
+similar to <tt>%i</tt>, but the line number is always a line number in the
+file where the code was defined, even if the code is a shell function.
+</p>
+</dd>
+<dt><tt>%j</tt></dt>
+<dd><p>The number of jobs.
+</p>
+</dd>
+<dt><tt>%L</tt></dt>
+<dd><p>The current value of <tt>$SHLVL</tt>.
+</p>
+</dd>
+<dt><tt>%N</tt></dt>
+<dd><p>The name of the script, sourced file, or shell function that zsh is
+currently executing, whichever was started most recently.  If there is
+none, this is equivalent to the parameter <tt>$0</tt>.  An integer may follow
+the &lsquo;<tt>%</tt>&rsquo; to specify a number of trailing path components to show; zero
+means the full path.  A negative integer specifies leading components.
+</p>
+</dd>
+<dt><tt>%x</tt></dt>
+<dd><p>The name of the file containing the source code currently being
+executed.  This behaves as <tt>%N</tt> except that function and eval command
+names are not shown, instead the file where they were defined.
+</p>
+</dd>
+<dt><tt>%c</tt></dt>
+<dt><tt>%.</tt></dt>
+<dt><tt>%C</tt></dt>
+<dd><p>Trailing component of the current working directory.
+An integer may follow the &lsquo;<tt>%</tt>&rsquo; to get more than one component.
+Unless &lsquo;<tt>%C</tt>&rsquo; is used, tilde contraction is performed first.  These are
+deprecated as <tt>%c</tt> and <tt>%C</tt> are equivalent to <tt>%1~</tt> and <tt>%1/</tt>,
+respectively, while explicit positive integers have the same effect as for
+the latter two sequences.
+</p>
+</dd>
+</dl>
+
+
+<hr>
+<a name="Date-and-time"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Prompt-Expansion" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Shell-state" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Simple-Prompt-Escapes" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Visual-effects" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Expansion.html#Expansion" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">13.2.4 Date and time</h3>
+<dl compact="compact">
+<dt><tt>%D</tt></dt>
+<dd><p>The date in <var>yy</var><tt>-</tt><var>mm</var><tt>-</tt><var>dd</var> format.
+</p>
+</dd>
+<dt><tt>%T</tt></dt>
+<dd><p>Current time of day, in 24-hour format.
+</p>
+</dd>
+<dt><tt>%t</tt></dt>
+<dt><tt>%@</tt></dt>
+<dd><p>Current time of day, in 12-hour, am/pm format.
+</p>
+</dd>
+<dt><tt>%*</tt></dt>
+<dd><p>Current time of day in 24-hour format, with seconds.
+</p>
+</dd>
+<dt><tt>%w</tt></dt>
+<dd><p>The date in <var>day</var><tt>-</tt><var>dd</var> format.
+</p>
+</dd>
+<dt><tt>%W</tt></dt>
+<dd><p>The date in <var>mm</var><tt>/</tt><var>dd</var><tt>/</tt><var>yy</var> format.
+</p>
+</dd>
+<dt><tt>%D{</tt><var>string</var><tt>}</tt></dt>
+<dd><p><var>string</var> is formatted using the <tt>strftime</tt> function.
+See man page strftime(3) for more details.  Various zsh
+extensions provide numbers with no leading zero or space
+if the number is a single digit:
+</p>
+<dl compact="compact">
+<dt><tt>%f</tt></dt>
+<dd><p>a day of the month
+</p></dd>
+<dt><tt>%K</tt></dt>
+<dd><p>the hour of the day on the 24-hour clock
+</p></dd>
+<dt><tt>%L</tt></dt>
+<dd><p>the hour of the day on the 12-hour clock
+</p></dd>
+</dl>
+
+<p>In addition, if the system supports the POSIX <tt>gettimeofday</tt> system
+call, <tt>%.</tt> provides decimal fractions of a second since the epoch with
+leading zeroes.  By default three decimal places are provided, but a
+number of digits up to 9 may be given following the <tt>%</tt>; hence <tt>%6.</tt>
+outputs microseconds, and <tt>%9.</tt> outputs nanoseconds.  (The latter
+requires a nanosecond-precision <tt>clock_gettime</tt>; systems lacking this
+will return a value multiplied by the appropriate power of 10.)  A typical
+example of this is the format &lsquo;<tt>%D{%H:%M:%S.%.}</tt>&rsquo;.
+</p>
+<p>The GNU extension <tt>%N</tt> is handled as a synonym for <tt>%9.</tt>.
+</p>
+<p>Additionally, the GNU extension that a &lsquo;<tt>-</tt>&rsquo; between the <tt>%</tt> and the
+format character causes a leading zero or space to be stripped
+is handled directly by the shell for the format characters <tt>d</tt>, <tt>f</tt>,
+<tt>H</tt>, <tt>k</tt>, <tt>l</tt>, <tt>m</tt>, <tt>M</tt>, <tt>S</tt> and <tt>y</tt>; any other format
+characters are provided to the system&rsquo;s strftime(3)
+with any leading &lsquo;<tt>-</tt>&rsquo; present, so the handling is system dependent.
+Further GNU (or other) extensions are also passed to strftime(3)
+and may work if the system supports them.
+</p>
+</dd>
+</dl>
+
+
+<hr>
+<a name="Visual-effects"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Prompt-Expansion" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Date-and-time" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Simple-Prompt-Escapes" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Conditional-Substrings-in-Prompts" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Expansion.html#Expansion" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection">13.2.5 Visual effects</h3>
+<dl compact="compact">
+<dt><tt>%B</tt> (<tt>%b</tt>)</dt>
+<dd><p>Start (stop) boldface mode.
+</p>
+</dd>
+<dt><tt>%E</tt></dt>
+<dd><p>Clear to end of line.
+</p>
+</dd>
+<dt><tt>%U</tt> (<tt>%u</tt>)</dt>
+<dd><p>Start (stop) underline mode.
+</p>
+</dd>
+<dt><tt>%S</tt> (<tt>%s</tt>)</dt>
+<dd><p>Start (stop) standout mode.
+</p>
+</dd>
+<dt><tt>%F</tt> (<tt>%f</tt>)</dt>
+<dd><p>Start (stop) using a different foreground colour, if supported
+by the terminal.  The colour may be specified two ways: either
+as a numeric argument, as normal, or by a sequence in braces
+following the <tt>%F</tt>, for example <tt>%F{red}</tt>.  In the latter case
+the values allowed are as described for the <tt>fg</tt> <tt>zle_highlight</tt>
+attribute;
+<a href="Zsh-Line-Editor.html#Character-Highlighting">Character Highlighting</a>.  This means that numeric
+colours are allowed in the second format also.
+</p>
+</dd>
+<dt><tt>%K</tt> (<tt>%k</tt>)</dt>
+<dd><p>Start (stop) using a different bacKground colour.  The syntax is
+identical to that for <tt>%F</tt> and <tt>%f</tt>.
+</p>
+</dd>
+<dt><tt>%{</tt>...<tt>%}</tt></dt>
+<dd><p>Include a string as a literal escape sequence.
+The string within the braces should not change the cursor
+position.  Brace pairs can nest.
+</p>
+<p>A positive numeric argument between the <tt>%</tt> and the <tt>{</tt> is treated as
+described for <tt>%G</tt> below.
+</p>
+</dd>
+<dt><tt>%G</tt></dt>
+<dd><p>Within a <tt>%{</tt>...<tt>%}</tt> sequence, include a &lsquo;glitch&rsquo;: that is, assume
+that a single character width will be output.  This is useful when
+outputting characters that otherwise cannot be correctly handled by the
+shell, such as the alternate character set on some terminals.
+The characters in question can be included within a <tt>%{</tt>...<tt>%}</tt>
+sequence together with the appropriate number of <tt>%G</tt> sequences to
+indicate the correct width.  An integer between the &lsquo;<tt>%</tt>&rsquo; and &lsquo;<tt>G</tt>&rsquo;
+indicates a character width other than one.  Hence <tt>%{</tt><var>seq</var><tt>%2G%}</tt>
+outputs <var>seq</var> and assumes it takes up the width of two standard
+characters.
+</p>
+<p>Multiple uses of <tt>%G</tt> accumulate in the obvious fashion; the position
+of the <tt>%G</tt> is unimportant.  Negative integers are not handled.
+</p>
+<p>Note that when prompt truncation is in use it is advisable to divide up
+output into single characters within each <tt>%{</tt>...<tt>%}</tt> group so that
+the correct truncation point can be found.
+</p>
+</dd>
+</dl>
+
+
+<hr>
+<a name="Conditional-Substrings-in-Prompts"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Prompt-Expansion" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Visual-effects" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Prompt-Expansion" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="Expansion.html#Expansion" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Expansion.html#Expansion" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section">13.3 Conditional Substrings in Prompts</h2>
+<dl compact="compact">
+<dt><tt>%v</tt></dt>
+<dd><a name="index-psvar_002c-use-of"></a>
+<p>The value of the first element of the <tt>psvar</tt> array parameter.  Following
+the &lsquo;<tt>%</tt>&rsquo; with an integer gives that element of the array.  Negative
+integers count from the end of the array.
+</p>
+</dd>
+<dt><tt>%(</tt><var>x</var><tt>.</tt><var>true-text</var><tt>.</tt><var>false-text</var><tt>)</tt></dt>
+<dd><p>Specifies a ternary expression.  The character following the <var>x</var> is
+arbitrary; the same character is used to separate the text for the
+&lsquo;true&rsquo; result from that for the &lsquo;false&rsquo; result.
+This separator may not appear in the <var>true-text</var>, except as part of a
+%-escape
+sequence.  A &lsquo;<tt>)</tt>&rsquo; may appear in the <var>false-text</var> as &lsquo;<tt>%)</tt>&rsquo;.
+<var>true-text</var>
+and <var>false-text</var> may both contain arbitrarily-nested escape
+sequences, including further ternary expressions.
+</p>
+<p>The left parenthesis may be preceded or followed by a positive integer <var>n</var>,
+which defaults to zero.  A negative integer will be multiplied by -1, except
+as noted below for &lsquo;<tt>l</tt>&rsquo;.
+The test character <var>x</var> may be any of the following:
+</p>
+<dl compact="compact">
+<dt><tt>!</tt></dt>
+<dd><p>True if the shell is running with privileges.
+</p></dd>
+<dt><tt>#</tt></dt>
+<dd><p>True if the effective uid of the current process is <var>n</var>.
+</p></dd>
+<dt><tt>?</tt></dt>
+<dd><p>True if the exit status of the last command was <var>n</var>.
+</p></dd>
+<dt><tt>_</tt></dt>
+<dd><p>True if at least <var>n</var> shell constructs were started.
+</p></dd>
+<dt><tt>C</tt></dt>
+<dt><tt>/</tt></dt>
+<dd><p>True if the current absolute path has at least <var>n</var> elements
+relative to the root directory, hence <tt>/</tt> is counted as 0 elements.
+</p></dd>
+<dt><tt>c</tt></dt>
+<dt><tt>.</tt></dt>
+<dt><tt>~</tt></dt>
+<dd><p>True if the current path, with prefix replacement, has at
+least <var>n</var> elements relative to the root directory, hence <tt>/</tt> is
+counted as 0 elements.
+</p></dd>
+<dt><tt>D</tt></dt>
+<dd><p>True if the month is equal to <var>n</var> (January = 0).
+</p></dd>
+<dt><tt>d</tt></dt>
+<dd><p>True if the day of the month is equal to <var>n</var>.
+</p></dd>
+<dt><tt>e</tt></dt>
+<dd><p>True if the evaluation depth is at least <var>n</var>.
+</p></dd>
+<dt><tt>g</tt></dt>
+<dd><p>True if the effective gid of the current process is <var>n</var>.
+</p></dd>
+<dt><tt>j</tt></dt>
+<dd><p>True if the number of jobs is at least <var>n</var>.
+</p></dd>
+<dt><tt>L</tt></dt>
+<dd><p>True if the <tt>SHLVL</tt> parameter is at least <var>n</var>.
+</p></dd>
+<dt><tt>l</tt></dt>
+<dd><p>True if at least <var>n</var> characters have already been
+printed on the current line.  When <var>n</var> is negative, true if at least
+<tt>abs</tt><tt>(</tt><var>n</var><tt>)</tt> characters remain before the opposite
+margin (thus the left margin for <tt>RPROMPT</tt>).
+</p></dd>
+<dt><tt>S</tt></dt>
+<dd><p>True if the <tt>SECONDS</tt> parameter is at least <var>n</var>.
+</p></dd>
+<dt><tt>T</tt></dt>
+<dd><p>True if the time in hours is equal to <var>n</var>.
+</p></dd>
+<dt><tt>t</tt></dt>
+<dd><p>True if the time in minutes is equal to <var>n</var>.
+</p></dd>
+<dt><tt>v</tt></dt>
+<dd><p>True if the array <tt>psvar</tt> has at least <var>n</var> elements.
+</p></dd>
+<dt><tt>V</tt></dt>
+<dd><p>True if element <var>n</var> of the array <tt>psvar</tt> is set and
+non-empty.
+</p></dd>
+<dt><tt>w</tt></dt>
+<dd><p>True if the day of the week is equal to <var>n</var> (Sunday = 0).
+</p></dd>
+</dl>
+
+</dd>
+<dt><tt>%&lt;</tt><var>string</var><tt>&lt;</tt></dt>
+<dt><tt>%&gt;</tt><var>string</var><tt>&gt;</tt></dt>
+<dt><tt>%[</tt><var>xstring</var><tt>]</tt></dt>
+<dd><p>Specifies truncation behaviour for the remainder of the prompt string.
+The third, deprecated, form is equivalent to &lsquo;<tt>%</tt><var>xstringx</var>&rsquo;,
+i.e. <var>x</var> may be &lsquo;<tt>&lt;</tt>&rsquo; or &lsquo;<tt>&gt;</tt>&rsquo;.
+The <var>string</var> will be displayed in
+place of the truncated portion of any string; note this does not
+undergo prompt expansion.
+</p>
+<p>The numeric argument, which in the third form may appear immediately
+after the &lsquo;<tt>[</tt>&rsquo;, specifies the maximum permitted length of
+the various strings that can be displayed in the prompt.
+In the first two forms, this numeric argument may be negative, in which
+case the truncation length is determined by subtracting the absolute
+value of the numeric argument from the number of character positions
+remaining on the current prompt line.  If this results in a zero or
+negative length, a length of 1 is used.  In other words, a negative
+argument arranges that after truncation at least <var>n</var> characters
+remain before the right margin (left margin for <tt>RPROMPT</tt>).
+</p>
+<p>The forms with &lsquo;<tt>&lt;</tt>&rsquo; truncate at the left of the string,
+and the forms with &lsquo;<tt>&gt;</tt>&rsquo; truncate at the right of the string.
+For example, if the current directory is &lsquo;<tt>/home/pike</tt>&rsquo;,
+the prompt &lsquo;<tt>%8&lt;..&lt;%/</tt>&rsquo; will expand to &lsquo;<tt>..e/pike</tt>&rsquo;.
+In this string, the terminating character (&lsquo;<tt>&lt;</tt>&rsquo;, &lsquo;<tt>&gt;</tt>&rsquo; or &lsquo;<tt>]</tt>&rsquo;),
+or in fact any character, may be quoted by a preceding &lsquo;<tt>\</tt>&rsquo;; note
+when using <tt>print -P</tt>, however, that this must be doubled as the
+string is also subject to standard <tt>print</tt> processing, in addition
+to any backslashes removed by a double quoted string:  the worst case
+is therefore &lsquo;<tt>print -P &quot;%&lt;\\\\&lt;&lt;...&quot;</tt>&rsquo;.
+</p>
+<p>If the <var>string</var> is longer than the specified truncation length,
+it will appear in full, completely replacing the truncated string.
+</p>
+<p>The part of the prompt string to be truncated runs to the end of the
+string, or to the end of the next enclosing group of the &lsquo;<tt>%(</tt>&rsquo;
+construct, or to the next truncation encountered at the same grouping
+level (i.e. truncations inside a &lsquo;<tt>%(</tt>&rsquo; are separate), which
+ever comes first.  In particular, a truncation with argument zero
+(e.g., &lsquo;<tt>%&lt;&lt;</tt>&rsquo;) marks the end of the range of the string to be
+truncated while turning off truncation from there on. For example, the
+prompt &lsquo;<tt>%10&lt;...&lt;%~%&lt;&lt;%# </tt>&rsquo; will print a truncated representation of the
+current directory, followed by a &lsquo;<tt>%</tt>&rsquo; or &lsquo;<tt>#</tt>&rsquo;, followed by a
+space.  Without the &lsquo;<tt>%&lt;&lt;</tt>&rsquo;, those two characters would be included
+in the string to be truncated.  Note that &lsquo;<tt>%-0&lt;&lt;</tt>&rsquo; is not equivalent
+to &lsquo;<tt>%&lt;&lt;</tt>&rsquo; but specifies that the prompt is truncated at the right margin.
+</p>
+<p>Truncation applies only within each individual line of the prompt, as
+delimited by embedded newlines (if any).  If the total length of any line
+of the prompt after truncation is greater than the terminal width, or if
+the part to be truncated contains embedded newlines, truncation behavior
+is undefined and may change in a future version of the shell.  Use
+&lsquo;<tt>%-</tt><var>n</var><tt>(l.</tt><var>true-text</var><tt>.</tt><var>false-text</var><tt>)</tt>&rsquo; to remove parts
+of the prompt when the available space is less than <var>n</var>.
+</p>
+</dd>
+</dl>
+<hr>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Prompt-Expansion" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Expansion.html#Expansion" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  This document was generated on <i>February 15, 2020</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
+ </font>
+ <br>
+<font size="-1">Zsh version 5.8, released on February 14, 2020.</font>
+</p>
+</body>
+</html>

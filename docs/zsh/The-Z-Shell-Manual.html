@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created on February 15, 2020 by texi2html 5.0
+texi2html was written by: 
+            Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+-->
+<head>
+<title>zsh: 1 The Z Shell Manual</title>
+
+<meta name="description" content="zsh: 1 The Z Shell Manual">
+<meta name="keywords" content="zsh: 1 The Z Shell Manual">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 5.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:pre}
+span.nolinebreak {white-space:pre}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="The-Z-Shell-Manual"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="index.html#Top" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#Producing-documentation-from-zsh_002etexi" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Introduction.html#Introduction" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+
+<a name="The-Z-Shell-Manual-1"></a>
+<h1 class="chapter">1 The Z Shell Manual</h1>
+<p>This document has been produced from the texinfo file <tt>zsh.texi</tt>,
+included in the <tt>Doc</tt> sub-directory of the Zsh distribution.
+</p>
+<hr>
+<a name="Producing-documentation-from-zsh_002etexi"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#The-Z-Shell-Manual" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#The-Z-Shell-Manual" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#The-Z-Shell-Manual" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="Introduction.html#Introduction" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Introduction.html#Introduction" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section">1.1 Producing documentation from zsh.texi</h2>
+<p>The texinfo source may be converted into several formats:
+</p>
+<dl compact="compact">
+<dt>The Info manual</dt>
+<dd><p>The Info format allows searching for topics, commands, functions, etc.
+from the many Indices. The command &lsquo;<tt>makeinfo zsh.texi</tt>&rsquo; is used to
+produce the Info documentation.
+</p>
+</dd>
+<dt>The printed manual</dt>
+<dd><p>The command &lsquo;<tt>texi2dvi zsh.texi</tt>&rsquo; will output <tt>zsh.dvi</tt> which can
+then be processed with <cite>dvips</cite> and optionally <cite>gs</cite> (Ghostscript) to
+produce a nicely formatted printed manual.
+</p>
+</dd>
+<dt>The HTML manual</dt>
+<dd><p>An HTML version of this manual is available at the Zsh web site via:
+</p>
+<p><tt><a href="http://zsh.sourceforge.net/Doc/">http://zsh.sourceforge.net/Doc/</a></tt>.
+</p>
+<p>(The HTML version is produced with <cite>texi2html</cite>, which may be obtained
+from <tt><a href="http://www.nongnu.org/texi2html/">http://www.nongnu.org/texi2html/</a></tt>. The command is
+&lsquo;<tt>texi2html &ndash;output .  &ndash;ifinfo &ndash;split=chapter &ndash;node-files zsh.texi</tt>&rsquo;.
+If necessary, upgrade to version 1.78 of texi2html.)
+</p>
+</dd>
+</dl>
+
+<p>For those who do not have the necessary tools to process texinfo,
+precompiled documentation (PostScript, dvi, PDF, info and HTML formats)
+is available from the zsh archive site or its mirrors, in the file
+<tt>zsh-doc.tar.gz</tt>. (See <a href="Introduction.html#Availability">Availability</a> for a list of sites.)
+</p><hr>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#The-Z-Shell-Manual" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Introduction.html#Introduction" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  This document was generated on <i>February 15, 2020</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
+ </font>
+ <br>
+<font size="-1">Zsh version 5.8, released on February 14, 2020.</font>
+</p>
+</body>
+</html>
