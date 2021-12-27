@@ -37,8 +37,8 @@ so you do:
 
 ```zsh
 % run-help zshmodules
-% # finally, you're in the docs!
-% # but, you still have to search once more by typing '/zstyle'
+# finally, you're in the docs!
+# but, you still have to search once more by typing '/zstyle'
 ```
 
 I got tired of all that and decided there's got to be a better way. With this plugin,
