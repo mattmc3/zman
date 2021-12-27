@@ -1,4 +1,4 @@
-typeset -gA zdocs_lookup=(
+typeset -gA zman_lookup=(
   '! (variables)' 'Parameters.html#index-_0021'
   '# (variables)' 'Parameters.html#index-_0023'
   '$ (variables)' 'Parameters.html#index-_0024'

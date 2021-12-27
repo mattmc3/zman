@@ -1,2 +1,2 @@
 0=${(%):-%N}
-source ${0:A:h}/zdocs.zsh
+source ${0:A:h}/zman.zsh

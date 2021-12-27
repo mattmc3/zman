@@ -1,4 +1,4 @@
-# zdocs
+# zman
 
 [![License](https://img.shields.io/badge/license-MIT-007EC7)](/LICENSE)
 [![works with prezto](https://img.shields.io/badge/works%20with-%E2%9D%AF%E2%9D%AF%E2%9D%AF%20prezto-red)](#install-for-prezto)
@@ -6,7 +6,7 @@
 
 > Zsh plugin that uses `fzf` to quickly find and browse Zsh docs
 
-![zdocs](https://raw.githubusercontent.com/mattmc3/zdocs/resources/img/zdocs.gif)
+![zman](https://raw.githubusercontent.com/mattmc3/zman/resources/img/zman.gif)
 
 ## Description
 
@@ -20,23 +20,23 @@ you have it installed prior to using this plugin.
 
 To install using a Zsh plugin manager, add the following to your .zshrc
 
-- [pz]: `pz source mattmc3/zdocs`
-- [zcomet]: `zcomet load mattmc3/zdocs`
-- [zgenom]: `zgenom load mattmc3/zdocs`
-- [znap]: `znap source mattmc3/zdocs`
+- [pz]: `pz source mattmc3/zman`
+- [zcomet]: `zcomet load mattmc3/zman`
+- [zgenom]: `zgenom load mattmc3/zman`
+- [znap]: `znap source mattmc3/zman`
 
 ### Install manually, without a plugin manager
 
 To install manually, first clone the repo:
 
 ```zsh
-git clone https://github.com/mattmc3/zdocs ${ZDOTDIR:-~}/.zplugins/zdocs
+git clone https://github.com/mattmc3/zman ${ZDOTDIR:-~}/.zplugins/zman
 ```
 
 Then, in your .zshrc, add the following line:
 
 ```zsh
-source ${ZDOTDIR:-~}/.zplugins/zdocs/zdocs.zsh
+source ${ZDOTDIR:-~}/.zplugins/zman/zman.zsh
 ```
 
 ### Install for Oh-My-Zsh
@@ -48,14 +48,14 @@ To install with [Oh-My-Zsh][ohmyzsh], first clone the repo from an interactive Z
 ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
 
 # now, clone the plugin
-git clone https://github.com/mattmc3/zdocs $ZSH_CUSTOM/plugins/zdocs
+git clone https://github.com/mattmc3/zman $ZSH_CUSTOM/plugins/zman
 ```
 
 Then, add the plugin to your Oh-My-Zsh plugins list in your .zshrc
 
 ```zsh
 # in your .zshrc, add this plugin to your plugins list
-plugins=(... zdocs)
+plugins=(... zman)
 ```
 
 ### Install for Prezto
@@ -66,9 +66,9 @@ To install with [Prezto][prezto], first clone the repo from an interactive Zsh s
 # make sure your $ZPREZTODIR is set
 ZPREZTODIR=${ZPREZTODIR:-~/.zprezto}
 # clone the repo to a prezto contrib dir
-git clone https://github.com/mattmc3/zdocs $ZPREZTODIR/contrib/zdocs/external
+git clone https://github.com/mattmc3/zman $ZPREZTODIR/contrib/zman/external
 # set up the contrib
-echo "source \${0:A:h}/external/zdocs.plugin.zsh" > $ZPREZTODIR/contrib/zdocs/init.zsh
+echo "source \${0:A:h}/external/zman.plugin.zsh" > $ZPREZTODIR/contrib/zman/init.zsh
 ```
 
 Then, add the plugin to your Prezto plugins list in .zpreztorc
@@ -76,7 +76,7 @@ Then, add the plugin to your Prezto plugins list in .zpreztorc
 ```zsh
 zstyle ':prezto:load' pmodule \
   ... \
-  zdocs \
+  zman \
   ...
 ```
 

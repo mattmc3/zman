@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-Generate zdocs data from Zsh .html docs
+Generate zman data from Zsh .html docs
 """
 
 import os
@@ -47,24 +47,24 @@ def process_tables(tbls, indexed_at, category):
 
 def save_zdoc_entries(prjdir, zdoc_entries):
     zdoc_entries_sorted = sorted(zdoc_entries, key=lambda x: x.phrase.lower())
-    zdocs_data_path = prjdir / "docs" / "zdocsdata.tsv"
-    print(f"writing {zdocs_data_path.name}")
-    with zdocs_data_path.open('w') as f:
+    zman_data_path = prjdir / "docs" / "zmandata.tsv"
+    print(f"writing {zman_data_path.name}")
+    with zman_data_path.open('w') as f:
         f.write("\t".join(IndexEntry._fields) + "\n")
         for e in zdoc_entries_sorted:
             f.write("\t".join(e) + "\n")
 
-    zdocs_lookup = prjdir / "lib" / "zdocs_lookup.zsh"
-    print(f"writing {zdocs_lookup.name}")
-    with zdocs_lookup.open('w') as f:
-        f.write("typeset -gA zdocs_lookup=(\n")
+    zman_lookup = prjdir / "lib" / "zman_lookup.zsh"
+    print(f"writing {zman_lookup.name}")
+    with zman_lookup.open('w') as f:
+        f.write("typeset -gA zman_lookup=(\n")
         for e in zdoc_entries_sorted:
             f.write(f"  '{e.phrase} ({e.category})' '{e.url}'\n")
         f.write(")\n")
 
 def main():
     prjdir = Path(__file__).absolute().parent.parent
-    zdocsindex_classes = {
+    zmanindex_classes = {
         "concepts": "index-cp",
         "variables": "index-vr",
         "options": "index-pg",
@@ -78,7 +78,7 @@ def main():
     for filepath in zsh_docs_path.glob("*.html"):
         with filepath.open() as f:
             soup = BeautifulSoup(f, "html.parser")
-        for k, v in zdocsindex_classes.items():
+        for k, v in zmanindex_classes.items():
             kwtables = soup.findAll("table", {"class": v})
             if kwtables:
                 print(f"found table of {k} in {filepath.name}")

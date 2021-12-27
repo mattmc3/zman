@@ -1,7 +1,7 @@
 0=${(%):-%N}
 @echo "=== ${0:t:r} ==="
 
-source ${0:a:h:h}/zdocs.zsh
+source ${0:a:h:h}/zman.zsh
 
-result=$(zdocs)
-@test "zdocs succeeded" $? -eq 0
+result=$(zman)
+@test "zman succeeded" $? -eq 0

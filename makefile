@@ -4,9 +4,9 @@
 test:
 	./bin/runtests
 
-.PHONY: zdocsdata
-zdocsdata:
-	./bin/gen_zdocsdata
+.PHONY: zmandata
+zmandata:
+	./bin/gen_zmandata
 
 .PHONY: help
 help:
@@ -14,5 +14,5 @@ help:
 	@echo ""
 	@echo "Commands:"
 	@echo "  help       shows this message"
-	@echo "  zdocsdata  make data file for zdocs"
+	@echo "  zmandata  make data file for zman"
 	@echo "  test       run unit tests"

@@ -1,10 +1,10 @@
-# zdocs - lookup Zsh documentation
+# zman - lookup Zsh documentation
 if ! command -v fzf >/dev/null; then
   echo "fzf command not found" >&2
   return 1
 fi
 
-local selection=$(printf "%s\n" "${(ko)zdocs_lookup[@]}" | fzf --layout=reverse-list)
+local selection=$(printf "%s\n" "${(ko)zman_lookup[@]}" | fzf --layout=reverse-list)
 if [[ $? -eq 0 ]] && [[ -n "$selection" ]]; then
-  $ZDOCS_BROWSER $ZDOCS_URL/${zdocs_lookup[$selection]}
+  $zman_BROWSER $zman_URL/${zman_lookup[$selection]}
 fi
