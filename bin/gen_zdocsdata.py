@@ -47,12 +47,20 @@ def process_tables(tbls, indexed_at, category):
 
 def save_zdoc_entries(prjdir, zdoc_entries):
     zdoc_entries_sorted = sorted(zdoc_entries, key=lambda x: x.phrase.lower())
-    zdocs_index_path = prjdir / "docs" / "zdocsdata.tsv"
-    print(f"writing {zdocs_index_path.name}")
-    with zdocs_index_path.open('w') as f:
+    zdocs_data_path = prjdir / "docs" / "zdocsdata.tsv"
+    print(f"writing {zdocs_data_path.name}")
+    with zdocs_data_path.open('w') as f:
         f.write("\t".join(IndexEntry._fields) + "\n")
         for e in zdoc_entries_sorted:
             f.write("\t".join(e) + "\n")
+
+    zdocs_lookup = prjdir / "lib" / "zdocs_lookup.zsh"
+    print(f"writing {zdocs_lookup.name}")
+    with zdocs_lookup.open('w') as f:
+        f.write("typeset -gA zdocs_lookup=(\n")
+        for e in zdoc_entries_sorted:
+            f.write(f"  '{e.phrase} ({e.category})' '{e.url}'\n")
+        f.write(")\n")
 
 def main():
     prjdir = Path(__file__).absolute().parent.parent
