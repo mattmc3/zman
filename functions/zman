@@ -4,7 +4,8 @@ if ! command -v fzf >/dev/null; then
   return 1
 fi
 
-local selection=$(printf "%s\n" "${(ko)zman_lookup[@]}" | fzf --layout=reverse-list)
+query="$@"
+local selection=$(printf "%s\n" "${(ko)zman_lookup[@]}" | fzf --layout=reverse-list --query=$query)
 if [[ $? -eq 0 ]] && [[ -n "$selection" ]]; then
   $zman_BROWSER $zman_URL/${zman_lookup[$selection]}
 fi
