@@ -14,6 +14,41 @@ This plugin scrapes the Zsh documentation for index words and phrases and lets y
 quickly navigate to the online docs. It uses [fzf] to provide fuzzy searching. Be sure
 you have it installed prior to using this plugin.
 
+## Why do you need this plugin?
+
+If you have ever tried to find some Zsh documentation from the command line, you know
+how tricky that can be. First, you probably try `man` out of habit:
+
+```zsh
+% man zstyle
+No manual entry for zstyle
+```
+
+Then, assuming you have [run-help set up properly](https://stackoverflow.com/questions/4405382/how-can-i-read-documentation-about-built-in-zsh-commands),
+maybe you try that.
+
+```zsh
+% run-help zstyle
+zstyle See the section `The zsh/zutil Module' in zshmodules(1)
+```
+
+Instead of taking you where you want to go, it tells you you need to search yet again,
+so you do:
+
+```zsh
+% run-help zshmodules
+% # finally, you're in the docs!
+% # but, you still have to search once more by typing '/zstyle'
+```
+
+I got tired of all that and decided there's got to be a better way. With this plugin,
+you simply do the following:
+
+```zsh
+% zman
+# now type 'zstyle' and your browser opens right to the online manual
+```
+
 ## Installation
 
 ### Install with a Zsh plugin manager
