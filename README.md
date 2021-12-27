@@ -45,9 +45,12 @@ I got tired of all that and decided there's got to be a better way. With this pl
 you simply do the following:
 
 ```zsh
-% zman
-# now type 'zstyle' and your browser opens right to the online manual
+% zman zstyle
+# fuzzy finder opens with your initial 'zstyle' query.
+# pick one of the options and your browser opens right to the online manual
 ```
+
+If you don't want to make a selection, `CTRL-c` cancels as you would expect.
 
 ## Installation
 
