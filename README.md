@@ -11,7 +11,7 @@
 ## Description
 
 This plugin scrapes the Zsh documentation for index words and phrases and lets you
-quickly navigate to the online docs. It uses `[fzf]` to provide fuzzy searching. Be sure
+quickly navigate to the online docs. It uses [fzf] to provide fuzzy searching. Be sure
 you have it installed prior to using this plugin.
 
 ## Installation
