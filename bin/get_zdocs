@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+0=${(%):-%N}
+PRJ_HOME=${0:a:h:h}
+curl -fsSL http://zsh.sourceforge.net/Doc/zsh_html.tar.gz -o $PRJ_HOME/docs/zsh_html.tar.gz
+rm -rf $PRJ_HOME/docs/zsh_html
+tar -zxf $PRJ_HOME/docs/zsh_html.tar.gz --directory $PRJ_HOME/docs

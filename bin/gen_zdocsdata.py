@@ -64,7 +64,7 @@ def main():
         "editor-functions": "index-tp",
         "styles-and-tags": "index-ky",
     }
-    zsh_docs_path = prjdir / "docs" / "zsh"
+    zsh_docs_path = prjdir / "docs" / "zsh_html"
 
     zdoc_entries = []
     for filepath in zsh_docs_path.glob("*.html"):

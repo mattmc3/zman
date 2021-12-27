@@ -9,6 +9,20 @@ $0, using	concepts	Concept-Index.html	Options.html#index-_00240_002c-using	16.2.
 -	variables	Variables-Index.html	Parameters.html#index-_002d-1	15.5 Parameters Set By The Shell	Parameters.html#Parameters-Set-By-The-Shell
 --help	concepts	Concept-Index.html	Invocation.html#index-_002d_002dhelp	4.1 Invocation	Invocation.html#Invocation-2
 --version	concepts	Concept-Index.html	Invocation.html#index-_002d_002dversion	4.1 Invocation	Invocation.html#Invocation-2
+-array-value-, completion context	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-_002darray_002dvalue_002d_002c-completion-context	20.2.2 Autoloaded files	Completion-System.html#Autoloaded-files
+-assign-parameter-, completion context	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-_002dassign_002dparameter_002d_002c-completion-context	20.2.2 Autoloaded files	Completion-System.html#Autoloaded-files
+-brace-parameter-, completion context	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-_002dbrace_002dparameter_002d_002c-completion-context	20.2.2 Autoloaded files	Completion-System.html#Autoloaded-files
+-command-, completion context	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-_002dcommand_002d_002c-completion-context	20.2.2 Autoloaded files	Completion-System.html#Autoloaded-files
+-condition-, completion context	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-_002dcondition_002d_002c-completion-context	20.2.2 Autoloaded files	Completion-System.html#Autoloaded-files
+-default-, completion context	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-_002ddefault_002d_002c-completion-context	20.2.2 Autoloaded files	Completion-System.html#Autoloaded-files
+-equal-, completion context	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-_002dequal_002d_002c-completion-context	20.2.2 Autoloaded files	Completion-System.html#Autoloaded-files
+-first-, completion context	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-_002dfirst_002d_002c-completion-context	20.2.2 Autoloaded files	Completion-System.html#Autoloaded-files
+-math-, completion context	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-_002dmath_002d_002c-completion-context	20.2.2 Autoloaded files	Completion-System.html#Autoloaded-files
+-parameter-, completion context	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-_002dparameter_002d_002c-completion-context	20.2.2 Autoloaded files	Completion-System.html#Autoloaded-files
+-redirect-, completion context	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-_002dredirect_002d_002c-completion-context	20.2.2 Autoloaded files	Completion-System.html#Autoloaded-files
+-subscript-, completion context	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-_002dsubscript_002d_002c-completion-context	20.2.2 Autoloaded files	Completion-System.html#Autoloaded-files
+-tilde-, completion context	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-_002dtilde_002d_002c-completion-context	20.2.2 Autoloaded files	Completion-System.html#Autoloaded-files
+-value-, completion context	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-_002dvalue_002d_002c-completion-context	20.2.2 Autoloaded files	Completion-System.html#Autoloaded-files
 .	functions	Functions-Index.html	Shell-Builtin-Commands.html#index-_002e	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 .zwc files, creation	concepts	Concept-Index.html	Shell-Builtin-Commands.html#index-_002ezwc-files_002c-creation	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 0	variables	Variables-Index.html	Parameters.html#index-0	15.5 Parameters Set By The Shell	Parameters.html#Parameters-Set-By-The-Shell
@@ -97,9 +111,14 @@ _widgets	functions	Functions-Index.html	Completion-System.html#index-_005fwidget
 accept-and-hold	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-accept_002dand_002dhold	18.6.6 Miscellaneous	Zsh-Line-Editor.html#Miscellaneous
 accept-and-infer-next-history	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-accept_002dand_002dinfer_002dnext_002dhistory	18.6.6 Miscellaneous	Zsh-Line-Editor.html#Miscellaneous
 accept-and-menu-complete	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-accept_002dand_002dmenu_002dcomplete	18.6.5 Completion	Zsh-Line-Editor.html#Completion
+accept-exact, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-accept_002dexact_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
+accept-exact-dirs, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-accept_002dexact_002ddirs_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
 accept-line	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-accept_002dline	18.6.6 Miscellaneous	Zsh-Line-Editor.html#Miscellaneous
 accept-line-and-down-history	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-accept_002dline_002dand_002ddown_002dhistory	18.6.6 Miscellaneous	Zsh-Line-Editor.html#Miscellaneous
+accounts, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-accounts_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 acquiring zsh by FTP	concepts	Concept-Index.html	Introduction.html#index-acquiring-zsh-by-FTP	2.2 Availability	Introduction.html#Availability
+actionformats	styles-and-tags	Style-and-Tag-Index.html	User-Contributions.html#index-actionformats	26.5.2 Configuration	User-Contributions.html#vcs_005finfo-Configuration
+add-space, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-add_002dspace_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
 add-zle-hook-widget	functions	Functions-Index.html	User-Contributions.html#index-add_002dzle_002dhook_002dwidget	26.2.5 Manipulating Hook Functions	User-Contributions.html#Manipulating-Hook-Functions
 add-zsh-hook	functions	Functions-Index.html	User-Contributions.html#index-add_002dzsh_002dhook	26.2.5 Manipulating Hook Functions	User-Contributions.html#Manipulating-Hook-Functions
 after	functions	Functions-Index.html	Calendar-Function-System.html#index-after	23.3.2 Glob qualifiers	Calendar-Function-System.html#Glob-qualifiers
@@ -118,6 +137,8 @@ aliases, listing	concepts	Concept-Index.html	Shell-Builtin-Commands.html#index-a
 aliases, removing	concepts	Concept-Index.html	Shell-Builtin-Commands.html#index-aliases_002c-removing	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 ALIASFUNCDEF	options	Options-Index.html	Options.html#index-ALIASFUNCDEF	16.2.9 Scripts and Functions	Options.html#Scripts-and-Functions
 aliasing	concepts	Concept-Index.html	Shell-Grammar.html#index-aliasing	6.8 Aliasing	Shell-Grammar.html#Aliasing
+all-expansions, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-all_002dexpansions_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
+all-files, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-all_002dfiles_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 ALL_EXPORT	options	Options-Index.html	Options.html#index-ALL_005fEXPORT	16.2.5 Initialisation	Options.html#Initialisation
 all_quotes, compstate	variables	Variables-Index.html	Completion-Widgets.html#index-all_005fquotes_002c-compstate	19.2 Completion Special Parameters	Completion-Widgets.html#Completion-Special-Parameters
 ALLEXPORT	options	Options-Index.html	Options.html#index-ALLEXPORT	16.2.5 Initialisation	Options.html#Initialisation
@@ -129,6 +150,7 @@ ALWAYS_TO_END	options	Options-Index.html	Options.html#index-ALWAYS_005fTO_005fEN
 ALWAYSLASTPROMPT	options	Options-Index.html	Options.html#index-ALWAYSLASTPROMPT	16.2.2 Completion	Options.html#Completion-4
 ALWAYSTOEND	options	Options-Index.html	Options.html#index-ALWAYSTOEND	16.2.2 Completion	Options.html#Completion-4
 ambiguous completion	concepts	Concept-Index.html	Options.html#index-ambiguous-completion	16.2.2 Completion	Options.html#Completion-4
+ambiguous, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-ambiguous_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
 annoying keyboard, sun	concepts	Concept-Index.html	Options.html#index-annoying-keyboard_002c-sun	16.2.6 Input/Output	Options.html#Input_002fOutput
 anonymous functions	concepts	Concept-Index.html	Functions.html#index-anonymous-functions	9.2 Anonymous Functions	Functions.html#Anonymous-Functions
 APPEND_CREATE	options	Options-Index.html	Options.html#index-APPEND_005fCREATE	16.2.10 Shell Emulation	Options.html#Shell-Emulation
@@ -138,6 +160,7 @@ APPENDHISTORY	options	Options-Index.html	Options.html#index-APPENDHISTORY	16.2.4
 ARGC	variables	Variables-Index.html	Parameters.html#index-ARGC	15.5 Parameters Set By The Shell	Parameters.html#Parameters-Set-By-The-Shell
 argument splitting, in typeset etc.	concepts	Concept-Index.html	Options.html#index-argument-splitting_002c-in-typeset-etc_002e	16.2.10 Shell Emulation	Options.html#Shell-Emulation
 argument-base	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-argument_002dbase	18.6.4 Arguments	Zsh-Line-Editor.html#Arguments
+arguments, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-arguments_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 argv	variables	Variables-Index.html	Parameters.html#index-argv	15.5 Parameters Set By The Shell	Parameters.html#Parameters-Set-By-The-Shell
 ARGV0	variables	Variables-Index.html	Parameters.html#index-ARGV0	15.6 Parameters Used By The Shell	Parameters.html#Parameters-Used-By-The-Shell
 arithmetic base	concepts	Concept-Index.html	Arithmetic-Evaluation.html#index-arithmetic-base	11 Arithmetic Evaluation	Arithmetic-Evaluation.html#Arithmetic-Evaluation
@@ -149,10 +172,14 @@ array expansion style, rc	concepts	Concept-Index.html	Expansion.html#index-array
 array parameters, setting	concepts	Concept-Index.html	Shell-Builtin-Commands.html#index-array-parameters_002c-setting	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 array style, ksh	concepts	Concept-Index.html	Options.html#index-array-style_002c-ksh	16.2.10 Shell Emulation	Options.html#Shell-Emulation
 arrays, behaviour of index zero	concepts	Concept-Index.html	Options.html#index-arrays_002c-behaviour-of-index-zero	16.2.10 Shell Emulation	Options.html#Shell-Emulation
+arrays, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-arrays_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 arrays, ksh style	concepts	Concept-Index.html	Options.html#index-arrays_002c-ksh-style	16.2.10 Shell Emulation	Options.html#Shell-Emulation
+assign-list, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-assign_002dlist_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
 assignment	concepts	Concept-Index.html	Parameters.html#index-assignment	15.1 Description	Parameters.html#Description-5
+association-keys, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-association_002dkeys_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 asynchronous jobs, and exiting shell	concepts	Concept-Index.html	Jobs-_0026-Signals.html#index-asynchronous-jobs_002c-and-exiting-shell	10.2 Signals	Jobs-_0026-Signals.html#Signals
 author	concepts	Concept-Index.html	Introduction.html#index-author	2.1 Author	Introduction.html#Author
+auto-description, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-auto_002ddescription_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
 auto-suffix-remove	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-auto_002dsuffix_002dremove	18.6.6 Miscellaneous	Zsh-Line-Editor.html#Miscellaneous
 auto-suffix-retain	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-auto_002dsuffix_002dretain	18.6.6 Miscellaneous	Zsh-Line-Editor.html#Miscellaneous
 AUTO_CD	options	Options-Index.html	Options.html#index-AUTO_005fCD	16.2.1 Changing Directories	Options.html#Changing-Directories
@@ -182,6 +209,7 @@ AUTOPUSHD	options	Options-Index.html	Options.html#index-AUTOPUSHD	16.2.1 Changin
 AUTOREMOVESLASH	options	Options-Index.html	Options.html#index-AUTOREMOVESLASH	16.2.2 Completion	Options.html#Completion-4
 AUTORESUME	options	Options-Index.html	Options.html#index-AUTORESUME	16.2.7 Job Control	Options.html#Job-Control
 availability of zsh	concepts	Concept-Index.html	Introduction.html#index-availability-of-zsh	2.2 Availability	Introduction.html#Availability
+avoid-completer, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-avoid_002dcompleter_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
 background jobs, I/O	concepts	Concept-Index.html	Jobs-_0026-Signals.html#index-background-jobs_002c-I_002fO	10.1 Jobs	Jobs-_0026-Signals.html#Jobs
 background jobs, notification	concepts	Concept-Index.html	Options.html#index-background-jobs_002c-notification	16.2.7 Job Control	Options.html#Job-Control
 background jobs, priority of	concepts	Concept-Index.html	Options.html#index-background-jobs_002c-priority-of	16.2.7 Job Control	Options.html#Job-Control
@@ -230,6 +258,7 @@ binding widgets	concepts	Concept-Index.html	Zsh-Line-Editor.html#index-binding-w
 bindings, key	concepts	Concept-Index.html	Zsh-Line-Editor.html#index-bindings_002c-key	18.2 Keymaps	Zsh-Line-Editor.html#Keymaps
 bindkey	functions	Functions-Index.html	Zsh-Line-Editor.html#index-bindkey	18.3 Zle Builtins	Zsh-Line-Editor.html#Zle-Builtins
 bindkey, use of	functions	Functions-Index.html	Zsh-Line-Editor.html#index-bindkey_002c-use-of	18.2 Keymaps	Zsh-Line-Editor.html#Keymaps
+bookmarks, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-bookmarks_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 brace expansion	concepts	Concept-Index.html	Expansion.html#index-brace-expansion	14.6 Brace Expansion	Expansion.html#Brace-Expansion
 brace expansion, disabling	concepts	Concept-Index.html	Options.html#index-brace-expansion_002c-disabling	16.2.3 Expansion and Globbing	Options.html#Expansion-and-Globbing
 brace expansion, extending	concepts	Concept-Index.html	Options.html#index-brace-expansion_002c-extending	16.2.3 Expansion and Globbing	Options.html#Expansion-and-Globbing
@@ -241,8 +270,10 @@ BRACEEXPAND	options	Options-Index.html	Options.html#index-BRACEEXPAND	16.3 Optio
 bracketed paste	concepts	Concept-Index.html	Parameters.html#index-bracketed-paste	15.6 Parameters Used By The Shell	Parameters.html#Parameters-Used-By-The-Shell
 bracketed-paste	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-bracketed_002dpaste	18.6.6 Miscellaneous	Zsh-Line-Editor.html#Miscellaneous
 bracketed-paste-magic	editor-functions	Editor-Functions-Index.html	User-Contributions.html#index-bracketed_002dpaste_002dmagic	26.7.1 Widgets	User-Contributions.html#Widgets
+branchformat	styles-and-tags	Style-and-Tag-Index.html	User-Contributions.html#index-branchformat	26.5.2 Configuration	User-Contributions.html#vcs_005finfo-Configuration
 break	functions	Functions-Index.html	Shell-Builtin-Commands.html#index-break	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 break, inside function	concepts	Concept-Index.html	Options.html#index-break_002c-inside-function	16.2.9 Scripts and Functions	Options.html#Scripts-and-Functions
+break-keys, widget style	styles-and-tags	Style-and-Tag-Index.html	User-Contributions.html#index-break_002dkeys_002c-widget-style	26.7.3 Styles	User-Contributions.html#Styles
 BSD_ECHO	options	Options-Index.html	Options.html#index-BSD_005fECHO	16.2.10 Shell Emulation	Options.html#Shell-Emulation
 BSD_ECHO, use of	options	Options-Index.html	Shell-Builtin-Commands.html#index-BSD_005fECHO_002c-use-of	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 BSDECHO	options	Options-Index.html	Options.html#index-BSDECHO	16.2.10 Shell Emulation	Options.html#Shell-Emulation
@@ -252,13 +283,17 @@ builtin	functions	Functions-Index.html	Shell-Grammar.html#index-builtin	6.2 Prec
 builtin	functions	Functions-Index.html	Shell-Builtin-Commands.html#index-builtin-1	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 builtin commands	concepts	Concept-Index.html	Shell-Builtin-Commands.html#index-builtin-commands	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 builtins	variables	Variables-Index.html	Zsh-Modules.html#index-builtins	22.20 The zsh/parameter Module	Zsh-Modules.html#The-zsh_002fparameter-Module
+builtins, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-builtins_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 builtins, utility	concepts	Concept-Index.html	Zsh-Modules.html#index-builtins_002c-utility	22.37 The zsh/zutil Module	Zsh-Modules.html#The-zsh_002fzutil-Module
 bye	functions	Functions-Index.html	Shell-Builtin-Commands.html#index-bye	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 C_BASES	options	Options-Index.html	Options.html#index-C_005fBASES	16.2.9 Scripts and Functions	Options.html#Scripts-and-Functions
 C_BASES, use of	options	Options-Index.html	Arithmetic-Evaluation.html#index-C_005fBASES_002c-use-of	11 Arithmetic Evaluation	Arithmetic-Evaluation.html#Arithmetic-Evaluation
 C_PRECEDENCES	options	Options-Index.html	Options.html#index-C_005fPRECEDENCES	16.2.9 Scripts and Functions	Options.html#Scripts-and-Functions
+cache-path, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-cache_002dpath_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
+cache-policy, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-cache_002dpolicy_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
 calendar	functions	zsh_13.html	Calendar-Function-System.html#index-calendar	23.3.1 Calendar system functions	Calendar-Function-System.html#Calendar-system-functions
 calendar function system	concepts	Concept-Index.html	Calendar-Function-System.html#index-calendar-function-system	23 Calendar Function System	Calendar-Function-System.html#Calendar-Function-System
+calendar-file	styles-and-tags	Style-and-Tag-Index.html	Calendar-Function-System.html#index-calendar_002dfile	23.4 Styles	Calendar-Function-System.html#Calendar-Styles
 calendar_add	functions	zsh_13.html	Calendar-Function-System.html#index-calendar_005fadd	23.3.1 Calendar system functions	Calendar-Function-System.html#Calendar-system-functions
 calendar_edit	functions	zsh_13.html	Calendar-Function-System.html#index-calendar_005fedit	23.3.1 Calendar system functions	Calendar-Function-System.html#Calendar-system-functions
 calendar_lockfiles	functions	zsh_13.html	Calendar-Function-System.html#index-calendar_005flockfiles	23.5 Utility functions	Calendar-Function-System.html#Calendar-Utility-Functions
@@ -268,6 +303,7 @@ calendar_scandate	functions	zsh_13.html	Calendar-Function-System.html#index-cale
 calendar_show	functions	zsh_13.html	Calendar-Function-System.html#index-calendar_005fshow	23.5 Utility functions	Calendar-Function-System.html#Calendar-Utility-Functions
 calendar_showdate	functions	zsh_13.html	Calendar-Function-System.html#index-calendar_005fshowdate	23.3.1 Calendar system functions	Calendar-Function-System.html#Calendar-system-functions
 calendar_sort	functions	zsh_13.html	Calendar-Function-System.html#index-calendar_005fsort	23.3.1 Calendar system functions	Calendar-Function-System.html#Calendar-system-functions
+call-command, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-call_002dcommand_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
 calling widgets	concepts	Concept-Index.html	Zsh-Line-Editor.html#index-calling-widgets	18.3 Zle Builtins	Zsh-Line-Editor.html#Zle-Builtins
 cap	functions	zsh_13.html	Zsh-Modules.html#index-cap	22.3 The zsh/cap Module	Zsh-Modules.html#The-zsh_002fcap-Module
 capabilities, getting from files	concepts	Concept-Index.html	Zsh-Modules.html#index-capabilities_002c-getting-from-files	22.3 The zsh/cap Module	Zsh-Modules.html#The-zsh_002fcap-Module
@@ -302,6 +338,7 @@ cdr	functions	zsh_13.html	User-Contributions.html#index-cdr	26.3 Remembering Rec
 CDSILENT	options	Options-Index.html	Options.html#index-CDSILENT	16.2.1 Changing Directories	Options.html#Changing-Directories
 character classes	concepts	Concept-Index.html	Expansion.html#index-character-classes	14.8.1 Glob Operators	Expansion.html#Glob-Operators
 characters, (Unicode) combining	concepts	Concept-Index.html	Options.html#index-characters_002c-_0028Unicode_0029-combining	16.2.12 Zle	Options.html#Zle
+characters, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-characters_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 characters, multibyte, in expansion and globbing	concepts	Concept-Index.html	Options.html#index-characters_002c-multibyte_002c-in-expansion-and-globbing	16.2.3 Expansion and Globbing	Options.html#Expansion-and-Globbing
 CHASE_DOTS	options	Options-Index.html	Options.html#index-CHASE_005fDOTS	16.2.1 Changing Directories	Options.html#Changing-Directories
 CHASE_LINKS	options	Options-Index.html	Options.html#index-CHASE_005fLINKS	16.2.1 Changing Directories	Options.html#Changing-Directories
@@ -309,6 +346,8 @@ CHASE_LINKS, use of	options	Options-Index.html	Shell-Builtin-Commands.html#index
 CHASEDOTS	options	Options-Index.html	Options.html#index-CHASEDOTS	16.2.1 Changing Directories	Options.html#Changing-Directories
 CHASELINKS	options	Options-Index.html	Options.html#index-CHASELINKS	16.2.1 Changing Directories	Options.html#Changing-Directories
 chdir	functions	zsh_13.html	Shell-Builtin-Commands.html#index-chdir	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
+check-for-changes	styles-and-tags	Style-and-Tag-Index.html	User-Contributions.html#index-check_002dfor_002dchanges	26.5.2 Configuration	User-Contributions.html#vcs_005finfo-Configuration
+check-for-staged-changes	styles-and-tags	Style-and-Tag-Index.html	User-Contributions.html#index-check_002dfor_002dstaged_002dchanges	26.5.2 Configuration	User-Contributions.html#vcs_005finfo-Configuration
 CHECK_JOBS	options	Options-Index.html	Options.html#index-CHECK_005fJOBS	16.2.7 Job Control	Options.html#Job-Control
 CHECK_RUNNING_JOBS	options	Options-Index.html	Options.html#index-CHECK_005fRUNNING_005fJOBS	16.2.7 Job Control	Options.html#Job-Control
 CHECKJOBS	options	Options-Index.html	Options.html#index-CHECKJOBS	16.2.7 Job Control	Options.html#Job-Control
@@ -317,6 +356,7 @@ chgrp	functions	zsh_13.html	Zsh-Modules.html#index-chgrp	22.14 The zsh/files Mod
 chmod	functions	zsh_13.html	Zsh-Modules.html#index-chmod	22.14 The zsh/files Module	Zsh-Modules.html#The-zsh_002ffiles-Module
 chown	functions	zsh_13.html	Zsh-Modules.html#index-chown	22.14 The zsh/files Module	Zsh-Modules.html#The-zsh_002ffiles-Module
 chpwd	functions	zsh_13.html	Functions.html#index-chpwd	9.3.1 Hook Functions	Functions.html#Hook-Functions
+chpwd, zftp style	styles-and-tags	Style-and-Tag-Index.html	Zftp-Function-System.html#index-chpwd_002c-zftp-style	25.4.1 Configuration	Zftp-Function-System.html#Configuration-3
 chpwd_functions	variables	Variables-Index.html	Functions.html#index-chpwd_005ffunctions	9.3.1 Hook Functions	Functions.html#Hook-Functions
 chpwd_recent_add	functions	zsh_13.html	User-Contributions.html#index-chpwd_005frecent_005fadd	26.3 Remembering Recent Directories	User-Contributions.html#Recent-Directories
 chpwd_recent_dirs	functions	zsh_13.html	User-Contributions.html#index-chpwd_005frecent_005fdirs	26.3 Remembering Recent Directories	User-Contributions.html#Recent-Directories
@@ -328,12 +368,15 @@ clobbering, POSIX compatibility	concepts	Concept-Index.html	Options.html#index-c
 clone	functions	zsh_13.html	Zsh-Modules.html#index-clone	22.4 The zsh/clone Module	Zsh-Modules.html#The-zsh_002fclone-Module
 cloning the shell	concepts	Concept-Index.html	Zsh-Modules.html#index-cloning-the-shell	22.4 The zsh/clone Module	Zsh-Modules.html#The-zsh_002fclone-Module
 colon modifiers	concepts	Concept-Index.html	Expansion.html#index-colon-modifiers	14.1.4 Modifiers	Expansion.html#Modifiers
+colormapids, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-colormapids_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 colors	functions	zsh_13.html	User-Contributions.html#index-colors	26.12.1 Descriptions	User-Contributions.html#Descriptions
+colors, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-colors_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 COLUMNS	variables	Variables-Index.html	Parameters.html#index-COLUMNS	15.6 Parameters Used By The Shell	Parameters.html#Parameters-Used-By-The-Shell
 COLUMNS, use of	variables	Variables-Index.html	Zsh-Line-Editor.html#index-COLUMNS_002c-use-of	18.1 Description	Zsh-Line-Editor.html#Description-9
 combining characters (Unicode)	concepts	Concept-Index.html	Options.html#index-combining-characters-_0028Unicode_0029	16.2.12 Zle	Options.html#Zle
 COMBINING_CHARS	options	Options-Index.html	Options.html#index-COMBINING_005fCHARS	16.2.12 Zle	Options.html#Zle
 COMBININGCHARS	options	Options-Index.html	Options.html#index-COMBININGCHARS	16.2.12 Zle	Options.html#Zle
+command	styles-and-tags	Style-and-Tag-Index.html	User-Contributions.html#index-command-2	26.5.2 Configuration	User-Contributions.html#vcs_005finfo-Configuration
 command	functions	zsh_13.html	Shell-Grammar.html#index-command	6.2 Precommand Modifiers	Shell-Grammar.html#Precommand-Modifiers
 command	functions	zsh_13.html	Shell-Builtin-Commands.html#index-command-1	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 command execution	concepts	Concept-Index.html	Command-Execution.html#index-command-execution	8 Command Execution	Command-Execution.html#Command-Execution
@@ -341,10 +384,14 @@ command execution, enabling	concepts	Concept-Index.html	Options.html#index-comma
 command hashing	concepts	Concept-Index.html	Options.html#index-command-hashing	16.2.6 Input/Output	Options.html#Input_002fOutput
 command not found, handling of	concepts	Concept-Index.html	Command-Execution.html#index-command-not-found_002c-handling-of	8 Command Execution	Command-Execution.html#Command-Execution
 command substitution	concepts	Concept-Index.html	Expansion.html#index-command-substitution	14.4 Command Substitution	Expansion.html#Command-Substitution
+command, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-command_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
+command-path, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-command_002dpath_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
 command_not_found_handler	functions	zsh_13.html	Command-Execution.html#index-command_005fnot_005ffound_005fhandler	8 Command Execution	Command-Execution.html#Command-Execution
 commands	variables	Variables-Index.html	Zsh-Modules.html#index-commands	22.20 The zsh/parameter Module	Zsh-Modules.html#The-zsh_002fparameter-Module
 commands, alternate forms for complex	concepts	Concept-Index.html	Shell-Grammar.html#index-commands_002c-alternate-forms-for-complex	6.4 Alternate Forms For Complex Commands	Shell-Grammar.html#Alternate-Forms-For-Complex-Commands
 commands, builtin	concepts	Concept-Index.html	Shell-Builtin-Commands.html#index-commands_002c-builtin	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
+commands, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-commands_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
+commands, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-commands_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 commands, complex	concepts	Concept-Index.html	Shell-Grammar.html#index-commands_002c-complex	6.3 Complex Commands	Shell-Grammar.html#Complex-Commands
 commands, disabling	concepts	Concept-Index.html	Shell-Builtin-Commands.html#index-commands_002c-disabling	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 commands, enabling	concepts	Concept-Index.html	Shell-Builtin-Commands.html#index-commands_002c-enabling	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
@@ -368,11 +415,15 @@ compgroups	functions	zsh_13.html	Zsh-Modules.html#index-compgroups	22.8 The zsh/
 compilation	concepts	Concept-Index.html	Shell-Builtin-Commands.html#index-compilation	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 compinit	functions	zsh_13.html	Completion-System.html#index-compinit	20.2.1 Use of compinit	Completion-System.html#Use-of-compinit
 compinstall	functions	zsh_13.html	Completion-System.html#index-compinstall	20.2 Initialization	Completion-System.html#Initialization
+complete, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-complete_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
+complete-options, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-complete_002doptions_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
 complete-word	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-complete_002dword	18.6.5 Completion	Zsh-Line-Editor.html#Completion
 COMPLETE_ALIASES	options	Options-Index.html	Options.html#index-COMPLETE_005fALIASES	16.2.2 Completion	Options.html#Completion-4
 COMPLETE_IN_WORD	options	Options-Index.html	Options.html#index-COMPLETE_005fIN_005fWORD	16.2.2 Completion	Options.html#Completion-4
 COMPLETEALIASES	options	Options-Index.html	Options.html#index-COMPLETEALIASES	16.2.2 Completion	Options.html#Completion-4
 COMPLETEINWORD	options	Options-Index.html	Options.html#index-COMPLETEINWORD	16.2.2 Completion	Options.html#Completion-4
+completer, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-completer_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
+completer, completion style	styles-and-tags	Style-and-Tag-Index.html	User-Contributions.html#index-completer_002c-completion-style-1	26.7.3 Styles	User-Contributions.html#Styles
 completion removable suffix, highlighting	concepts	Concept-Index.html	Zsh-Line-Editor.html#index-completion-removable-suffix_002c-highlighting	18.7 Character Highlighting	Zsh-Line-Editor.html#Character-Highlighting
 completion system	concepts	Concept-Index.html	Completion-System.html#index-completion-system	20 Completion System	Completion-System.html#Completion-System
 completion system, adding definitions	concepts	Concept-Index.html	Completion-System.html#index-completion-system_002c-adding-definitions	20.2.3 Functions	Completion-System.html#Functions-4
@@ -422,11 +473,13 @@ compstate	variables	Variables-Index.html	Completion-Widgets.html#index-compstate
 comptags	functions	zsh_13.html	Zsh-Modules.html#index-comptags	22.8 The zsh/computil Module	Zsh-Modules.html#The-zsh_002fcomputil-Module
 comptry	functions	zsh_13.html	Zsh-Modules.html#index-comptry	22.8 The zsh/computil Module	Zsh-Modules.html#The-zsh_002fcomputil-Module
 compvalues	functions	zsh_13.html	Zsh-Modules.html#index-compvalues	22.8 The zsh/computil Module	Zsh-Modules.html#The-zsh_002fcomputil-Module
+condition, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-condition_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
 conditional expression	concepts	Concept-Index.html	Shell-Grammar.html#index-conditional-expression	6.3 Complex Commands	Shell-Grammar.html#Complex-Commands
 conditional expressions	concepts	Concept-Index.html	Conditional-Expressions.html#index-conditional-expressions	12 Conditional Expressions	Conditional-Expressions.html#Conditional-Expressions
 CONTEXT	variables	Variables-Index.html	Zsh-Line-Editor.html#index-CONTEXT	18.5 User-Defined Widgets	Zsh-Line-Editor.html#User_002dDefined-Widgets
 context, compstate	variables	Variables-Index.html	Completion-Widgets.html#index-context_002c-compstate	19.2 Completion Special Parameters	Completion-Widgets.html#Completion-Special-Parameters
 context, use of	variables	Variables-Index.html	Completion-System.html#index-context_002c-use-of	20.6 Utility Functions	Completion-System.html#Completion-Functions
+contexts, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-contexts_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 continue	functions	zsh_13.html	Shell-Builtin-Commands.html#index-continue	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 continue, inside function	concepts	Concept-Index.html	Options.html#index-continue_002c-inside-function	16.2.9 Scripts and Functions	Options.html#Scripts-and-Functions
 CONTINUE_ON_ERROR	options	Options-Index.html	Options.html#index-CONTINUE_005fON_005fERROR	16.2.10 Shell Emulation	Options.html#Shell-Emulation
@@ -445,6 +498,7 @@ CORRECT_IGNORE	variables	Variables-Index.html	Parameters.html#index-CORRECT_005f
 CORRECT_IGNORE_FILE	variables	Variables-Index.html	Parameters.html#index-CORRECT_005fIGNORE_005fFILE	15.6 Parameters Used By The Shell	Parameters.html#Parameters-Used-By-The-Shell
 CORRECTALL	options	Options-Index.html	Options.html#index-CORRECTALL	16.2.6 Input/Output	Options.html#Input_002fOutput
 correction, spelling	concepts	Concept-Index.html	Options.html#index-correction_002c-spelling	16.2.6 Input/Output	Options.html#Input_002fOutput
+corrections, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-corrections_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 CPRECEDENCES	options	Options-Index.html	Options.html#index-CPRECEDENCES	16.2.9 Scripts and Functions	Options.html#Scripts-and-Functions
 CPUTYPE	variables	Variables-Index.html	Parameters.html#index-CPUTYPE	15.5 Parameters Set By The Shell	Parameters.html#Parameters-Set-By-The-Shell
 csh, compatibility	concepts	Concept-Index.html	Shell-Builtin-Commands.html#index-csh_002c-compatibility	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
@@ -467,7 +521,10 @@ CSHJUNKIEQUOTES	options	Options-Index.html	Options.html#index-CSHJUNKIEQUOTES	16
 CSHNULLCMD	options	Options-Index.html	Options.html#index-CSHNULLCMD	16.2.10 Shell Emulation	Options.html#Shell-Emulation
 CSHNULLGLOB	options	Options-Index.html	Options.html#index-CSHNULLGLOB	16.2.3 Expansion and Globbing	Options.html#Expansion-and-Globbing
 CURRENT	variables	Variables-Index.html	Completion-Widgets.html#index-CURRENT	19.2 Completion Special Parameters	Completion-Widgets.html#Completion-Special-Parameters
+current-shell, MIME style	styles-and-tags	Style-and-Tag-Index.html	User-Contributions.html#index-current_002dshell_002c-MIME-style	26.9 MIME Functions	User-Contributions.html#MIME-Functions
 CURSOR	variables	Variables-Index.html	Zsh-Line-Editor.html#index-CURSOR	18.5 User-Defined Widgets	Zsh-Line-Editor.html#User_002dDefined-Widgets
+cursor, completion style	styles-and-tags	Style-and-Tag-Index.html	User-Contributions.html#index-cursor_002c-completion-style	26.7.3 Styles	User-Contributions.html#Styles
+cursors, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-cursors_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 CUTBUFFER	variables	Variables-Index.html	Zsh-Line-Editor.html#index-CUTBUFFER	18.5 User-Defined Widgets	Zsh-Line-Editor.html#User_002dDefined-Widgets
 cycle-completion-positions	editor-functions	Editor-Functions-Index.html	User-Contributions.html#index-cycle_002dcompletion_002dpositions	26.7.1 Widgets	User-Contributions.html#Widgets
 database file path, reading	concepts	zsh_1.html	Zsh-Modules.html#index-database-file-path_002c-reading	22.11 The zsh/db/gdbm Module	Zsh-Modules.html#The-zsh_002fdb_002fgdbm-Module
@@ -475,11 +532,14 @@ database tied array, creating	concepts	zsh_1.html	Zsh-Modules.html#index-databas
 database tied array, destroying	concepts	zsh_1.html	Zsh-Modules.html#index-database-tied-array_002c-destroying	22.11 The zsh/db/gdbm Module	Zsh-Modules.html#The-zsh_002fdb_002fgdbm-Module
 database tied arrays, enumerating	concepts	zsh_1.html	Zsh-Modules.html#index-database-tied-arrays_002c-enumerating	22.11 The zsh/db/gdbm Module	Zsh-Modules.html#The-zsh_002fdb_002fgdbm-Module
 date string, printing	concepts	zsh_1.html	Zsh-Modules.html#index-date-string_002c-printing	22.10 The zsh/datetime Module	Zsh-Modules.html#The-zsh_002fdatetime-Module
+date-format	styles-and-tags	Style-and-Tag-Index.html	Calendar-Function-System.html#index-date_002dformat	23.4 Styles	Calendar-Function-System.html#Calendar-Styles
 deactivate-region	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-deactivate_002dregion	18.6.6 Miscellaneous	Zsh-Line-Editor.html#Miscellaneous
+debug	styles-and-tags	Style-and-Tag-Index.html	User-Contributions.html#index-debug	26.5.2 Configuration	User-Contributions.html#vcs_005finfo-Configuration
 DEBUG trap, before or after command	concepts	zsh_1.html	Options.html#index-DEBUG-trap_002c-before-or-after-command	16.2.9 Scripts and Functions	Options.html#Scripts-and-Functions
 DEBUG_BEFORE_CMD	options	zsh_9.html	Options.html#index-DEBUG_005fBEFORE_005fCMD	16.2.9 Scripts and Functions	Options.html#Scripts-and-Functions
 DEBUGBEFORECMD	options	zsh_9.html	Options.html#index-DEBUGBEFORECMD	16.2.9 Scripts and Functions	Options.html#Scripts-and-Functions
 declare	functions	zsh_13.html	Shell-Builtin-Commands.html#index-declare	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
+default, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-default_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 defining widgets	concepts	zsh_1.html	Zsh-Line-Editor.html#index-defining-widgets	18.3 Zle Builtins	Zsh-Line-Editor.html#Zle-Builtins
 delete-char	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-delete_002dchar	18.6.3 Modifying Text	Zsh-Line-Editor.html#Modifying-Text
 delete-char-or-list	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-delete_002dchar_002dor_002dlist	18.6.5 Completion	Zsh-Line-Editor.html#Completion
@@ -487,10 +547,14 @@ delete-to-char	editor-functions	Editor-Functions-Index.html	Zsh-Modules.html#ind
 delete-whole-word-match	editor-functions	Editor-Functions-Index.html	User-Contributions.html#index-delete_002dwhole_002dword_002dmatch	26.7.1 Widgets	User-Contributions.html#Widgets
 delete-whole-word-match	editor-functions	Editor-Functions-Index.html	User-Contributions.html#index-delete_002dwhole_002dword_002dmatch-1	26.7.1 Widgets	User-Contributions.html#Widgets
 delete-word	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-delete_002dword	18.6.3 Modifying Text	Zsh-Line-Editor.html#Modifying-Text
+delimiters, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-delimiters_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
 describe-key-briefly	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-describe_002dkey_002dbriefly	18.6.6 Miscellaneous	Zsh-Line-Editor.html#Miscellaneous
+descriptions, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-descriptions_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 descriptors, file	concepts	zsh_1.html	Redirection.html#index-descriptors_002c-file	7 Redirection	Redirection.html#Redirection
+devices, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-devices_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 digit-argument	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-digit_002dargument	18.6.4 Arguments	Zsh-Line-Editor.html#Arguments
 directories, changing	concepts	zsh_1.html	Shell-Builtin-Commands.html#index-directories_002c-changing	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
+directories, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-directories_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 directories, hashing	concepts	zsh_1.html	Options.html#index-directories_002c-hashing	16.2.6 Input/Output	Options.html#Input_002fOutput
 directories, maintaining list of recent	concepts	zsh_1.html	User-Contributions.html#index-directories_002c-maintaining-list-of-recent	26.3 Remembering Recent Directories	User-Contributions.html#Recent-Directories
 directories, marking	concepts	zsh_1.html	Options.html#index-directories_002c-marking	16.2.3 Expansion and Globbing	Options.html#Expansion-and-Globbing
@@ -502,6 +566,7 @@ directory stack, controlling syntax	concepts	zsh_1.html	Options.html#index-direc
 directory stack, ignoring duplicates	concepts	zsh_1.html	Options.html#index-directory-stack_002c-ignoring-duplicates	16.2.1 Changing Directories	Options.html#Changing-Directories
 directory stack, printing	concepts	zsh_1.html	Shell-Builtin-Commands.html#index-directory-stack_002c-printing	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 directory stack, silencing	concepts	zsh_1.html	Options.html#index-directory-stack_002c-silencing	16.2.1 Changing Directories	Options.html#Changing-Directories
+directory-stack, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-directory_002dstack_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 dirs	functions	zsh_13.html	Shell-Builtin-Commands.html#index-dirs	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 dirstack	variables	Variables-Index.html	Zsh-Modules.html#index-dirstack	22.20 The zsh/parameter Module	Zsh-Modules.html#The-zsh_002fparameter-Module
 DIRSTACKSIZE	variables	Variables-Index.html	Parameters.html#index-DIRSTACKSIZE	15.6 Parameters Used By The Shell	Parameters.html#Parameters-Used-By-The-Shell
@@ -513,17 +578,25 @@ dis_galiases	variables	Variables-Index.html	Zsh-Modules.html#index-dis_005fgalia
 dis_patchars	variables	Variables-Index.html	Zsh-Modules.html#index-dis_005fpatchars	22.20 The zsh/parameter Module	Zsh-Modules.html#The-zsh_002fparameter-Module
 dis_reswords	variables	Variables-Index.html	Zsh-Modules.html#index-dis_005freswords	22.20 The zsh/parameter Module	Zsh-Modules.html#The-zsh_002fparameter-Module
 dis_saliases	variables	Variables-Index.html	Zsh-Modules.html#index-dis_005fsaliases	22.20 The zsh/parameter Module	Zsh-Modules.html#The-zsh_002fparameter-Module
+disable	styles-and-tags	Style-and-Tag-Index.html	User-Contributions.html#index-disable-1	26.5.2 Configuration	User-Contributions.html#vcs_005finfo-Configuration
 disable	functions	zsh_13.html	Shell-Builtin-Commands.html#index-disable	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 disable, use of	functions	zsh_13.html	Shell-Grammar.html#index-disable_002c-use-of	6.5 Reserved Words	Shell-Grammar.html#Reserved-Words
+disable-patterns	styles-and-tags	Style-and-Tag-Index.html	User-Contributions.html#index-disable_002dpatterns	26.5.2 Configuration	User-Contributions.html#vcs_005finfo-Configuration
+disabled, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-disabled_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
 disabling brace expansion	concepts	zsh_1.html	Options.html#index-disabling-brace-expansion	16.2.3 Expansion and Globbing	Options.html#Expansion-and-Globbing
 disabling commands	concepts	zsh_1.html	Shell-Builtin-Commands.html#index-disabling-commands	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 discarding embedded nulls in $’...’	concepts	zsh_1.html	Options.html#index-discarding-embedded-nulls-in-_0024_0027_002e_002e_002e_0027	16.2.10 Shell Emulation	Options.html#Shell-Emulation
 disown	functions	zsh_13.html	Shell-Builtin-Commands.html#index-disown	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
+disown, MIME style	styles-and-tags	Style-and-Tag-Index.html	User-Contributions.html#index-disown_002c-MIME-style	26.9 MIME Functions	User-Contributions.html#MIME-Functions
 disown, use of	functions	zsh_13.html	Jobs-_0026-Signals.html#index-disown_002c-use-of	10.1 Jobs	Jobs-_0026-Signals.html#Jobs
 disowning jobs	concepts	zsh_1.html	Jobs-_0026-Signals.html#index-disowning-jobs	10.1 Jobs	Jobs-_0026-Signals.html#Jobs
+displays, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-displays_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 doing nothing	concepts	zsh_1.html	Shell-Builtin-Commands.html#index-doing-nothing	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 doing nothing, successfully	concepts	zsh_1.html	Shell-Builtin-Commands.html#index-doing-nothing_002c-successfully	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 doing nothing, unsuccessfully	concepts	zsh_1.html	Shell-Builtin-Commands.html#index-doing-nothing_002c-unsuccessfully	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
+domains, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-domains_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
+domains, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-domains_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
+done-file	styles-and-tags	Style-and-Tag-Index.html	Calendar-Function-System.html#index-done_002dfile	23.4 Styles	Calendar-Function-System.html#Calendar-Styles
 DOT_GLOB	options	zsh_9.html	Options.html#index-DOT_005fGLOB	16.3 Option Aliases	Options.html#Option-Aliases
 DOTGLOB	options	zsh_9.html	Options.html#index-DOTGLOB	16.3 Option Aliases	Options.html#Option-Aliases
 down-case-word	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-down_002dcase_002dword	18.6.3 Modifying Text	Zsh-Line-Editor.html#Modifying-Text
@@ -555,8 +628,10 @@ eight bit characters, printing	concepts	zsh_1.html	Options.html#index-eight-bit-
 EMACS	options	zsh_9.html	Options.html#index-EMACS	16.2.12 Zle	Options.html#Zle
 emacs-backward-word	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-emacs_002dbackward_002dword	18.6.1 Movement	Zsh-Line-Editor.html#Movement
 emacs-forward-word	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-emacs_002dforward_002dword	18.6.1 Movement	Zsh-Line-Editor.html#Movement
+email-*, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-email_002d_002a_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 embedded nulls, in $’...’	concepts	zsh_1.html	Options.html#index-embedded-nulls_002c-in-_0024_0027_002e_002e_002e_0027	16.2.10 Shell Emulation	Options.html#Shell-Emulation
 emulate	functions	zsh_13.html	Shell-Builtin-Commands.html#index-emulate	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
+enable	styles-and-tags	Style-and-Tag-Index.html	User-Contributions.html#index-enable-1	26.5.2 Configuration	User-Contributions.html#vcs_005finfo-Configuration
 enable	functions	zsh_13.html	Shell-Builtin-Commands.html#index-enable	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 enable globbing qualifiers	concepts	zsh_1.html	Options.html#index-enable-globbing-qualifiers	16.2.3 Expansion and Globbing	Options.html#Expansion-and-Globbing
 enable history substitution	concepts	zsh_1.html	Options.html#index-enable-history-substitution	16.2.4 History	Options.html#History
@@ -572,6 +647,7 @@ end-of-line-hist	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.ht
 end-of-list	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-end_002dof_002dlist	18.6.5 Completion	Zsh-Line-Editor.html#Completion
 ENV	variables	Variables-Index.html	Parameters.html#index-ENV	15.6 Parameters Used By The Shell	Parameters.html#Parameters-Used-By-The-Shell
 ENV, use of	variables	Variables-Index.html	Invocation.html#index-ENV_002c-use-of	4.2 Compatibility	Invocation.html#Compatibility
+environ, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-environ_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
 environment	concepts	zsh_1.html	Parameters.html#index-environment	15.1 Description	Parameters.html#Description-5
 environment variables	concepts	zsh_1.html	Parameters.html#index-environment-variables	15.1 Description	Parameters.html#Description-5
 environment, and local parameters	concepts	zsh_1.html	Options.html#index-environment_002c-and-local-parameters	16.2.5 Initialisation	Options.html#Initialisation
@@ -603,8 +679,10 @@ exchange-point-and-mark	editor-functions	Editor-Functions-Index.html	Zsh-Line-Ed
 exec	functions	zsh_13.html	Shell-Grammar.html#index-exec	6.2 Precommand Modifiers	Shell-Grammar.html#Precommand-Modifiers
 EXEC	options	zsh_9.html	Options.html#index-EXEC	16.2.9 Scripts and Functions	Options.html#Scripts-and-Functions
 executables, hashing	concepts	zsh_1.html	Options.html#index-executables_002c-hashing	16.2.6 Input/Output	Options.html#Input_002fOutput
+execute-as-is, MIME style	styles-and-tags	Style-and-Tag-Index.html	User-Contributions.html#index-execute_002das_002dis_002c-MIME-style	26.9 MIME Functions	User-Contributions.html#MIME-Functions
 execute-last-named-cmd	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-execute_002dlast_002dnamed_002dcmd	18.6.6 Miscellaneous	Zsh-Line-Editor.html#Miscellaneous
 execute-named-cmd	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-execute_002dnamed_002dcmd	18.6.6 Miscellaneous	Zsh-Line-Editor.html#Miscellaneous
+execute-never, MIME style	styles-and-tags	Style-and-Tag-Index.html	User-Contributions.html#index-execute_002dnever_002c-MIME-style	26.9 MIME Functions	User-Contributions.html#MIME-Functions
 execution, of commands	concepts	zsh_1.html	Command-Execution.html#index-execution_002c-of-commands	8 Command Execution	Command-Execution.html#Command-Execution
 execution, timed	concepts	zsh_1.html	Zsh-Modules.html#index-execution_002c-timed	22.24 The zsh/sched Module	Zsh-Modules.html#The-zsh_002fsched-Module
 exit	functions	zsh_13.html	Shell-Builtin-Commands.html#index-exit	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
@@ -615,6 +693,7 @@ exiting loops	concepts	zsh_1.html	Shell-Builtin-Commands.html#index-exiting-loop
 exiting shell, and asynchronous jobs	concepts	zsh_1.html	Jobs-_0026-Signals.html#index-exiting-shell_002c-and-asynchronous-jobs	10.2 Signals	Jobs-_0026-Signals.html#Signals
 exiting, checking jobs when	concepts	zsh_1.html	Options.html#index-exiting_002c-checking-jobs-when	16.2.7 Job Control	Options.html#Job-Control
 exiting, checking running jobs when	concepts	zsh_1.html	Options.html#index-exiting_002c-checking-running-jobs-when	16.2.7 Job Control	Options.html#Job-Control
+expand, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-expand_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
 expand-absolute-path	editor-functions	Editor-Functions-Index.html	User-Contributions.html#index-expand_002dabsolute_002dpath	26.7.1 Widgets	User-Contributions.html#Widgets
 expand-cmd-path	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-expand_002dcmd_002dpath	18.6.5 Completion	Zsh-Line-Editor.html#Completion
 expand-history	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-expand_002dhistory	18.6.5 Completion	Zsh-Line-Editor.html#Completion
@@ -632,6 +711,7 @@ expansion, filename	concepts	zsh_1.html	Expansion.html#index-expansion_002c-file
 expansion, history	concepts	zsh_1.html	Expansion.html#index-expansion_002c-history	14.1 History Expansion	Expansion.html#History-Expansion
 expansion, parameter	concepts	zsh_1.html	Expansion.html#index-expansion_002c-parameter	14.3 Parameter Expansion	Expansion.html#Parameter-Expansion
 expansion, prompt	concepts	zsh_1.html	Prompt-Expansion.html#index-expansion_002c-prompt	13.1 Expansion of Prompt Sequences	Prompt-Expansion.html#Expansion-of-Prompt-Sequences
+expansions, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-expansions_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 expl, use of	variables	Variables-Index.html	Completion-System.html#index-expl_002c-use-of	20.6 Utility Functions	Completion-System.html#Completion-Functions
 export	concepts	zsh_1.html	Parameters.html#index-export	15.1 Description	Parameters.html#Description-5
 export	functions	zsh_13.html	Shell-Builtin-Commands.html#index-export-1	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
@@ -647,6 +727,12 @@ EXTENDED_GLOB, use of	options	zsh_9.html	Expansion.html#index-EXTENDED_005fGLOB_
 EXTENDED_HISTORY	options	zsh_9.html	Options.html#index-EXTENDED_005fHISTORY	16.2.4 History	Options.html#History
 EXTENDEDGLOB	options	zsh_9.html	Options.html#index-EXTENDEDGLOB	16.2.3 Expansion and Globbing	Options.html#Expansion-and-Globbing
 EXTENDEDHISTORY	options	zsh_9.html	Options.html#index-EXTENDEDHISTORY	16.2.4 History	Options.html#History
+extensions, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-extensions_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
+extra-verbose, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-extra_002dverbose_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
+fake, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-fake_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
+fake-always, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-fake_002dalways_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
+fake-files, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-fake_002dfiles_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
+fake-parameters, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-fake_002dparameters_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
 false	functions	zsh_13.html	Shell-Builtin-Commands.html#index-false	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 fc	functions	zsh_13.html	Shell-Builtin-Commands.html#index-fc	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 fc, use of	functions	zsh_13.html	Expansion.html#index-fc_002c-use-of	14.1.1 Overview	Expansion.html#Overview
@@ -664,11 +750,18 @@ file descriptors	concepts	zsh_1.html	Redirection.html#index-file-descriptors	7 R
 file descriptors, use with parameters	concepts	zsh_1.html	Redirection.html#index-file-descriptors_002c-use-with-parameters	7.1 Opening file descriptors using parameters	Redirection.html#Opening-file-descriptors-using-parameters
 file descriptors, waiting for	concepts	zsh_1.html	Zsh-Modules.html#index-file-descriptors_002c-waiting-for	22.36 The zsh/zselect Module	Zsh-Modules.html#The-zsh_002fzselect-Module
 file, history	concepts	zsh_1.html	Shell-Builtin-Commands.html#index-file_002c-history	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
+file-descriptors, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-file_002ddescriptors_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
+file-list, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-file_002dlist_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
+file-path, MIME style	styles-and-tags	Style-and-Tag-Index.html	User-Contributions.html#index-file_002dpath_002c-MIME-style	26.9 MIME Functions	User-Contributions.html#MIME-Functions
+file-patterns, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-file_002dpatterns_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
+file-sort, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-file_002dsort_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
+file-split-chars, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-file_002dsplit_002dchars_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
 filename expansion	concepts	zsh_1.html	Expansion.html#index-filename-expansion	14.7 Filename Expansion	Expansion.html#Filename-Expansion
 filename expansion, =	concepts	zsh_1.html	Options.html#index-filename-expansion_002c-_003d	16.2.3 Expansion and Globbing	Options.html#Expansion-and-Globbing
 filename generation	concepts	zsh_1.html	Expansion.html#index-filename-generation	14.8 Filename Generation	Expansion.html#Filename-Generation
 filename generation, bad pattern	concepts	zsh_1.html	Options.html#index-filename-generation_002c-bad-pattern	16.2.3 Expansion and Globbing	Options.html#Expansion-and-Globbing
 files used	concepts	zsh_1.html	Files.html#index-files-used	5.2 Files	Files.html#Files-2
+files, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-files_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 files, examining	concepts	zsh_1.html	Zsh-Modules.html#index-files_002c-examining	22.26 The zsh/stat Module	Zsh-Modules.html#The-zsh_002fstat-Module
 files, global startup, inhibiting	concepts	zsh_1.html	Options.html#index-files_002c-global-startup_002c-inhibiting	16.2.5 Initialisation	Options.html#Initialisation
 files, listing	concepts	zsh_1.html	Zsh-Modules.html#index-files_002c-listing	22.26 The zsh/stat Module	Zsh-Modules.html#The-zsh_002fstat-Module
@@ -677,6 +770,9 @@ files, marking type of	concepts	zsh_1.html	Options.html#index-files_002c-marking
 files, shutdown	concepts	zsh_1.html	Files.html#index-files_002c-shutdown	5.1 Startup/Shutdown Files	Files.html#Startup_002fShutdown-Files
 files, startup	concepts	zsh_1.html	Files.html#index-files_002c-startup	5.1 Startup/Shutdown Files	Files.html#Startup_002fShutdown-Files
 files, transferring	concepts	zsh_1.html	Zsh-Modules.html#index-files_002c-transferring	22.31 The zsh/zftp Module	Zsh-Modules.html#The-zsh_002fzftp-Module
+filter, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-filter_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
+find-file-in-path, MIME style	styles-and-tags	Style-and-Tag-Index.html	User-Contributions.html#index-find_002dfile_002din_002dpath_002c-MIME-style	26.9 MIME Functions	User-Contributions.html#MIME-Functions
+flags, MIME style	styles-and-tags	Style-and-Tag-Index.html	User-Contributions.html#index-flags_002c-MIME-style	26.9 MIME Functions	User-Contributions.html#MIME-Functions
 flags, parameter expansion	concepts	zsh_1.html	Expansion.html#index-flags_002c-parameter-expansion	14.3.1 Parameter Expansion Flags	Expansion.html#Parameter-Expansion-Flags
 flags, shell	concepts	zsh_1.html	Invocation.html#index-flags_002c-shell	4.1 Invocation	Invocation.html#Invocation-2
 float	functions	zsh_13.html	Shell-Builtin-Commands.html#index-float	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
@@ -687,12 +783,16 @@ flow control	concepts	zsh_1.html	Options.html#index-flow-control	16.2.6 Input/Ou
 FLOW_CONTROL	options	zsh_9.html	Options.html#index-FLOW_005fCONTROL	16.2.6 Input/Output	Options.html#Input_002fOutput
 FLOWCONTROL	options	zsh_9.html	Options.html#index-FLOWCONTROL	16.2.6 Input/Output	Options.html#Input_002fOutput
 fned	functions	zsh_13.html	User-Contributions.html#index-fned	26.12.1 Descriptions	User-Contributions.html#Descriptions
+fonts, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-fonts_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 for	functions	zsh_13.html	Shell-Grammar.html#index-for	6.3 Complex Commands	Shell-Grammar.html#Complex-Commands
 for loops	concepts	zsh_1.html	Shell-Grammar.html#index-for-loops	6.3 Complex Commands	Shell-Grammar.html#Complex-Commands
+force-list, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-force_002dlist_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
 FORCE_FLOAT	options	zsh_9.html	Options.html#index-FORCE_005fFLOAT	16.2.3 Expansion and Globbing	Options.html#Expansion-and-Globbing
 FORCEFLOAT	options	zsh_9.html	Options.html#index-FORCEFLOAT	16.2.3 Expansion and Globbing	Options.html#Expansion-and-Globbing
 forcing use of floating point	concepts	zsh_1.html	Options.html#index-forcing-use-of-floating-point	16.2.3 Expansion and Globbing	Options.html#Expansion-and-Globbing
 foreach	functions	zsh_13.html	Shell-Grammar.html#index-foreach	6.4 Alternate Forms For Complex Commands	Shell-Grammar.html#Alternate-Forms-For-Complex-Commands
+format, completion style	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-format_002c-completion-style	20.3.3 Standard Styles	Completion-System.html#Standard-Styles
+formats	styles-and-tags	Style-and-Tag-Index.html	User-Contributions.html#index-formats	26.5.2 Configuration	User-Contributions.html#vcs_005finfo-Configuration
 forward-char	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-forward_002dchar	18.6.1 Movement	Zsh-Line-Editor.html#Movement
 forward-word	editor-functions	Editor-Functions-Index.html	Zsh-Line-Editor.html#index-forward_002dword	18.6.1 Movement	Zsh-Line-Editor.html#Movement
 forward-word-match	editor-functions	Editor-Functions-Index.html	User-Contributions.html#index-forward_002dword_002dmatch	26.7.1 Widgets	User-Contributions.html#Widgets
@@ -701,6 +801,7 @@ FPATH	variables	Variables-Index.html	Parameters.html#index-FPATH	15.6 Parameters
 fpath, searching	variables	Variables-Index.html	Shell-Builtin-Commands.html#index-fpath_002c-searching	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
 fpath, use of	variables	Variables-Index.html	Functions.html#index-fpath_002c-use-of	9.1 Autoloading Functions	Functions.html#Autoloading-Functions
 fpath, with zcompile	variables	Variables-Index.html	Shell-Builtin-Commands.html#index-fpath_002c-with-zcompile	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
+fstypes, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-fstypes_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 FTP	concepts	zsh_1.html	Zsh-Modules.html#index-FTP	22.31 The zsh/zftp Module	Zsh-Modules.html#The-zsh_002fzftp-Module
 FTP sites for zsh	concepts	zsh_1.html	Introduction.html#index-FTP-sites-for-zsh	2.2 Availability	Introduction.html#Availability
 FTP, functions for using shell as client	concepts	zsh_1.html	Zftp-Function-System.html#index-FTP_002c-functions-for-using-shell-as-client	25 Zftp Function System	Zftp-Function-System.html#Zftp-Function-System
@@ -721,6 +822,7 @@ functions	functions	zsh_13.html	Shell-Builtin-Commands.html#index-functions-1	17
 functions, anonymous	concepts	zsh_1.html	Functions.html#index-functions_002c-anonymous	9.2 Anonymous Functions	Functions.html#Anonymous-Functions
 functions, autoloading	concepts	zsh_1.html	Functions.html#index-functions_002c-autoloading	9.1 Autoloading Functions	Functions.html#Autoloading-Functions
 functions, autoloading	concepts	zsh_1.html	Shell-Builtin-Commands.html#index-functions_002c-autoloading-1	17 Shell Builtin Commands	Shell-Builtin-Commands.html#Shell-Builtin-Commands
+functions, completion tag	styles-and-tags	Style-and-Tag-Index.html	Completion-System.html#index-functions_002c-completion-tag	20.3.2 Standard Tags	Completion-System.html#Standard-Tags
 functions, defining with expanded aliases	concepts	zsh_1.html	Options.html#index-functions_002c-defining-with-expanded-aliases	16.2.9 Scripts and Functions	Options.html#Scripts-and-Functions
 functions, hook	functions	zsh_13.html	Functions.html#index-functions_002c-hook	9.3.1 Hook Functions	Functions.html#Hook-Functions
 functions, math, use of	concepts	zsh_1.html	Arithmetic-Evaluation.html#index-functions_002c-math_002c-use-of	11 Arithmetic Evaluation	Arithmetic-Evaluation.html#Arithmetic-Evaluation

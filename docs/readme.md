@@ -3,7 +3,7 @@
 ## Zsh docs
 
 Zsh documentation last updated: 2020-02-15
-zdocs data last generated: 2021-01-21
+zdocs data last generated: 2021-12-27
 
 - [Browsable Zsh Documentation][zsh-docs]
 - [Zsh Documentation Formats Available][zsh-docs-home]
