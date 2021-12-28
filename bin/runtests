@@ -10,7 +10,7 @@ ZTAP_HOME=${ZTAP_HOME:-$PROJECT_HOME/.ztap}
 
 source $ZTAP_HOME/ztap.zsh
 if [[ $# -gt 0 ]]; then
-  ztap "$@"
+  ztap -c "$@"
 else
-  ztap $PROJECT_HOME/tests/*.zsh
+  ztap -c $PROJECT_HOME/tests/*.zsh
 fi
