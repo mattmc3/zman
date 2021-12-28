@@ -22,6 +22,7 @@ help:
 	@echo ""
 	@echo "Commands:"
 	@echo "  help          shows this message"
-	@echo "  refreshdata   make data file for zman from latest data"
 	@echo "  datafile      make data file for zman"
+	@echo "  pipup         update python libs for zmandata utility"
+	@echo "  refreshdata   make data file for zman from latest data"
 	@echo "  test          run unit tests"
