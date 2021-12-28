@@ -7,5 +7,5 @@ fi
 query="$@"
 local selection=$(printf "%s\n" "${(ko)zman_lookup[@]}" | fzf --layout=reverse-list --query=$query)
 if [[ $? -eq 0 ]] && [[ -n "$selection" ]]; then
-  $zman_BROWSER $zman_URL/${zman_lookup[$selection]}
+  $ZMAN_BROWSER $ZMAN_URL/${zman_lookup[$selection]}
 fi

@@ -6,15 +6,15 @@
 0=${(%):-%N}
 
 () {
-  zman_URL=${zman_URL:-https://zsh.sourceforge.io/Doc/Release}
-  if [[ -z $BROWSER ]]; then
-    zman_BROWSER=$BROWSER
+  ZMAN_URL=${ZMAN_URL:-https://zsh.sourceforge.io/Doc/Release}
+  if [[ -n "$BROWSER" ]]; then
+    ZMAN_BROWSER=$BROWSER
   elif [[ "$OSTYPE" == darwin* ]]; then
-    zman_BROWSER=open
+    ZMAN_BROWSER=open
   elif [[ "$OSTYPE" == cygwin* ]]; then
-    zman_BROWSER=cygstart
+    ZMAN_BROWSER=cygstart
   else
-    zman_BROWSER=xdg-open
+    ZMAN_BROWSER=xdg-open
   fi
 
   local basedir="${${(%):-%x}:a:h}"
