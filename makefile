@@ -4,15 +4,24 @@
 test:
 	./bin/runtests
 
-.PHONY: zmandata
-zmandata:
-	./bin/gen_zmandata
+.PHONY: refreshdata
+refreshdata:
+	./bin/zmandata --refresh
+
+.PHONY: datafile
+datafile:
+	./bin/zmandata
+
+.PHONY: pipup
+pipup:
+	./bin/zmandata --pipup
 
 .PHONY: help
 help:
 	@echo "Usage:  make <command>"
 	@echo ""
 	@echo "Commands:"
-	@echo "  help       shows this message"
-	@echo "  zmandata   make data file for zman"
-	@echo "  test       run unit tests"
+	@echo "  help          shows this message"
+	@echo "  refreshdata   make data file for zman from latest data"
+	@echo "  datafile      make data file for zman"
+	@echo "  test          run unit tests"
