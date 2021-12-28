@@ -14,5 +14,5 @@ help:
 	@echo ""
 	@echo "Commands:"
 	@echo "  help       shows this message"
-	@echo "  zmandata  make data file for zman"
+	@echo "  zmandata   make data file for zman"
 	@echo "  test       run unit tests"
