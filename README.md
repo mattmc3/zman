@@ -4,7 +4,7 @@
 [![works with prezto](https://img.shields.io/badge/works%20with-%E2%9D%AF%E2%9D%AF%E2%9D%AF%20prezto-red)](#install-for-prezto)
 [![works with ohmyzsh](https://img.shields.io/badge/works%20with-%20%E2%9E%9C%20oh--my--zsh-C2D33F)](#install-for-oh-my-zsh)
 
-> Zsh plugin that uses `fzf` to quickly find and browse Zsh manuals
+> Use `fzf` to quickly browse Zsh manuals
 
 ![zman](https://raw.githubusercontent.com/mattmc3/zman/resources/img/zman.gif)
 
