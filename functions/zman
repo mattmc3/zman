@@ -5,7 +5,7 @@ if ! command -v fzf >/dev/null; then
 fi
 
 ZMAN_URL=${ZMAN_URL:-https://zsh.sourceforge.io/Doc/Release}
-if [[ -z "$ZMAN_URL" ]]; then
+if [[ -z "$ZMAN_BROWSER" ]]; then
   if [[ -n "$BROWSER" ]]; then
     ZMAN_BROWSER=$BROWSER
   elif [[ "$OSTYPE" == darwin* ]]; then
