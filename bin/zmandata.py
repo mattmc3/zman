@@ -54,12 +54,23 @@ def save_zdoc_entries(prjdir, zdoc_entries):
         for e in zdoc_entries_sorted:
             f.write("\t".join(e) + "\n")
 
+    zman_dict = {}
+    for e in zdoc_entries_sorted:
+        key = f"{e.phrase} ({e.section})"
+        value = e.url
+        dupenum = 0
+        while key in zman_dict:
+            dupenum += 1
+            key = f"{e.phrase} ({e.section} #{dupenum})"
+        zman_dict[key] = value
+
     zman_lookup = prjdir / "lib" / "zman_lookup.zsh"
     print(f"writing {zman_lookup.name}")
     with zman_lookup.open('w') as f:
         f.write("typeset -gA zman_lookup=(\n")
-        for e in zdoc_entries_sorted:
-            f.write(f"  '{e.phrase} ({e.category})' '{e.url}'\n")
+        for key in sorted(zman_dict):
+            value = zman_dict[key]
+            f.write(f"  '{key}' '{value}'\n")
         f.write(")\n")
 
 def main():
