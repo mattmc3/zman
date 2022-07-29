@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on February 15, 2020 by texi2html 5.0
+<!-- Created on May 14, 2022 by texi2html 5.0
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -54,7 +54,7 @@ ul.no-bullet {list-style: none}
 <tr><td valign="middle" align="left">[<a href="Completion-Using-compctl.html#Completion-Using-compctl" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="Completion-Using-compctl.html#Example" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="index.html#Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="#Description-6" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-4" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Calendar-Function-System.html#Calendar-Function-System" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -71,7 +71,7 @@ ul.no-bullet {list-style: none}
 <a name="index-modules"></a>
 
 <hr>
-<a name="Description-6"></a>
+<a name="Description-4"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Zsh-Modules" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Zsh-Modules" title="Previous section in reading order"> &lt; </a>]</td>
@@ -216,6 +216,10 @@ completion system.
 <dd><p>Interface to the terminfo database.
 </p>
 </dd>
+<dt><tt>zsh/watch</tt></dt>
+<dd><p>Reporting of login and logout events.
+</p>
+</dd>
 <dt><tt>zsh/zftp</tt></dt>
 <dd><p>A builtin FTP client.
 </p>
@@ -305,26 +309,28 @@ styles.
 </td></tr>
 <tr><td align="left" valign="top"><a href="#The-zsh_002fterminfo-Module">22.30 The zsh/terminfo Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#The-zsh_002fzftp-Module">22.31 The zsh/zftp Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#The-zsh_002fwatch-Module">22.31 The zsh/watch Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#The-zsh_002fzle-Module">22.32 The zsh/zle Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#The-zsh_002fzftp-Module">22.32 The zsh/zftp Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#The-zsh_002fzleparameter-Module">22.33 The zsh/zleparameter Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#The-zsh_002fzle-Module">22.33 The zsh/zle Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#The-zsh_002fzprof-Module">22.34 The zsh/zprof Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#The-zsh_002fzleparameter-Module">22.34 The zsh/zleparameter Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#The-zsh_002fzpty-Module">22.35 The zsh/zpty Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#The-zsh_002fzprof-Module">22.35 The zsh/zprof Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#The-zsh_002fzselect-Module">22.36 The zsh/zselect Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#The-zsh_002fzpty-Module">22.36 The zsh/zpty Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#The-zsh_002fzutil-Module">22.37 The zsh/zutil Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top"><a href="#The-zsh_002fzselect-Module">22.37 The zsh/zselect Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#The-zsh_002fzutil-Module">22.38 The zsh/zutil Module</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 <hr>
 <a name="The-zsh_002fattr-Module"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Zsh-Modules" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Description-6" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-4" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Zsh-Modules" title="Up section"> Up </a>]</td>
 <td valign="middle" align="left">[<a href="#The-zsh_002fcap-Module" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Calendar-Function-System.html#Calendar-Function-System" title="Next chapter"> &gt;&gt; </a>]</td>
@@ -1232,7 +1238,7 @@ various parameters.
 <tr><td valign="middle" align="left">[<a href="#Zsh-Modules" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#The-zsh_002fcurses-Module" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#The-zsh_002fcurses-Module" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="#Parameters-4" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Parameters-2" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Calendar-Function-System.html#Calendar-Function-System" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -1403,7 +1409,7 @@ input.  This is only available with the ncurses library; mouse handling
 can be detected by checking for the exit status of &lsquo;<tt>zcurses mouse</tt>&rsquo; with
 no arguments.  If a mouse
 button is clicked (or double- or triple-clicked, or pressed or released with
-a configurable delay from being clicked) then <tt>kparam</tt> is set to the string
+a configurable delay from being clicked) then <var>kparam</var> is set to the string
 <tt>MOUSE</tt>, and <var>mparam</var> is set to an array consisting of the
 following elements:
 </p><dl compact="compact">
@@ -1491,7 +1497,7 @@ should normally be not needed.
 
 
 <hr>
-<a name="Parameters-4"></a>
+<a name="Parameters-2"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Zsh-Modules" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Builtin" title="Previous section in reading order"> &lt; </a>]</td>
@@ -1560,7 +1566,7 @@ have been created with &lsquo;<tt>zcurses addwin</tt>&rsquo; and not removed wit
 <a name="The-zsh_002fdatetime-Module"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Zsh-Modules" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Parameters-4" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Parameters-2" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Zsh-Modules" title="Up section"> Up </a>]</td>
 <td valign="middle" align="left">[<a href="#The-zsh_002fdb_002fgdbm-Module" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Calendar-Function-System.html#Calendar-Function-System" title="Next chapter"> &gt;&gt; </a>]</td>
@@ -1583,17 +1589,21 @@ have been created with &lsquo;<tt>zcurses addwin</tt>&rsquo; and not removed wit
 <dd><a name="index-strftime"></a>
 <a name="index-date-string_002c-printing"></a>
 </dd>
-<dt><tt>strftime</tt> [ <tt>-s</tt> <var>scalar</var> ] <var>format</var> [ <var>epochtime</var> [ <var>nanoseconds</var> ] ]</dt>
-<dt><tt>strftime</tt> <tt>-r</tt> [ <tt>-q</tt> ] [ <tt>-s</tt> <var>scalar</var> ] <var>format</var> <var>timestring</var></dt>
+<dt><tt>strftime</tt> [ <tt>-s</tt> <var>scalar</var> | <tt>-n</tt> ] <var>format</var> [ <var>epochtime</var> [ <var>nanoseconds</var> ] ]</dt>
+<dt><tt>strftime</tt> <tt>-r</tt> [ <tt>-q</tt> ] [ <tt>-s</tt> <var>scalar</var> | <tt>-n</tt> ] <var>format</var> <var>timestring</var></dt>
 <dd><p>Output the date in the <var>format</var> specified.  With no <var>epochtime</var>, the
 current system date/time is used; optionally, <var>epochtime</var> may be used to
 specify the number of seconds since the epoch, and <var>nanoseconds</var> may
 additionally be used to specify the number of nanoseconds past the second
 (otherwise that number is assumed to be 0).
-See man page strftime(3) for details.  The zsh extensions described in
+See strftime(3) for details.  The zsh extensions described in
 <a href="Prompt-Expansion.html#Prompt-Expansion">Prompt Expansion</a> are also available.
 </p>
 <dl compact="compact">
+<dt><tt>-n</tt></dt>
+<dd><p>Suppress printing a newline after the formatted string.
+</p>
+</dd>
 <dt><tt>-q</tt></dt>
 <dd><p>Run quietly; suppress printing of all error messages described below.
 Errors for invalid <var>epochtime</var> values are always printed.
@@ -1603,7 +1613,7 @@ Errors for invalid <var>epochtime</var> values are always printed.
 <dd><p>With the option <tt>-r</tt> (reverse), use <var>format</var> to parse the input
 string <var>timestring</var> and output the number of seconds since the epoch at
 which the time occurred.  The parsing is implemented by the system
-function <tt>strptime</tt>; see man page strptime(3).  This means that zsh
+function <tt>strptime</tt>; see strptime(3).  This means that zsh
 format extensions are not available, but for reverse lookup they are not
 required.
 </p>
@@ -1994,7 +2004,7 @@ directories are first created if necessary, and there will be
 no complaint if the directory already exists.
 The <tt>-m</tt> option can be used to specify (in octal) a set of file permissions
 for the created directories, otherwise mode 777 modified by the current
-<tt>umask</tt> (see man page umask(2)) is used.
+<tt>umask</tt> (see umask(2)) is used.
 </p>
 <a name="index-mv"></a>
 </dd>
@@ -2025,7 +2035,7 @@ use <tt>cp</tt> and <tt>rm</tt> manually.  This may change in a future version.
 </p>
 <p>Normally, <tt>rm</tt> will not remove directories (except with the <tt>-R</tt> or <tt>-r</tt>
 options).  The <tt>-d</tt> option causes <tt>rm</tt> to try removing directories
-with <tt>unlink</tt> (see man page unlink(2)), the same method used for files.
+with <tt>unlink</tt> (see unlink(2)), the same method used for files.
 Typically only the super-user can actually succeed in unlinking
 directories in this way.
 <tt>-d</tt> takes precedence over <tt>-R</tt> and <tt>-r</tt>.
@@ -2040,7 +2050,7 @@ silently deleted, without querying, and suppresses all error indications.
 </p>
 <p>The <tt>-R</tt> and <tt>-r</tt> options cause <tt>rm</tt> to recursively descend into
 directories, deleting all files in the directory before removing the directory
-with the <tt>rmdir</tt> system call (see man page rmdir(2)).
+with the <tt>rmdir</tt> system call (see rmdir(2)).
 </p>
 <p>The <tt>-s</tt> option is a zsh extension to <tt>rm</tt> functionality.  It enables
 paranoid behaviour, intended to avoid common security problems involving
@@ -2060,7 +2070,7 @@ a result of directories being moved up the tree.
 <a name="index-sync"></a>
 </dd>
 <dt><tt>sync</tt></dt>
-<dd><p>Calls the system call of the same name (see man page sync(2)), which
+<dd><p>Calls the system call of the same name (see sync(2)), which
 flushes dirty buffers to disk.  It might return before the I/O has
 actually been completed.
 </p>
@@ -2157,7 +2167,7 @@ value is the content of the file.  The value is treated identically to any
 other text coming from a parameter.  The value may also be assigned to, in
 which case the file in question is written (whether or not it originally
 existed); or an element may be unset, which will delete the file in
-question.  For example, &lsquo;<tt>vared mapfile[myfile]</tt>&rsquo; works as expected,
+question.  For example, &lsquo;<tt>vared &rsquo;mapfile[myfile]&rsquo;</tt>&rsquo; works as expected,
 editing the file &lsquo;<tt>myfile</tt>&rsquo;.
 </p>
 <p>When the array is accessed as a whole, the keys are the names of files in
@@ -2272,7 +2282,7 @@ The <tt>ilogb</tt> function takes a single floating point argument, but
 returns an integer.
 </p>
 <p>The function <tt>signgam</tt> takes no arguments, and returns an integer, which
-is the C variable of the same name, as described in man page gamma(3).  Note
+is the C variable of the same name, as described in gamma(3).  Note
 that it is therefore only useful immediately after a call to <tt>gamma</tt> or
 <tt>lgamma</tt>.  Note also that &lsquo;<tt>signgam()</tt>&rsquo; and &lsquo;<tt>signgam</tt>&rsquo; are
 distinct expressions.
@@ -2658,6 +2668,8 @@ and these are the values output with, for example, <tt>${(k)jobdirs}</tt>.
 Non-numeric job references may be used when looking up a value;
 for example, <tt>${jobdirs[%+]}</tt> refers to the current job.
 </p>
+<p>See the <tt>jobs</tt> builtin for how job information is provided in a subshell.
+</p>
 <a name="index-jobtexts"></a>
 </dd>
 <dt><tt>jobtexts</tt></dt>
@@ -2666,6 +2678,8 @@ that were used to start the jobs.
 </p>
 <p>Handling of the keys of the associative array is as described for
 <tt>jobdirs</tt> above.
+</p>
+<p>See the <tt>jobs</tt> builtin for how job information is provided in a subshell.
 </p>
 <a name="index-jobstates"></a>
 </dd>
@@ -2683,6 +2697,8 @@ the <var>state</var> describes the state of that process.
 </p>
 <p>Handling of the keys of the associative array is as described for
 <tt>jobdirs</tt> above.
+</p>
+<p>See the <tt>jobs</tt> builtin for how job information is provided in a subshell.
 </p>
 <a name="index-nameddirs"></a>
 </dd>
@@ -2910,10 +2926,14 @@ called by the current function.
 <dd><a name="index-private"></a>
 <a name="index-private-parameter_002c-creating"></a>
 </dd>
-<dt><tt>private</tt> [ {<tt>+</tt>|<tt>-</tt>}<tt>AHUahlprtux</tt> ] [ {<tt>+</tt>|<tt>-</tt>}<tt>EFLRZi</tt> [ <var>n</var> ] ] [ <var>name</var>[<tt>=</tt><var>value</var>] ... ]</dt>
+<dt><tt>private</tt> [ {<tt>+</tt>|<tt>-</tt>}<tt>AHUahlmrtux</tt> ] [ {<tt>+</tt>|<tt>-</tt>}<tt>EFLRZi</tt> [ <var>n</var> ] ] [ <var>name</var>[<tt>=</tt><var>value</var>] ... ]</dt>
 <dd><p>The <tt>private</tt> builtin accepts all the same options and arguments as <tt>local</tt>
 (<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands">Shell Builtin Commands</a>) except
 for the &lsquo;<tt>-</tt><tt>T</tt>&rsquo; option.  Tied parameters may not be made private.
+</p>
+<p>The &lsquo;<tt>-</tt><tt>p</tt>&rsquo; option is presently a no-op because the state of
+private parameters cannot reliably be reloaded.  This also applies
+to printing private parameters with &lsquo;<tt>typeset -p</tt>&rsquo;.
 </p>
 <p>If used at the top level (outside a function scope), <tt>private</tt> creates a
 normal parameter in the same manner as <tt>declare</tt> or <tt>typeset</tt>.  A
@@ -2984,7 +3004,8 @@ Within any other function called by the declaring function, the
 private parameter does <em>NOT</em> hide other parameters of the same name, so
 for example a global parameter of the same name is visible and may be
 assigned or unset.  This includes calls to anonymous functions, although
-that may also change in the future.
+that may also change in the future.  However, the private name may not be
+created outside the local scope when it was not previously declared.
 </li><li> 
 An exported private remains in the environment of inner scopes but
 appears unset for the current shell in those scopes.  Generally, exporting
@@ -3046,6 +3067,18 @@ automatically load this module as needed and will invoke the
 </p>
 <p>If <tt>BASH_REMATCH</tt> is set, then the array <tt>BASH_REMATCH</tt> will be set
 instead of <tt>MATCH</tt> and <tt>match</tt>.
+</p>
+<p>Note that the <tt>zsh/regex</tt> module logic relies on the host system. The 
+same <var>expr</var> and <var>regex</var> pair could produce different results on different
+platforms if a <var>regex</var> with non-standard syntax is given.
+</p>
+<p>For example, no syntax for matching a word boundary is defined in the POSIX
+extended regular expression standard. GNU <tt>libc</tt> and BSD <tt>libc</tt> both provide 
+such syntaxes as extensions (<tt>\b</tt> and <tt>[[:&lt;:]]</tt>/<tt>[[:&gt;:]]</tt> respectively), 
+but neither of these syntaxes is supported by both of these implementations.
+</p>
+<p>Refer to the regcomp(3) and re_format(7) manual pages on your
+system for locally-supported syntax.
 </p>
 </dd>
 </dl>
@@ -3309,7 +3342,7 @@ two possible names:
 <dt><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>[ <tt>+</tt><var>element</var> ] [ <var>file</var> ... ]</dt>
 <dt><tt>stat</tt> <var>...</var></dt>
 <dd><p>The command acts as a front end to the <tt>stat</tt> system call (see
-man page stat(2)).  The same command is provided with two names; as
+stat(2)).  The same command is provided with two names; as
 the name <tt>stat</tt> is often used by an external command it is recommended
 that only the <tt>zstat</tt> form of the command is used.  This can be
 arranged by loading the module with the command &lsquo;<tt>zmodload -F zsh/stat
@@ -3421,10 +3454,12 @@ named files; no list of file names is allowed in this case.
 </p>
 </dd>
 <dt><tt>-F</tt> <var>fmt</var></dt>
-<dd><p>Supplies a <tt>strftime</tt> (see man page strftime(3)) string for the
+<dd><p>Supplies a <tt>strftime</tt> (see strftime(3)) string for the
 formatting of the time elements.  The format string supports all of the
 zsh extensions described in
 <a href="Prompt-Expansion.html#Prompt-Expansion">Prompt Expansion</a>.
+In particular, <tt>-F %s.%N</tt> can be used to show timestamps with nanosecond
+precision if supported by the system.
 The <tt>-s</tt> option is implied.
 </p>
 </dd>
@@ -3440,11 +3475,11 @@ arguments, and options other than <tt>-A</tt>, are ignored.
 </p>
 </dd>
 <dt><tt>-L</tt></dt>
-<dd><p>Perform an <tt>lstat</tt> (see man page lstat(2)) rather than a <tt>stat</tt>
+<dd><p>Perform an <tt>lstat</tt> (see lstat(2)) rather than a <tt>stat</tt>
 system call.  In this case, if the file is a link, information
 about the link itself rather than the target file is returned.
 This option is required to make the <tt>link</tt> element useful.
-It&rsquo;s important to note that this is the exact opposite from man page ls(1),
+It&rsquo;s important to note that this is the exact opposite from ls(1),
 etc.
 </p>
 </dd>
@@ -3599,6 +3634,10 @@ executables)
 <dd><p>fail if <var>file</var> is a symbolic link
 </p>
 </dd>
+<dt><tt>nonblock</tt></dt>
+<dd><p>the file is opened in nonblocking mode
+</p>
+</dd>
 <dt><tt>sync</tt></dt>
 <dd><p>request that writes wait until data has been physically written
 </p>
@@ -3717,10 +3756,10 @@ printed in the last case, but the parameter <tt>ERRNO</tt> will reflect
 the error that occurred.
 </p>
 </dd>
-<dt><tt>zsystem flock</tt> [ <tt>-t</tt> <var>timeout</var> ] [ <tt>-f</tt> <var>var</var> ] [<tt>-er</tt>] <var>file</var></dt>
+<dt><tt>zsystem flock</tt> [ <tt>-t</tt> <var>timeout</var> ] [ <tt>-i</tt> <var>interval</var> ] [ <tt>-f</tt> <var>var</var> ] [<tt>-er</tt>] <var>file</var></dt>
 <dt><tt>zsystem flock -u</tt> <var>fd_expr</var></dt>
 <dd><p>The builtin <tt>zsystem</tt>&rsquo;s subcommand <tt>flock</tt> performs advisory file
-locking (via the man page fcntl(2) system call) over the entire contents
+locking (via the fcntl(2) system call) over the entire contents
 of the given file.  This form of locking requires the processes
 accessing the file to cooperate; its most obvious use is between two
 instances of the shell itself.
@@ -3747,9 +3786,16 @@ a safety check that the file descriptor is in use for file locking.
 </p>
 <p>By default the shell waits indefinitely for the lock to succeed.
 The option <tt>-t</tt> <var>timeout</var> specifies a timeout for the lock in
-seconds; currently this must be an integer.  The shell will attempt
-to lock the file once a second during this period.  If the attempt
-times out, status 2 is returned.
+seconds; fractional seconds are allowed.  During this period, the
+shell will attempt to lock the file every <var>interval</var> seconds
+if the <tt>-i</tt> <var>interval</var> option is given, otherwise once a second.
+(This <var>interval</var> is shortened before the last attempt if needed,
+so that the shell waits only until the <var>timeout</var> and not longer.)
+If the attempt times out, status 2 is returned.
+</p>
+<p>(Note: <var>timeout</var> is limited to 2^30-1 seconds (about 34 years), and
+<var>interval</var> to 0.999 * LONG_MAX microseconds (only about 35 minutes
+on 32-bit systems).)
 </p>
 <p>If the option <tt>-e</tt> is given, the file descriptor for the lock is
 preserved when the shell uses <tt>exec</tt> to start a new process;
@@ -3780,7 +3826,7 @@ version of the shell before it was implemented).
 <tr><td valign="middle" align="left">[<a href="#Zsh-Modules" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Builtins" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#The-zsh_002fsystem-Module" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="#Parameters-3" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Parameters-1" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Calendar-Function-System.html#Calendar-Function-System" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -3803,7 +3849,7 @@ descriptor passed as an argument.
 
 
 <hr>
-<a name="Parameters-3"></a>
+<a name="Parameters-1"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Zsh-Modules" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Math-Functions" title="Previous section in reading order"> &lt; </a>]</td>
@@ -3849,9 +3895,9 @@ used.
 </dd>
 <dt><tt>ppid</tt></dt>
 <dd><a name="index-ppid_002c-sysparams"></a>
-<p>Returns the process ID of the parent of the current process, even in
-subshells.  Compare <tt>$PPID</tt>, which returns the process ID of the parent
-of the main shell process.
+<p>Returns the current process ID of the parent of the current process, even
+in subshells.  Compare <tt>$PPID</tt>, which returns the process ID of the
+initial parent of the main shell process.
 </p>
 </dd>
 <dt><tt>procsubstpid</tt></dt>
@@ -3868,7 +3914,7 @@ substitution, i.e. the <tt>&lt;(</tt><var>...</var><tt>)</tt> and
 <a name="The-zsh_002fnet_002ftcp-Module"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Zsh-Modules" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Parameters-3" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Parameters-1" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Zsh-Modules" title="Up section"> Up </a>]</td>
 <td valign="middle" align="left">[<a href="#Outbound-Connections" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Calendar-Function-System.html#Calendar-Function-System" title="Next chapter"> &gt;&gt; </a>]</td>
@@ -4060,7 +4106,7 @@ it will wait for one.
 <tr><td valign="middle" align="left">[<a href="#Zsh-Modules" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Inbound-Connections-1" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#The-zsh_002fnet_002ftcp-Module" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="#Example-1" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Example-2" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Calendar-Function-System.html#Calendar-Function-System" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -4094,7 +4140,7 @@ to force such a socket closed, use <tt>-f</tt>.
 
 
 <hr>
-<a name="Example-1"></a>
+<a name="Example-2"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Zsh-Modules" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Closing-Connections" title="Previous section in reading order"> &lt; </a>]</td>
@@ -4157,7 +4203,7 @@ ztcp -c $fd
 <a name="The-zsh_002ftermcap-Module"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Zsh-Modules" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Example-1" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Example-2" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Zsh-Modules" title="Up section"> Up </a>]</td>
 <td valign="middle" align="left">[<a href="#The-zsh_002fterminfo-Module" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Calendar-Function-System.html#Calendar-Function-System" title="Next chapter"> &gt;&gt; </a>]</td>
@@ -4204,7 +4250,7 @@ their values.
 <tr><td valign="middle" align="left">[<a href="#Zsh-Modules" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#The-zsh_002ftermcap-Module" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Zsh-Modules" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="#The-zsh_002fzftp-Module" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#The-zsh_002fwatch-Module" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Calendar-Function-System.html#Calendar-Function-System" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -4244,10 +4290,198 @@ their values.
 </dd>
 </dl>
 <hr>
-<a name="The-zsh_002fzftp-Module"></a>
+<a name="The-zsh_002fwatch-Module"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Zsh-Modules" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#The-zsh_002fterminfo-Module" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Zsh-Modules" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#The-zsh_002fzftp-Module" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="Calendar-Function-System.html#Calendar-Function-System" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+
+<a name="The-zsh_002fwatch-Module-1"></a>
+<h2 class="section">22.31 The zsh/watch Module</h2>
+
+<p>The <tt>zsh/watch</tt> module can be used to report when specific users log in or
+out. This is controlled via the following parameters.
+</p>
+<dl compact="compact">
+<dd><a name="index-LOGCHECK"></a>
+</dd>
+<dt><tt>LOGCHECK</tt></dt>
+<dd><p>The interval in seconds between checks for login/logout activity
+using the <tt>watch</tt> parameter.
+</p>
+<a name="index-watch"></a>
+<a name="index-WATCH"></a>
+</dd>
+<dt><tt>watch</tt> &lt;S&gt; &lt;Z&gt; (<tt>WATCH</tt> &lt;S&gt;)</dt>
+<dd><p>An array (colon-separated list) of login/logout events to report.
+</p>
+<p>If it contains the single word &lsquo;<tt>all</tt>&rsquo;, then all login/logout events
+are reported.  If it contains the single word &lsquo;<tt>notme</tt>&rsquo;, then all
+events are reported as with &lsquo;<tt>all</tt>&rsquo; except <tt>$USERNAME</tt>.
+</p>
+<p>An entry in this list may consist of a username,
+an &lsquo;<tt>@</tt>&rsquo; followed by a remote hostname,
+and a &lsquo;<tt>%</tt>&rsquo; followed by a line (tty).  Any of these may
+be a pattern (be sure to quote this during the assignment to
+<tt>watch</tt> so that it does not immediately perform file generation);
+the setting of the <tt>EXTENDED_GLOB</tt> option is respected.
+Any or all of these components may be present in an entry;
+if a login/logout event matches all of them,
+it is reported.
+</p>
+<p>For example, with the <tt>EXTENDED_GLOB</tt> option set, the following:
+</p>
+<div class="example">
+<pre class="example">watch=('^(pws|barts)')
+</pre></div>
+
+<p>causes reports for activity associated with any user other than <tt>pws</tt>
+or <tt>barts</tt>.
+</p>
+<a name="index-WATCHFMT"></a>
+</dd>
+<dt><tt>WATCHFMT</tt></dt>
+<dd><p>The format of login/logout reports if the <tt>watch</tt> parameter is set.
+Default is &lsquo;<tt>%n has %a %l from %m</tt>&rsquo;.
+Recognizes the following escape sequences:
+</p>
+<dl compact="compact">
+<dt><tt>%n</tt></dt>
+<dd><p>The name of the user that logged in/out.
+</p>
+</dd>
+<dt><tt>%a</tt></dt>
+<dd><p>The observed action, i.e. &quot;logged on&quot; or &quot;logged off&quot;.
+</p>
+</dd>
+<dt><tt>%l</tt></dt>
+<dd><p>The line (tty) the user is logged in on.
+</p>
+</dd>
+<dt><tt>%M</tt></dt>
+<dd><p>The full hostname of the remote host.
+</p>
+</dd>
+<dt><tt>%m</tt></dt>
+<dd><p>The hostname up to the first &lsquo;<tt>.</tt>&rsquo;.  If only the
+IP address is available or the utmp field contains
+the name of an X-windows display, the whole name is printed.
+</p>
+<p><em>NOTE:</em>
+The &lsquo;<tt>%m</tt>&rsquo; and &lsquo;<tt>%M</tt>&rsquo; escapes will work only if there is a host name
+field in the utmp on your machine.  Otherwise they are
+treated as ordinary strings.
+</p>
+</dd>
+<dt><tt>%F{</tt><var>color</var><tt>}</tt> (<tt>%f</tt>)</dt>
+<dd><p>Start (stop) using a different foreground color.
+</p>
+</dd>
+<dt><tt>%K{</tt><var>color</var><tt>}</tt> (<tt>%k</tt>)</dt>
+<dd><p>Start (stop) using a different background color.
+</p>
+</dd>
+<dt><tt>%S</tt> (<tt>%s</tt>)</dt>
+<dd><p>Start (stop) standout mode.
+</p>
+</dd>
+<dt><tt>%U</tt> (<tt>%u</tt>)</dt>
+<dd><p>Start (stop) underline mode.
+</p>
+</dd>
+<dt><tt>%B</tt> (<tt>%b</tt>)</dt>
+<dd><p>Start (stop) boldface mode.
+</p>
+</dd>
+<dt><tt>%t</tt></dt>
+<dt><tt>%@</tt></dt>
+<dd><p>The time, in 12-hour, am/pm format.
+</p>
+</dd>
+<dt><tt>%T</tt></dt>
+<dd><p>The time, in 24-hour format.
+</p>
+</dd>
+<dt><tt>%w</tt></dt>
+<dd><p>The date in &lsquo;<var>day</var><tt>-</tt><var>dd</var>&rsquo; format.
+</p>
+</dd>
+<dt><tt>%W</tt></dt>
+<dd><p>The date in &lsquo;<var>mm</var><tt>/</tt><var>dd</var><tt>/</tt><var>yy</var>&rsquo; format.
+</p>
+</dd>
+<dt><tt>%D</tt></dt>
+<dd><p>The date in &lsquo;<var>yy</var><tt>-</tt><var>mm</var><tt>-</tt><var>dd</var>&rsquo; format.
+</p>
+</dd>
+<dt><tt>%D{</tt><var>string</var><tt>}</tt></dt>
+<dd><p>The date formatted as <var>string</var> using the <tt>strftime</tt> function, with
+zsh extensions as described by
+<a href="Prompt-Expansion.html#Prompt-Expansion">Prompt Expansion</a>.
+</p>
+</dd>
+<dt><tt>%(</tt><var>x</var><tt>:</tt><var>true-text</var><tt>:</tt><var>false-text</var><tt>)</tt></dt>
+<dd><p>Specifies a ternary expression.
+The character following the <var>x</var> is
+arbitrary; the same character is used to separate the text
+for the &quot;true&quot; result from that for the &quot;false&quot; result.
+Both the separator and the right parenthesis may be escaped
+with a backslash.
+Ternary expressions may be nested.
+</p>
+<p>The test character <var>x</var> may be any one of &lsquo;<tt>l</tt>&rsquo;, &lsquo;<tt>n</tt>&rsquo;, &lsquo;<tt>m</tt>&rsquo;
+or &lsquo;<tt>M</tt>&rsquo;, which indicate a &lsquo;true&rsquo; result if the corresponding
+escape sequence would return a non-empty value; or it may be &lsquo;<tt>a</tt>&rsquo;,
+which indicates a &lsquo;true&rsquo; result if the watched user has logged in,
+or &lsquo;false&rsquo; if he has logged out.
+Other characters evaluate to neither true nor false; the entire
+expression is omitted in this case.
+</p>
+<p>If the result is &lsquo;true&rsquo;, then the <var>true-text</var>
+is formatted according to the rules above and printed,
+and the <var>false-text</var> is skipped.
+If &lsquo;false&rsquo;, the <var>true-text</var> is skipped and the <var>false-text</var>
+is formatted and printed.
+Either or both of the branches may be empty, but
+both separators must be present in any case.
+</p>
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+<p>Furthermore, the <tt>zsh/watch</tt> module makes available one builtin
+command:
+</p>
+<dl compact="compact">
+<dd><a name="index-log"></a>
+<a name="index-watch_002c-use-of"></a>
+<a name="index-watching-users"></a>
+<a name="index-users_002c-watching"></a>
+</dd>
+<dt><tt>log</tt></dt>
+<dd><p>List all users currently logged in who are affected by
+the current setting of the <tt>watch</tt> parameter.
+</p>
+</dd>
+</dl>
+<hr>
+<a name="The-zsh_002fzftp-Module"></a>
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Zsh-Modules" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#The-zsh_002fwatch-Module" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Zsh-Modules" title="Up section"> Up </a>]</td>
 <td valign="middle" align="left">[<a href="#Subcommands" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Calendar-Function-System.html#Calendar-Function-System" title="Next chapter"> &gt;&gt; </a>]</td>
@@ -4262,7 +4496,7 @@ their values.
 </tr></table>
 
 <a name="The-zsh_002fzftp-Module-1"></a>
-<h2 class="section">22.31 The zsh/zftp Module</h2>
+<h2 class="section">22.32 The zsh/zftp Module</h2>
 
 <p>The <tt>zsh/zftp</tt> module makes available one builtin command:
 </p>
@@ -4296,7 +4530,7 @@ more information on how responses from the server may be printed.
 <tr><td valign="middle" align="left">[<a href="#Zsh-Modules" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#The-zsh_002fzftp-Module" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#The-zsh_002fzftp-Module" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="#Parameters-2" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Parameters-4" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Calendar-Function-System.html#Calendar-Function-System" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -4307,7 +4541,7 @@ more information on how responses from the server may be printed.
 <td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h3 class="subsection">22.31.1 Subcommands</h3>
+<h3 class="subsection">22.32.1 Subcommands</h3>
 <a name="index-zftp_002c-subcommands"></a>
 
 <dl compact="compact">
@@ -4574,7 +4808,7 @@ background commands which use <tt>zftp</tt> are still active.
 
 
 <hr>
-<a name="Parameters-2"></a>
+<a name="Parameters-4"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Zsh-Modules" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Subcommands" title="Previous section in reading order"> &lt; </a>]</td>
@@ -4590,7 +4824,7 @@ background commands which use <tt>zftp</tt> are still active.
 <td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h3 class="subsection">22.31.2 Parameters</h3>
+<h3 class="subsection">22.32.2 Parameters</h3>
 <a name="index-zftp_002c-parameters"></a>
 <p>The following shell parameters are used by <tt>zftp</tt>.  Currently none
 of them are special.
@@ -4774,7 +5008,7 @@ specifies that no messages should be printed.
 <a name="Functions-1"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Zsh-Modules" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Parameters-2" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Parameters-4" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#The-zsh_002fzftp-Module" title="Up section"> Up </a>]</td>
 <td valign="middle" align="left">[<a href="#Problems" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Calendar-Function-System.html#Calendar-Function-System" title="Next chapter"> &gt;&gt; </a>]</td>
@@ -4787,7 +5021,7 @@ specifies that no messages should be printed.
 <td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h3 class="subsection">22.31.3 Functions</h3>
+<h3 class="subsection">22.32.3 Functions</h3>
 <a name="index-zftp_002c-functions"></a>
 
 <dl compact="compact">
@@ -4874,7 +5108,7 @@ user to decide whether the function should be defined and to use
 <td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h3 class="subsection">22.31.4 Problems</h3>
+<h3 class="subsection">22.32.4 Problems</h3>
 <a name="index-zftp_002c-problems"></a>
 
 <p>A connection may not be opened in the left hand side of a pipe as this
@@ -4913,7 +5147,7 @@ This is presumably a bug in the operating system.
 </tr></table>
 
 <a name="The-zsh_002fzle-Module-1"></a>
-<h2 class="section">22.32 The zsh/zle Module</h2>
+<h2 class="section">22.33 The zsh/zle Module</h2>
 
 <p>The <tt>zsh/zle</tt> module contains the Zsh Line Editor.  See
 <a href="Zsh-Line-Editor.html#Zsh-Line-Editor">Zsh Line Editor</a>.
@@ -4936,7 +5170,7 @@ This is presumably a bug in the operating system.
 </tr></table>
 
 <a name="The-zsh_002fzleparameter-Module-1"></a>
-<h2 class="section">22.33 The zsh/zleparameter Module</h2>
+<h2 class="section">22.34 The zsh/zleparameter Module</h2>
 
 <a name="index-parameters_002c-special-2"></a>
 <p>The <tt>zsh/zleparameter</tt> module defines two special parameters that can be 
@@ -4986,7 +5220,7 @@ of the shell function implementing the completion widget.
 </tr></table>
 
 <a name="The-zsh_002fzprof-Module-1"></a>
-<h2 class="section">22.34 The zsh/zprof Module</h2>
+<h2 class="section">22.35 The zsh/zprof Module</h2>
 
 <a name="index-functions_002c-profiling"></a>
 <p>When loaded, the <tt>zsh/zprof</tt> causes shell functions to be profiled.
@@ -5067,7 +5301,7 @@ counters and will not show the listing.
 </tr></table>
 
 <a name="The-zsh_002fzpty-Module-1"></a>
-<h2 class="section">22.35 The zsh/zpty Module</h2>
+<h2 class="section">22.36 The zsh/zpty Module</h2>
 
 <p>The <tt>zsh/zpty</tt> module offers one builtin:
 </p>
@@ -5183,7 +5417,7 @@ form of calls to the <tt>zpty</tt> builtin.
 </tr></table>
 
 <a name="The-zsh_002fzselect-Module-1"></a>
-<h2 class="section">22.36 The zsh/zselect Module</h2>
+<h2 class="section">22.37 The zsh/zselect Module</h2>
 
 <p>The <tt>zsh/zselect</tt> module makes available one builtin command:
 </p>
@@ -5197,8 +5431,8 @@ form of calls to the <tt>zpty</tt> builtin.
 blocks until a file descriptor is ready for reading or writing, or has an
 error condition, with an optional timeout.  If this is not available on
 your system, the command prints an error message and returns status 2
-(normal errors return status 1).  For more information, see your systems
-documentation for man page select(3).  Note there is no connection with the
+(normal errors return status 1).  For more information, see your system&rsquo;s
+documentation for select(3).  Note there is no connection with the
 shell builtin of the same name.
 </p>
 <p>Arguments and options may be intermingled in any order.  Non-option
@@ -5272,7 +5506,7 @@ in the select operation the appropriate error message is printed.
 </tr></table>
 
 <a name="The-zsh_002fzutil-Module-1"></a>
-<h2 class="section">22.37 The zsh/zutil Module</h2>
+<h2 class="section">22.38 The zsh/zutil Module</h2>
 
 <a name="index-builtins_002c-utility"></a>
 <p>The <tt>zsh/zutil</tt> module only adds some builtins:
@@ -5305,24 +5539,31 @@ If two patterns are equally specific, the tie is broken in favour of
 the pattern that was defined first.
 </p>
 <p><em>Example</em>
+<a name="index-preferred_002dprecipitation_002c-example-style"></a>
+<a name="index-weather_002c-example-function"></a>
 </p>
-<p>For example, to define your preferred form of precipitation depending on which
-city you&rsquo;re in, you might set the following in your <tt>zshrc</tt>:
+<p>For example, a fictional &lsquo;<tt>weather</tt>&rsquo; plugin might state in its documentation
+that it looks up the <tt>preferred-precipitation</tt> style under the
+&lsquo;<tt>:weather:</tt><var>continent</var><tt>:</tt><var>day-of-the-week</var><tt>:</tt><var>phase-of-the-moon</var>&rsquo; context.
+According to this, you might set the following in your <tt>zshrc</tt>:
 </p>
 <div class="example">
 <pre class="example">zstyle ':weather:europe:*' preferred-precipitation rain
-zstyle ':weather:europe:germany:* preferred-precipitation none
-zstyle ':weather:europe:germany:*:munich' preferred-precipitation snow
+zstyle ':weather:*:Sunday:*' preferred-precipitation snow
 </pre></div>
 
-<p>Then, the fictional &lsquo;<tt>weather</tt>&rsquo; plugin might run under the hood a command
-such as
+<p>Then the plugin would run under the hood a command such as
 </p>
 <div class="example">
-<pre class="example">zstyle -s &quot;:weather:${continent}:${country}:${county}:${city}&quot; preferred-precipitation REPLY
+<pre class="example">zstyle -s &quot;:weather:${continent}:${day_of_week}:${moon_phase}&quot; preferred-precipitation REPLY
 </pre></div>
 
 <p>in order to retrieve your preference into the scalar variable <tt>$REPLY</tt>.
+On Sundays <tt>$REPLY</tt> would be set to &lsquo;<tt>snow</tt>&rsquo;; in Europe it would be set
+to &lsquo;<tt>rain</tt>&rsquo;; and on Sundays in Europe it would be set to &lsquo;<tt>snow</tt>&rsquo; again,
+because the patterns &lsquo;<tt>:weather:europe:*</tt>&rsquo; and &lsquo;<tt>:weather:*:Sunday:*</tt>&rsquo; both
+match the <var>context</var> argument to <tt>zstyle -s</tt>, are equally specific, and the
+latter is more specific (because it has more colon-separated components).
 </p>
 <p><em>Usage</em>
 </p>
@@ -5430,8 +5671,9 @@ matching pattern.
 <a name="index-zformat"></a>
 </dd>
 <dt><tt>zformat -f</tt> <var>param</var> <var>format</var> <var>spec</var> ...</dt>
+<dt><tt>zformat -F</tt> <var>param</var> <var>format</var> <var>spec</var> ...</dt>
 <dt><tt>zformat -a</tt> <var>array</var> <var>sep</var> <var>spec</var> ...</dt>
-<dd><p>This builtin provides two different forms of formatting. The first form 
+<dd><p>This builtin provides different forms of formatting. The first form
 is selected with the <tt>-f</tt> option. In this case the <var>format</var>
 string will be modified by replacing sequences starting with a percent 
 sign in it with strings from the <var>spec</var>s.  Each <var>spec</var> should be
@@ -5477,7 +5719,13 @@ may be escaped in <var>text2</var> as <tt>%)</tt>.  Either of <var>text1</var> o
 specifier <tt>c</tt> is 3, agreeing with the digit argument to the ternary
 expression.
 </p>
-<p>The second form, using the <tt>-a</tt> option, can be used for aligning
+<p>With <tt>-F</tt> instead of <tt>-f</tt>, ternary expressions choose between the
+&lsquo;true&rsquo; or &lsquo;false&rsquo; text on the basis of whether the format specifier is
+present and non-empty.  A test number indicates a minimum width for the
+value given in the format specifier. Negative numbers reverse this,
+so the test is for whether the value exceeds a maximum width.
+</p>
+<p>The form, using the <tt>-a</tt> option, can be used for aligning
 strings.  Here, the <var>spec</var>s are of the form
 &lsquo;<var>left</var><tt>:</tt><var>right</var>&rsquo; where &lsquo;<var>left</var>&rsquo; and &lsquo;<var>right</var>&rsquo; are
 arbitrary strings.  These strings are modified by replacing the colons
@@ -5701,10 +5949,10 @@ bar=(-a '' -b xyz)
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated on <i>February 15, 2020</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
+  This document was generated on <i>May 14, 2022</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
  </font>
  <br>
-<font size="-1">Zsh version 5.8, released on February 14, 2020.</font>
+<font size="-1">Zsh version 5.9, released on May 14, 2022.</font>
 </p>
 </body>
 </html>

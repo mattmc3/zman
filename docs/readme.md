@@ -6,8 +6,9 @@ The doc files are stored in this repo to allow diffs across versions. They aren'
 beyond generating the Zsh code, but they could be used as offline docs in a
 future version.
 
-Zsh documentation last updated: 2020-02-15
-zman data last generated: 2021-12-27
+Zsh version: 5.9
+Zsh documentation last updated: 2022-05-14
+zman data last generated: 2022-07-28
 
 - [Browsable Zsh Documentation][zsh-docs]
 - [Zsh Documentation Formats Available][zsh-docs-home]

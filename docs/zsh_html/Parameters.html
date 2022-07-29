@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on February 15, 2020 by texi2html 5.0
+<!-- Created on May 14, 2022 by texi2html 5.0
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -54,7 +54,7 @@ ul.no-bullet {list-style: none}
 <tr><td valign="middle" align="left">[<a href="Expansion.html#Expansion" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="Expansion.html#Glob-Qualifiers" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="index.html#Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="#Description-5" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-1" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Options.html#Options" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -66,13 +66,13 @@ ul.no-bullet {list-style: none}
 <td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 
-<a name="Parameters-1"></a>
+<a name="Parameters-3"></a>
 <h1 class="chapter">15 Parameters</h1>
 <a name="index-parameters"></a>
 <a name="index-variables"></a>
 
 <hr>
-<a name="Description-5"></a>
+<a name="Description-1"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Parameters" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Parameters" title="Previous section in reading order"> &lt; </a>]</td>
@@ -178,7 +178,7 @@ expansion.
 <a name="Array-Parameters"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Parameters" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Description-5" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-1" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Parameters" title="Up section"> Up </a>]</td>
 <td valign="middle" align="left">[<a href="#Array-Subscripts" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Options.html#Options" title="Next chapter"> &gt;&gt; </a>]</td>
@@ -221,7 +221,7 @@ may be in any order.  Note that this syntax is strict: <tt>[</tt> and <tt>]=</tt
 not be quoted, and <var>key</var> may not consist of the unquoted string
 <tt>]=</tt>, but is otherwise treated as a simple string.  The enhanced forms
 of subscript expression that may be used when directly subscripting a
-variable name, described in the section Array Subscripts below, are not
+variable name, described in the section &lsquo;Array Subscripts&rsquo; below, are not
 available.
 </p>
 <p>The syntaxes with and without the explicit key may be mixed.  An implicit
@@ -604,12 +604,21 @@ result.  On failure substitutes the length of the array plus one, as
 discussed under the description of &lsquo;<tt>r</tt>&rsquo;, or the empty string for an
 associative array.
 </p>
+<p>Note: Although &lsquo;<tt>i</tt>&rsquo; may be applied to a scalar substitution to find
+the offset of a substring, the results are likely to be misleading when
+searching within substitutions that yield an empty string, or when
+searching for the empty substring.
+</p>
 </dd>
 <dt><tt>I</tt></dt>
 <dd><p>Like &lsquo;<tt>i</tt>&rsquo;, but gives the index of the last match, or all possible
 matching keys in an associative array.  On failure substitutes 0, or
 the empty string for an associative array.  This flag is best when
 testing for values or keys that do not exist.
+</p>
+<p>Note: If the option <tt>KSH_ARRAYS</tt> is in effect and no match is found, the
+result is indistinguishable from the case when the first element of the array
+matches.
 </p>
 </dd>
 <dt><tt>k</tt></dt>
@@ -908,6 +917,14 @@ were never exported has been removed.
 parameter is special.  &lsquo;&lt;Z&gt;&rsquo; indicates that the parameter does not exist
 when the shell initializes in <tt>sh</tt> or <tt>ksh</tt> emulation mode.
 </p>
+<p>The parameters &lsquo;<tt>!</tt>&rsquo;, &lsquo;<tt>#</tt>&rsquo;, &lsquo;<tt>*</tt>&rsquo;, &lsquo;<tt>-</tt>&rsquo;, &lsquo;<tt>?</tt>&rsquo;, &lsquo;<tt>@</tt>&rsquo;,
+&lsquo;<tt>$</tt>&rsquo;, &lsquo;<tt>ARGC</tt>&rsquo;, &lsquo;<tt>HISTCMD</tt>&rsquo;, &lsquo;<tt>LINENO</tt>&rsquo;, &lsquo;<tt>PPID</tt>&rsquo;,
+&lsquo;<tt>status</tt>&rsquo;, &lsquo;<tt>TTYIDLE</tt>&rsquo;, &lsquo;<tt>zsh_eval_context</tt>&rsquo;,
+&lsquo;<tt>ZSH_EVAL_CONTEXT</tt>&rsquo;, and &lsquo;<tt>ZSH_SUBSHELL</tt>&rsquo; are read-only and thus
+cannot be restored by the user, so they are not output by
+&lsquo;<tt>typeset -p</tt>&rsquo;.  This also applies to many read-only parameters loaded
+from modules.
+</p>
 <p>The following parameters are automatically set by the shell:
 </p>
 <dl compact="compact">
@@ -934,10 +951,11 @@ the length of the parameter <tt>-</tt>, q.v.
 <a name="index-_0024"></a>
 </dd>
 <dt><tt>$</tt> &lt;S&gt;</dt>
-<dd><p>The process ID of this shell.  Note that this indicates the original
-shell started by invoking <tt>zsh</tt>; all processes forked from the shells
-without executing a new program, such as subshells started by
-<tt>(</tt><var>...</var><tt>)</tt>, substitute the same value.
+<dd><p>The process ID of this shell, set when the shell initializes.  Processes
+forked from the shell without executing a new program, such as command
+substitutions and commands grouped with <tt>(</tt><var>...</var><tt>)</tt>,
+are subshells that duplicate the current shell, and thus substitute the
+same value for <tt>$$</tt> as their parent shell.
 </p>
 <a name="index-_002d-1"></a>
 </dd>
@@ -1029,11 +1047,14 @@ explicitly set locally.
 <a name="index-ERRNO"></a>
 </dd>
 <dt><tt>ERRNO</tt> &lt;S&gt;</dt>
-<dd><p>The value of errno (see man page errno(3))
+<dd><p>The value of <tt>errno</tt> (see errno(3))
 as set by the most recently failed system call.
 This value is system dependent and is intended for debugging
 purposes.  It is also useful with the <tt>zsh/system</tt> module which
 allows the number to be turned into a name or message.
+</p>
+<p>To use this parameter, it must first be assigned a value (typically
+0 (zero)).  It is initially unset for scripting compatibility.
 </p>
 <a name="index-FUNCNEST"></a>
 </dd>
@@ -1087,7 +1108,7 @@ not necessarily as displayed by the <tt>functions</tt> builtin.
 shell, it is initialized to the login name corresponding to the
 current login session. This parameter is exported by default but
 this can be disabled using the <tt>typeset</tt> builtin.  The value
-is set to the string returned by the man page getlogin(3) system call
+is set to the string returned by the getlogin(3) system call
 if that is available.
 </p>
 <a name="index-MACHTYPE"></a>
@@ -1122,9 +1143,9 @@ command.
 <a name="index-PPID"></a>
 </dd>
 <dt><tt>PPID</tt> &lt;S&gt;</dt>
-<dd><p>The process ID of the parent of the shell.  As for <tt>$$</tt>, the
-value indicates the parent of the original shell and does not
-change in subshells.
+<dd><p>The process ID of the parent of the shell, set when the shell initializes.
+As with <tt>$$</tt>, the value does not change in subshells created as a
+duplicate of the current shell.
 </p>
 <a name="index-PWD"></a>
 </dd>
@@ -1153,8 +1174,9 @@ will be the value that was assigned plus the number of seconds
 since the assignment.
 </p>
 <p>Unlike other special parameters, the type of the <tt>SECONDS</tt> parameter can
-be changed using the <tt>typeset</tt> command.  Only integer and one of the
-floating point types are allowed.  For example, &lsquo;<tt>typeset -F SECONDS</tt>&rsquo;
+be changed using the <tt>typeset</tt> command.  The type may be changed only
+to one of the floating point types or back to integer.  For example,
+&lsquo;<tt>typeset -F SECONDS</tt>&rsquo;
 causes the value to be reported as a floating point number.  The
 value is available to microsecond accuracy, although the shell may
 show more or fewer digits depending on the use of <tt>typeset</tt>.  See
@@ -1717,12 +1739,6 @@ most as many lines as given by the absolute value.
 If set to zero, the shell asks only if the top of the listing would scroll
 off the screen.
 </p>
-<a name="index-LOGCHECK"></a>
-</dd>
-<dt><tt>LOGCHECK</tt></dt>
-<dd><p>The interval in seconds between checks for login/logout activity
-using the <tt>watch</tt> parameter.
-</p>
 <a name="index-MAIL"></a>
 </dd>
 <dt><tt>MAIL</tt></dt>
@@ -2000,6 +2016,11 @@ the input line. This avoids running stty at every external command by
 accidentally exporting it. Also note that <tt>STTY</tt> should not be used for
 window size specifications; these will not be local to the command.
 </p>
+<p>If the parameter is set and empty, all of the above applies except
+that <tt>stty</tt> is not run. This can be useful as a way to freeze the tty
+around a single command, blocking its changes to tty settings,
+similar to the <tt>ttyctl</tt> builtin.
+</p>
 <a name="index-TERM"></a>
 </dd>
 <dt><tt>TERM</tt> &lt;S&gt;</dt>
@@ -2014,7 +2035,7 @@ take effect.
 </dd>
 <dt><tt>TERMINFO</tt> &lt;S&gt;</dt>
 <dd><p>A reference to your terminfo database, used by the &lsquo;terminfo&rsquo; library when the
-system has it; see man page terminfo(5).
+system has it; see terminfo(5).
 If set, this causes the shell to reinitialise the terminal, making the
 workaround &lsquo;<tt>TERM=$TERM</tt>&rsquo; unnecessary.
 </p>
@@ -2022,9 +2043,9 @@ workaround &lsquo;<tt>TERM=$TERM</tt>&rsquo; unnecessary.
 </dd>
 <dt><tt>TERMINFO_DIRS</tt> &lt;S&gt;</dt>
 <dd><p>A colon-seprarated list of terminfo databases, used by the &lsquo;terminfo&rsquo; library
-when the system has it; see man page terminfo(5). This variable is only
+when the system has it; see terminfo(5). This variable is only
 used by certain terminal libraries, in particular ncurses; see
-man page terminfo(5) to check support on your system.  If set, this
+terminfo(5) to check support on your system.  If set, this
 causes the shell to reinitialise the terminal, making the workaround
 &lsquo;<tt>TERM=$TERM</tt>&rsquo; unnecessary.  Note that unlike other colon-separated
 arrays this is not tied to a zsh array.
@@ -2141,137 +2162,6 @@ to be interpreted as a file extension.  The default is not to append
 any suffix, thus this parameter should be assigned only when needed
 and then unset again.
 </p>
-<a name="index-watch"></a>
-<a name="index-WATCH"></a>
-</dd>
-<dt><tt>watch</tt> &lt;S&gt; &lt;Z&gt; (<tt>WATCH</tt> &lt;S&gt;)</dt>
-<dd><p>An array (colon-separated list) of login/logout events to report.
-</p>
-<p>If it contains the single word &lsquo;<tt>all</tt>&rsquo;, then all login/logout events
-are reported.  If it contains the single word &lsquo;<tt>notme</tt>&rsquo;, then all
-events are reported as with &lsquo;<tt>all</tt>&rsquo; except <tt>$USERNAME</tt>.
-</p>
-<p>An entry in this list may consist of a username,
-an &lsquo;<tt>@</tt>&rsquo; followed by a remote hostname,
-and a &lsquo;<tt>%</tt>&rsquo; followed by a line (tty).  Any of these may
-be a pattern (be sure to quote this during the assignment to
-<tt>watch</tt> so that it does not immediately perform file generation);
-the setting of the <tt>EXTENDED_GLOB</tt> option is respected.
-Any or all of these components may be present in an entry;
-if a login/logout event matches all of them,
-it is reported.
-</p>
-<p>For example, with the <tt>EXTENDED_GLOB</tt> option set, the following:
-</p>
-<div class="example">
-<pre class="example">watch=('^(pws|barts)')
-</pre></div>
-
-<p>causes reports for activity associated with any user other than <tt>pws</tt>
-or <tt>barts</tt>.
-</p>
-<a name="index-WATCHFMT"></a>
-</dd>
-<dt><tt>WATCHFMT</tt></dt>
-<dd><p>The format of login/logout reports if the <tt>watch</tt> parameter is set.
-Default is &lsquo;<tt>%n has %a %l from %m</tt>&rsquo;.
-Recognizes the following escape sequences:
-</p>
-<dl compact="compact">
-<dt><tt>%n</tt></dt>
-<dd><p>The name of the user that logged in/out.
-</p>
-</dd>
-<dt><tt>%a</tt></dt>
-<dd><p>The observed action, i.e. &quot;logged on&quot; or &quot;logged off&quot;.
-</p>
-</dd>
-<dt><tt>%l</tt></dt>
-<dd><p>The line (tty) the user is logged in on.
-</p>
-</dd>
-<dt><tt>%M</tt></dt>
-<dd><p>The full hostname of the remote host.
-</p>
-</dd>
-<dt><tt>%m</tt></dt>
-<dd><p>The hostname up to the first &lsquo;<tt>.</tt>&rsquo;.  If only the
-IP address is available or the utmp field contains
-the name of an X-windows display, the whole name is printed.
-</p>
-<p><em>NOTE:</em>
-The &lsquo;<tt>%m</tt>&rsquo; and &lsquo;<tt>%M</tt>&rsquo; escapes will work only if there is a host name
-field in the utmp on your machine.  Otherwise they are
-treated as ordinary strings.
-</p>
-</dd>
-<dt><tt>%S</tt> (<tt>%s</tt>)</dt>
-<dd><p>Start (stop) standout mode.
-</p>
-</dd>
-<dt><tt>%U</tt> (<tt>%u</tt>)</dt>
-<dd><p>Start (stop) underline mode.
-</p>
-</dd>
-<dt><tt>%B</tt> (<tt>%b</tt>)</dt>
-<dd><p>Start (stop) boldface mode.
-</p>
-</dd>
-<dt><tt>%t</tt></dt>
-<dt><tt>%@</tt></dt>
-<dd><p>The time, in 12-hour, am/pm format.
-</p>
-</dd>
-<dt><tt>%T</tt></dt>
-<dd><p>The time, in 24-hour format.
-</p>
-</dd>
-<dt><tt>%w</tt></dt>
-<dd><p>The date in &lsquo;<var>day</var><tt>-</tt><var>dd</var>&rsquo; format.
-</p>
-</dd>
-<dt><tt>%W</tt></dt>
-<dd><p>The date in &lsquo;<var>mm</var><tt>/</tt><var>dd</var><tt>/</tt><var>yy</var>&rsquo; format.
-</p>
-</dd>
-<dt><tt>%D</tt></dt>
-<dd><p>The date in &lsquo;<var>yy</var><tt>-</tt><var>mm</var><tt>-</tt><var>dd</var>&rsquo; format.
-</p>
-</dd>
-<dt><tt>%D{</tt><var>string</var><tt>}</tt></dt>
-<dd><p>The date formatted as <var>string</var> using the <tt>strftime</tt> function, with
-zsh extensions as described by
-<a href="Prompt-Expansion.html#Prompt-Expansion">Prompt Expansion</a>.
-</p>
-</dd>
-<dt><tt>%(</tt><var>x</var><tt>:</tt><var>true-text</var><tt>:</tt><var>false-text</var><tt>)</tt></dt>
-<dd><p>Specifies a ternary expression.
-The character following the <var>x</var> is
-arbitrary; the same character is used to separate the text
-for the &quot;true&quot; result from that for the &quot;false&quot; result.
-Both the separator and the right parenthesis may be escaped
-with a backslash.
-Ternary expressions may be nested.
-</p>
-<p>The test character <var>x</var> may be any one of &lsquo;<tt>l</tt>&rsquo;, &lsquo;<tt>n</tt>&rsquo;, &lsquo;<tt>m</tt>&rsquo;
-or &lsquo;<tt>M</tt>&rsquo;, which indicate a &lsquo;true&rsquo; result if the corresponding
-escape sequence would return a non-empty value; or it may be &lsquo;<tt>a</tt>&rsquo;,
-which indicates a &lsquo;true&rsquo; result if the watched user has logged in,
-or &lsquo;false&rsquo; if he has logged out.
-Other characters evaluate to neither true nor false; the entire
-expression is omitted in this case.
-</p>
-<p>If the result is &lsquo;true&rsquo;, then the <var>true-text</var>
-is formatted according to the rules above and printed,
-and the <var>false-text</var> is skipped.
-If &lsquo;false&rsquo;, the <var>true-text</var> is skipped and the <var>false-text</var>
-is formatted and printed.
-Either or both of the branches may be empty, but
-both separators must be present in any case.
-</p>
-</dd>
-</dl>
-
 <a name="index-WORDCHARS"></a>
 </dd>
 <dt><tt>WORDCHARS</tt> &lt;S&gt;</dt>
@@ -2407,10 +2297,10 @@ Some experimentation is necessary.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated on <i>February 15, 2020</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
+  This document was generated on <i>May 14, 2022</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
  </font>
  <br>
-<font size="-1">Zsh version 5.8, released on February 14, 2020.</font>
+<font size="-1">Zsh version 5.9, released on May 14, 2022.</font>
 </p>
 </body>
 </html>

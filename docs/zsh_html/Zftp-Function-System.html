@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on February 15, 2020 by texi2html 5.0
+<!-- Created on May 14, 2022 by texi2html 5.0
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -54,7 +54,7 @@ ul.no-bullet {list-style: none}
 <tr><td valign="middle" align="left">[<a href="TCP-Function-System.html#TCP-Function-System" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="TCP-Function-System.html#TCP-Bugs" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="index.html#Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="#Description-4" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-8" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="User-Contributions.html#User-Contributions" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -72,7 +72,7 @@ ul.no-bullet {list-style: none}
 <a name="index-FTP_002c-functions-for-using-shell-as-client"></a>
 
 <hr>
-<a name="Description-4"></a>
+<a name="Description-8"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Zftp-Function-System" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Zftp-Function-System" title="Previous section in reading order"> &lt; </a>]</td>
@@ -94,7 +94,7 @@ ul.no-bullet {list-style: none}
 distribution as an interface to the <tt>zftp</tt> builtin command, allowing you
 to perform FTP operations from the shell command line or within functions
 or scripts.  The interface is similar to a traditional FTP client (e.g. the
-<tt>ftp</tt> command itself, see man page ftp(1)), but as it is entirely done
+<tt>ftp</tt> command itself, see ftp(1)), but as it is entirely done
 within the shell all the familiar completion, editing and globbing features,
 and so on, are present, and macros are particularly simple to write as they
 are just ordinary shell functions.
@@ -128,7 +128,7 @@ invalid.  Note in particular the description of the variables
 <a name="Installation"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Zftp-Function-System" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Description-4" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-8" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Zftp-Function-System" title="Up section"> Up </a>]</td>
 <td valign="middle" align="left">[<a href="#Zftp-Functions" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="User-Contributions.html#User-Contributions" title="Next chapter"> &gt;&gt; </a>]</td>
@@ -835,7 +835,7 @@ each session separately.  It is used by <tt>zfget_match</tt> and <tt>zfrglob</tt
 <tr><td valign="middle" align="left">[<a href="#Zftp-Function-System" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Other-functions" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Zftp-Function-System" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="#Configuration-3" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Configuration-2" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="User-Contributions.html#User-Contributions" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -852,7 +852,7 @@ each session separately.  It is used by <tt>zfget_match</tt> and <tt>zfrglob</tt
 
 
 <hr>
-<a name="Configuration-3"></a>
+<a name="Configuration-2"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Zftp-Function-System" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Miscellaneous-Features" title="Previous section in reading order"> &lt; </a>]</td>
@@ -880,13 +880,11 @@ command &lsquo;<tt>zstyle &rsquo;:zftp:*&rsquo;</tt> <var>style</var> <var>value
 defines the <var>style</var> to have value <var>value</var>; more than one value may be
 given, although that is not useful in the cases described here.  These
 values will then be used throughout the zftp function system.  For more
-precise control, the first argument, which gives a context in which the
+precise control, the first argument, which gives a pattern that matches <em>contexts</em> in which the
 style applies, can be modified to include a particular function, as for
 example &lsquo;<tt>:zftp:zfget</tt>&rsquo;: the style will then have the given value only
-in the <tt>zfget</tt> function.  Values for the same style in different contexts
-may be set; the most specific function will be used, where
-strings are held to be more specific than patterns, and longer patterns and
-shorter patterns.  Note that only the top level function name, as called by
+in the <tt>zfget</tt> function, and will override styles set under &lsquo;<tt>:zftp:*</tt>&rsquo;.
+Note that only the top level function name, as called by
 the user, is used; calling of lower level functions is transparent to the
 user.  Hence modifications to the title bar in <tt>zftp_chpwd</tt> use the
 contexts <tt>:zftp:zfopen</tt>, <tt>:zftp:zfcd</tt>, etc., depending where it was
@@ -957,7 +955,7 @@ overwritten.
 <a name="Remote-globbing"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Zftp-Function-System" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Configuration-3" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Configuration-2" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Miscellaneous-Features" title="Up section"> Up </a>]</td>
 <td valign="middle" align="left">[<a href="#Automatic-and-temporary-reopening" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="User-Contributions.html#User-Contributions" title="Next chapter"> &gt;&gt; </a>]</td>
@@ -1098,10 +1096,10 @@ should automatically be available.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated on <i>February 15, 2020</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
+  This document was generated on <i>May 14, 2022</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
  </font>
  <br>
-<font size="-1">Zsh version 5.8, released on February 14, 2020.</font>
+<font size="-1">Zsh version 5.9, released on May 14, 2022.</font>
 </p>
 </body>
 </html>

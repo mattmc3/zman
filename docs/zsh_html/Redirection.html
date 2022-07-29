@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on February 15, 2020 by texi2html 5.0
+<!-- Created on May 14, 2022 by texi2html 5.0
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -158,13 +158,14 @@ tabs are stripped from <var>word</var> and from the document.
 <dd><p>Perform shell expansion on <var>word</var> and pass the result
 to standard input.  This is known as a <em>here-string</em>.
 Compare the use of <var>word</var> in here-documents above, where <var>word</var>
-does not undergo shell expansion.
+does not undergo shell expansion.  The result will have a trailing newline
+after it.
 </p>
 </dd>
 <dt><tt>&lt;&amp;</tt> <var>number</var></dt>
 <dt><tt>&gt;&amp;</tt> <var>number</var></dt>
 <dd><p>The standard input/output is duplicated from file descriptor
-<var>number</var> (see man page dup2(2)).
+<var>number</var> (see dup2(2)).
 </p>
 </dd>
 <dt><tt>&lt;&amp; -</tt></dt>
@@ -536,10 +537,10 @@ terminal.  <tt>NULLCMD</tt> and <tt>READNULLCMD</tt> may refer to shell function
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated on <i>February 15, 2020</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
+  This document was generated on <i>May 14, 2022</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
  </font>
  <br>
-<font size="-1">Zsh version 5.8, released on February 14, 2020.</font>
+<font size="-1">Zsh version 5.9, released on May 14, 2022.</font>
 </p>
 </body>
 </html>

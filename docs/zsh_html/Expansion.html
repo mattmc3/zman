@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on February 15, 2020 by texi2html 5.0
+<!-- Created on May 14, 2022 by texi2html 5.0
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -195,13 +195,13 @@ you may see in your prompt (see
 <td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 
-<a name="Overview-2"></a>
+<a name="Overview-1"></a>
 <h3 class="subsection">14.1.1 Overview</h3>
 <a name="index-histchars_002c-use-of-1"></a>
 <p>A history expansion begins with the first character of the <tt>histchars</tt>
 parameter, which is &lsquo;<tt>!</tt>&rsquo; by default, and may occur anywhere on the
 command line, including inside double quotes (but not inside single quotes
-<tt>&rsquo;...&rsquo;</tt> or C-style quotes <tt>$&rsquo;...&rsquo;</tt> nor when escaped with a backslash).  
+<tt>&rsquo;...&rsquo;</tt> or C-style quotes <tt>$&rsquo;...&rsquo;</tt> nor when escaped with a backslash).
 </p>
 <p>The first character is followed by an optional event designator
 (<a href="#Event-Designators">Event Designators</a>) and then an optional word
@@ -489,8 +489,10 @@ expansion.
 </dd>
 <dt><tt>P</tt></dt>
 <dd><p>Turn a file name into an absolute path, like <tt>realpath(3)</tt>.
-The resulting path will be absolute, have neither &lsquo;<tt>.</tt>&rsquo; nor &lsquo;<tt>..</tt>&rsquo; components,
-and refer to the same directory entry as the input filename.
+The resulting path will be absolute,
+will refer to the same directory entry as the input filename,
+and none of its components will be symbolic links or equal to
+&lsquo;<tt>.</tt>&rsquo; or &lsquo;<tt>..</tt>&rsquo;.
 </p>
 <p>Unlike <tt>realpath(3)</tt>, non-existent trailing components are
 permitted and preserved.
@@ -717,7 +719,7 @@ pastes the results together, and sends it to the processes
 then the file passed as an argument will be the name
 of a temporary file containing the output of the <var>list</var>
 process.  This may be used instead of the <tt>&lt;</tt>
-form for a program that expects to lseek (see man page lseek(2))
+form for a program that expects to lseek (see lseek(2))
 on the input file.
 </p>
 <p>There is an optimisation for substitutions of the form
@@ -730,7 +732,7 @@ which treats <var>arg</var> as a file name and replaces it with the file&rsquo;s
 contents.
 </p>
 <p>The <tt>=</tt> form is useful as both the <tt>/dev/fd</tt> and the named pipe
-implementation of <tt>&lt;(</tt><var>...</var><tt>)</tt> have drawbacks.  In 
+implementation of <tt>&lt;(</tt><var>...</var><tt>)</tt> have drawbacks.  In
 the former case, some programmes may automatically close the file
 descriptor in question before examining the file on the command line,
 particularly if this is necessary for security reasons such as when the
@@ -740,7 +742,7 @@ from or write to the pipe will (in a typical implementation, different
 operating systems may have different behaviour) block for ever and have to
 be killed explicitly.  In both cases, the shell actually supplies the
 information using a pipe, so that programmes that expect to lseek
-(see man page lseek(2)) on the file will not work.
+(see lseek(2)) on the file will not work.
 </p>
 <p>Also note that the previous example can be more compactly and
 efficiently written (provided the <tt>MULTIOS</tt> option is set) as:
@@ -1155,6 +1157,7 @@ the <tt>#</tt> to be treated in this fashion.
 </p>
 </dd>
 <dt><tt>${^</tt><var>spec</var><tt>}</tt></dt>
+<dt><tt>${^^</tt><var>spec</var><tt>}</tt></dt>
 <dd><a name="index-RC_005fEXPAND_005fPARAM_002c-toggle"></a>
 <a name="index-array-expansion-style_002c-rc"></a>
 <a name="index-rc_002c-array-expansion-style"></a>
@@ -1179,6 +1182,7 @@ elements.
 </p>
 </dd>
 <dt><tt>${=</tt><var>spec</var><tt>}</tt></dt>
+<dt><tt>${==</tt><var>spec</var><tt>}</tt></dt>
 <dd><a name="index-SH_005fWORD_005fSPLIT_002c-toggle"></a>
 <a name="index-field-splitting_002c-sh-style_002c-parameter"></a>
 <a name="index-sh_002c-field-splitting-style_002c-parameter"></a>
@@ -1196,6 +1200,7 @@ This affects the result of array assignments with the <tt>A</tt> flag.
 </p>
 </dd>
 <dt><tt>${~</tt><var>spec</var><tt>}</tt></dt>
+<dt><tt>${~~</tt><var>spec</var><tt>}</tt></dt>
 <dd><a name="index-GLOB_005fSUBST_002c-toggle"></a>
 <p>Turn on the <tt>GLOB_SUBST</tt> option for the evaluation of
 <var>spec</var>; if the &lsquo;<tt>~</tt>&rsquo; is doubled, turn it off.  When this option is
@@ -1267,9 +1272,10 @@ following flags are supported:
 </p>
 <dl compact="compact">
 <dt><tt>#</tt></dt>
-<dd><p>Evaluate the resulting words as numeric expressions and output the
-characters corresponding to the resulting integer.  Note that this form is
-entirely distinct from use of the <tt>#</tt> without parentheses.
+<dd><p>Evaluate the resulting words as numeric expressions and interpret
+these as character codes.  Output the corresponding characters.  Note
+that this form is entirely distinct from use of the <tt>#</tt> without
+parentheses.
 </p>
 <p>If the <tt>MULTIBYTE</tt> option is set and the number is greater than 127
 (i.e. not an ASCII character) it is treated as a Unicode character.
@@ -1277,7 +1283,7 @@ entirely distinct from use of the <tt>#</tt> without parentheses.
 </dd>
 <dt><tt>%</tt></dt>
 <dd><p>Expand all <tt>%</tt> escapes in the resulting words in the same way as in
-prompts (see 
+prompts (see
 <a href="Prompt-Expansion.html#Prompt-Expansion">Prompt Expansion</a>). If this flag is given twice,
 full prompt expansion is done on the resulting words, depending on the
 setting of the <tt>PROMPT_PERCENT</tt>, <tt>PROMPT_SUBST</tt> and <tt>PROMPT_BANG</tt>
@@ -1414,10 +1420,19 @@ to operate on the whole array, as usual.
 <dt><tt>n</tt></dt>
 <dd><p>Sort decimal integers numerically; if the first differing
 characters of two test strings are not digits, sorting
-is lexical.   Integers with more initial zeroes
-are sorted before those with fewer or none.  Hence the array &lsquo;<tt>foo1 foo02
+is lexical.  &lsquo;<tt>+</tt>&rsquo; and &lsquo;<tt>-</tt>&rsquo; are not treated specially; they are treated as
+any other non-digit.  Integers with more initial zeroes
+are sorted before those with fewer or none.  Hence the array &lsquo;<tt>foo+24 foo1 foo02
 foo2 foo3 foo20 foo23</tt>&rsquo; is sorted into the order shown.
 May be combined with &lsquo;<tt>i</tt>&rsquo; or &lsquo;<tt>O</tt>&rsquo;.
+</p>
+</dd>
+<dt><tt>-</tt></dt>
+<dd><p>As <tt>n</tt>, but a leading minus sign indicates a negative decimal
+integer.  A leading minus sign not followed by an integer does not trigger
+numeric sorting.
+Note that &lsquo;<tt>+</tt>&rsquo; signs are not handled specially (this may change in the
+future).
 </p>
 </dd>
 <dt><tt>o</tt></dt>
@@ -1425,13 +1440,14 @@ May be combined with &lsquo;<tt>i</tt>&rsquo; or &lsquo;<tt>O</tt>&rsquo;.
 own the sorting is lexical and case-sensitive (unless the locale
 renders it case-insensitive).  Sorting in ascending order is the
 default for other forms of sorting, so this is ignored if combined
-with &lsquo;<tt>a</tt>&rsquo;, &lsquo;<tt>i</tt>&rsquo; or &lsquo;<tt>n</tt>&rsquo;.
+with &lsquo;<tt>a</tt>&rsquo;, &lsquo;<tt>i</tt>&rsquo;, &lsquo;<tt>n</tt>&rsquo; or &lsquo;<tt>-</tt>&rsquo;.
 </p>
 </dd>
 <dt><tt>O</tt></dt>
 <dd><p>Sort the resulting words in descending order; &lsquo;<tt>O</tt>&rsquo; without &lsquo;<tt>a</tt>&rsquo;,
-&lsquo;<tt>i</tt>&rsquo; or &lsquo;<tt>n</tt>&rsquo; sorts in reverse lexical order.  May be combined
-with &lsquo;<tt>a</tt>&rsquo;, &lsquo;<tt>i</tt>&rsquo; or &lsquo;<tt>n</tt>&rsquo; to reverse the order of sorting.
+&lsquo;<tt>i</tt>&rsquo;, &lsquo;<tt>n</tt>&rsquo; or &lsquo;<tt>-</tt>&rsquo; sorts in reverse lexical order.  May be
+combined with &lsquo;<tt>a</tt>&rsquo;, &lsquo;<tt>i</tt>&rsquo;, &lsquo;<tt>n</tt>&rsquo; or &lsquo;<tt>-</tt>&rsquo; to reverse the
+order of sorting.
 </p>
 </dd>
 <dt><tt>P</tt></dt>
@@ -1525,6 +1541,12 @@ expanded
 </dd>
 <dt><tt>tag</tt></dt>
 <dd><p>for tagged parameters
+</p>
+</dd>
+<dt><tt>tied</tt></dt>
+<dd><p>for parameters tied to another parameter in the manner of <tt>PATH</tt>
+(colon-separated list) and <tt>path</tt> (array), whether these are
+special parameters or user-defined with &lsquo;<tt>typeset -T</tt>&rsquo;
 </p>
 </dd>
 <dt><tt>export</tt></dt>
@@ -1741,16 +1763,32 @@ i.e.  <tt>&quot;${(@s.:.)line}&quot;</tt>.
 <dt><tt>Z:</tt><var>opts</var><tt>:</tt></dt>
 <dd><p>As <tt>z</tt> but takes a combination of option letters between a following
 pair of delimiter characters.  With no options the effect is identical
-to <tt>z</tt>.  <tt>(Z+c+)</tt>
-causes comments to be parsed as a string and retained; any field in the
+to <tt>z</tt>.  The following options are available:
+</p>
+<dl compact="compact">
+<dt><tt>(Z+c+)</tt></dt>
+<dd><p>causes comments to be parsed as a string and retained; any field in the
 resulting array beginning with an unquoted comment character is a
-comment.  <tt>(Z+C+)</tt> causes comments to be parsed
+comment.
+</p>
+</dd>
+<dt><tt>(Z+C+)</tt></dt>
+<dd><p>causes comments to be parsed
 and removed.  The rule for comments is standard: anything between a word
 starting with the third character of <tt>$HISTCHARS</tt>, default <tt>#</tt>, up to
-the next newline is a comment.  <tt>(Z+n+)</tt> causes
+the next newline is a comment.
+</p>
+</dd>
+<dt><tt>(Z+n+)</tt></dt>
+<dd><p>causes
 unquoted newlines to be treated as ordinary whitespace, else they are
 treated as if they are shell code delimiters and converted to
-semicolons.  Options are combined within the same set of delimiters,
+semicolons.
+</p>
+</dd>
+</dl>
+
+<p>Options are combined within the same set of delimiters,
 e.g. <tt>(Z+Cn+)</tt>.
 </p>
 </dd>
@@ -1764,7 +1802,7 @@ error, and the flag itself has no effect.
 </dl>
 
 <p>The following flags are meaningful with the <tt>${</tt>...<tt>#</tt>...<tt>}</tt> or
-<tt>${</tt>...<tt>%</tt>...<tt>}</tt> forms.  The <tt>S</tt> and <tt>I</tt> flags may also be
+<tt>${</tt>...<tt>%</tt>...<tt>}</tt> forms.  The <tt>S</tt>, <tt>I</tt>, and <tt>*</tt> flags may also be
 used with the <tt>${</tt>...<tt>/</tt>...<tt>}</tt> forms.
 </p>
 <dl compact="compact">
@@ -1840,6 +1878,12 @@ form using &lsquo;<tt>%%</tt>&rsquo; will remove the same matches as for &lsquo;
 order.
 </p>
 </dd>
+<dt><tt>*</tt></dt>
+<dd><a name="index-EXTENDED_005fGLOB_002c-enable"></a>
+<p>Enable <tt>EXTENDED_GLOB</tt> for substitution via <tt>${</tt>...<tt>/</tt>...<tt>}</tt> or
+<tt>${</tt>...<tt>//</tt>...<tt>}</tt>.  Note that &lsquo;<tt>**</tt>&rsquo; does not disable extendedglob.
+</p>
+</dd>
 <dt><tt>B</tt></dt>
 <dd><p>Include the index of the beginning of the match in the result.
 </p>
@@ -1870,7 +1914,7 @@ order.
 <tr><td valign="middle" align="left">[<a href="#Expansion" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Parameter-Expansion-Flags" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Parameter-Expansion" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="#Examples-1" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Examples" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Parameters.html#Parameters" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -1882,7 +1926,9 @@ order.
 <td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h3 class="subsection">14.3.2 Rules</h3>
-
+<a name="index-parameter-expansion-rules"></a>
+<a name="index-rules_002c-parameter-expansion"></a>
+<a name="index-substitution_002c-parameter_002c-rules"></a>
 <p>Here is a summary of the rules for substitution; this assumes that braces
 are present around the substitution, i.e. <tt>${</tt><var>...</var><tt>}</tt>.  Some particular
 examples are given below.  Note that the Zsh Development Group accepts
@@ -2106,7 +2152,7 @@ expression) and replaced with the corresponding value, with internal flags
 
 
 <hr>
-<a name="Examples-1"></a>
+<a name="Examples"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Expansion" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Rules" title="Previous section in reading order"> &lt; </a>]</td>
@@ -2123,6 +2169,7 @@ expression) and replaced with the corresponding value, with internal flags
 <td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h3 class="subsection">14.3.3 Examples</h3>
+<a name="index-parameter-expansion_002c-examples"></a>
 <p>The flag <tt>f</tt> is useful to split a double-quoted substitution line by
 line.  For example, <tt>${(f)&quot;$(&lt;</tt><var>file</var><tt>)&quot;}</tt>
 substitutes the contents of <var>file</var> divided so that each line is
@@ -2140,7 +2187,7 @@ Suppose that <tt>$foo</tt> contains the array <tt>(bar baz</tt><tt>)</tt>:
 <tt>&quot;${foo}&quot;</tt>, which has no array (<tt>@</tt>) flag, produces a single word
 result <tt>&quot;bar baz&quot;</tt>.  The outer substitution <tt>&quot;${(@)...[1]}&quot;</tt> detects
 that this is a scalar, so that (despite the &lsquo;<tt>(@)</tt>&rsquo; flag) the subscript
-picks the first character. 
+picks the first character.
 </p>
 </dd>
 <dt><tt>&quot;${${(@)foo}[1]}&quot;</tt></dt>
@@ -2178,7 +2225,7 @@ empty string will then be elided, as it is not in double quotes.
 <a name="Command-Substitution"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Expansion" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Examples-1" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Examples" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Expansion" title="Up section"> Up </a>]</td>
 <td valign="middle" align="left">[<a href="#Arithmetic-Expansion" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Parameters.html#Parameters" title="Next chapter"> &gt;&gt; </a>]</td>
@@ -2197,7 +2244,7 @@ empty string will then be elided, as it is not in double quotes.
 <a name="index-command-substitution"></a>
 <a name="index-substitution_002c-command"></a>
 <p>A command enclosed in parentheses preceded by a dollar sign, like
-&lsquo;<tt>$(</tt>...<tt>)</tt>&rsquo;, or quoted with grave 
+&lsquo;<tt>$(</tt>...<tt>)</tt>&rsquo;, or quoted with grave
 accents, like &lsquo;<tt>&lsquo;</tt>...<tt>&lsquo;</tt>&rsquo;, is replaced with its standard output, with
 any trailing newlines deleted.
 If the substitution is not enclosed in double quotes, the
@@ -2376,6 +2423,16 @@ The <tt>PUSHD_MINUS</tt>
 option exchanges the effects of &lsquo;<tt>~+</tt>&rsquo; and &lsquo;<tt>~-</tt>&rsquo; where they are
 followed by a number.
 </p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#Dynamic-named-directories">14.7.1 Dynamic named directories</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Static-named-directories">14.7.2 Static named directories</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#g_t_0060_003d_0027-expansion">14.7.3 &lsquo;=&rsquo; expansion</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#Notes">14.7.4 Notes</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
 
 <hr>
 <a name="Dynamic-named-directories"></a>
@@ -2394,11 +2451,12 @@ followed by a number.
 <td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
+
+<a name="Dynamic-named-directories-1"></a>
 <h3 class="subsection">14.7.1 Dynamic named directories</h3>
 <a name="index-directories_002c-named_002c-dynamic"></a>
 <a name="index-named-directories_002c-dynamic"></a>
 <a name="index-dynamic-named-directories"></a>
-
 <p>If the function <tt>zsh_directory_name</tt> exists, or the shell variable
 <tt>zsh_directory_name_functions</tt> exists and contains an array of
 function names, then the functions are used to implement dynamic
@@ -2491,7 +2549,6 @@ directory would be just as effective.
 }
 </pre></div>
 
-
 <hr>
 <a name="Static-named-directories"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
@@ -2509,6 +2566,8 @@ directory would be just as effective.
 <td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
+
+<a name="Static-named-directories-1"></a>
 <h3 class="subsection">14.7.2 Static named directories</h3>
 <a name="index-directories_002c-named_002c-static"></a>
 <a name="index-named-directories_002c-static"></a>
@@ -2535,7 +2594,6 @@ i.e. either the directory name or the full path; the name is used
 if they are the same length.
 The parameters <tt>$PWD</tt> and <tt>$OLDPWD</tt> are never abbreviated in this fashion.
 </p>
-
 <hr>
 <a name="g_t_0060_003d_0027-expansion"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
@@ -2553,6 +2611,8 @@ The parameters <tt>$PWD</tt> and <tt>$OLDPWD</tt> are never abbreviated in this 
 <td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
+
+<a name="g_t_0060_003d_0027-expansion-1"></a>
 <h3 class="subsection">14.7.3 &lsquo;=&rsquo; expansion</h3>
 
 <p>If a word begins with an unquoted &lsquo;<tt>=</tt>&rsquo;
@@ -2562,7 +2622,6 @@ name of a command.  If a command
 exists by that name, the word is replaced
 by the full pathname of the command.
 </p>
-
 <hr>
 <a name="Notes"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
@@ -2580,8 +2639,10 @@ by the full pathname of the command.
 <td valign="middle" align="left">[<a href="Concept-Index.html#Concept-Index" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h3 class="subsection">14.7.4 Notes</h3>
 
+<a name="Notes-1"></a>
+<h3 class="subsection">14.7.4 Notes</h3>
+<a name="index-filename-expansion_002c-notes"></a>
 <p>Filename expansion is performed on the right hand side of a parameter
 assignment, including those appearing after commands of the
 <tt>typeset</tt> family.  In this case, the right hand side will be treated
@@ -2662,6 +2723,7 @@ matching, the &lsquo;<tt>/</tt>&rsquo; and &lsquo;<tt>.</tt>&rsquo; are not trea
 <td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h3 class="subsection">14.8.1 Glob Operators</h3>
+<a name="index-glob-operators"></a>
 <dl compact="compact">
 <dt><tt>*</tt></dt>
 <dd><p>Matches any string, including the null string.
@@ -2682,7 +2744,7 @@ There are also several named classes of characters, in the form
 The first set use the macros provided by
 the operating system to test for the given character combinations,
 including any modifications due to local language settings, see
-man page ctype(3):
+ctype(3):
 </p>
 <dl compact="compact">
 <dt><tt>[:alnum:]</tt></dt>
@@ -2746,7 +2808,8 @@ is not sensitive to the locale:
 <dl compact="compact">
 <dt><tt>[:IDENT:]</tt></dt>
 <dd><p>The character is allowed to form part of a shell identifier, such
-as a parameter name
+as a parameter name; this test respects the <tt>POSIX_IDENTIFIERS</tt>
+option
 </p>
 </dd>
 <dt><tt>[:IFS:]</tt></dt>
@@ -2978,6 +3041,8 @@ pattern.
 <td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h3 class="subsection">14.8.4 Globbing Flags</h3>
+<a name="index-globbing-flags"></a>
+<a name="index-glob-flags"></a>
 <p>There are various flags which affect any text to their right up to the
 end of the enclosing group or to the end of the pattern; they require
 the <tt>EXTENDED_GLOB</tt> option. All take the form
@@ -3157,7 +3222,7 @@ qualifiers are also not applied in ordinary pattern matching.
 </dd>
 <dt><tt>u</tt></dt>
 <dd><p>Respect the current locale in determining the presence of multibyte
-characters in a pattern, provided the shell was compiled with 
+characters in a pattern, provided the shell was compiled with
 <tt>MULTIBYTE_SUPPORT</tt>.  This overrides the <tt>MULTIBYTE</tt>
 option; the default behaviour is taken from the option.  Compare <tt>U</tt>.
 (Mnemonic: typically multibyte characters are from Unicode in the UTF-8
@@ -3207,6 +3272,8 @@ searched for all files which match, so that a pattern of the form
 <td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h3 class="subsection">14.8.5 Approximate Matching</h3>
+<a name="index-approximate-matching"></a>
+<a name="index-matching_002c-approximate"></a>
 <p>When matching approximately, the shell keeps a count of the errors found,
 which cannot exceed the number specified in the
 <tt>(#a</tt><var>num</var><tt>)</tt> flags.  Four types of error are recognised:
@@ -3294,6 +3361,8 @@ segments which are known to be correct.
 <td valign="middle" align="left">[<a href="zsh_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h3 class="subsection">14.8.6 Recursive Globbing</h3>
+<a name="index-recursive-globbing"></a>
+<a name="index-globbing_002c-recursive"></a>
 <p>A pathname component of the form &lsquo;<tt>(</tt><var>foo</var><tt>/)#</tt>&rsquo;
 matches a path consisting of zero or more directories
 matching the pattern <var>foo</var>.
@@ -3494,18 +3563,18 @@ expected, if combined with a &lsquo;<tt>=</tt>&rsquo;, the value given must matc
 file-modes exactly, with a &lsquo;<tt>+</tt>&rsquo;, at least the bits in the
 given number must be set in the file-modes, and with a &lsquo;<tt>-</tt>&rsquo;, the
 bits in the number must not be set. Giving a &lsquo;<tt>?</tt>&rsquo; instead of a
-octal digit anywhere in the number ensures that the corresponding bits 
+octal digit anywhere in the number ensures that the corresponding bits
 in the file-modes are not checked, this is only useful in combination
 with &lsquo;<tt>=</tt>&rsquo;.
 </p>
 <p>If the qualifier &lsquo;<tt>f</tt>&rsquo; is followed by any other character anything
-up to the next matching character (&lsquo;<tt>[</tt>&rsquo;, &lsquo;<tt>{</tt>&rsquo;, and &lsquo;<tt>&lt;</tt>&rsquo; match 
+up to the next matching character (&lsquo;<tt>[</tt>&rsquo;, &lsquo;<tt>{</tt>&rsquo;, and &lsquo;<tt>&lt;</tt>&rsquo; match
 &lsquo;<tt>]</tt>&rsquo;, &lsquo;<tt>}</tt>&rsquo;, and &lsquo;<tt>&gt;</tt>&rsquo; respectively, any other character
 matches itself) is taken as a list of comma-separated
 <var>sub-spec</var>s. Each <var>sub-spec</var> may be either an octal number as
 described above or a list of any of the characters &lsquo;<tt>u</tt>&rsquo;, &lsquo;<tt>g</tt>&rsquo;,
 &lsquo;<tt>o</tt>&rsquo;, and &lsquo;<tt>a</tt>&rsquo;, followed by a &lsquo;<tt>=</tt>&rsquo;, a &lsquo;<tt>+</tt>&rsquo;, or a
-&lsquo;<tt>-</tt>&rsquo;, followed by a list of any of the characters &lsquo;<tt>r</tt>&rsquo;, &lsquo;<tt>w</tt>&rsquo;, 
+&lsquo;<tt>-</tt>&rsquo;, followed by a list of any of the characters &lsquo;<tt>r</tt>&rsquo;, &lsquo;<tt>w</tt>&rsquo;,
 &lsquo;<tt>x</tt>&rsquo;, &lsquo;<tt>s</tt>&rsquo;, and &lsquo;<tt>t</tt>&rsquo;, or an octal digit. The first list of
 characters specify which access rights are to be checked. If a &lsquo;<tt>u</tt>&rsquo;
 is given, those for the owner of the file are used, if a &lsquo;<tt>g</tt>&rsquo; is
@@ -3514,7 +3583,7 @@ of other users, and the &lsquo;<tt>a</tt>&rsquo; says to test all three groups. 
 &lsquo;<tt>=</tt>&rsquo;, &lsquo;<tt>+</tt>&rsquo;, and &lsquo;<tt>-</tt>&rsquo; again says how the modes are to be
 checked and have the same meaning as described for the first form
 above. The second list of characters finally says which access rights
-are to be expected: &lsquo;<tt>r</tt>&rsquo; for read access, &lsquo;<tt>w</tt>&rsquo; for write access, 
+are to be expected: &lsquo;<tt>r</tt>&rsquo; for read access, &lsquo;<tt>w</tt>&rsquo; for write access,
 &lsquo;<tt>x</tt>&rsquo; for the right to execute the file (or to search a directory),
 &lsquo;<tt>s</tt>&rsquo; for the setuid and setgid bits, and &lsquo;<tt>t</tt>&rsquo; for the sticky
 bit.
@@ -3523,7 +3592,7 @@ bit.
 write, and execute permission, and for which other group members have
 no rights, independent of the permissions for other users. The pattern
 &lsquo;<tt>*(f-100)</tt>&rsquo; gives all files for which the owner does not have
-execute permission, and &lsquo;<tt>*(f:gu+w,o-rx:)</tt>&rsquo; gives the files for which 
+execute permission, and &lsquo;<tt>*(f:gu+w,o-rx:)</tt>&rsquo; gives the files for which
 the owner and the other members of the group have at least write
 permission, and for which other users don&rsquo;t have read or execute
 permission.
@@ -3659,7 +3728,9 @@ files of zero size.
 </dd>
 <dt><tt>-</tt></dt>
 <dd><p>toggles between making the qualifiers work on symbolic links (the
-default) and the files they point to
+default) and the files they point to, if any; any symbolic link for
+whose target the &lsquo;<tt>stat</tt>&rsquo; system call fails (whatever the cause of the
+failure) is treated as a file in its own right
 </p>
 </dd>
 <dt><tt>M</tt></dt>
@@ -3696,18 +3767,44 @@ matches in directory traversal order will be considered.
 </p>
 </dd>
 <dt><tt>o</tt><var>c</var></dt>
-<dd><p>specifies how the names of the files should be sorted. If <var>c</var> is
-<tt>n</tt> they are sorted by name; if it is <tt>L</tt> they
-are sorted depending on the size (length) of the files; if <tt>l</tt>
-they are sorted by the number of links; if <tt>a</tt>, <tt>m</tt>, or <tt>c</tt>
-they are sorted by the time of the last access, modification, or
-inode change respectively; if <tt>d</tt>, files in subdirectories appear before
+<dd><p>specifies how the names of the files should be sorted. The following values
+of <var>c</var> sort in the following ways:
+</p>
+<dl compact="compact">
+<dt><tt>n</tt></dt>
+<dd><p>By name.
+</p></dd>
+<dt><tt>L</tt></dt>
+<dd><p>By the size (length) of the files.
+</p></dd>
+<dt><tt>l</tt></dt>
+<dd><p>By number of links.
+</p></dd>
+<dt><tt>a</tt></dt>
+<dd><p>By time of last access, youngest first.
+</p></dd>
+<dt><tt>m</tt></dt>
+<dd><p>By time of last modification, youngest first.
+</p></dd>
+<dt><tt>c</tt></dt>
+<dd><p>By time of last inode change, youngest first.
+</p></dd>
+<dt><tt>d</tt></dt>
+<dd><p>By directories: files in subdirectories appear before
 those in the current directory at each level of the search &mdash; this is best
 combined with other criteria, for example &lsquo;<tt>odon</tt>&rsquo; to sort on names for
-files within the same directory; if <tt>N</tt>, no sorting is performed.
-Note that <tt>a</tt>, <tt>m</tt>, and <tt>c</tt> compare
-the age against the current time, hence the first name in the list is the
-youngest file. Also note that the modifiers <tt>^</tt> and <tt>-</tt> are used,
+files within the same directory.
+</p></dd>
+<dt><tt>N</tt></dt>
+<dd><p>No sorting is performed.
+</p></dd>
+<dt><tt>e</tt><var>string</var></dt>
+<dt><tt>+</tt><var>cmd</var></dt>
+<dd><p>Sort by shell code (see below).
+</p></dd>
+</dl>
+
+<p>Note that the modifiers <tt>^</tt> and <tt>-</tt> are used,
 so &lsquo;<tt>*(^-oL)</tt>&rsquo; gives a list of all files sorted by file size in descending
 order, following any symbolic links.  Unless <tt>oN</tt> is used, multiple order
 specifiers may occur to resolve ties.
@@ -3728,8 +3825,8 @@ that may appear in any glob expression is 12.
 </p>
 </dd>
 <dt><tt>O</tt><var>c</var></dt>
-<dd><p>like &lsquo;<tt>o</tt>&rsquo;, but sorts in descending order; i.e. &lsquo;<tt>*(^oc)</tt>&rsquo; is the
-same as &lsquo;<tt>*(Oc)</tt>&rsquo; and &lsquo;<tt>*(^Oc)</tt>&rsquo; is the same as &lsquo;<tt>*(oc)</tt>&rsquo;; &lsquo;<tt>Od</tt>&rsquo;
+<dd><p>like &lsquo;<tt>o</tt>&rsquo;, but sorts in descending order; i.e. &lsquo;<tt>*(^o</tt><var>c</var><tt>)</tt>&rsquo; is the
+same as &lsquo;<tt>*(O</tt><var>c</var><tt>)</tt>&rsquo; and &lsquo;<tt>*(^O</tt><var>c</var><tt>)</tt>&rsquo; is the same as &lsquo;<tt>*(o</tt><var>c</var><tt>)</tt>&rsquo;; &lsquo;<tt>Od</tt>&rsquo;
 puts files in the current directory before those in subdirectories at each
 level of the search.
 </p>
@@ -3738,7 +3835,7 @@ level of the search.
 <dd><p>specifies which of the matched filenames should be included in the
 returned list. The syntax is the same as for array
 subscripts. <var>beg</var> and the optional <var>end</var> may be mathematical
-expressions. As in parameter subscripting they may be negative to make 
+expressions. As in parameter subscripting they may be negative to make
 them count from the last match backward. E.g.: &lsquo;<tt>*(-OL[1,3])</tt>&rsquo;
 gives a list of the names of the three largest files.
 </p>
@@ -3849,10 +3946,10 @@ print &lsquo;<tt>shmiltin.shmo</tt>&rsquo;.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated on <i>February 15, 2020</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
+  This document was generated on <i>May 14, 2022</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
  </font>
  <br>
-<font size="-1">Zsh version 5.8, released on February 14, 2020.</font>
+<font size="-1">Zsh version 5.9, released on May 14, 2022.</font>
 </p>
 </body>
 </html>

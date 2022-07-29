@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on February 15, 2020 by texi2html 5.0
+<!-- Created on May 14, 2022 by texi2html 5.0
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -52,7 +52,7 @@ ul.no-bullet {list-style: none}
 <a name="Shell-Grammar"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="Files.html#Files" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="Files.html#Files-2" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Files.html#Files-1" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="index.html#Top" title="Up section"> Up </a>]</td>
 <td valign="middle" align="left">[<a href="#Simple-Commands-_0026-Pipelines" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Redirection.html#Redirection" title="Next chapter"> &gt;&gt; </a>]</td>
@@ -440,7 +440,9 @@ for each selection until a break or end-of-file is encountered.
 </dd>
 <dt><tt>(</tt> <var>list</var> <tt>)</tt></dt>
 <dd><p>Execute <var>list</var> in a subshell.  Traps set by the <tt>trap</tt> builtin
-are reset to their default values while executing <var>list</var>.
+are reset to their default values while executing <var>list</var>; an
+exception is that ignored signals will continue to be ignored
+if the option <tt>POSIXTRAPS</tt> is set.
 </p>
 </dd>
 <dt><tt>{</tt> <var>list</var> <tt>}</tt></dt>
@@ -512,7 +514,7 @@ execution of <var>always-list</var>, just like <tt>break</tt> and <tt>continue</
 
 <a name="index-function"></a>
 </dd>
-<dt><tt>function</tt> <var>word</var> ... [ <tt>()</tt> ] [ <var>term</var> ] <tt>{</tt> <var>list</var> <tt>}</tt></dt>
+<dt><tt>function</tt> [ <tt>-T</tt> ] <var>word</var> ... [ <tt>()</tt> ] [ <var>term</var> ] <tt>{</tt> <var>list</var> <tt>}</tt></dt>
 <dt><var>word</var> ... <tt>()</tt> [ <var>term</var> ] <tt>{</tt> <var>list</var> <tt>}</tt></dt>
 <dt><var>word</var> ... <tt>()</tt> [ <var>term</var> ] <var>command</var></dt>
 <dd><p>where <var>term</var> is one or more newline or <tt>;</tt>.
@@ -522,6 +524,17 @@ are usually only useful for setting traps.
 The body of the function is the <var>list</var> between
 the <tt>{</tt> and <tt>}</tt>.  See <a href="Functions.html#Functions">Functions</a>.
 </p>
+<p>The options of <tt>function</tt> have the following meanings:
+</p>
+<dl compact="compact">
+<dt>-T</dt>
+<dd><p>Enable tracing for this function, as though with <tt>functions -T</tt>.  See the
+documentation of the <tt>-f</tt> option to the <tt>typeset</tt> builtin, in
+<a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands">Shell Builtin Commands</a>.
+</p>
+</dd>
+</dl>
+
 <p>If the option <tt>SH_GLOB</tt> is set for compatibility with other shells, then
 whitespace may appear between the left and right parentheses when
 there is a single <var>word</var>;  otherwise, the parentheses will be treated as
@@ -595,6 +608,8 @@ else the end of the test will not be recognized.  For the
 <tt>for</tt>, <tt>repeat</tt>, <tt>case</tt> and <tt>select</tt> commands no such special form
 for the arguments is necessary, but the other condition (the special form
 of <var>sublist</var> or use of the <tt>SHORT_LOOPS</tt> option) still applies.
+The <tt>SHORT_REPEAT</tt> option is available to enable the short version only
+for the <tt>repeat</tt> command.
 </p>
 <dl compact="compact">
 <dt><tt>if</tt> <var>list</var> <tt>{</tt> <var>list</var> <tt>}</tt> [ <tt>elif</tt> <var>list</var> <tt>{</tt> <var>list</var> <tt>}</tt> ] ... [ <tt>else {</tt> <var>list</var> <tt>}</tt> ]</dt>
@@ -847,9 +862,14 @@ position (if it could be the first word of a simple command),
 or if the alias is global.
 If the replacement text ends with a space, the next word in the shell input
 is always eligible for purposes of alias expansion.
+</p>
+<p>It is an error for the function name, <var>word</var>, in the sh-compatible function
+definition syntax &lsquo;<var>word</var> <tt>()</tt> ...&rsquo; to be a word that resulted
+from alias expansion, unless the <tt>ALIAS_FUNC_DEF</tt> option is set.
+</p>
 <a name="index-alias_002c-use-of"></a>
 <a name="index-aliases_002c-global"></a>
-An alias is defined using the <tt>alias</tt> builtin; global aliases
+<p>An alias is defined using the <tt>alias</tt> builtin; global aliases
 may be defined using the <tt>-g</tt> option to that builtin.
 </p>
 <p>A <em>word</em> is defined as:
@@ -879,6 +899,17 @@ word, e.g. <tt>\foo</tt>.  Any form of quoting works, although there is
 nothing to prevent an alias being defined for the quoted form such as
 <tt>\foo</tt> as well.
 </p>
+<p>In particular, note that quoting must be used when using <tt>unalias</tt> to remove
+global aliases:
+</p>
+<div class="example">
+<pre class="example">% alias -g foo=bar
+% unalias foo
+unalias: no such hash table element: bar
+% unalias \foo
+% 
+</pre></div>
+
 <p>When <tt>POSIX_ALIASES</tt> is set, only plain unquoted strings are eligible
 for aliasing.  The <tt>alias</tt> builtin does not reject ineligible aliases,
 but they are not expanded.
@@ -948,30 +979,6 @@ a problem in shell scripts, functions, and code executed with &lsquo;<tt>source<
 or &lsquo;<tt>.</tt>&rsquo;.  Consequently, use of functions rather than aliases is
 recommended in non-interactive code.
 </p>
-<p>Note also the unhelpful interaction of aliases and function definitions:
-</p>
-<div class="example">
-<pre class="example">alias func='noglob func'
-func() {
-    echo Do something with $*
-}
-</pre></div>
-
-<p>Because aliases are expanded in function definitions, this causes the
-following command to be executed:
-</p>
-<div class="example">
-<pre class="example">noglob func() {
-    echo Do something with $*
-}
-</pre></div>
-
-<p>which defines <tt>noglob</tt> as well as <tt>func</tt> as functions with the
-body given.  To avoid this, either quote the name <tt>func</tt> or use the
-alternative function definition form &lsquo;<tt>function func</tt>&rsquo;.  Ensuring the
-alias is defined after the function works but is problematic if the
-code fragment might be re-executed.
-</p>
 <hr>
 <a name="Quoting"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
@@ -1036,10 +1043,10 @@ of <tt>$histchars</tt> (default &lsquo;<tt>!</tt>&rsquo;).
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated on <i>February 15, 2020</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
+  This document was generated on <i>May 14, 2022</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
  </font>
  <br>
-<font size="-1">Zsh version 5.8, released on February 14, 2020.</font>
+<font size="-1">Zsh version 5.9, released on May 14, 2022.</font>
 </p>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on February 15, 2020 by texi2html 5.0
+<!-- Created on May 14, 2022 by texi2html 5.0
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -79,10 +79,25 @@ a shell builtin by that name, the builtin is invoked.
 </p>
 <a name="index-path_002c-use-of"></a>
 <p>Otherwise, the shell searches each element of <tt>$path</tt> for a
-directory containing an executable file by that name.  If the
-search is unsuccessful, the shell prints an error message and returns
-a nonzero exit status.
+directory containing an executable file by that name.
 </p>
+<p>If execution fails: an error message is printed, and one of the
+following values is returned.
+</p>
+<dl compact="compact">
+<dt>127</dt>
+<dd><p>The search was unsuccessful.  The error message is
+&lsquo;<tt>command not found:</tt> <var>cmd</var>&rsquo;.
+</p></dd>
+<dt>126</dt>
+<dd><p>The executable file has insufficient permissions, is a
+directory or special file, or is not a script and is in a format
+unrecognized by the operating system.  The exact conditions and error
+message are operating system-dependent; see
+execve(2).
+</p></dd>
+</dl>
+
 <p>If execution fails because the file is not in executable format,
 and the file is not a directory, it is assumed to be a shell
 script.  <tt>/bin/sh</tt> is spawned to execute it.  If the program
@@ -94,14 +109,10 @@ not handle this executable format in the kernel.
 <p>If no external command is found but a function <tt>command_not_found_handler</tt>
 exists the shell executes this function with all
 command line arguments.  The return status of the function becomes the
-status of the command.  If the function wishes to mimic the
-behaviour of the shell when the command is not found, it should
-print the message &lsquo;<tt>command not found:</tt> <var>cmd</var>&rsquo; to standard error
-and return status 127.  Note that the handler is executed in a
+status of the command.  Note that the handler is executed in a
 subshell forked to execute an external command, hence changes to
 directories, shell parameters, etc. have no effect on the main shell.
-</p>
-<hr>
+</p><hr>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="Redirection.html#Redirection" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="Functions.html#Functions" title="Next chapter"> &gt;&gt; </a>]</td>
@@ -117,10 +128,10 @@ directories, shell parameters, etc. have no effect on the main shell.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated on <i>February 15, 2020</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
+  This document was generated on <i>May 14, 2022</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
  </font>
  <br>
-<font size="-1">Zsh version 5.8, released on February 14, 2020.</font>
+<font size="-1">Zsh version 5.9, released on May 14, 2022.</font>
 </p>
 </body>
 </html>

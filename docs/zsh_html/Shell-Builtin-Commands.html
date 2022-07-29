@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on February 15, 2020 by texi2html 5.0
+<!-- Created on May 14, 2022 by texi2html 5.0
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -151,8 +151,16 @@ which may have effects on shell parameters.  A zero exit status is returned.
 with that value.  A trailing space in <var>value</var> causes the next word
 to be checked for alias expansion.  If the <tt>-g</tt> flag is present,
 define a global alias; global aliases are expanded even if they do not
-occur in command position.
+occur in command position:
 </p>
+<div class="example">
+<pre class="example">% perldoc --help 2&gt;&amp;1 | grep 'built-in functions'
+    -f   Search Perl built-in functions
+% alias -g HG='--help 2&gt;&amp;1 | grep'
+% perldoc HG 'built-in functions'
+    -f   Search Perl built-in functions
+</pre></div>
+
 <p>If the <tt>-s</tt> flag is present, define a suffix alias: if the command
 word on a command line is in the form &lsquo;<var>text</var><tt>.</tt><var>name</var>&rsquo;, where
 <var>text</var> is any non-empty string, it is replaced by the text
@@ -901,7 +909,7 @@ already exist, it is created in the global scope.
 <a name="index-editing-history"></a>
 
 </dd>
-<dt><tt>fc</tt> [ <tt>-e</tt> <var>ename</var> ] [ <tt>-LI</tt> ] [ <tt>-m</tt> <var>match</var> ] [ <var>old</var><tt>=</tt><var>new</var> ... ] [ <var>first</var> [ <var>last</var> ] ]</dt>
+<dt><tt>fc</tt> [ <tt>-e</tt> <var>ename</var> ] [ <tt>-s</tt> ] [ <tt>-LI</tt> ] [ <tt>-m</tt> <var>match</var> ] [ <var>old</var><tt>=</tt><var>new</var> ... ] [ <var>first</var> [ <var>last</var> ] ]</dt>
 <dt><tt>fc -l </tt>[ <tt>-LI</tt> ] [ <tt>-nrdfEiD</tt> ] [ <tt>-t</tt> <var>timefmt</var> ] [ <tt>-m</tt> <var>match</var> ]</dt>
 <dt><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>[ <var>old</var><tt>=</tt><var>new</var> ... ] [ <var>first</var> [ <var>last</var> ] ]</dt>
 <dt><tt>fc -p </tt>[ <tt>-a</tt> ] [ <var>filename</var> [ <var>histsize</var> [ <var>savehistsize</var> ] ] ]</dt>
@@ -921,7 +929,8 @@ specifies the most recent event beginning with the given string.  All
 substitutions <var>old</var><tt>=</tt><var>new</var>, if any, are then performed on the
 text of the events.
 </p>
-<p>In addition to the number range,
+<p>The range of events selected by numbers can be narrowed further by the
+following flags.
 </p><dl compact="compact">
 <dt><tt>-I</tt></dt>
 <dd><p>restricts to only internal events (not from <tt>$HISTFILE</tt>)
@@ -932,8 +941,8 @@ text of the events.
 considered local when read at startup)
 </p></dd>
 <dt><tt>-m</tt></dt>
-<dd><p>takes the first argument as a pattern (should be quoted) and
-only the history events matching this pattern are considered
+<dd><p>takes the first argument as a pattern (which should be
+quoted) and only the history events matching this pattern are considered
 </p></dd>
 </dl>
 
@@ -953,7 +962,8 @@ the parameter <tt>EDITOR</tt> is used; if that is not set a builtin default,
 usually &lsquo;<tt>vi</tt>&rsquo; is used.  If <var>ename</var> is &lsquo;<tt>-</tt>&rsquo;, no editor is invoked.
 When editing is complete, the edited command is executed.
 </p>
-<p>The flag <tt>-r</tt> reverses the order of the events and the
+<p>The flag &lsquo;<tt>-s</tt>&rsquo; is equivalent to &lsquo;<tt>-e -</tt>&rsquo;.
+The flag <tt>-r</tt> reverses the order of the events and the
 flag <tt>-n</tt> suppresses event numbers when listing.
 </p>
 <p>Also when listing,
@@ -1055,7 +1065,8 @@ point numbers are not permitted.
 <dt><tt>functions +M</tt> [ <tt>-m</tt> ] <var>mathfn</var> ...</dt>
 <dd><p>Equivalent to <tt>typeset -f</tt>, with the exception of the <tt>-c</tt>, <tt>-x</tt>,
 <tt>-M</tt> and <tt>-W</tt> options.  For <tt>functions -u</tt> and <tt>functions -U</tt>,
-see <tt>autoload</tt>, which provides additional options.
+see <tt>autoload</tt>, which provides additional options.  For <tt>functions -t</tt>
+and <tt>functions -T</tt>, see <tt>typeset -f</tt>.
 </p>
 <p>The <tt>-x</tt> option indicates that any functions output will have
 each leading tab for indentation, added by the shell to show syntactic
@@ -1074,6 +1085,10 @@ fails the copy fails.  Either function may subsequently be redefined
 without affecting the other.  A typical idiom is that <var>oldfn</var> is the
 name of a library shell function which is then redefined to call
 <tt>newfn</tt>, thereby installing a modified version of the function.
+</p>
+<p><em>The </em><tt>-M</tt><em> and </em><tt>+M</tt><em> flags</em>
+<a name="index-defining-mathematical-functions"></a>
+<a name="index-functions_002c-defining-mathematical"></a>
 </p>
 <p>Use of the <tt>-M</tt> option may not be combined with any of the options
 handled by <tt>typeset -f</tt>.
@@ -1094,17 +1109,77 @@ expressions.  The name of the function in <tt>$0</tt> is <var>mathfn</var> (not
 <var>shellfn</var> as would usually be the case), provided the option
 <tt>FUNCTION_ARGZERO</tt> is in effect.  The positional parameters in the shell
 function correspond to the arguments of the mathematical function call.
-The result of the last arithmetical expression evaluated
-inside the shell function (even if it is a form that normally only returns
-a status) gives the result of the mathematical function.
 </p>
+<p>The result of the last arithmetical expression evaluated inside the shell
+function gives the result of the mathematical function.  This is not limited to
+arithmetic substitutions of the form <tt>$((</tt><var>...</var><tt>))</tt>,
+but also includes arithmetical expressions evaluated in any other way, including
+by the <tt>let</tt> builtin,
+by <tt>((</tt><var>...</var><tt>))</tt> statements,
+and even
+by the <tt>return</tt> builtin
+and
+by array subscripts.
+Therefore, care must be taken not to use syntactical constructs that perform
+arithmetic evaluation after evaluating what is to be the result of the function.
+For example:
+</p>
+<a name="index-zmath_005fcube"></a>
+<a name="index-cube"></a>
+<div class="example">
+<pre class="example"># WRONG
+zmath_cube() {
+  (( $1 * $1 * $1 ))
+  return 0
+}
+functions -M cube 1 1 zmath_cube
+print $(( cube(3) ))
+</pre></div>
+
+<p>This will print &lsquo;<tt>0</tt>&rsquo; because of the <tt>return</tt>.
+</p>
+<p>Commenting the <tt>return</tt> out would lead to a different problem: the
+<tt>((</tt><var>...</var><tt>))</tt> statement would become
+the last statement in the function, so the <em>return status</em> (<tt>$?</tt>) of the
+function would be non-zero (indicating failure) whenever the <em>arithmetic
+result</em> of the function would happen to be zero (numerically):
+</p>
+<div class="example">
+<pre class="example"># WRONG
+zmath_cube() {
+  (( $1 * $1 * $1 ))
+}
+functions -M cube 1 1 zmath_cube
+print $(( cube(0) ))
+</pre></div>
+
+<p>Instead, the <tt>true</tt> builtin can be used:
+</p>
+<div class="example">
+<pre class="example"># RIGHT
+zmath_cube() {
+  (( $1 * $1 * $1 ))
+  true
+}
+functions -M cube 1 1 zmath_cube
+print $(( cube(3) ))
+</pre></div>
+
 <p>If the additional option <tt>-s</tt> is given to <tt>functions -M</tt>, the
 argument to the function is a single string: anything between the
 opening and matching closing parenthesis is passed to the function as a
 single argument, even if it includes commas or white space.  The minimum
 and maximum argument specifiers must therefore be 1 if given.  An empty
 argument list is passed as a zero-length string.
+Thus, the following string function takes a single argument, including
+the commas, and prints 11:
 </p>
+<div class="example">
+<pre class="example">stringfn() { (( $#1 )); true }
+functions -Ms stringfn
+print $(( stringfn(foo,bar,rod) ))
+</pre></div>
+
 <p><tt>functions -M</tt> with no arguments lists all such user-defined functions in
 the same form as a definition.  With the additional option <tt>-m</tt> and
 a list of arguments, all functions whose <var>mathfn</var> matches one of
@@ -1116,23 +1191,6 @@ all functions whose <var>mathfn</var> matches the pattern are removed.  Note
 that the shell function implementing the behaviour is not removed
 (regardless of whether its name coincides with <var>mathfn</var>).
 </p>
-<p>For example, the following prints the cube of 3:
-</p>
-<div class="example">
-<pre class="example">zmath_cube() { (( $1 * $1 * $1 )) }
-functions -M cube 1 1 zmath_cube
-print $(( cube(3) ))
-</pre></div>
-
-<p>The following string function takes a single argument, including
-the commas, so prints 11:
-</p>
-<div class="example">
-<pre class="example">stringfn() { (( $#1 )) }
-functions -Ms stringfn
-print $(( stringfn(foo,bar,rod) ))
-</pre></div>
-
 </dd>
 <dt><tt>getcap</tt></dt>
 <dd><p>See <a href="Zsh-Modules.html#The-zsh_002fcap-Module">The zsh/cap Module</a>.
@@ -1171,7 +1229,8 @@ is stored in <tt>OPTARG</tt>.
 <p>The first option to be examined may be changed by explicitly assigning
 to <tt>OPTIND</tt>.  <tt>OPTIND</tt> has an initial value of <tt>1</tt>, and is
 normally set to <tt>1</tt> upon entry to a shell function and restored
-upon exit (this is disabled by the <tt>POSIX_BUILTINS</tt> option).  <tt>OPTARG</tt>
+upon exit.  (The <tt>POSIX_BUILTINS</tt> option disables this, and also changes
+the way the value is calculated to match other shells.)  <tt>OPTARG</tt>
 is not reset and retains its value from the most recent call to
 <tt>getopts</tt>.  If either of <tt>OPTIND</tt> or <tt>OPTARG</tt> is explicitly
 unset, it remains unset, and the index or option argument is not
@@ -1262,9 +1321,29 @@ be shown.
 </p>
 <p>The <tt>-Z</tt> option replaces the shell&rsquo;s argument and environment space with
 the given string, truncated if necessary to fit.  This will normally be
-visible in <tt>ps</tt> (man page ps(1)) listings.  This feature is typically
+visible in <tt>ps</tt> (ps(1)) listings.  This feature is typically
 used by daemons, to indicate their state.
 </p>
+<p>Full job control is only available in the top-level interactive shell,
+not in commands run in the left hand side of pipelines or within
+the <tt>(</tt><var>...</var><tt>)</tt> construct.  However, a snapshot
+of the job state at that point is taken, so it is still possible
+to use the <tt>jobs</tt> builtin, or any parameter providing job information.
+This gives information about the state of jobs at the point the subshell
+was created.  If background processes are created within the subshell,
+then instead information about those processes is provided.
+</p>
+<p>For example,
+</p>
+<div class="example">
+<pre class="example">sleep 10 &amp;    # Job in background
+(             # Shell forks
+jobs          # Shows information about &quot;sleep 10 &amp;&quot;
+sleep 5 &amp;     # Process in background (no job control)
+jobs          # Shows information about &quot;sleep 5 &amp;&quot;
+)
+</pre></div>
+
 <a name="index-kill"></a>
 <a name="index-killing-jobs"></a>
 <a name="index-jobs_002c-killing"></a>
@@ -1442,15 +1521,6 @@ with the command &lsquo;<tt>zmodload -F zsh/rlimits b:limit</tt>&rsquo;.
 <dd><p>Same as <tt>typeset</tt>, except that the options <tt>-g</tt>, and
 <tt>-f</tt> are not permitted.  In this case the <tt>-x</tt> option does not force
 the use of <tt>-g</tt>, i.e. exported variables will be local to functions.
-</p>
-<a name="index-log"></a>
-<a name="index-watch_002c-use-of"></a>
-<a name="index-watching-users"></a>
-<a name="index-users_002c-watching"></a>
-</dd>
-<dt><tt>log</tt></dt>
-<dd><p>List all users currently logged in who are affected by
-the current setting of the <tt>watch</tt> parameter.
 </p>
 <a name="index-logout"></a>
 </dd>
@@ -1735,7 +1805,7 @@ contain symbolic links.
 
 </dd>
 <dt><tt>read </tt>[ <tt>-rszpqAclneE</tt> ] [ <tt>-t</tt> [ <var>num</var> ] ] [ <tt>-k</tt> [ <var>num</var> ] ] [ <tt>-d</tt> <var>delim</var> ]</dt>
-<dt><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>[ <tt>-u</tt> <var>n</var> ] [ <var>name</var>[<tt>?</tt><var>prompt</var>] ] [ <var>name</var> ...  ]</dt>
+<dt><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>[ <tt>-u</tt> <var>n</var> ] [ [<var>name</var>][<tt>?</tt><var>prompt</var>] ] [ <var>name</var> ...  ]</dt>
 <dd><a name="index-REPLY_002c-use-of-2"></a>
 <a name="index-reply_002c-use-of-1"></a>
 <p>Read one line and break it into fields using the characters
@@ -1886,7 +1956,15 @@ as <tt>typeset -gr</tt>.
 <dt><tt>return</tt> [ <var>n</var> ]</dt>
 <dd><p>Causes a shell function or &lsquo;<tt>.</tt>&rsquo; script to return to
 the invoking script with the return status specified by
-an arithmetic expression <var>n</var>. If <var>n</var>
+an arithmetic expression <var>n</var>.  
+For example, the following prints &lsquo;<tt>42</tt>&rsquo;:
+</p>
+<div class="example">
+<pre class="example">() { integer foo=40; return &quot;foo + 2&quot; }
+echo $?
+</pre></div>
+
+<p>If <var>n</var>
 is omitted, the return status is that of the last command
 executed.
 </p>
@@ -1897,7 +1975,7 @@ will return to whatever it was previously processing; with a non-zero
 status, the shell will behave as interrupted except that the return
 status of the trap is retained.  Note that the numeric value of the signal
 which caused the trap is passed as the first argument, so the statement
-&lsquo;<tt>return $((128+$1))</tt>&rsquo; will return the same status as if the signal
+&lsquo;<tt>return &quot;128+$1&quot;</tt>&rsquo; will return the same status as if the signal
 had not been trapped.
 </p>
 </dd>
@@ -2165,7 +2243,8 @@ unfreezing the tty does not guarantee settings made on the
 command line are preserved.  Strings of commands run between
 editing the command line will see a consistent tty state.
 See also the shell variable <tt>STTY</tt> for a means of initialising
-the tty before running external commands.
+the tty before running external commands and/or freezing the tty
+around a single command.
 </p>
 <a name="index-type"></a>
 </dd>
@@ -2193,7 +2272,11 @@ function completes.  See
 retain their special attributes when made local.
 </p>
 <p>For each <var>name</var><tt>=</tt><var>value</var> assignment, the parameter
-<var>name</var> is set to <var>value</var>.
+<var>name</var> is set to <var>value</var>.  If the assignment is omitted and <var>name</var>
+does <em>not</em> refer to an existing parameter, a new parameter is intialized
+to empty string, zero, or empty array (as appropriate), <em>unless</em> the
+shell option <tt>TYPESET_TO_UNSET</tt> is set.  When that option is set,
+the parameter attributes are recorded but the parameter remains unset.
 </p>
 <p>If the shell option <tt>TYPESET_SILENT</tt> is not set, for each remaining
 <var>name</var> that refers to a parameter that is already set, the name and
@@ -2271,7 +2354,7 @@ a set of three normal command line arguments to <tt>typeset</tt> after
 expansion.  Hence it is not possible to assign to multiple arrays by
 this means.
 </p>
-<p>Note that each interface to any of the commands my be disabled
+<p>Note that each interface to any of the commands may be disabled
 separately.  For example, &lsquo;<tt>disable -r typeset</tt>&rsquo; disables the reserved
 word interface to <tt>typeset</tt>, exposing the builtin interface, while
 &lsquo;<tt>disable typeset</tt>&rsquo; disables the builtin.  Note that disabling the
@@ -2694,7 +2777,7 @@ will report an error if this fails.
 </dd>
 <dt><tt>umask</tt> [ <tt>-S</tt> ] [ <var>mask</var> ]</dt>
 <dd><p>The umask is set to <var>mask</var>.  <var>mask</var> can be either
-an octal number or a symbolic value as described in man page chmod(1).
+an octal number or a symbolic value as described in the chmod(1) man page.
 If <var>mask</var> is omitted, the current value is printed.  The <tt>-S</tt>
 option causes the mask to be printed as a symbolic value.  Otherwise,
 the mask is printed as an octal number.  Note that in
@@ -3381,10 +3464,10 @@ dynamic loading of modules.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated on <i>February 15, 2020</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
+  This document was generated on <i>May 14, 2022</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
  </font>
  <br>
-<font size="-1">Zsh version 5.8, released on February 14, 2020.</font>
+<font size="-1">Zsh version 5.9, released on May 14, 2022.</font>
 </p>
 </body>
 </html>

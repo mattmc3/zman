@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on February 15, 2020 by texi2html 5.0
+<!-- Created on May 14, 2022 by texi2html 5.0
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -54,7 +54,7 @@ ul.no-bullet {list-style: none}
 <tr><td valign="middle" align="left">[<a href="Zsh-Line-Editor.html#Zsh-Line-Editor" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="Zsh-Line-Editor.html#Character-Highlighting" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="index.html#Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="#Description-1" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Completion-System.html#Completion-System" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -73,7 +73,7 @@ ul.no-bullet {list-style: none}
 <a name="index-completion_002c-controlling"></a>
 
 <hr>
-<a name="Description-1"></a>
+<a name="Description"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Completion-Widgets" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Completion-Widgets" title="Previous section in reading order"> &lt; </a>]</td>
@@ -120,7 +120,7 @@ work even if the widget in question has been re-bound.
 <p>When this newly defined widget is bound to a key
 using the <tt>bindkey</tt> builtin command defined in the <tt>zsh/zle</tt> module
 (<a href="Zsh-Line-Editor.html#Zsh-Line-Editor">Zsh Line Editor</a>), typing that key will call the shell function &lsquo;<tt>completer</tt>&rsquo;. This
-function is responsible for generating the possible matches using the
+function is responsible for generating completion matches using the
 builtins described below.  As with other ZLE widgets, the function is
 called with its standard input closed.
 </p>
@@ -145,7 +145,7 @@ widget, in this case <tt>expand-or-complete</tt>.
 <a name="Completion-Special-Parameters"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Completion-Widgets" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Description-1" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Completion-Widgets" title="Up section"> Up </a>]</td>
 <td valign="middle" align="left">[<a href="#Completion-Builtin-Commands" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Completion-System.html#Completion-System" title="Next chapter"> &gt;&gt; </a>]</td>
@@ -341,7 +341,7 @@ was generated, the match is accepted.
 <a name="index-ignored_002c-compstate"></a>
 </dd>
 <dt><tt>ignored</tt></dt>
-<dd><p>The number of words that were ignored because they matched one of the
+<dd><p>The number of completions that were ignored because they matched one of the
 patterns given with the <tt>-F</tt> option to the <tt>compadd</tt> builtin
 command.
 </p>
@@ -444,8 +444,7 @@ will be used in the same way as the value of <tt>LISTMAX</tt>.
 <a name="index-nmatches_002c-compstate"></a>
 </dd>
 <dt><tt>nmatches</tt></dt>
-<dd><p>The number of matches generated and accepted by the completion code so
-far.
+<dd><p>The number of matches added by the completion code so far.
 </p>
 <a name="index-old_005finsert_002c-compstate"></a>
 </dd>
@@ -485,7 +484,8 @@ value of a parameter assignment.
 </dd>
 <dt><tt>pattern_insert</tt></dt>
 <dd><p>Normally this is set to <tt>menu</tt>, which specifies that menu completion will
-be used whenever a set of matches was generated using pattern matching.  If
+be used whenever a set of matches was generated using <tt>pattern_match</tt>
+(see below).  If
 it is set to any other non-empty string by the user and menu completion is
 not selected by other option settings, the code will instead insert any
 common prefix for the generated matches as with normal completion.
@@ -502,7 +502,7 @@ command line will be treated as patterns; if it is &lsquo;<tt>*</tt>&rsquo;, the
 additionally a wildcard &lsquo;<tt>*</tt>&rsquo; is assumed at the cursor position; if
 it is empty or unset, metacharacters will be treated literally.
 </p>
-<p>Note that the matcher specifications given to the <tt>compadd</tt> builtin
+<p>Note that the match specifications given to the <tt>compadd</tt> builtin
 command are not used if this is set to a non-empty string.
 </p>
 <a name="index-quote_002c-compstate"></a>
@@ -627,18 +627,17 @@ edited.
 <dt><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>[<tt>-r</tt> <var>remove-chars</var> ] [ <tt>-R</tt> <var>remove-func</var> ]</dt>
 <dt><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>[<tt>-D</tt> <var>array</var> ] [ <tt>-O</tt> <var>array</var> ] [ <tt>-A</tt> <var>array</var> ]</dt>
 <dt><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>[<tt>-E</tt> <var>number</var> ]</dt>
-<dt><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>[<tt>-M</tt> <var>match-spec</var> ] [ <tt>-</tt><tt>-</tt> ] [ <var>words</var> ... ]</dt>
+<dt><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>[<tt>-M</tt> <var>match-spec</var> ] [ <tt>-</tt><tt>-</tt> ] [ <var>completions</var> ... ]</dt>
 <dd>
 <p>This builtin command can be used to add matches directly and control
 all the information the completion code stores with each possible
-match. The return status is zero if at least one match was added and
+completion. The return status is zero if at least one match was added and
 non-zero if no matches were added.
 </p>
-<p>The completion code breaks the string to complete into seven fields in
-the order: 
+<p>The completion code breaks each match into seven fields in the order:
 </p>
 <blockquote>
-<p><var>&lt;ipre&gt;&lt;apre&gt;&lt;hpre&gt;&lt;word&gt;&lt;hsuf&gt;&lt;asuf&gt;&lt;isuf&gt;</var>
+<p><var>&lt;ipre&gt;&lt;apre&gt;&lt;hpre&gt;&lt;body&gt;&lt;hsuf&gt;&lt;asuf&gt;&lt;isuf&gt;</var>
 </p></blockquote>
 
 <p>The first field
@@ -647,12 +646,12 @@ is an ignored prefix taken from the command line, the contents of the
 option. With the <tt>-U</tt> option, only the string from the <tt>-i</tt>
 option is used. The field <var>&lt;apre&gt;</var> is an optional prefix string
 given with the <tt>-P</tt> option.  The <var>&lt;hpre&gt;</var> field is a string
-that is considered part of the match but that should not be shown when 
+that is considered part of the match but that should not be shown when
 listing completions, given with the <tt>-p</tt> option; for example,
 functions that do filename generation might specify
-a common path prefix this way.  <var>&lt;word&gt;</var> is the part of the match that
-should appear in the list of completions, i.e. one of the <var>words</var> given
-at the end of the <tt>compadd</tt> command line. The suffixes <var>&lt;hsuf&gt;</var>,
+a common path prefix this way.  <var>&lt;body&gt;</var> is the part of the match that
+should appear in the list of matches shown to the user.
+The suffixes <var>&lt;hsuf&gt;</var>,
 <var>&lt;asuf&gt;</var> and <var>&lt;isuf&gt;</var> correspond to the prefixes <var>&lt;hpre&gt;</var>,
 <var>&lt;apre&gt;</var> and <var>&lt;ipre&gt;</var> and are given by the options <tt>-s</tt>, <tt>-S</tt> and
 <tt>-I</tt>, respectively.
@@ -661,30 +660,30 @@ at the end of the <tt>compadd</tt> command line. The suffixes <var>&lt;hsuf&gt;<
 </p>
 <dl compact="compact">
 <dt><tt>-P</tt> <var>prefix</var></dt>
-<dd><p>This gives a string to be inserted before the given <var>words</var>.  The
+<dd><p>This gives a string to be inserted before each match.  The
 string given is not considered as part of the match and any shell
 metacharacters in it will not be quoted when the string is inserted.
 </p>
 </dd>
 <dt><tt>-S</tt> <var>suffix</var></dt>
-<dd><p>Like <tt>-P</tt>, but gives a string to be inserted after the match.
+<dd><p>Like <tt>-P</tt>, but gives a string to be inserted after each match.
 </p>
 </dd>
 <dt><tt>-p</tt> <var>hidden-prefix</var></dt>
-<dd><p>This gives a string that should be inserted into the command line before the
+<dd><p>This gives a string that should be inserted before each
 match but that should not appear in the list of matches. Unless the
 <tt>-U</tt> option is given, this string must be matched as part of the string
 on the command line.
 </p>
 </dd>
 <dt><tt>-s</tt> <var>hidden-suffix</var></dt>
-<dd><p>Like &lsquo;<tt>-p</tt>&rsquo;, but gives a string to insert after the match.
+<dd><p>Like &lsquo;<tt>-p</tt>&rsquo;, but gives a string to insert after each match.
 </p>
 </dd>
 <dt><tt>-i</tt> <var>ignored-prefix</var></dt>
-<dd><p>This gives a string to insert into the command line just before any
+<dd><p>This gives a string to insert just before any
 string given with the &lsquo;<tt>-P</tt>&rsquo; option.  Without &lsquo;<tt>-P</tt>&rsquo; the string is
-inserted before the string given with &lsquo;<tt>-p</tt>&rsquo; or directly before the
+inserted before the string given with &lsquo;<tt>-p</tt>&rsquo; or directly before each
 match.
 </p>
 </dd>
@@ -693,28 +692,28 @@ match.
 </p>
 </dd>
 <dt><tt>-a</tt></dt>
-<dd><p>With this flag the <var>words</var> are taken as names of arrays and the
-possible matches are their values.  If only some elements of the
-arrays are needed, the <var>words</var> may also contain subscripts, as in
+<dd><p>With this flag the <var>completions</var> are taken as names of arrays and the
+actual completions are their values.  If only some elements of the
+arrays are needed, the <var>completions</var> may also contain subscripts, as in
 &lsquo;<tt>foo[2,-1]</tt>&rsquo;.
 </p>
 </dd>
 <dt><tt>-k</tt></dt>
-<dd><p>With this flag the <var>words</var> are taken as names of associative arrays
-and the possible matches are their keys.  As for <tt>-a</tt>, the
+<dd><p>With this flag the <var>completions</var> are taken as names of associative arrays
+and the actual completions are their keys.  As for <tt>-a</tt>, the
 <var>words</var> may also contain subscripts, as in &lsquo;<tt>foo[(R)*bar*]</tt>&rsquo;.
 </p>
 </dd>
 <dt><tt>-d</tt> <var>array</var></dt>
-<dd><p>This adds per-match display strings. The <var>array</var> should contain one 
-element per <var>word</var> given. The completion code will then display the 
-first element instead of the first <var>word</var>, and so on. The
+<dd><p>This adds per-completion display strings. The <var>array</var> should contain one
+element per <var>completion</var> given. The completion code will then display the
+first element instead of the first <var>completion</var>, and so on. The
 <var>array</var> may be given as the name of an array parameter or directly
 as a space-separated list of words in parentheses.
 </p>
-<p>If there are fewer display strings than <var>words</var>, the leftover
-<var>words</var> will be displayed unchanged and if there are more display
-strings than <var>words</var>, the leftover display strings will be silently
+<p>If there are fewer display strings than <var>completions</var>, the leftover
+<var>completions</var> will be displayed unchanged and if there are more display
+strings than <var>completions</var>, the leftover display strings will be silently
 ignored.
 </p>
 </dd>
@@ -740,7 +739,8 @@ the <var>order</var> argument is omitted.
 </p>
 </dd>
 <dt><tt>nosort</tt></dt>
-<dd><p>This specifies that the matches are pre-sorted and their order should be
+<dd><p>This specifies that the <var>completions</var>
+are pre-sorted and their order should be
 preserved.  This value only makes sense alone and cannot be combined with any
 others.
 </p>
@@ -758,7 +758,7 @@ lexicographically.
 
 </dd>
 <dt><tt>-J</tt> <var>group-name</var></dt>
-<dd><p>Gives the name of the group of matches the words should be stored in.
+<dd><p>Gives the name of the group that the matches should be stored in.
 </p>
 </dd>
 <dt><tt>-V</tt> <var>group-name</var></dt>
@@ -805,14 +805,14 @@ description, it can be escaped using e.g. <tt>${my_str//\%/%%}</tt>.
 </p>
 </dd>
 <dt><tt>-x</tt> <var>message</var></dt>
-<dd><p>Like <tt>-X</tt>, but the <var>message</var> will be printed even if there are no 
+<dd><p>Like <tt>-X</tt>, but the <var>message</var> will be printed even if there are no
 matches in the group.
 </p>
 </dd>
 <dt><tt>-q</tt></dt>
-<dd><p>The suffix given with <tt>-S</tt> will be automatically removed if 
+<dd><p>The suffix given with <tt>-S</tt> will be automatically removed if
 the next character typed is a blank or does not insert anything, or if
-the suffix consists of only one character and the next character typed 
+the suffix consists of only one character and the next character typed
 is the same character.
 </p>
 </dd>
@@ -836,8 +836,8 @@ list is typed.
 </p>
 </dd>
 <dt><tt>-R</tt> <var>remove-func</var></dt>
-<dd><p>This is another form of the <tt>-r</tt> option. When a suffix 
-has been inserted and the completion accepted, the function
+<dd><p>This is another form of the <tt>-r</tt> option. When a match
+has been accepted and a suffix has been inserted, the function
 <var>remove-func</var> will be called after the next character typed.  It is
 passed the length of the suffix as an argument and can use the special
 parameters available in ordinary (non-completion) zle widgets (see
@@ -845,7 +845,7 @@ parameters available in ordinary (non-completion) zle widgets (see
 </p>
 </dd>
 <dt><tt>-f</tt></dt>
-<dd><p>If this flag is given, all of the matches built from <var>words</var> are
+<dd><p>If this flag is given, all of the matches built from the <var>completions</var> are
 marked as being the names of files.  They are not required to be actual
 filenames, but if they are, and the option <tt>LIST_TYPES</tt> is set, the
 characters describing the types of the files in the completion lists will
@@ -861,16 +861,15 @@ the matches.
 </p>
 </dd>
 <dt><tt>-W</tt> <var>file-prefix</var></dt>
-<dd><p>This string is a pathname that will be
-prepended to each of the matches formed by the given <var>words</var> together 
+<dd><p>This string is a pathname that will be prepended to each match together
 with any prefix specified by the <tt>-p</tt> option to form a complete filename
 for testing.  Hence it is only useful if combined with the <tt>-f</tt> flag, as
 the tests will not otherwise be performed.
 </p>
 </dd>
 <dt><tt>-F</tt> <var>array</var></dt>
-<dd><p>Specifies an array containing patterns. Words matching one of these
-patterns are ignored, i.e. not considered to be possible matches.
+<dd><p>Specifies an array containing patterns.  <var>completions</var> that match one of
+these patterns are ignored, that is, not considered to be matches.
 </p>
 <p>The <var>array</var> may be the name of an array parameter or a list of
 literal patterns enclosed in parentheses and quoted, as in &lsquo;<tt>-F &quot;(*?.o
@@ -879,8 +878,8 @@ taken as the patterns.
 </p>
 </dd>
 <dt><tt>-Q</tt></dt>
-<dd><p>This flag instructs the completion 
-code not to quote any metacharacters in the words when inserting them
+<dd><p>This flag instructs the completion
+code not to quote any metacharacters in the matches when inserting them
 into the command line.
 </p>
 </dd>
@@ -893,53 +892,56 @@ Note that they will only be used if the <tt>-U</tt> option is not given.
 </p>
 </dd>
 <dt><tt>-n</tt></dt>
-<dd><p>Specifies that the words added are to be used as possible
-matches, but are not to appear in the completion listing.
+<dd><p>Specifies that matching <var>completions</var> are to be added to the set of
+matches, but are not to be listed to the user.
 </p>
 </dd>
 <dt><tt>-U</tt></dt>
-<dd><p>If this flag is given, all words given will be accepted and no matching
+<dd><p>If this flag is given, all <var>completions</var> are added
+to the set of matches and no matching
 will be done by the completion code. Normally this is used in
 functions that do the matching themselves.
 </p>
 </dd>
 <dt><tt>-O</tt> <var>array</var></dt>
-<dd><p>If this option is given, the <var>words</var> are <em>not</em> added to the set of
-possible completions.  Instead, matching is done as usual and all of the
-<var>words</var> given as arguments that match the string on the command line
+<dd><p>If this option is given, the <var>completions</var> are <em>not</em> added to the set of
+matches.  Instead, matching is done as usual and all of the
+<var>completions</var> that match
 will be stored in the array parameter whose name is given as <var>array</var>.
 </p>
 </dd>
 <dt><tt>-A</tt> <var>array</var></dt>
-<dd><p>As the <tt>-O</tt> option, except that instead of those of the <var>words</var> which
+<dd><p>As the <tt>-O</tt> option, except that instead of those of the <var>completions</var>
+which
 match being stored in <var>array</var>, the strings generated internally by the
-completion code are stored. For example,
-with a matching specification of &lsquo;<tt>-M &quot;L:|no=&quot;</tt>&rsquo;, the string &lsquo;<tt>nof</tt>&rsquo;
-on the command line and the string &lsquo;<tt>foo</tt>&rsquo; as one of the <var>words</var>, this
+completion code are stored.  For example,
+with a match specification of &lsquo;<tt>-M &quot;L:|no=&quot;</tt>&rsquo;, a current word of &lsquo;<tt>nof</tt>&rsquo;
+and <var>completions</var> of &lsquo;<tt>foo</tt>&rsquo;, this
 option stores the string &lsquo;<tt>nofoo</tt>&rsquo; in the array, whereas the <tt>-O</tt>
 option stores the &lsquo;<tt>foo</tt>&rsquo; originally given.
 </p>
 </dd>
 <dt><tt>-D</tt> <var>array</var></dt>
-<dd><p>As with <tt>-O</tt>, the <var>words</var> are not added to the set of possible
-completions.  Instead, the completion code tests whether each <var>word</var> 
-in turn matches what is on the line.  If the <var>n</var>th <var>word</var> does not
+<dd><p>As with <tt>-O</tt>, the <var>completions</var> are not added to the set of matches.
+Instead, whenever the <var>n</var>th <var>completion</var> does not
 match, the <var>n</var>th element of the <var>array</var> is removed.  Elements
-for which the corresponding <var>word</var> is matched are retained.
+for which the corresponding <var>completion</var> matches are retained.
+This option can be used more than once to remove elements from multiple
+arrays.
 </p>
 </dd>
 <dt><tt>-C</tt></dt>
 <dd><p>This option adds a special match which expands to all other matches
 when inserted into the line, even those that are added after this
 option is used.  Together with the <tt>-d</tt> option it is possible to
-specify a string that should be displayed in the list for this special 
-match.  If no string is given, it will be shown as a string containing 
-the strings that would be inserted for the other matches, truncated to 
+specify a string that should be displayed in the list for this special
+match.  If no string is given, it will be shown as a string containing
+the strings that would be inserted for the other matches, truncated to
 the width of the screen.
 </p>
 </dd>
 <dt><tt>-E</tt> <var>number</var></dt>
-<dd><p>This option adds <var>number</var> empty matches after the <var>words</var> have
+<dd><p>This option adds <var>number</var> empty matches after matching <var>completions</var> have
 been added.  An empty match takes up space in completion listings but
 will never be inserted in the line and can&rsquo;t be selected with menu
 completion or menu selection.  This makes empty matches only useful to
@@ -955,7 +957,7 @@ added.
 <dt><tt>-</tt></dt>
 <dt><tt>-</tt><tt>-</tt></dt>
 <dd><p>This flag ends the list of flags and options. All arguments after it
-will be taken as the words to use as matches even if they begin with
+will be taken as the <var>completions</var> even if they begin with
 hyphens.
 </p>
 </dd>
@@ -995,7 +997,7 @@ matches the <var>pattern</var>, the matched portion is removed from
 if <var>number</var> is given, anything up to the <var>number</var>th match is
 moved.  If the <var>number</var> is negative, the <var>number</var>th longest
 match is moved. For example, if <tt>PREFIX</tt> contains the string
-&lsquo;<tt>a=b=c</tt>&rsquo;, then <tt>compset -P &rsquo;*\=&rsquo;</tt> will move the string &lsquo;<tt>a=b=</tt>&rsquo; 
+&lsquo;<tt>a=b=c</tt>&rsquo;, then <tt>compset -P &rsquo;*\=&rsquo;</tt> will move the string &lsquo;<tt>a=b=</tt>&rsquo;
 into the <tt>IPREFIX</tt> parameter, but <tt>compset -P 1 &rsquo;*\=&rsquo;</tt> will move only
 the string &lsquo;<tt>a=</tt>&rsquo;.
 </p>
@@ -1011,7 +1013,7 @@ matched portion to the front of the value of <tt>ISUFFIX</tt>.
 </p>
 </dd>
 <dt><tt>-n</tt> <var>begin</var> [ <var>end</var> ]</dt>
-<dd><p>If the current word position as specified by the parameter <tt>CURRENT</tt> 
+<dd><p>If the current word position as specified by the parameter <tt>CURRENT</tt>
 is greater than or equal to <var>begin</var>, anything up to the
 <var>begin</var>th word is removed from the <tt>words</tt> array and the value
 of the parameter <tt>CURRENT</tt> is decremented by <var>begin</var>.
@@ -1035,7 +1037,7 @@ point to the same word in the changed array.
 <p>If the optional pattern <var>end-pat</var> is also given, and there is an
 element in the <tt>words</tt> array matching this pattern, the parameters
 are modified only if the index of this word is higher than the one
-given by the <tt>CURRENT</tt> parameter (so that the matching word has 
+given by the <tt>CURRENT</tt> parameter (so that the matching word has
 to be after the cursor). In this case, the words starting with the one
 matching <tt>end-pat</tt> are also removed from the <tt>words</tt>
 array. If <tt>words</tt> contains no word matching <var>end-pat</var>, the
@@ -1045,7 +1047,7 @@ testing and modification is performed as if it were not given.
 <dt><tt>-q</tt></dt>
 <dd><p>The word
 currently being completed is split on spaces into separate words,
-respecting the usual shell quoting conventions.  The 
+respecting the usual shell quoting conventions.  The
 resulting words are stored in the <tt>words</tt> array, and <tt>CURRENT</tt>,
 <tt>PREFIX</tt>, <tt>SUFFIX</tt>, <tt>QIPREFIX</tt>, and <tt>QISUFFIX</tt> are modified to
 reflect the word part that is completed.
@@ -1122,7 +1124,7 @@ parameters are not modified.
 </p>
 </dd>
 <dt><tt>-after</tt> <var>beg-pat</var></dt>
-<dd><p>true if the test of the <tt>-N</tt> option with only the <var>beg-pat</var> given 
+<dd><p>true if the test of the <tt>-N</tt> option with only the <var>beg-pat</var> given
 would succeed.
 </p>
 </dd>
@@ -1153,284 +1155,289 @@ would succeed.
 <a name="Completion-Matching-Control-1"></a>
 <h2 class="section">19.5 Completion Matching Control</h2>
 
-<p>It is possible by use of the
-<tt>-M</tt> option of the <tt>compadd</tt> builtin command to specify how the
-characters in the string to be completed (referred to here as the
-command line) map onto the characters in the list of matches produced by
-the completion code (referred to here as the trial completions). Note
-that this is not used if the command line contains a glob pattern and
-the <tt>GLOB_COMPLETE</tt> option is set or the <tt>pattern_match</tt> of the
-<tt>compstate</tt> special association is set to a non-empty string.
+<p>When the user invokes completion, the current <em>word</em> on the command line
+(that is, the word the cursor is currently on) is used to generate a <em>match
+pattern</em>.  Only those <em>completions</em> that match the pattern are offered to the
+user as <em>matches</em>.
 </p>
-<p>The <var>match-spec</var> given as the argument to the <tt>-M</tt> option (see
-<a href="#Completion-Builtin-Commands">Completion Builtin Commands</a>) consists of one or more matching descriptions separated by
-whitespace.  Each description consists of a letter followed by a colon
-and then the patterns describing which character sequences on the line match
-which character sequences in the trial completion.  Any sequence of
-characters not handled in this fashion must match exactly, as usual.
+<p>The default match pattern is generated from the current word by either
 </p>
-<p>The forms of <var>match-spec</var> understood are as follows. In each case, the
-form with an upper case initial character retains the string already
-typed on the command line as the final result of completion, while with
-a lower case initial character the string on the command line is changed
-into the corresponding part of the trial completion.
+<ul>
+<li> 
+appending a &lsquo;<tt>*</tt>&rsquo; (matching any number of characters in a completion)
+<em>or,</em>
+</li><li> 
+if the shell option <tt>COMPLETE_IN_WORD</tt> is set, inserting a &lsquo;<tt>*</tt>&rsquo; at the
+cursor position.
+</li></ul>
+
+<p>This narrow pattern can be broadened selectively by passing a <em>match
+specification</em> to the <tt>compadd</tt> builtin command through its <tt>-M</tt> option
+(see
+<a href="#Completion-Builtin-Commands">Completion Builtin Commands</a>).  A match specification consists of one or more <var>matchers</var> separated by
+whitespace.  Matchers in a match specification are applied one at a time, from
+left to right.  Once all matchers have been applied, completions are compared
+to the final match pattern and non-matching ones are discarded.
+</p>
+<ul>
+<li> 
+Note that the <tt>-M</tt> option is ignored if the current word contains a glob
+pattern and the shell option <tt>GLOB_COMPLETE</tt> is set or if the
+<tt>pattern_match</tt> key of the special associative array <tt>compstate</tt> is set to
+a non-empty value (see
+<a href="#Completion-Special-Parameters">Completion Special Parameters</a>).
+</li><li> 
+Users of the  <a href="Completion-System.html#Completion-System">Completion System</a> should generally not use the <tt>-M</tt> option directly, but rather use the
+<tt>matcher-list</tt> and <tt>matcher</tt> styles (see the subsection <em>Standard Styles</em>
+in
+<a href="Completion-System.html#Completion-System-Configuration">Completion System Configuration</a>).
+</li></ul>
+
+<p>Each matcher consists of
+</p>
+<ul>
+<li> 
+a case-sensitive letter
+</li><li> 
+a &lsquo;<tt>:</tt>&rsquo;,
+</li><li> 
+one or more patterns separated by pipes (&lsquo;<tt>|</tt>&rsquo;),
+</li><li> 
+an equals sign (&lsquo;<tt>=</tt>&rsquo;), and
+</li><li> 
+another pattern.
+</li></ul>
+
+<p>The patterns before the &lsquo;<tt>=</tt>&rsquo; are used to match substrings of the current
+word.  For each matched substring, the corresponding part of the match pattern
+is broadened with the pattern after the &lsquo;<tt>=</tt>&rsquo;, by means of a logical <tt>OR</tt>.
+</p>
+<p>Each pattern in a matcher cosists of either
+</p>
+<ul>
+<li> 
+the empty string or
+</li><li> 
+a sequence of
+
+<ul>
+<li> 
+literal characters (which may be quoted with a &lsquo;<tt>\</tt>&rsquo;),
+</li><li> 
+question marks (&lsquo;<tt>?</tt>&rsquo;),
+</li><li> 
+bracket expressions (&lsquo;<tt>[...]</tt>&rsquo;; see the subsection <em>Glob Operators</em> in
+<a href="Expansion.html#Filename-Generation">Filename Generation</a>), and/or
+</li><li> 
+brace expressions (see below).
+</li></ul>
+
+</li></ul>
+
+<p>Other shell patterns are not allowed.
+</p>
+<p>A brace expression, like a bracket expression, consists of a list of
+</p>
+<ul>
+<li> 
+literal characters,
+</li><li> 
+ranges (&lsquo;<tt>0-9</tt>&rsquo;), and/or
+</li><li> 
+character classes (&lsquo;<tt>[:</tt><var>name</var><tt>:]</tt>&rsquo;).
+</li></ul>
+
+<p>However, they differ from each other as follows:
+</p>
+<ul>
+<li> 
+A brace expression is delimited by a pair of braces (&lsquo;<tt>{...}</tt>&rsquo;).
+</li><li> 
+Brace expressions do not support negations.  That is, an initial
+&lsquo;<tt>!</tt>&rsquo; or &lsquo;<tt>^</tt>&rsquo; has no special meaning and will be interpreted as a literal
+character.
+</li><li> 
+When a character in the current word matches the <var>n</var>th pattern in a brace
+expression, the corresponding part of the match pattern is broadened only with
+the <var>n</var>th pattern of the brace expression on the other side of the &lsquo;<tt>=</tt>&rsquo;,
+if there is one; if there is no brace expression on the other side, then this
+pattern is the empty string.  However, if either brace expression has more
+elements than the other, then the excess entries are simply ignored.  When
+comparing indexes, each literal character or character class counts as one
+element, but each range is instead expanded to the full list of literal
+characters it represents.  Additionally, if on <em>both</em> sides of the
+&lsquo;<tt>=</tt>&rsquo;, the <var>n</var>th pattern is &lsquo;<tt>[:upper:]</tt>&rsquo; or &lsquo;<tt>[:lower:]</tt>&rsquo;, then these
+are expanded as ranges, too.
+</li></ul>
+
+<p>Note that, although the matching system does not yet handle multibyte
+characters, this is likely to be a future extension.  Hence, using
+&lsquo;<tt>[:upper:]</tt>&rsquo; and &lsquo;<tt>[:lower:]</tt>&rsquo; is recommended over
+&lsquo;<tt>A-Z</tt>&rsquo; and &lsquo;<tt>a-z</tt>&rsquo;.
+</p>
+<p>Below are the different forms of matchers supported.  Each <em>uppercase</em> form
+behaves exactly like its lowercase counterpart, but adds an additional step
+<em>after</em> the match pattern has filtered out non-matching completions:  Each of
+a match&rsquo;s substrings that was matched by a subpattern from an uppercase matcher
+is replaced with the corresponding substring of the current word.  However,
+patterns from <em>lowercase</em> matchers have higher weight:  If a substring of the
+current word was matched by patterns from both a lowercase and an uppercase
+matcher, then the lowercase matcher&rsquo;s pattern wins and the corresponding part
+of the match is not modified.
+</p>
+<p>Unless indicated otherwise, each example listed assumes <tt>COMPLETE_IN_WORD</tt> to
+be unset (as it is by default).
 </p>
 <dl compact="compact">
-<dt><tt>m:</tt><var>lpat</var><tt>=</tt><var>tpat</var></dt>
-<dt><tt>M:</tt><var>lpat</var><tt>=</tt><var>tpat</var></dt>
-<dd><p>Here, <var>lpat</var> is a pattern that matches on the command line,
-corresponding to <var>tpat</var> which matches in the trial completion.
+<dt><tt>m:</tt><var>word-pat</var><tt>=</tt><var>match-pat</var></dt>
+<dt><tt>M:</tt><var>word-pat</var><tt>=</tt><var>match-pat</var></dt>
+<dd>
+<p>For each substring of the current word that matches <var>word-pat</var>, broaden the
+corresponding part of the match pattern to additionally match <var>match-pat</var>.
 </p>
-</dd>
-<dt><tt>l:</tt><var>lanchor</var><tt>|</tt><var>lpat</var><tt>=</tt><var>tpat</var></dt>
-<dt><tt>L:</tt><var>lanchor</var><tt>|</tt><var>lpat</var><tt>=</tt><var>tpat</var></dt>
-<dt><tt>l:</tt><var>lanchor</var><tt>||</tt><var>ranchor</var><tt>=</tt><var>tpat</var></dt>
-<dt><tt>L:</tt><var>lanchor</var><tt>||</tt><var>ranchor</var><tt>=</tt><var>tpat</var></dt>
-<dt><tt>b:</tt><var>lpat</var><tt>=</tt><var>tpat</var></dt>
-<dt><tt>B:</tt><var>lpat</var><tt>=</tt><var>tpat</var></dt>
-<dd><p>These letters are for patterns that are anchored by another pattern on
-the left side. Matching for <var>lpat</var> and <var>tpat</var> is as for <tt>m</tt> and
-<tt>M</tt>, but the pattern <var>lpat</var> matched on the command line must be
-preceded by the pattern <var>lanchor</var>.  The <var>lanchor</var> can be blank to
-anchor the match to the start of the command line string; otherwise the
-anchor can occur anywhere, but must match in both the command line and
-trial completion strings.
+<dl compact="compact">
+<dt>Examples:</dt>
+<dd>
+<p><tt>m:{[:lower:]}={[:upper:]}</tt> lets any lower case character in the current word
+be completed to itself or its uppercase counterpart.  So, the completions
+&lsquo;<tt>foo</tt>&rsquo;, &lsquo;<tt>FOO</tt>&rsquo; and &lsquo;<tt>Foo</tt>&rsquo; will are be considered matches for the word
+&lsquo;<tt>fo</tt>&rsquo;.
 </p>
-<p>If no <var>lpat</var> is given but a <var>ranchor</var> is, this matches the gap
-between substrings matched by <var>lanchor</var> and <var>ranchor</var>. Unlike
-<var>lanchor</var>, the <var>ranchor</var> only needs to match the trial
-completion string.
-</p>
-<p>The <tt>b</tt> and <tt>B</tt> forms are similar to <tt>l</tt> and <tt>L</tt> with an empty 
-anchor, but need to match only the beginning of the word on the command line
-or trial completion, respectively.
-</p>
-</dd>
-<dt><tt>r:</tt><var>lpat</var><tt>|</tt><var>ranchor</var><tt>=</tt><var>tpat</var></dt>
-<dt><tt>R:</tt><var>lpat</var><tt>|</tt><var>ranchor</var><tt>=</tt><var>tpat</var></dt>
-<dt><tt>r:</tt><var>lanchor</var><tt>||</tt><var>ranchor</var><tt>=</tt><var>tpat</var></dt>
-<dt><tt>R:</tt><var>lanchor</var><tt>||</tt><var>ranchor</var><tt>=</tt><var>tpat</var></dt>
-<dt><tt>e:</tt><var>lpat</var><tt>=</tt><var>tpat</var></dt>
-<dt><tt>E:</tt><var>lpat</var><tt>=</tt><var>tpat</var></dt>
-<dd><p>As <tt>l</tt>, <tt>L</tt>, <tt>b</tt> and <tt>B</tt>, with the difference that the command
-line and trial completion patterns are anchored on the right side.
-Here an empty <var>ranchor</var> and the <tt>e</tt> and <tt>E</tt> forms force the
-match to the end of the command line or trial completion string.
-</p>
-</dd>
-<dt><tt>x:</tt></dt>
-<dd><p>This form is used to mark the end of matching specifications:
-subsequent specifications are ignored. In a single standalone list
-of specifications this has no use but where matching specifications
-are accumulated, such as from nested function calls, it can allow one
-function to override another.
+<p><tt>M:_=</tt> inserts every underscore from the current word into each match, in the
+same relative position, determined by matching the substrings around it.  So,
+given a completion &lsquo;<tt>foo</tt>&rsquo;, the word &lsquo;<tt>f_o</tt>&rsquo; will be completed to the match
+&lsquo;<tt>f_oo</tt>&rsquo;, even though the latter was not present as a completion.
 </p>
 </dd>
 </dl>
 
-<p>Each <var>lpat</var>, <var>tpat</var> or <var>anchor</var> is either an empty string or
-consists of a sequence of literal characters (which may be quoted with a
-backslash), question marks, character classes, and correspondence
-classes; ordinary shell patterns are not used.  Literal characters match
-only themselves, question marks match any character, and character
-classes are formed as for globbing and match any character in the given
-set.
+</dd>
+<dt><tt>b:</tt><var>word-pat</var><tt>=</tt><var>match-pat</var></dt>
+<dt><tt>B:</tt><var>word-pat</var><tt>=</tt><var>match-pat</var></dt>
+<dt><tt>e:</tt><var>word-pat</var><tt>=</tt><var>match-pat</var></dt>
+<dt><tt>E:</tt><var>word-pat</var><tt>=</tt><var>match-pat</var></dt>
+<dd>
+<p>For each consecutive substring at the <tt>b:</tt>eginning or <tt>e:</tt>nd of the current
+word that matches <var>word-pat</var>, broaden the corresponding part of the match
+pattern to additionally match <var>match-pat</var>.
 </p>
-<p>Correspondence classes are defined like character classes, but with two
-differences: they are delimited by a pair of braces, and negated classes
-are not allowed, so the characters <tt>!</tt> and <tt>^</tt> have no special
-meaning directly after the opening brace.  They indicate that a range of
-characters on the line match a range of characters in the trial
-completion, but (unlike ordinary character classes) paired according to
-the corresponding position in the sequence.  For example, to make any
-ASCII lower case letter on the line match the corresponding upper case
-letter in the trial completion, you can use &lsquo;<tt>m:{a-z}={A-Z}</tt>&rsquo;
-(however, see below for the recommended form for this).  More
-than one pair of classes can occur, in which case the first class before
-the <tt>=</tt> corresponds to the first after it, and so on.  If one side has
-more such classes than the other side, the superfluous classes behave
-like normal character classes.  In anchor patterns correspondence classes
-also behave like normal character classes.
+<dl compact="compact">
+<dt>Examples:</dt>
+<dd>
+<p>&lsquo;<tt>b:-=+</tt>&rsquo; lets any number of minuses at the start of the current word be
+completed to a minus or a plus.
 </p>
-<p>The standard &lsquo;<tt>[:</tt><var>name</var><tt>:]</tt>&rsquo; forms described for standard shell
-patterns (see
-<a href="Expansion.html#Filename-Generation">Filename Generation</a>)
-may appear in correspondence classes as well as normal character
-classes.  The only special behaviour in correspondence classes is if
-the form on the left and the form on the right are each one of
-<tt>[:upper:]</tt>, <tt>[:lower:]</tt>.  In these cases the
-character in the word and the character on the line must be the same up
-to a difference in case.  Hence to make any lower case character on the
-line match the corresponding upper case character in the trial
-completion you can use &lsquo;<tt>m:{[:lower:]}={[:upper:]}</tt>&rsquo;.  Although the
-matching system does not yet handle multibyte characters, this is likely
-to be a future extension, at which point this syntax will handle
-arbitrary alphabets; hence this form, rather than the use of explicit
-ranges, is the recommended form.  In other cases
-&lsquo;<tt>[:</tt><var>name</var><tt>:]</tt>&rsquo; forms are allowed.  If the two forms on the left
-and right are the same, the characters must match exactly.  In remaining
-cases, the corresponding tests are applied to both characters, but they
-are not otherwise constrained; any matching character in one set goes
-with any matching character in the other set:  this is equivalent to the
-behaviour of ordinary character classes.
+<p>&lsquo;<tt>B:0=</tt>&rsquo; adds all zeroes at the beginning of the current word to the
+beginning of each match.
 </p>
-<p>The pattern <var>tpat</var> may also be one or two stars, &lsquo;<tt>*</tt>&rsquo; or
-&lsquo;<tt>**</tt>&rsquo;. This means that the pattern on the command line can match
-any number of characters in the trial completion. In this case the
-pattern must be anchored (on either side); in the case of a single
-star, the <var>anchor</var> then determines how much of the trial completion
-is to be included &mdash; only the characters up to the next appearance of
-the anchor will be matched. With two stars, substrings matched by the
-anchor can be matched, too.
-</p>
-<p>Examples:
-</p>
-<p>The keys of the <tt>options</tt> association defined by the <tt>parameter</tt>
-module are the option names in all-lower-case form, without
-underscores, and without the optional <tt>no</tt> at the beginning even
-though the builtins <tt>setopt</tt> and <tt>unsetopt</tt> understand option names
-with upper case letters, underscores, and the optional <tt>no</tt>.  The
-following alters the matching rules so that the prefix <tt>no</tt> and any
-underscore are ignored when trying to match the trial completions
-generated and upper case letters on the line match the corresponding
-lower case letters in the words:
-</p>
-<div class="example">
-<pre class="example">compadd -M 'L:|[nN][oO]= M:_= M:{[:upper:]}={[:lower:]}' - \ 
-  ${(k)options} 
-</pre></div>
+</dd>
+</dl>
 
-<p>The first part says that the pattern &lsquo;<tt>[nN][oO]</tt>&rsquo; at the beginning
-(the empty anchor before the pipe symbol) of the string on the
-line matches the empty string in the list of words generated by
-completion, so it will be ignored if present. The second part does the
-same for an underscore anywhere in the command line string, and the
-third part uses correspondence classes so that any
-upper case letter on the line matches the corresponding lower case
-letter in the word. The use of the upper case forms of the
-specification characters (<tt>L</tt> and <tt>M</tt>) guarantees that what has
-already been typed on the command line (in particular the prefix
-<tt>no</tt>) will not be deleted.
+</dd>
+<dt><tt>l:</tt><tt>|</tt><var>word-pat</var><tt>=</tt><var>match-pat</var></dt>
+<dt><tt>L:</tt><tt>|</tt><var>word-pat</var><tt>=</tt><var>match-pat</var></dt>
+<dt><tt>R:</tt><var>word-pat</var><tt>|</tt><tt>=</tt><var>match-pat</var></dt>
+<dt><tt>r:</tt><var>word-pat</var><tt>|</tt><tt>=</tt><var>match-pat</var></dt>
+<dd>
+<p>If there is a substring at the <tt>l:</tt>eft or <tt>r:</tt>ight edge of the current word
+that matches <var>word-pat</var>, then broaden the corresponding part of the match
+pattern to additionally match <var>match-pat</var>.
 </p>
-<p>Note that the use of <tt>L</tt> in the first part means that it matches
-only when at the beginning of both the command line string and the
-trial completion. I.e., the string &lsquo;<tt>_NO_f</tt>&rsquo; would not be
-completed to &lsquo;<tt>_NO_foo</tt>&rsquo;, nor would &lsquo;<tt>NONO_f</tt>&rsquo; be completed to
-&lsquo;<tt>NONO_foo</tt>&rsquo; because of the leading underscore or the second
-&lsquo;<tt>NO</tt>&rsquo; on the line which makes the pattern fail even though they are 
-otherwise ignored. To fix this, one would use &lsquo;<tt>B:[nN][oO]=</tt>&rsquo;
-instead of the first part. As described above, this matches at the
-beginning of the trial completion, independent of other characters or
-substrings at the beginning of the command line word which are ignored
-by the same or other <var>match-spec</var>s.
+<p>For each <tt>l:</tt>, <tt>L:</tt>, <tt>r:</tt> and <tt>R:</tt> matcher (including the ones below),
+the pattern <var>match-pat</var> may also be a &lsquo;<tt>*</tt>&rsquo;.  This matches any number of
+characters in a completion.
 </p>
-<p>The second example makes completion case insensitive.  This is just
-the same as in the option example, except here we wish to retain the
-characters in the list of completions:
+<dl compact="compact">
+<dt>Examples:</dt>
+<dd>
+<p>&lsquo;<tt>r:|=*</tt>&rsquo; appends a &lsquo;<tt>*</tt>&rsquo; to the match pattern, even when
+<tt>COMPLETE_IN_WORD</tt> is set and the cursor is not at the end of the current
+word.
 </p>
-<div class="example">
-<pre class="example">compadd -M 'm:{[:lower:]}={[:upper:]}' ... 
-</pre></div>
+<p>If the current word starts with a minus, then &lsquo;<tt>L:|-=</tt>&rsquo; will prepend it to
+each match.
+</p>
+</dd>
+</dl>
 
-<p>This makes lower case letters match their upper case counterparts.
-To make upper case letters match the lower case forms as well:
+</dd>
+<dt><tt>l:</tt><var>anchor</var><tt>|</tt><var>word-pat</var><tt>=</tt><var>match-pat</var></dt>
+<dt><tt>L:</tt><var>anchor</var><tt>|</tt><var>word-pat</var><tt>=</tt><var>match-pat</var></dt>
+<dt><tt>r:</tt><var>word-pat</var><tt>|</tt><var>anchor</var><tt>=</tt><var>match-pat</var></dt>
+<dt><tt>R:</tt><var>word-pat</var><tt>|</tt><var>anchor</var><tt>=</tt><var>match-pat</var></dt>
+<dd>
+<p>For each substring of the current word that matches <var>word-pat</var> and has on
+its <tt>l:</tt>eft or <tt>r:</tt>ight another substring matching <var>anchor</var>, broaden the
+corresponding part of the match pattern to additionally match <var>match-pat</var>.
 </p>
-<div class="example">
-<pre class="example">compadd -M 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' ... 
-</pre></div>
+<p>Note that these matchers (and the ones below) modify only what is matched by
+<var>word-pat</var>; they do not change the matching behavior of what is matched by
+<var>anchor</var> (or <var>coanchor</var>; see the matchers below).  Thus, unless its
+corresponding part of the match pattern has been modified, the anchor in the
+current word has to match literally in each completion, just like any other
+substring of the current word.
+</p>
+<p>If a matcher includes at least one anchor (which includes the matchers with two
+anchors, below), then <var>match-pat</var> may also be &lsquo;<tt>*</tt>&rsquo; or &lsquo;<tt>**</tt>&rsquo;.  &lsquo;<tt>*</tt>&rsquo;
+can match any part of a completion that does not contain any substrings
+matching <var>anchor</var>, whereas a &lsquo;<tt>**</tt>&rsquo; can match any part of a completion,
+period.  (Note that this is different from the behavior of &lsquo;<tt>*</tt>&rsquo; in the
+anchorless forms of &lsquo;<tt>l:</tt>&rsquo; and &lsquo;<tt>r:</tt>&rsquo; and and also different from &lsquo;<tt>*</tt>&rsquo;
+and &lsquo;<tt>**</tt>&rsquo; in glob expressions.)
+</p>
+<dl compact="compact">
+<dt>Examples:</dt>
+<dd>
+<p>&lsquo;<tt>r:|.=*</tt>&rsquo; makes the completion &lsquo;<tt>comp.sources.unix</tt>&rsquo; a match for the word
+&lsquo;<tt>..u</tt>&rsquo; &mdash; but <em>not</em> for the word &lsquo;<tt>.u</tt>&rsquo;.
+</p>
+<p>Given a completion &lsquo;<tt>-</tt><tt>-foo</tt>&rsquo;, the matcher &lsquo;<tt>L:&ndash;|no-=</tt>&rsquo; will complete
+the word &lsquo;<tt>-</tt><tt>-no-</tt>&rsquo; to the match &lsquo;<tt>-</tt><tt>-no-foo</tt>&rsquo;.
+</p>
+</dd>
+</dl>
 
-<p>A nice example for the use of <tt>*</tt> patterns is partial word
-completion. Sometimes you would like to make strings like &lsquo;<tt>c.s.u</tt>&rsquo;
-complete to strings like &lsquo;<tt>comp.source.unix</tt>&rsquo;, i.e. the word on the
-command line consists of multiple parts, separated by a dot in this
-example, where each part should be completed separately &mdash; note,
-however, that the case where each part of the word, i.e. &lsquo;<tt>comp</tt>&rsquo;,
-&lsquo;<tt>source</tt>&rsquo; and &lsquo;<tt>unix</tt>&rsquo; in this example, is to be completed from
-separate sets of matches
-is a different problem to be solved by the implementation of the
-completion widget.  The example can be handled by:
+</dd>
+<dt><tt>l:</tt><var>anchor</var><tt>||</tt><var>coanchor</var><tt>=</tt><var>match-pat</var></dt>
+<dt><tt>L:</tt><var>anchor</var><tt>||</tt><var>coanchor</var><tt>=</tt><var>match-pat</var></dt>
+<dt><tt>r:</tt><var>coanchor</var><tt>||</tt><var>anchor</var><tt>=</tt><var>match-pat</var></dt>
+<dt><tt>R:</tt><var>coanchor</var><tt>||</tt><var>anchor</var><tt>=</tt><var>match-pat</var></dt>
+<dd>
+<p>For any two consecutive substrings of the current word that match <var>anchor</var>
+and <var>coanchor</var>, in the order given, insert the pattern <var>match-pat</var>
+between their corresponding parts in the match pattern.
 </p>
-<div class="example">
-<pre class="example">compadd -M 'r:|.=* r:|=*' \ 
-  - comp.sources.unix comp.sources.misc ...
-</pre></div>
+<p>Note that, unlike <var>anchor</var>, the pattern <var>coanchor</var> does not change what
+&lsquo;<tt>*</tt>&rsquo; can match.
+</p>
+<dl compact="compact">
+<dt>Examples:</dt>
+<dd>
+<p>&lsquo;<tt>r:?||[[:upper:]]=*</tt>&rsquo; will complete the current word &lsquo;<tt>fB</tt>&rsquo; to
+&lsquo;<tt>fooBar</tt>&rsquo;, but it will not complete it to &lsquo;<tt>fooHooBar</tt>&rsquo; (because &lsquo;<tt>*</tt>&rsquo;
+here cannot match anything that includes a match for &lsquo;<tt>[[:upper:]]</tt>), nor
+will it complete &lsquo;<tt>B</tt>&rsquo; to &lsquo;<tt>fooBar</tt>&rsquo; (because there is no character in the
+current word to match <var>coanchor</var>).
+</p>
+<p>Given the current word &lsquo;<tt>pass.n</tt>&rsquo; and a completion &lsquo;<tt>pass.byname</tt>&rsquo;, the
+matcher &lsquo;<tt>L:.||[[:alpha:]]=by</tt>&rsquo; will produce the match &lsquo;<tt>pass.name</tt>&rsquo;.
+</p>
+</dd>
+</dl>
 
-<p>The first specification says that <var>lpat</var> is the empty string, while
-<var>anchor</var> is a dot; <var>tpat</var> is <tt>*</tt>, so this can match anything
-except for the &lsquo;<tt>.</tt>&rsquo; from the anchor in
-the trial completion word.  So in &lsquo;<tt>c.s.u</tt>&rsquo;, the matcher sees &lsquo;<tt>c</tt>&rsquo;,
-followed by the empty string, followed by the anchor &lsquo;<tt>.</tt>&rsquo;, and
-likewise for the second dot, and replaces the empty strings before the
-anchors, giving &lsquo;<tt>c</tt>[<tt>omp</tt>]<tt>.s</tt>[<tt>ources</tt>]<tt>.u</tt>[<tt>nix</tt>]&rsquo;, where
-the last part of the completion is just as normal.
+</dd>
+<dt><tt>x:</tt></dt>
+<dd>
+<p>Ignore this matcher and all matchers to its right.
 </p>
-<p>With the pattern shown above, the string &lsquo;<tt>c.u</tt>&rsquo; could not be
-completed to &lsquo;<tt>comp.sources.unix</tt>&rsquo; because the single star means
-that no dot (matched by the anchor) can be skipped. By using two stars 
-as in &lsquo;<tt>r:|.=**</tt>&rsquo;, however, &lsquo;<tt>c.u</tt>&rsquo; could be completed to
-&lsquo;<tt>comp.sources.unix</tt>&rsquo;. This also shows that in some cases,
-especially if the anchor is a real pattern, like a character class,
-the form with two stars may result in more matches than one would like.
+<p>This matcher is used to mark the end of a match specification.  In a single
+standalone list of matchers, this has no use, but where match specifications
+are concatenated, as is often the case when using the
+<a href="Completion-System.html#Completion-System">Completion System</a>, it can allow one match specification to override another.
 </p>
-<p>The second specification is needed to make this work when the cursor is
-in the middle of the string on the command line and the option
-<tt>COMPLETE_IN_WORD</tt> is set. In this case the completion code would
-normally try to match trial completions that end with the string as
-typed so far, i.e. it will only insert new characters at the cursor
-position rather than at the end.  However in our example we would like
-the code to recognise matches which contain extra characters after the
-string on the line (the &lsquo;<tt>nix</tt>&rsquo; in the example).  Hence we say that the
-empty string at the end of the string on the line matches any characters
-at the end of the trial completion.
-</p>
-<p>More generally, the specification
-</p>
-<div class="example">
-<pre class="example">compadd -M 'r:|[.,_-]=* r:|=*' ... 
-</pre></div>
+</dd>
+</dl>
 
-<p>allows one to complete words with abbreviations before any of the
-characters in the square brackets.  For example, to
-complete <tt>veryverylongfile.c</tt> rather than <tt>veryverylongheader.h</tt>
-with the above in effect, you can just type <tt>very.c</tt> before attempting
-completion.
-</p>
-<p>The specifications with both a left and a right anchor are useful to
-complete partial words whose parts are not separated by some
-special character. For example, in some places strings have to be
-completed that are formed &lsquo;<tt>LikeThis</tt>&rsquo; (i.e. the separate parts are
-determined by a leading upper case letter) or maybe one has to
-complete strings with trailing numbers. Here one could use the simple
-form with only one anchor as in:
-</p>
-<div class="example">
-<pre class="example">compadd -M 'r:|[[:upper:]0-9]=* r:|=*' LikeTHIS FooHoo 5foo123 5bar234
-</pre></div>
-
-<p>But with this, the string &lsquo;<tt>H</tt>&rsquo; would neither complete to &lsquo;<tt>FooHoo</tt>&rsquo;
-nor to &lsquo;<tt>LikeTHIS</tt>&rsquo; because in each case there is an upper case
-letter before the &lsquo;<tt>H</tt>&rsquo; and that is matched by the anchor. Likewise, 
-a &lsquo;<tt>2</tt>&rsquo; would not be completed. In both cases this could be changed
-by using &lsquo;<tt>r:|[[:upper:]0-9]=**</tt>&rsquo;, but then &lsquo;<tt>H</tt>&rsquo; completes to both
-&lsquo;<tt>LikeTHIS</tt>&rsquo; and &lsquo;<tt>FooHoo</tt>&rsquo; and a &lsquo;<tt>2</tt>&rsquo; matches the other
-strings because characters can be inserted before every upper case
-letter and digit. To avoid this one would use:
-</p>
-<div class="example">
-<pre class="example">compadd -M 'r:[^[:upper:]0-9]||[[:upper:]0-9]=** r:|=*' \ 
-    LikeTHIS FooHoo foo123 bar234
-</pre></div>
-
-<p>By using these two anchors, a &lsquo;<tt>H</tt>&rsquo; matches only upper case &lsquo;<tt>H</tt>&rsquo;s that 
-are immediately preceded by something matching the left anchor
-&lsquo;<tt>[^[:upper:]0-9]</tt>&rsquo;. The effect is, of course, that &lsquo;<tt>H</tt>&rsquo; matches only
-the string &lsquo;<tt>FooHoo</tt>&rsquo;, a &lsquo;<tt>2</tt>&rsquo; matches only &lsquo;<tt>bar234</tt>&rsquo; and so on.
-</p>
-<p>When using the completion system (see
-<a href="Completion-System.html#Completion-System">Completion System</a>), users can define match specifications that are to be used for
-specific contexts by using the <tt>matcher</tt> and <tt>matcher-list</tt>
-styles. The values for the latter will be used everywhere.
-</p>
 <hr>
 <a name="Completion-Widget-Example"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
@@ -1474,7 +1481,7 @@ matches, e.g.:
 <pre class="example">complete-files () { compadd - * }
 </pre></div>
 
-<p>This function will complete files in the current directory matching the 
+<p>This function will complete files in the current directory matching the
 current word.
 </p><hr>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
@@ -1492,10 +1499,10 @@ current word.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated on <i>February 15, 2020</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
+  This document was generated on <i>May 14, 2022</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
  </font>
  <br>
-<font size="-1">Zsh version 5.8, released on February 14, 2020.</font>
+<font size="-1">Zsh version 5.9, released on May 14, 2022.</font>
 </p>
 </body>
 </html>

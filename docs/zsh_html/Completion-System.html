@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created on February 15, 2020 by texi2html 5.0
+<!-- Created on May 14, 2022 by texi2html 5.0
 texi2html was written by: 
             Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -54,7 +54,7 @@ ul.no-bullet {list-style: none}
 <tr><td valign="middle" align="left">[<a href="Completion-Widgets.html#Completion-Widgets" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="Completion-Widgets.html#Completion-Widget-Example" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="index.html#Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="#Description-3" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-2" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Completion-Using-compctl.html#Completion-Using-compctl" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -73,7 +73,7 @@ ul.no-bullet {list-style: none}
 <a name="index-completion_002c-controlling-1"></a>
 
 <hr>
-<a name="Description-3"></a>
+<a name="Description-2"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Completion-System" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Completion-System" title="Previous section in reading order"> &lt; </a>]</td>
@@ -187,7 +187,7 @@ as &lsquo;widgets&rsquo;.  These proliferate as new completions are required.
 <a name="Initialization"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Completion-System" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Description-3" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Description-2" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Completion-System" title="Up section"> Up </a>]</td>
 <td valign="middle" align="left">[<a href="#Use-of-compinit" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Completion-Using-compctl.html#Completion-Using-compctl" title="Next chapter"> &gt;&gt; </a>]</td>
@@ -315,7 +315,7 @@ root or by the current user.  If such files or directories are found,
 avoid these tests and make all files found be used without asking, use the
 option <tt>-u</tt>, and to make <tt>compinit</tt> silently ignore all insecure files
 and directories use the option <tt>-i</tt>.  This security check is skipped
-entirely when the <tt>-C</tt> option is given.
+entirely when the <tt>-C</tt> option is given, provided the dumpfile exists.
 </p>
 <a name="index-compaudit"></a>
 <p>The security check can be retried at any time by running the function
@@ -342,7 +342,7 @@ written for bash.
 <tr><td valign="middle" align="left">[<a href="#Completion-System" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Use-of-compinit" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Initialization" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-4" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-3" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Completion-Using-compctl.html#Completion-Using-compctl" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -470,16 +470,16 @@ main difference is that the name of the function is supplied implicitly.
 <dd><p>The right hand side of an array-assignment
 (&lsquo;<var>name</var><tt>=(</tt><var>...</var><tt>)</tt>&rsquo;)
 </p>
-<a name="index-_002dbrace_002dparameter_002d_002c-completion-context"></a>
-</dd>
-<dt><tt>-brace-parameter-</tt></dt>
-<dd><p>The name of a parameter expansion within braces (&lsquo;<tt>${</tt><var>...</var><tt>}</tt>&rsquo;)
-</p>
 <a name="index-_002dassign_002dparameter_002d_002c-completion-context"></a>
 </dd>
 <dt><tt>-assign-parameter-</tt></dt>
 <dd><p>The name of a parameter in an assignment, i.e. on the left hand side of
 an &lsquo;<tt>=</tt>&rsquo;
+</p>
+<a name="index-_002dbrace_002dparameter_002d_002c-completion-context"></a>
+</dd>
+<dt><tt>-brace-parameter-</tt></dt>
+<dd><p>The name of a parameter expansion within braces (&lsquo;<tt>${</tt><var>...</var><tt>}</tt>&rsquo;)
 </p>
 <a name="index-_002dcommand_002d_002c-completion-context"></a>
 </dd>
@@ -611,7 +611,7 @@ matching &lsquo;<tt>*.log</tt>&rsquo;.
 </p>
 
 <hr>
-<a name="Functions-4"></a>
+<a name="Functions-3"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Completion-System" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Autoloaded-files" title="Previous section in reading order"> &lt; </a>]</td>
@@ -723,9 +723,9 @@ used to complete options for commands that understand the
 <a name="Completion-System-Configuration"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Completion-System" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Functions-4" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Functions-3" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Completion-System" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="#Overview-1" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Overview-2" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Completion-Using-compctl.html#Completion-Using-compctl" title="Next chapter"> &gt;&gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -747,7 +747,7 @@ generated.
 </p>
 
 <hr>
-<a name="Overview-1"></a>
+<a name="Overview-2"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Completion-System" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Completion-System-Configuration" title="Previous section in reading order"> &lt; </a>]</td>
@@ -884,8 +884,8 @@ described in
 <p>When looking up styles the completion system uses full context names,
 including the tag.  Looking up the value of a style therefore consists of
 two things: the context, which is matched to the most specific (best
-fitting) style pattern, and the name of the style itself, which must be
-matched exactly.  The following examples demonstrate that style patterns
+fitting) pattern, and the name of the style itself, which must be
+matched exactly.  The following examples demonstrate that patterns
 may be loosely defined for styles that apply broadly, or as tightly
 defined as desired for styles that apply in narrower circumstances.
 </p>
@@ -901,7 +901,7 @@ put
 <p>in a startup file (probably <tt>.zshrc</tt>).
 This gives the <tt>verbose</tt> style the value <tt>yes</tt> in every
 context inside the completion system, unless that context has a more
-specific definition.  It is best to avoid giving the context as &lsquo;<tt>*</tt>&rsquo;
+specific definition.  It is best to avoid giving the pattern as &lsquo;<tt>*</tt>&rsquo;
 in case the style has some meaning outside the completion system.
 </p>
 <p>Many such general purpose styles can be configured simply by using the
@@ -942,15 +942,21 @@ as <tt>menu</tt> and <tt>list-rows-first</tt>.
 </p>
 <p>Note that the order in which styles are <em>defined</em> does not matter; the
 style mechanism uses the most specific possible match for a particular
-style to determine the set of values.  More precisely, strings are
+style to determine the set of values.  Strings are
 preferred over patterns (for example, &lsquo;<tt>:completion::complete:::foo</tt>&rsquo; is
 more specific than &lsquo;<tt>:completion::complete:::*&rsquo;</tt>), and longer patterns are
-preferred over shorter patterns.
+preferred over the pattern &lsquo;<tt>*</tt>&rsquo;. See 
+<a href="Zsh-Modules.html#The-zsh_002fzutil-Module">The zsh/zutil Module</a>
+for details.
 </p>
-<p>A good rule of thumb is that any completion style pattern that needs to
-include more than one wildcard (<tt>*</tt>) and that does not end in a tag
-name, should include all six colons (<tt>:</tt>), possibly surrounding
-additional wildcards.
+<p>Context patterns that use something other than a wildcard (<tt>*</tt>) to match the
+middle parts of the context &mdash; the <var>completer</var>, <var>command</var>, and
+<var>argument</var> in
+<tt>:completion:</tt><var>function</var><tt>:</tt><var>completer</var><tt>:</tt><var>command</var><tt>:</tt><var>argument</var><tt>:</tt><var>tag</var>
+&mdash; should include all six colons (<tt>:</tt>) explicitly. Without this,
+a pattern such as <tt>:completion:*:foo:*</tt> could match <tt>foo</tt> against a
+component other than the intended one (for example, against <var>completer</var> when
+a match against <var>command</var> was intended).
 </p>
 <p>Style names like those of tags are arbitrary and depend on the completion
 function.  However, the following two sections list some of the most
@@ -961,7 +967,7 @@ common tags and styles.
 <a name="Standard-Tags"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Completion-System" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Overview-1" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#Overview-2" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Completion-System-Configuration" title="Up section"> Up </a>]</td>
 <td valign="middle" align="left">[<a href="#Standard-Styles" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left">[<a href="Completion-Using-compctl.html#Completion-Using-compctl" title="Next chapter"> &gt;&gt; </a>]</td>
@@ -1170,15 +1176,15 @@ commands may understand other kinds of function
 <dt><tt>indexes</tt></dt>
 <dd><p>for array indexes
 </p>
-<a name="index-jobs_002c-completion-tag"></a>
-</dd>
-<dt><tt>jobs</tt></dt>
-<dd><p>for jobs (as listed by the &lsquo;<tt>jobs</tt>&rsquo; builtin)
-</p>
 <a name="index-interfaces_002c-completion-tag"></a>
 </dd>
 <dt><tt>interfaces</tt></dt>
 <dd><p>for network interfaces
+</p>
+<a name="index-jobs_002c-completion-tag"></a>
+</dd>
+<dt><tt>jobs</tt></dt>
+<dd><p>for jobs (as listed by the &lsquo;<tt>jobs</tt>&rsquo; builtin)
 </p>
 <a name="index-keymaps_002c-completion-tag"></a>
 </dd>
@@ -1208,15 +1214,15 @@ directory when completing arguments of <tt>cd</tt> and related builtin
 commands (compare <tt>path-directories</tt>) &mdash; when the <tt>cdpath</tt>
 array is unset, <tt>directories</tt> is used instead
 </p>
-<a name="index-manuals_002c-completion-tag"></a>
-</dd>
-<dt><tt>manuals</tt></dt>
-<dd><p>for names of manual pages
-</p>
 <a name="index-mailboxes_002c-completion-tag"></a>
 </dd>
 <dt><tt>mailboxes</tt></dt>
 <dd><p>for e-mail folders
+</p>
+<a name="index-manuals_002c-completion-tag"></a>
+</dd>
+<dt><tt>manuals</tt></dt>
+<dd><p>for names of manual pages
 </p>
 <a name="index-maps_002c-completion-tag"></a>
 </dd>
@@ -1278,12 +1284,6 @@ offering the original string as a match
 </dd>
 <dt><tt>other-accounts</tt></dt>
 <dd><p>used to look up the <tt>users-hosts</tt> style
-</p>
-<a name="index-other_002dfiles_002c-completion-tag"></a>
-</dd>
-<dt><tt>other-files</tt></dt>
-<dd><p>for the names of any non-directory files.  This is used instead
-of <tt>all-files</tt> when the <tt>list-dirs-first</tt> style is in effect.
 </p>
 <a name="index-packages_002c-completion-tag"></a>
 </dd>
@@ -1769,6 +1769,13 @@ components after the first ambiguous one will also be added.  This means
 that the resulting string is the longest unambiguous string possible.
 However, menu completion can be used to cycle through all matches.
 </p>
+<a name="index-extra_002dverbose_002c-completion-style"></a>
+</dd>
+<dt><tt>extra-verbose</tt></dt>
+<dd><p>If set, the completion listing is more verbose at the cost of
+a probable decrease in completion speed.  Completion performance
+will suffer if this style is set to &lsquo;true&rsquo;.
+</p>
 <a name="index-fake_002c-completion-style"></a>
 </dd>
 <dt><tt>fake</tt></dt>
@@ -1918,9 +1925,10 @@ If no &lsquo;<tt>:</tt><var>tag</var>&rsquo; is given the &lsquo;<tt>files</tt>&
 <p>The <var>tag</var> may also be followed by an optional second colon and a
 description, which will be used for the &lsquo;<tt>%d</tt>&rsquo; in the value of
 the <tt>format</tt> style (if that is set) instead of the default
-description supplied by the completion function.  If the description
-given here contains itself a &lsquo;<tt>%d</tt>&rsquo;, that is replaced with the
-description supplied by the completion function.
+description supplied by the completion function.  The inclusion
+of a description also gives precedence to associated options such as
+for completion grouping so it can be used where files should be
+separated.
 </p>
 <p>For example, to make the <tt>rm</tt> command first complete only names of
 object files and then the names of all files if there is no matching
@@ -1946,6 +1954,17 @@ all files using the pattern &lsquo;<tt>*</tt>&rsquo; at the first step and stops
 sees this pattern.  Note also it will never try a pattern more than once
 for a single completion attempt.
 </p>
+<p>To separate directories into a separate group from the files but still
+complete them at the first attempt, a description needs to be given.
+Note that directories need to be explicitly excluded from the
+globbed-files because &lsquo;<tt>*</tt>&rsquo; will match directories. For grouping, it
+is also necessary to set the <tt>group-name</tt> style.
+</p>
+<div class="example">
+<pre class="example">zstyle ':completion:*' file-patterns \ 
+    '%p(^-/):globbed-files *(-/):directories:location'
+</pre></div>
+
 <p>During the execution of completion functions, the <tt>EXTENDED_GLOB</tt>
 option is in effect, so the characters &lsquo;<tt>#</tt>&rsquo;, &lsquo;<tt>~</tt>&rsquo; and &lsquo;<tt>^</tt>&rsquo; have
 special meanings in the patterns.
@@ -2041,6 +2060,16 @@ and similar escape sequences.  This is handled by the <tt>zformat</tt>
 builtin command from the <tt>zsh/zutil</tt> module, see
 <a href="Zsh-Modules.html#The-zsh_002fzutil-Module">The zsh/zutil Module</a>.
 </p>
+<a name="index-gain_002dprivileges_002c-completion-style"></a>
+</dd>
+<dt><tt>gain-privileges</tt></dt>
+<dd><p>If set to <tt>true</tt>, this style enables the use of commands like <tt>sudo</tt>
+or <tt>doas</tt> to gain extra privileges when retrieving information for
+completion. This is only done when a command such as <tt>sudo</tt> appears on
+the command-line. To force the use of, e.g. <tt>sudo</tt> or to override any
+prefix that might be added due to <tt>gain-privileges</tt>, the <tt>command</tt>
+style can be used with a value that begins with a hyphen.
+</p>
 <a name="index-glob_002c-completion-style"></a>
 </dd>
 <dt><tt>glob</tt></dt>
@@ -2086,6 +2115,9 @@ different types of matches displayed separately, one can just set:
 
 <p>All matches for which no group name is defined will be put in a group
 named <tt>-default-</tt>.
+</p>
+<p>To display the group name in the output, see the <tt>format</tt> style (q.v.)
+under the <tt>descriptions</tt> tag.
 </p>
 <a name="index-group_002dorder_002c-completion-style"></a>
 </dd>
@@ -2204,13 +2236,6 @@ completed, not when completing names of files.
 <tt>ignored-patterns</tt> style, so they can be restored to consideration by
 the <tt>_ignored</tt> completer.
 </p>
-<a name="index-extra_002dverbose_002c-completion-style"></a>
-</dd>
-<dt><tt>extra-verbose</tt></dt>
-<dd><p>If set, the completion listing is more verbose at the cost of
-a probable decrease in completion speed.  Completion performance
-will suffer if this style is set to &lsquo;true&rsquo;.
-</p>
 <a name="index-ignored_002dpatterns_002c-completion-style"></a>
 </dd>
 <dt><tt>ignored-patterns</tt></dt>
@@ -2249,6 +2274,31 @@ unique before converting the name to an ID; attempts at completion will
 be unsuccessful until that point.  If the value is any other
 string, menu completion will be started when the string typed by the
 user is longer than the common prefix to the corresponding IDs.
+</p>
+<a name="index-insert_002dsections_002c-completion-style"></a>
+</dd>
+<dt><tt>insert-sections</tt></dt>
+<dd><p>This style is used with tags of the form &lsquo;<tt>manuals.</tt><var>X</var>&rsquo; when
+completing names of manual pages. If set and the <var>X</var> in the tag name matches
+the section number of the page being completed, the section number is inserted
+along with the page name. For example, given
+</p>
+<div class="example">
+<pre class="example">zstyle ':completion:*:manuals.*' insert-sections true
+</pre></div>
+
+<p><tt>man ssh_&lt;TAB&gt;</tt> may be completed to <tt>man 5 ssh_config</tt>.
+</p>
+<p>The value may also be set to one of &lsquo;<tt>prepend</tt>&rsquo;, or &lsquo;<tt>suffix</tt>&rsquo;.
+&lsquo;<tt>prepend</tt>&rsquo; behaves the same as &lsquo;true&rsquo; as in the above example, while
+&lsquo;<tt>suffix</tt>&rsquo; would complete <tt>man ssh_&lt;TAB&gt;</tt> as <tt>man ssh_config.5</tt>.
+</p>
+<p>This is especially useful in conjunction with <tt>separate-sections</tt>, as
+it ensures that the page requested of <tt>man</tt> corresponds to the one
+displayed in the completion listing when there are multiple pages with the
+same name (e.g., <tt>printf(1)</tt> and <tt>printf(3)</tt>).
+</p>
+<p>The default for this style is &lsquo;false&rsquo;.
 </p>
 <a name="index-insert_002dtab_002c-completion-style"></a>
 </dd>
@@ -2290,16 +2340,6 @@ number of errors that were accepted.
 the string &lsquo;<tt>pattern</tt>&rsquo;.  Then the pattern on the line is left
 unchanged if it does not match unambiguously.
 </p>
-<a name="index-gain_002dprivileges_002c-completion-style"></a>
-</dd>
-<dt><tt>gain-privileges</tt></dt>
-<dd><p>If set to <tt>true</tt>, this style enables the use of commands like <tt>sudo</tt>
-or <tt>doas</tt> to gain extra privileges when retrieving information for
-completion. This is only done when a command such as <tt>sudo</tt> appears on
-the command-line. To force the use of, e.g. <tt>sudo</tt> or to override any
-prefix that might be added due to <tt>gain-privileges</tt>, the <tt>command</tt>
-style can be used with a value that begins with a hyphen.
-</p>
 <a name="index-keep_002dprefix_002c-completion-style"></a>
 </dd>
 <dt><tt>keep-prefix</tt></dt>
@@ -2316,6 +2356,14 @@ expanded unconditionally.
 to give up when a single expansion with the restored prefix is the same
 as the original; hence any remaining completers may be called.
 </p>
+<a name="index-known_002dhosts_002dfiles"></a>
+</dd>
+<dt><tt>known-hosts-files</tt></dt>
+<dd><p>This style should contain a list of files to search for host names and
+(if the <tt>use-ip</tt> style is set) IP addresses in a format compatible with
+ssh <tt>known_hosts</tt> files.  If it is not set, the files
+<tt>/etc/ssh/ssh_known_hosts</tt> and <tt>~/.ssh/known_hosts</tt> are used.
+</p>
 <a name="index-last_002dprompt_002c-completion-style"></a>
 </dd>
 <dt><tt>last-prompt</tt></dt>
@@ -2327,14 +2375,6 @@ tested for all tags valid for the current completion, then the
 previous line if this style is &lsquo;true&rsquo; for all types of match.  Note
 that unlike the <tt>ALWAYS_LAST_PROMPT</tt> option this is independent of the
 numeric argument.
-</p>
-<a name="index-known_002dhosts_002dfiles"></a>
-</dd>
-<dt><tt>known-hosts-files</tt></dt>
-<dd><p>This style should contain a list of files to search for host names and
-(if the <tt>use-ip</tt> style is set) IP addresses in a format compatible with
-ssh <tt>known_hosts</tt> files.  If it is not set, the files
-<tt>/etc/ssh/ssh_known_hosts</tt> and <tt>~/.ssh/known_hosts</tt> are used.
 </p>
 <a name="index-list_002c-completion-style"></a>
 </dd>
@@ -2378,11 +2418,10 @@ obtained by setting the style to an empty string (i.e. <tt>&rsquo;&rsquo;</tt>).
 <a name="index-list_002ddirs_002dfirst_002c-completion-style"></a>
 </dd>
 <dt><tt>list-dirs-first</tt></dt>
-<dd><p>This is used by file completion.  If set, directories to be completed
-are listed separately from and before completion for other files,
-regardless of tag ordering.  In addition, the tag <tt>other-files</tt>
-is used in place of <tt>all-files</tt> for the remaining files, to indicate
-that no directories are presented with that tag.
+<dd><p>This is used by file completion and corresponds to a particular
+setting of the <tt>file-patterns</tt> style.
+If set, the default directories to be completed
+are listed separately from and before completion for other files.
 </p>
 <a name="index-list_002dgrouped_002c-completion-style"></a>
 </dd>
@@ -2439,6 +2478,13 @@ the removal to take effect.
 determines whether matches are to be listed in a rows-first fashion as
 if the <tt>LIST_ROWS_FIRST</tt> option were set.
 </p>
+<a name="index-list_002dseparator_002c-completion-style"></a>
+</dd>
+<dt><tt>list-separator</tt></dt>
+<dd><p>The value of this style is used in completion listing to separate the
+string to complete from a description when possible (e.g. when
+completing options).  It defaults to &lsquo;<tt>-</tt><tt>-</tt>&rsquo; (two hyphens).
+</p>
 <a name="index-list_002dsuffixes_002c-completion-style"></a>
 </dd>
 <dt><tt>list-suffixes</tt></dt>
@@ -2446,13 +2492,6 @@ if the <tt>LIST_ROWS_FIRST</tt> option were set.
 &lsquo;true&rsquo;, and completion is attempted on a string containing multiple partially
 typed pathname components, all ambiguous components will be shown.
 Otherwise, completion stops at the first ambiguous component.
-</p>
-<a name="index-list_002dseparator_002c-completion-style"></a>
-</dd>
-<dt><tt>list-separator</tt></dt>
-<dd><p>The value of this style is used in completion listing to separate the
-string to complete from a description when possible (e.g. when
-completing options).  It defaults to &lsquo;<tt>-</tt><tt>-</tt>&rsquo; (two hyphens).
 </p>
 <a name="index-local_002c-completion-style"></a>
 </dd>
@@ -2917,7 +2956,7 @@ number, for example &lsquo;<tt>*/.git/*</tt>&rsquo;.
 </pre></div>
 
 <p>If the current directory is <tt>/home/pws/zsh/Src</tt>, then
-<tt>zle_tr</tt><em>TAB</em> can be completed to <tt>Zle/zle_tricky.c</tt>.
+<tt>zle_tr&lt;TAB&gt;</tt> can be completed to <tt>Zle/zle_tricky.c</tt>.
 </p>
 <a name="index-regular_002c-completion-style"></a>
 </dd>
@@ -2981,13 +3020,14 @@ The default is to scroll by single lines.
 <dt><tt>separate-sections</tt></dt>
 <dd><p>This style is used with the <tt>manuals</tt> tag when completing names of
 manual pages.  If it is &lsquo;true&rsquo;, entries for different sections are
-added separately using tag names of the form &lsquo;<tt>manual.</tt><var>X</var>&rsquo;,
+added separately using tag names of the form &lsquo;<tt>manuals.</tt><var>X</var>&rsquo;,
 where <var>X</var> is the section number.  When the <tt>group-name</tt> style is
 also in effect, pages from different sections will appear separately.
 This style is also used similarly with the <tt>words</tt> style when
 completing words for the dict command. It allows words from different
-dictionary databases to be added separately.
-The default for this style is &lsquo;false&rsquo;.
+dictionary databases to be added separately. See also <tt>insert-sections</tt>.
+</p>
+<p>The default for this style is &lsquo;false&rsquo;.
 </p>
 <a name="index-show_002dambiguity_002c-completion-style"></a>
 </dd>
@@ -4213,9 +4253,19 @@ described using the <var>spec</var>s which are of the form:
 &lsquo;<var>tag</var><tt>:</tt><var>descr</var><tt>:</tt><var>action</var>&rsquo;.  The <var>tag</var>s are offered using
 <tt>_tags</tt> and if the tag is requested, the <var>action</var> is executed with the
 given description <var>descr</var>.  The <var>action</var>s are those accepted
-by the <tt>_arguments</tt> function (described below), excluding the
-&lsquo;<tt>-&gt;</tt><var>state</var>&rsquo; and &lsquo;<tt>=</tt><var>...</var>&rsquo; forms.
-</p>
+by the <tt>_arguments</tt> function (described below), with the following
+exceptions:
+</p><ul>
+<li> 
+The &lsquo;<tt>-&gt;</tt><var>state</var>&rsquo; and &lsquo;<tt>=</tt><var>...</var>&rsquo; forms are not supported.
+
+</li><li> 
+The &lsquo;<tt>((a\:bar b\:baz</tt><tt>))</tt>&rsquo; form does not need
+the colon to be escaped, since the <var>spec</var>s have no colon-separated fields
+after the <var>action</var>.
+
+</li></ul>
+
 <p>For example, the <var>action</var> may be a simple function call:
 </p>
 <div class="example">
@@ -4360,6 +4410,13 @@ The default <var>matchspec</var> allows partial word completion after &lsquo;<tt
 <pre class="example"><tt>r:|[_-]=* r:|=*</tt>
 </pre></div>
 
+</dd>
+<dt><tt>-0</tt></dt>
+<dd><p>When populating values of the &lsquo;<tt>opt_args</tt>&rsquo; associative array, don&rsquo;t
+backslash-escape colons and backslashes and use NUL rather than colon for
+joining multiple values. This option is described in more detail below, under
+the heading <em><var>spec</var>s: actions</em>.
+</p>
 </dd>
 </dl>
 
@@ -4547,6 +4604,7 @@ used, and on subsequent calls &lsquo;<tt>_arguments !$^global_options</tt>&rsquo
 </p>
 <p><em><var>spec</var>s: actions</em>
 </p>
+
 <p>In each of the forms above the <var>action</var> determines how
 completions should be generated.  Except for the &lsquo;<tt>-&gt;</tt><var>string</var>&rsquo;
 form below, the <var>action</var> will be executed by calling the
@@ -4679,9 +4737,25 @@ the normal arguments from the command line, i.e. the words from the
 command line after the command name excluding all options and their
 arguments.  Options are stored in the associative array
 &lsquo;<tt>opt_args</tt>&rsquo; with option names as keys and their arguments as
-the values.  For options that have more than one argument these are
-given as one string, separated by colons.  All colons and backslashes
-in the original arguments are preceded with backslashes.
+the values.  By default, all colons and backslashes in the value are escaped
+with backslashes, and if an option has multiple arguments (for example, when
+using an <var>optspec</var> of the form &lsquo;<tt>*</tt><var>optspec</var>&rsquo;), they are joined with
+(unescaped) colons.  However, if the <tt>-0</tt> option was passed, no backslash
+escaping is performed, and multiple values are joined with NUL bytes.  For
+example, after &lsquo;<tt>zsh -o foo:foo -o bar:bar -o &lt;TAB&gt;</tt>&rsquo;, the contents of
+&lsquo;<tt>opt_args</tt>&rsquo; would be
+</p>
+<div class="example">
+<pre class="example">typeset -A opt_args=( [-o]='foo\:foo:bar\:bar:' )
+</pre></div>
+
+<p>by default, and
+</p>
+<div class="example">
+<pre class="example">typeset -A opt_args=( [-o]=$'foo:foo\x00bar:bar\x00' )
+</pre></div>
+
+<p>if <tt>_arguments</tt> had been called with the <tt>-0</tt> option.
 </p>
 <p>The parameter &lsquo;<tt>context</tt>&rsquo; is set when returning to the calling function
 to perform an action of the form &lsquo;<tt>-&gt;</tt><var>string</var>&rsquo;.  It is set to an
@@ -4912,7 +4986,7 @@ the description &lsquo;<var>resolution</var>&rsquo;) and will be completed from 
 arguments.  The first describes the first argument as a
 &lsquo;<var>postscript file</var>&rsquo; and makes files ending in &lsquo;<tt>ps</tt>&rsquo; or &lsquo;<tt>eps</tt>&rsquo; 
 be completed.  The last description gives all other arguments the
-description &lsquo;<var>page numbers</var>&rsquo; but does not offer completions.
+description &lsquo;<var>page number</var>&rsquo; but does not offer completions.
 </p>
 <a name="index-_005fcache_005finvalid"></a>
 </dd>
@@ -5048,6 +5122,16 @@ locale is exported to the environment. Typical usage would be
 </dd>
 </dl>
 
+<a name="index-_005fdefault"></a>
+</dd>
+<dt><tt>_default</tt></dt>
+<dd><p>This function corresponds to the <tt>-default-</tt> special context which is
+applied where no completion is defined.  It is useful to call it under
+certain error conditions such as completion after an unrecognised
+subcommand.  This applies the concept of graceful degradation to the
+completion system, allowing it to fallback on basic completion of
+commonly useful things like filenames.
+</p>
 <a name="index-_005fdescribe"></a>
 
 </dd>
@@ -5123,8 +5207,24 @@ not contain an explanation string to be displayed above the matches.
 <p>If <tt>_description</tt> is called with more than three arguments,
 the additional <var>spec</var>s should be of the form &lsquo;<var>char</var><tt>:</tt><var>str</var>&rsquo;.
 These supply escape sequence replacements for the <tt>format</tt> style:
-every appearance of &lsquo;<tt>%</tt><var>char</var>&rsquo; will be
-replaced by <var>string</var>.
+every appearance of &lsquo;<tt>%</tt><var>char</var>&rsquo; will be replaced by <var>string</var>.
+If no additional <var>spec</var>s are given but the description in <var>descr</var>
+conforms to a common form then further escape sequences are set for
+elements of that description.  These elements correspond to a default
+value (&lsquo;<tt>%o</tt>&rsquo;), the units (&lsquo;<tt>%m</tt>&rsquo;) range of acceptable values
+(&lsquo;<tt>%r</tt>&rsquo;) and the remaining initial part of the description (&lsquo;<tt>%h</tt>&rsquo;).
+The form the description takes consists of specifying the units and
+range in parentheses and the default value in square brackets, for
+example:
+</p>
+<div class="example">
+<pre class="example">_description times expl 'timeout (seconds) (0-60) [20]'
+</pre></div>
+
+<p>It is possible to use <tt>zformat</tt> conditional expressions when styling
+these elements. So, for example, to add &lsquo;<tt>default:</tt>&rsquo; as a tag but only
+when there is a default value to show, the <tt>format</tt> style might
+include &lsquo;<tt>%(o.default: %o.)</tt>&rsquo;.
 </p>
 <p>If the <tt>-x</tt> option is given, the description will be passed to
 <tt>compadd</tt> using the <tt>-x</tt> option instead of the default <tt>-X</tt>.  This
@@ -5422,6 +5522,81 @@ checked.  If it is set completion is terminated at that point even if
 no matches have been found.  This is the same effect as in the
 <tt>-first-</tt> context.
 </p>
+<a name="index-_005fnumbers"></a>
+</dd>
+<dt><tt>_numbers</tt> [ <var>option</var> ... ] [ <var>description</var> ] [ <var>suffix</var> ... ]</dt>
+<dd><p>This can be used where a number is followed by a suffix to indicate the units.
+The unit suffixes are completed and can also be included in the description
+used when completion is invoked for the preceding number.
+</p>
+<p>In addition to common <tt>compadd</tt> options, <tt>_numbers</tt> accepts the following
+options:
+</p>
+<dl compact="compact">
+<dt><tt>-t</tt> <var>tag</var></dt>
+<dd><p>Specify a tag to use instead of the default of <tt>numbers</tt>.
+</p>
+</dd>
+<dt><tt>-u</tt> <var>units</var></dt>
+<dd><p>Indicate the default units for the number, e.g. <tt>bytes</tt>.
+</p>
+</dd>
+<dt><tt>-l</tt> <var>min</var></dt>
+<dd><p>Specify the lowest possible value for the number.
+</p>
+</dd>
+<dt><tt>-m</tt> <var>max</var></dt>
+<dd><p>Specify the highest possible value for the number.
+</p>
+</dd>
+<dt><tt>-d</tt> <var>default</var></dt>
+<dd><p>Specify the default value.
+</p>
+</dd>
+<dt><tt>-N</tt></dt>
+<dd><p>Allow negative numbers.  This is implied if the range includes a negative.
+</p>
+</dd>
+<dt><tt>-f</tt></dt>
+<dd><p>Allow decimal numbers.
+</p>
+</dd>
+</dl>
+
+<p>Where a particular suffix represents the default units for a number, it
+should be prefixed with a colon.  Additionally, suffixes can be followed
+by a colon and a description.  So for example, the following allows the
+age of something to be specified, either in seconds or with an optional
+suffix with a longer unit of time:
+</p>
+<div class="example">
+<pre class="example">_numbers -u seconds age :s:seconds m:minutes h:hours d:days
+</pre></div>
+
+<p>It is typically helpful for units to be presented in order of magnitude
+when completed.  To facilitate this, the order in which they are given
+is preserved.
+</p>
+<p>When the <tt>format</tt> style is looked up with the <tt>descriptions</tt> tag or
+the tag specified with <tt>-t</tt>, the list of suffixes is available as a
+&lsquo;<tt>%x</tt>&rsquo; escape sequence. This is in addition to the usual sequences
+documented under the <tt>format</tt> style. The form this list takes can also
+be configured. To this end, the <tt>format</tt> style is first looked up with
+the tag <tt>unit-suffixes</tt>. The retrieved format is applied to each
+suffix in turn and the results are then concatenated to form the
+completed list. For the <tt>unit-suffixes</tt> format, &lsquo;<tt>%x</tt>&rsquo; expands to
+the individual suffix and &lsquo;<tt>%X</tt>&rsquo; to its description. <tt>%d</tt>&rsquo; indicates
+a default suffix and can be used in a condition. The index and reverse
+index are set in &lsquo;<tt>%i</tt>&rsquo; and &lsquo;<tt>%r</tt>&rsquo; respectively and are useful for
+text included only with the first and last suffixes in the list. So for
+example, the following joins the suffixes together as a comma-separated
+list:
+</p>
+<div class="example">
+<pre class="example">zstyle ':completion:*:unit-suffixes' format '%x%(r::,)'
+</pre></div>
+
+
 <a name="index-_005foptions"></a>
 </dd>
 <dt><tt>_options</tt></dt>
@@ -6013,9 +6188,12 @@ matches with the given description:
 <div class="example">
 <pre class="example">local expl
 _wanted tag expl 'description' \ 
-    compadd matches...
+    compadd -- <var>match1</var> <var>match2</var>...
 </pre></div>
 
+<p>See also the use of <tt>_wanted</tt> in the example function in
+<a href="Expansion.html#Dynamic-named-directories">Dynamic named directories</a>.
+</p>
 <p>Note that, as for <tt>_requested</tt>, the <var>command</var> must be able to
 accept options to be passed down to <tt>compadd</tt>.
 </p>
@@ -6027,7 +6205,7 @@ the same meaning as for <tt>_description</tt>.
 </dd>
 <dt><tt>_widgets</tt> [ <tt>-g</tt> <var>pattern</var> ]</dt>
 <dd><p>This function completes names of zle widgets (see
-<a href="Zsh-Line-Editor.html#Zle-Widgets">Widgets</a>).  The <var>pattern</var>, if present, is matched against values of the <tt>$widgets</tt>
+<a href="Zsh-Line-Editor.html#Zle-Widgets">Zle Widgets</a>).  The <var>pattern</var>, if present, is matched against values of the <tt>$widgets</tt>
 special parameter, documented in 
 <a href="Zsh-Modules.html#The-zsh_002fzleparameter-Module">The zsh/zleparameter Module</a>.
 </p>
@@ -6071,7 +6249,6 @@ in the <tt>_comp_caller_options</tt> associative array. Option names, spelled
 in lowercase without underscores, are mapped to one or other of the
 strings &lsquo;<tt>on</tt>&rsquo; and &lsquo;<tt>off</tt>&rsquo;.
 </p>
-
 </dd>
 <dt><tt>_comp_priv_prefix</tt></dt>
 <dd><p>Completion functions such as <tt>_sudo</tt> can set the <tt>_comp_priv_prefix</tt>
@@ -6081,6 +6258,8 @@ match the privileges when calling programs to generate matches.
 </dd>
 </dl>
 
+<a name="index-compprefuncs_002c-use-of"></a>
+<a name="index-comppostfuncs_002c-use-of"></a>
 <p>Two more features are offered by the <tt>_main_complete</tt> function.  The
 arrays <tt>compprefuncs</tt> and <tt>comppostfuncs</tt> may contain
 names of functions that are to be called immediately before or after
@@ -6164,10 +6343,10 @@ may be useful on your system.
 </tr></table>
 <p>
  <font size="-1">
-  This document was generated on <i>February 15, 2020</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
+  This document was generated on <i>May 14, 2022</i> using <a href="http://www.nongnu.org/texi2html/"><i>texi2html 5.0</i></a>.
  </font>
  <br>
-<font size="-1">Zsh version 5.8, released on February 14, 2020.</font>
+<font size="-1">Zsh version 5.9, released on May 14, 2022.</font>
 </p>
 </body>
 </html>
