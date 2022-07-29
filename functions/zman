@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # zman - lookup Zsh documentation
 if ! command -v fzf >/dev/null; then
   echo "fzf command not found" >&2
