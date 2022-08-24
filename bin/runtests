@@ -3,14 +3,14 @@
 
 0=${(%):-%N}
 PROJECT_HOME=${0:a:h:h}
-ZTAP_HOME=${ZTAP_HOME:-$PROJECT_HOME/.ztap}
+export ZTAP_HOME=${ZTAP_HOME:-$PROJECT_HOME/.ztap}
 
 [[ -f $ZTAP_HOME/ztap.zsh ]] ||
   git clone --depth 1 -q https://github.com/mattmc3/ztap.git $ZTAP_HOME
 
-source $ZTAP_HOME/ztap.zsh
+source $ZTAP_HOME/ztap3.zsh
 if [[ $# -gt 0 ]]; then
-  ztap -c "$@"
+  ztap3 -c "$@"
 else
-  ztap -c $PROJECT_HOME/tests/*.zsh
+  ztap3 -c $PROJECT_HOME/tests/*.zsh
 fi

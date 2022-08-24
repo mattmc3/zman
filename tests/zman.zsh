@@ -1,6 +1,9 @@
-0=${(%):-%N}
-@echo "=== ${0:t:r} ==="
-PRJ_HOME=${0:A:h:h}
+#!/usr/bin/env zsh
+0=${(%):-%x}
+BASEDIR=${0:A:h:h}
+
+source $ZTAP_HOME/ztap3.zsh
+ztap_header "${0:t:r}"
 
 # ensure clean environment
 @test "ZMAN_URL is not set" -z "$ZMAN_URL"
@@ -32,6 +35,8 @@ zman acd
 @test "zman_lookup is an associative array" "${(t)zman_lookup}" = "association"
 @test "selection result is correct AUTOCD page" "$selection_result" = "Options.html#index-AUTOCD"
 
-lookup_count=$(wc -l $PRJ_HOME/lib/zman_lookup.zsh | awk '{print $1}')
+lookup_count=$(wc -l $BASEDIR/lib/zman_lookup.zsh | awk '{print $1}')
 (( lookup_count = lookup_count - 2 ))
 @test "zman_lookup has correct number of items: '$lookup_count'" "${#zman_lookup[@]}" -eq $lookup_count
+
+ztap_footer
