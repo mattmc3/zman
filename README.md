@@ -58,7 +58,7 @@ If you don't want to make a selection, `CTRL-c` cancels as you would expect.
 
 To install using a Zsh plugin manager, add the following to your .zshrc
 
-- [pz]: `pz source mattmc3/zman`
+- [antidote]: `antidote install mattmc3/zman`
 - [zcomet]: `zcomet load mattmc3/zman`
 - [zgenom]: `zgenom load mattmc3/zman`
 - [znap]: `znap source mattmc3/zman`
@@ -121,7 +121,7 @@ zstyle ':prezto:load' pmodule \
 [ohmyzsh]: https://github.com/ohmyzsh/ohmyzsh
 [prezto]: https://github.com/sorin-ionescu/prezto
 [zshzoo]: https://github.com/zshzoo/zshzoo
-[pz]: https://github.com/mattmc3/pz
+[antidote]: https://github.com/mattmc3/antidote
 [zcomet]: https://github.com/agkozak/zcomet
 [zgenom]: https://github.com/jandamm/zgenom
 [znap]: https://github.com/marlonrichert/zsh-snap
