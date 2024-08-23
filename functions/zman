@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # zman - lookup Zsh documentation
-if ! command -v fzf >/dev/null; then
+if (( ! ${+commands[fzf]} )); then
   echo "fzf command not found" >&2
   return 1
 fi
@@ -24,8 +24,9 @@ if [[ -z "$zman_lookup" ]] || [[ ${(t)zman_lookup} != "association" ]]; then
   source $basedir/lib/zman_lookup.zsh
 fi
 
+: ${_ZMAN_FZF_OPTS:='--layout=reverse-list'}
 query="$@"
-local selection=$(printf "%s\n" "${(ko)zman_lookup[@]}" | fzf --layout=reverse-list --query=$query)
+local selection=$(printf "%s\n" "${(ko)zman_lookup[@]}" | fzf ${_ZMAN_FZF_OPTS-} --query=$query)
 if [[ $? -eq 0 ]] && [[ -n "$selection" ]]; then
   $ZMAN_BROWSER $ZMAN_URL/${zman_lookup[$selection]}
 fi
