@@ -17,7 +17,7 @@ fi
 # update pip requirements
 if [[ $1 == "--pipup" ]]; then
   echo "Updating pip requirements..."
-  pip list --format freeze --outdated | sed 's/=.*//g' | xargs -n1 pip install -U
+  pip list --outdated | awk 'NR>2 {print $1}' | xargs -n1 pip install -U
 	pip freeze > $PRJ_HOME/bin/requirements.txt
 	deactivate
   return
