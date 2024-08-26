@@ -2,7 +2,8 @@
 
 0=${(%):-%N}
 PRJ_HOME=${0:a:h:h}
-VENV_HOME=$PRJ_HOME/bin/.venv
+WORKON_HOME=${WORKON_HOME:-${XDG_DATA_HOME:-$HOME/.local/share}/venvs}
+VENV_HOME=$WORKON_HOME/zman
 
 # setup venv
 if [[ -d $VENV_HOME ]]; then
@@ -26,9 +27,13 @@ fi
 # download the latest docs
 if [[ $1 == "--refresh" ]]; then
   echo "dowloading latest docs..."
+  mv $PRJ_HOME/docs/readme.md $PRJ_HOME/docs_readme.md
+  rm -rf -- $PRJ_HOME/docs
+  mkdir -p -- $PRJ_HOME/docs
+
   curl -fsSL http://zsh.sourceforge.net/Doc/zsh_html.tar.gz -o $PRJ_HOME/docs/zsh_html.tar.gz
-  rm -rf $PRJ_HOME/docs/zsh_html
   tar -zxf $PRJ_HOME/docs/zsh_html.tar.gz --directory $PRJ_HOME/docs
+  mv $PRJ_HOME/docs_readme.md $PRJ_HOME/docs/readme.md
 fi
 
 python $PRJ_HOME/bin/zmandata.py
