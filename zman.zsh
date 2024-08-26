@@ -6,9 +6,10 @@
 0=${(%):-%N}
 
 () {
-  local basedir="${${(%):-%x}:a:h}"
-  local fnfile="$basedir/functions/zman"
-  local fnname="${fnfile:t}"
-  (( $+functions[$fnname] )) && unfunction "$fnname"
-  autoload -Uz "$fnfile"
+  emulate -L zsh; setopt local_options
+  typeset -gax _zman_fzf_opts=(--layout=reverse-list)
+  (( $+functions[zman] )) && unfunction zman
+
+  0="${(%):-%x}"
+  autoload -Uz "${0:a:h}/functions/zman"
 }
