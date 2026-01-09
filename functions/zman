@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+0="${(%):-%x}"
+local basedir="${0:a:h:h}"
+
 # zman - lookup Zsh documentation
 if (( ! ${+commands[fzf]} )); then
   echo "fzf command not found" >&2
@@ -19,11 +22,7 @@ if [[ -z "$ZMAN_BROWSER" ]]; then
   fi
 fi
 
-local basedir="${${(%):-%x}:a:h:h}"
-if [[ -z "$zman_lookup" ]] || [[ ${(t)zman_lookup} != "association" ]]; then
-  source $basedir/lib/zman_lookup.zsh
-fi
-
+source "$basedir/lib/zman_lookup.zsh"
 query="$@"
 local selection=$(printf "%s\n" "${(ko)zman_lookup[@]}" | fzf "${_zman_fzf_opts[@]}" --query=$query)
 if [[ $? -eq 0 ]] && [[ -n "$selection" ]]; then

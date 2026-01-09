@@ -1,4 +1,4 @@
-typeset -gA zman_lookup=(
+local -A zman_lookup=(
   '! (15.5 Parameters Set By The Shell)' 'Parameters.html#index-_0021'
   '# (15.5 Parameters Set By The Shell)' 'Parameters.html#index-_0023'
   '$ (15.5 Parameters Set By The Shell)' 'Parameters.html#index-_0024'
